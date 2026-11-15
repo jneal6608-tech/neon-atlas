@@ -342,3 +342,5 @@ mark { background: rgba(255, 201, 77, .3); color: inherit; border-radius: 3px; p
 .live-strip ol { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 8px; }
 .live-strip time { font-weight: 800; color: var(--gold); font-size: .82rem; margin-right: 6px; }
 @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+.credit { display: block; font-size: .72rem; color: var(--muted); margin-top: 4px; letter-spacing: .02em; }
+a.yt-play { text-decoration: none; }

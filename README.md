@@ -68,6 +68,8 @@ Only **published** and **needs-updating** appear on the site; *needs-updating* s
 ## Images and engagement features
 
 - **Artwork:** `node tools/make-art.mjs` draws original Vice City-style art (no Rockstar assets): a hero, card and social-share image for every article, plus region and character cards. For a new article, run `node tools/make-art.mjs <slug>`; the build warns if one is missing.
+- **Official character and region pictures:** `npm run import-official -- <folder>` after downloading them from Rockstar's media pages (see docs/OFFICIAL-IMAGES.md). They replace the artwork automatically, credited to Rockstar.
+- **Trailers** show YouTube's own thumbnail and play inside the page; wherever embedding is blocked (some previews and apps) they open YouTube instead.
 - **Your own screenshots (after launch):** take them on your console (PS5: Create button; Xbox: Share button), resize to about 1600 px wide, put them in `assets/uploads/` (or upload in the CMS), and add them in Markdown with alt text: `![Lucia at the Ocean Beach safehouse](/assets/uploads/lucia-safehouse.jpg)`. Your own gameplay screenshots are the standard for guide sites; never copy images from other sites.
 - **Shortcodes** (on their own line in an article): `{{countdown}}`, `{{unlock}}` (unlock time by time zone), `{{storage}}` (will it fit?), `{{edition}}` (edition picker), `{{quiz}}` (character quiz), `{{regions}}`, `{{characters}}`, `{{videos}}` (all trailers), `{{video:YOUTUBE_ID|Title}}` (official videos only).
 - **Built in for time on site:** reading progress bar, sticky "Popular right now" sidebar, "Up next" card, "Keep reading" grid, click-to-play trailers (YouTube loads only on click, so pages stay fast), and a sidebar ad slot ready for AdSense.

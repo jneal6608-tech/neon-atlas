@@ -30,6 +30,7 @@ const fmtMod = (a) => (a.updatedAt ? fmtDateTime(a.updatedAt) : fmtDate(a.update
 const LIVEFEED = (() => { try { return readJSON("data/live.json").entries.slice().sort((x, y) => String(y.time).localeCompare(String(x.time))); } catch { return []; } })();
 const LIVE_URL = "/news/gta-6-launch-live/";
 const fmtLiveTime = (t) => (String(t).length > 10 ? fmtDateTime(t) : fmtDate(t));
+const OFFICIAL = (kind, slug) => (fs.existsSync(path.join(ROOT, `assets/official/${kind}/${slug}.jpg`)) ? `/assets/official/${kind}/${slug}.jpg` : null);
 const abs = (p) => cfg.url.replace(/\/$/, "") + p;
 const fmtDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
@@ -207,8 +208,9 @@ function countdownHtml(compact = false) {
 }
 function video(id, label, fromUrl) {
   const href = linker(fromUrl);
-  const poster = ART("gta-6-trailers-card") || ART("home-hero");
-  return `<div class="yt" data-id="${esc(id)}"><button class="yt-play" type="button" aria-label="Play ${esc(label)} (official Rockstar Games video, loads YouTube)">${poster ? `<img src="${href(poster)}" alt="" loading="lazy" width="800" height="450">` : ""}<span class="yt-btn" aria-hidden="true"></span><span class="yt-title">${esc(label)}</span></button><p class="yt-credit">Official Rockstar Games video, played from YouTube. <a href="https://www.youtube.com/watch?v=${esc(id)}" rel="noopener" class="ext">Watch on YouTube</a></p></div>`;
+  const fallback = ART("gta-6-trailers-card") || ART("home-hero");
+  // A real link to the video: plays inline on the site (site.js), and opens YouTube wherever embedding is blocked.
+  return `<div class="yt" data-id="${esc(id)}"><a class="yt-play" href="https://www.youtube.com/watch?v=${esc(id)}" target="_blank" rel="noopener" aria-label="Play ${esc(label)}, official Rockstar Games video on YouTube"><img src="https://i.ytimg.com/vi/${esc(id)}/maxresdefault.jpg" data-alt-src="https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg" data-fallback="${fallback ? href(fallback) : ""}" alt="" loading="lazy" width="1280" height="720"><span class="yt-btn" aria-hidden="true"></span><span class="yt-title">${esc(label)}</span></a><p class="yt-credit">Official Rockstar Games video on YouTube. <a href="https://www.youtube.com/watch?v=${esc(id)}" rel="noopener" target="_blank" class="ext">Open on YouTube</a></p></div>`;
 }
 function shortcodes(html, fromUrl) {
   const href = linker(fromUrl);
@@ -217,12 +219,12 @@ function shortcodes(html, fromUrl) {
       case "video": return video(arg, label || "Watch the trailer", fromUrl);
       case "videos": return `<div class="video-row">${[["QdBZY2fkU-0", "Trailer 1"], ["VQRLujxTm3c", "Trailer 2"], ["tJbzMqJGH4k", "An Extended Look"]].map(([i, l]) => video(i, l, fromUrl)).join("")}</div>`;
       case "countdown": return countdownHtml();
-      case "regions": return `<div class="gallery">${REGIONS.map(([s, n, d]) => `<figure><img src="${href(ART("region-" + s))}" alt="Original illustration of ${n}" width="960" height="540" loading="lazy"><figcaption><strong>${n}</strong>${esc(d)}</figcaption></figure>`).join("")}</div>`;
-      case "characters": return `<div class="gallery people">${PEOPLE.map(([s, n, d]) => `<a href="${liveBy["gta-6-characters"] ? href(liveBy["gta-6-characters"].url) : ""}#${slugify(n)}"><figure><img src="${href(ART("char-" + s))}" alt="Original poster-style card for ${esc(n)}" width="600" height="750" loading="lazy"><figcaption><strong>${esc(n)}</strong>${esc(d)}</figcaption></figure></a>`).join("")}</div>`;
+      case "regions": return `<div class="gallery">${REGIONS.map(([s, n, d]) => { const off = OFFICIAL("regions", s); return `<figure><img src="${href(off || ART("region-" + s))}" alt="${off ? `${n} in GTA VI` : `Original illustration of ${n}`}" width="960" height="540" loading="lazy"><figcaption><strong>${n}</strong>${esc(d)}${off ? `<span class="credit">Image: Rockstar Games</span>` : ""}</figcaption></figure>`; }).join("")}</div>`;
+      case "characters": return `<div class="gallery people">${PEOPLE.map(([s, n, d]) => { const off = OFFICIAL("characters", s); return `<a href="${liveBy["gta-6-characters"] ? href(liveBy["gta-6-characters"].url) : ""}#${slugify(n)}"><figure><img src="${href(off || ART("char-" + s))}" alt="${off ? `${esc(n)} in GTA VI` : `Original poster-style card for ${esc(n)}`}" width="600" height="750" loading="lazy"><figcaption><strong>${esc(n)}</strong>${esc(d)}${off ? `<span class="credit">Image: Rockstar Games</span>` : ""}</figcaption></figure></a>`; }).join("")}</div>`;
       case "storage": return `<div class="widget" data-widget="storage"><p class="widget-h">Will GTA 6 fit on your console?</p><p>Check your free space (PS5: Settings → Storage; Xbox: Settings → System → Storage devices) and enter it below.</p><div class="row"><div><label for="w-free">Free space (GB)</label><input id="w-free" type="number" min="0" max="8000" inputmode="numeric" placeholder="e.g. 180"></div><div><label for="w-console">Console</label><select id="w-console"><option value="ps5">PS5 / PS5 Pro</option><option value="xsx">Xbox Series X</option><option value="xss">Xbox Series S</option></select></div><div style="flex:0 0 auto"><button type="button" data-act="check">Check</button></div></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
       case "unlock": return `<div class="widget" data-widget="unlock" data-launch="${cfg.launchDate}"><p class="widget-h">When does it unlock where you live?</p><p>Pick your time zone. We show both reported scenarios, because Rockstar's exact per-region times aren't on a page we could verify.</p><div class="row"><div><label for="w-tz">Your time zone</label><select id="w-tz"></select></div></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
       case "edition": return `<div class="widget" data-widget="edition"><p class="widget-h">Standard or Ultimate? Answer 3 questions</p><div class="quiz-box"></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
-      case "quiz": return `<div class="widget" data-widget="quiz"><p class="widget-h">Which GTA 6 character are you?</p><p>Six quick questions. Results are based on Rockstar's official character profiles. Just for fun.</p><div class="quiz-box"></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
+      case "quiz": return `<div class="widget" data-widget="quiz" data-imgs="${esc(JSON.stringify(Object.fromEntries(PEOPLE.map(([s]) => [s, href(OFFICIAL("characters", s) || ART("char-" + s))]))))}"><p class="widget-h">Which GTA 6 character are you?</p><p>Six quick questions. Results are based on Rockstar's official character profiles. Just for fun.</p><div class="quiz-box"></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
       default: warnings.push(`unknown shortcode {{${name}}} in ${fromUrl}`); return m;
     }
   });

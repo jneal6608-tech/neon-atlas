@@ -39,17 +39,30 @@
     addEventListener("scroll", upd, { passive: true }); upd();
   }
 
-  // video facades: load YouTube only when the reader presses play (keeps pages fast)
+  // video facades: the poster is a link to YouTube. On the site we swap it for the player in place; where a page
+  // is shown inside another site's frame (previews), embedding is often blocked, so the link opens YouTube instead.
+  for (const img of document.querySelectorAll(".yt-play img")) {
+    const next = () => { if (img.dataset.altSrc) { img.src = img.dataset.altSrc; img.dataset.altSrc = ""; } else if (img.dataset.fallback) { img.src = img.dataset.fallback; img.dataset.fallback = ""; } };
+    img.addEventListener("error", next);
+    // YouTube serves a 120px grey placeholder when a size doesn't exist
+    img.addEventListener("load", () => { if (img.naturalWidth && img.naturalWidth < 200) next(); });
+    if (img.complete && img.naturalWidth === 0 && img.src) next();
+  }
+  let framed = false;
+  try { framed = window.self !== window.top; } catch { framed = true; }
   document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".yt-play"); if (!btn) return;
-    const box = btn.closest(".yt");
+    const link = e.target.closest(".yt-play"); if (!link) return;
+    const box = link.closest(".yt");
+    track("video_play", { video_id: box.dataset.id, mode: framed ? "youtube" : "inline" });
+    if (framed) return; // let the link open YouTube in a new tab
+    e.preventDefault();
     const f = document.createElement("iframe");
-    f.src = `https://www.youtube-nocookie.com/embed/${box.dataset.id}?autoplay=1&rel=0`;
-    f.title = btn.getAttribute("aria-label");
-    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    f.src = `https://www.youtube-nocookie.com/embed/${box.dataset.id}?autoplay=1&rel=0&playsinline=1`;
+    f.title = link.getAttribute("aria-label");
+    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    f.referrerPolicy = "strict-origin-when-cross-origin";
     f.allowFullscreen = true;
-    btn.replaceWith(f);
-    track("video_play", { video_id: box.dataset.id });
+    link.replaceWith(f);
   });
 
   // widget: will it fit?
@@ -128,7 +141,7 @@
     brian: ["Brian Heder", "brian-heder", "A laid-back beach bum on the outside, a great white shark underneath. You let others do the dirty work."],
   };
   for (const w of document.querySelectorAll('[data-widget="quiz"]')) {
-    const base = document.querySelector('link[rel="stylesheet"][href$="styles.css"]').getAttribute("href").replace(/assets\/styles\.css$/, "");
+    let imgs = {}; try { imgs = JSON.parse(w.dataset.imgs || "{}"); } catch {}
     runQuiz(w, [
       { q: "Pick your perfect Leonida evening.", a: [["Sunset on a boat in the Keys", ["brian", "jason"]], ["Front row at a packed club", ["boobie", "dimez"]], ["At home with a scanner and snacks", ["cal"]], ["Planning the next big score", ["raul", "lucia"]]] },
       { q: "Your friends would call you…", a: [["Loyal", ["jason"]], ["Determined", ["lucia"]], ["Ambitious", ["dre", "boobie"]], ["A bit paranoid", ["cal"]]] },
@@ -140,7 +153,7 @@
       const score = {}; for (const a of ans) for (const c of a) score[c] = (score[c] || 0) + 1;
       const top = Object.entries(score).sort((x, y) => y[1] - x[1])[0][0];
       const [name, slug, blurb] = CHAR[top];
-      out.innerHTML = `<div class="quiz-result"><img src="${base}assets/art/char-${slug}.jpg" alt="${name} card" width="600" height="750"><div><p class="quiz-progress">You got</p><p style="font:400 2rem/1 var(--display);text-transform:uppercase;margin:0 0 8px" class="grad">${name}</p><p style="color:var(--text)">${blurb}</p><p class="muted small">Based on Rockstar's official character profile. Just for fun.</p><button type="button" class="btn">Take it again</button></div></div>`;
+      out.innerHTML = `<div class="quiz-result"><img src="${imgs[slug] || ""}" alt="${name}" width="600" height="750"><div><p class="quiz-progress">You got</p><p style="font:400 2rem/1 var(--display);text-transform:uppercase;margin:0 0 8px" class="grad">${name}</p><p style="color:var(--text)">${blurb}</p><p class="muted small">Based on Rockstar's official character profile. Just for fun.</p><button type="button" class="btn">Take it again</button></div></div>`;
       out.querySelector("button").addEventListener("click", again);
       track("quiz_complete", { result: top });
     });

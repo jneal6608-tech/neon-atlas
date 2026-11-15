@@ -16,7 +16,7 @@ const sm = fs.readFileSync(path.join(ROOT, "dist/sitemap.xml"), "utf8");
 const site = JSON.parse(fs.readFileSync(path.join(ROOT, "site.config.json"), "utf8")).url.replace(/\/$/, "");
 const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].replace(site, "")).concat(["/search/?q=pre-load", "/404.html"]);
 // Requests that need the public internet and are allowed to fail offline (fonts, optional analytics).
-const OPTIONAL = /fonts\.(googleapis|gstatic)\.com|googletagmanager|googlesyndication/;
+const OPTIONAL = /fonts\.(googleapis|gstatic)\.com|googletagmanager|googlesyndication|ytimg\.com|youtube/;
 
 const server = await start(PORT);
 const browser = await chromium.launch();
@@ -29,7 +29,8 @@ for (const vp of [{ name: "desktop", width: 1366, height: 900 }, { name: "phone"
   for (const u of urls) {
     const page = await ctx.newPage();
     const errs = [];
-    page.on("console", (m) => { if (m.type() === "error" && !OPTIONAL.test(m.text())) errs.push(m.text()); });
+    // "Failed to load resource" console lines carry no URL; failed requests are checked (with URLs) via requestfailed.
+    page.on("console", (m) => { if (m.type() === "error" && !OPTIONAL.test(m.text()) && !/^Failed to load resource/.test(m.text())) errs.push(m.text()); });
     page.on("pageerror", (e) => errs.push("JS error: " + e.message));
     page.on("requestfailed", (r) => { if (!OPTIONAL.test(r.url())) errs.push("request failed: " + r.url()); });
     page.on("response", (r) => { if (r.status() >= 400 && !OPTIONAL.test(r.url()) && !(u === "/404.html")) errs.push(`HTTP ${r.status()}: ${r.url()}`); });
@@ -86,6 +87,19 @@ if (!/email app should open/.test(await p.textContent(".form-status"))) fail("co
 // TOC anchors scroll to existing headings
 await p.goto(BASE + "/guides/gta-6-editions-standard-vs-ultimate/");
 for (const a of await p.$$eval(".toc a", (as) => as.map((x) => x.getAttribute("href")))) if (!(await p.$(a))) fail("toc", `anchor ${a} has no target`);
+// trailers: inline player on the site itself
+await p.goto(BASE + "/news/gta-6-trailers/");
+await p.click(".yt-play >> nth=0");
+const src = await p.getAttribute(".yt iframe", "src").catch(() => null);
+if (!src || !src.includes("youtube-nocookie.com/embed/QdBZY2fkU-0")) fail("trailers", `inline player not inserted (got ${src})`);
+// trailers inside a frame (like a preview): the link must open YouTube in a new tab instead
+await p.context().route("https://www.youtube.com/watch**", (r) => r.fulfill({ status: 200, contentType: "text/html", body: "youtube stand-in" }));
+await p.setContent(`<iframe id="fr" src="${BASE}/news/gta-6-trailers/" style="width:1000px;height:800px"></iframe>`);
+const fr = await (await p.waitForSelector("#fr")).contentFrame();
+await fr.waitForSelector(".yt-play");
+const [popup] = await Promise.all([p.context().waitForEvent("page", { timeout: 5000 }).catch(() => null), fr.click(".yt-play >> nth=0")]);
+if (!popup || !popup.url().includes("youtube.com/watch?v=QdBZY2fkU-0")) fail("trailers", `framed click did not open YouTube (got ${popup && popup.url()})`);
+if (popup) await popup.close();
 await ctx.close();
 await browser.close();
 server.close();

@@ -23,7 +23,8 @@
     "live": "node tools/editorial.mjs live",
     "watch": "node tools/watch-official.mjs",
     "indexnow": "node tools/indexnow.mjs",
-    "art": "node tools/make-art.mjs"
+    "art": "node tools/make-art.mjs",
+    "import-official": "node tools/import-official.mjs"
   },
   "dependencies": {
     "gray-matter": "4.0.3",
