@@ -357,10 +357,10 @@ ${upcoming}</div>`;
 <div class="wrap">
 ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class="live-strip-h" id="ls-h"><span class="live-dot" aria-hidden="true"></span> Live launch updates</p><ol>${LIVEFEED.slice(0, 3).map((e) => `<li><time datetime="${e.time}">${fmtLiveTime(e.time)}</time> ${new Marked().parseInline(e.text)}</li>`).join("")}</ol><a class="btn btn-ghost" href="${href(LIVE_URL)}">All live updates →</a></section>` : ""}
 <section class="fresh" aria-labelledby="fresh-h">
-  <div class="fresh-head"><p class="fresh-kicker"><span class="live-dot" aria-hidden="true"></span> Always current</p><h2 id="fresh-h">Updated every 15 minutes</h2><p>GTA VI news moves fast in launch week. Neon Atlas refreshes every 15 minutes, so the unlock times, pre-load details, patches and server status you read here are the latest we've verified.</p></div>
+  <div class="fresh-head"><p class="fresh-kicker"><span class="live-dot" aria-hidden="true"></span> Always current</p><h2 id="fresh-h">Updated every 15 minutes</h2><p>GTA VI news moves fast in launch week. Neon Atlas checks Rockstar's official pages every 15 minutes and updates itself the moment something new is confirmed, so you see it here first.</p></div>
   <ol class="fresh-steps">
-    <li><b>Every 15 min</b><span>We check Rockstar's official GTA VI pages, Newswire and support site for anything new or changed.</span></li>
-    <li><b>Verified first</b><span>New details are checked and labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong> before they go live.</span></li>
+    <li><b>Every 15 min</b><span>We automatically check Rockstar's GTA VI site, editions page, Newswire, store and support pages for anything new or changed.</span></li>
+    <li><b>Posted automatically</b><span>When Rockstar's own pages change, the new detail goes straight to our live updates, labelled <strong>confirmed</strong> and linked to the official source.</span></li>
     <li><b>Timestamped</b><span>Every page shows when it was last updated and last verified, so you always know how fresh it is.</span></li>
   </ol>
   ${LIVEFEED.length ? `<p class="fresh-last">Latest update: <time datetime="${LIVEFEED[0].time}">${fmtLiveTime(LIVEFEED[0].time)}</time> · <a href="${href(LIVE_URL)}">Follow the live updates →</a></p>` : ""}
@@ -387,7 +387,7 @@ if (LIVEFEED.length) {
   const url = LIVE_URL;
   const href = linker(url);
   const items = [["Home", "/"], ["News & Updates", "/news/"], ["Launch live updates", url]];
-  const entry = (e) => `<li class="live-entry" id="u-${String(e.time).replace(/[^0-9]/g, "")}"><time datetime="${e.time}">${fmtLiveTime(e.time)}</time>${e.confidence ? ` ${badge(e.confidence)}` : ""}<p>${new Marked().parseInline(e.text)}</p>${e.link ? `<p class="small"><a href="${href(e.link.startsWith("article:") ? (liveBy[e.link.slice(8)]?.url || "/") : e.link)}">${esc(e.linkText || "Full answer →")}</a></p>` : ""}</li>`;
+  const entry = (e) => `<li class="live-entry" id="u-${String(e.time).replace(/[^0-9]/g, "")}"><time datetime="${e.time}">${fmtLiveTime(e.time)}</time>${e.confidence ? ` ${badge(e.confidence)}` : ""}<p>${new Marked().parseInline(e.text)}</p>${e.sourceUrl ? `<p class="small muted live-src">Source: <a href="${esc(e.sourceUrl)}" rel="noopener" class="ext">${esc(e.source || "Rockstar Games")}</a>${e.auto ? " · spotted by our 15-minute check" : ""}</p>` : ""}${e.link ? `<p class="small"><a href="${href(e.link.startsWith("article:") ? (liveBy[e.link.slice(8)]?.url || "/") : e.link)}">${esc(e.linkText || "Full answer →")}</a></p>` : ""}</li>`;
   const body = `<div class="wrap narrow">${crumbs(url, items)}<header class="page-head"><p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live · newest first</p><h1>GTA 6 launch: live updates</h1><p class="dek">Every confirmed GTA VI launch development as it happens: unlock times, patches, server status and new answers. Each entry is timestamped (US Eastern) and labelled.</p></header>
 ${countdownHtml()}
 <ol class="live-list">${LIVEFEED.map(entry).join("")}</ol></div>`;

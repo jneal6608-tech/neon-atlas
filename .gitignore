@@ -3,3 +3,5 @@ dist/
 reports/*.html
 .env
 .official-cache/
+reports/watch-changes.json
+reports/watch-latest.md

@@ -1,6 +1,16 @@
 # AI editorial intelligence
 
-The system recommends what to publish, update and link next. AI drafting is optional and never publishes anything by itself.
+The system recommends what to publish, update and link next. AI drafting is optional and never publishes articles by itself. The one automatic exception is the live feed (below).
+
+## Self-updating live feed (every 15 minutes)
+
+`.github/workflows/watch.yml` runs every 15 minutes: `tools/watch-official.mjs` compares Rockstar's official GTA VI pages with the last snapshot, and when one changes, `tools/auto-update.mjs` sends only the added/removed official text to Claude (`claude-opus-5-5`, JSON output, server-side refusal fallback). If it is real news, Claude writes up to two short live-feed entries that state only what Rockstar's page now says, labelled *confirmed*, with the source page linked. The workflow then rebuilds, checks, commits and deploys, and pings IndexNow.
+
+- Needs the repository secret `ANTHROPIC_API_KEY`. Without it (or if the API call fails), nothing is published and a GitHub issue is opened instead.
+- Cosmetic changes (menus, cookie text, reordering) are skipped; entries with links/HTML, over 300 characters, or duplicates are rejected in code.
+- Claude is only called when a page actually changed, so the cost is a few cents per change, not per check.
+- Test without publishing: `node tools/watch-official.mjs && node tools/auto-update.mjs --dry-run`.
+- Turn it off: Actions → "Watch official sources and self-update" → ⋯ → Disable workflow.
 
 ## What runs without any API key
 
