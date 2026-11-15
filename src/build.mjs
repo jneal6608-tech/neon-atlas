@@ -111,10 +111,10 @@ const NAV = [
 ];
 const LOGO = `<svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 2 28 9v14l-12 7L4 23V9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16 8.5 21.5 22h-3l-1.2-3.2h-2.6L13.5 22h-3zm0 5.2-.9 2.7h1.8z" fill="currentColor"/></svg>`;
 
-function layout({ url, title, description, body, jsonld = [], ogType = "website", noindex = false, image, bodyClass = "", published, modified }) {
+function layout({ url, title, description, body, jsonld = [], ogType = "website", noindex = false, image, imageAlt, bodyClass = "", published, modified, pageTitle }) {
   const href = linker(url);
   const canonical = abs(url);
-  const fullTitle = url === "/" ? `${cfg.name}: ${cfg.tagline} (Unofficial)` : `${title} | ${cfg.name}`;
+  const fullTitle = pageTitle || `${title} | ${cfg.name}`;
   const ogImage = abs(image || "/assets/og-default.jpg");
   const ga = cfg.analytics.ga4MeasurementId;
   const ads = cfg.ads.enabled && cfg.ads.adsenseClient;
@@ -134,17 +134,26 @@ ${noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="robo
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${ogImage}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(imageAlt || title)}">
 <meta property="og:locale" content="${cfg.locale}">
 ${published ? `<meta property="article:published_time" content="${published}">\n<meta property="article:modified_time" content="${modified}">` : ""}
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
+<meta name="twitter:image" content="${ogImage}">
 <meta name="theme-color" content="#12061f">
 ${cfg.searchConsole.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(cfg.searchConsole.googleSiteVerification)}">` : ""}
 <link rel="icon" href="${href("/assets/favicon.svg")}" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="${esc(cfg.name)}" href="${href("/feed.xml")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap"></noscript>
 <link rel="stylesheet" href="${href("/assets/styles.css")}">
+${url === "/" && ART("home-hero") ? `<link rel="preload" as="image" href="${href(ART("home-hero"))}" fetchpriority="high">` : ""}
 ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, "\\u003c")}</script>`).join("\n")}
 ${ga ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(ga)}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${esc(ga)}');</script>` : ""}
@@ -304,12 +313,14 @@ ${relatedAll.length > 1 ? `<aside class="related" aria-labelledby="rel-h"><h2 id
       "@context": "https://schema.org", "@type": "Article", headline: a.title, description: a.description,
       datePublished: a.publishDate, dateModified: modOf(a), author: { "@type": "Organization", name: cfg.name, url: abs("/about/") },
       publisher: { "@type": "Organization", name: cfg.name, logo: { "@type": "ImageObject", url: abs("/assets/logo-512.png") } },
-      mainEntityOfPage: abs(a.url), image: abs(ART(a.slug) || a.image || "/assets/og-default.jpg"), isAccessibleForFree: true,
+      mainEntityOfPage: abs(a.url), image: [abs(ART(a.slug) || a.image || "/assets/og-default.jpg"), ...(ART(`${a.slug}-share`) ? [abs(ART(`${a.slug}-share`))] : [])], isAccessibleForFree: true,
+      articleSection: cat.name, wordCount: words, inLanguage: cfg.language,
       about: { "@type": "VideoGame", name: "Grand Theft Auto VI" },
     },
     crumbLD(items),
+    ...(a.faqs.length ? [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: a.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: new Marked().parseInline(f.a).replace(/<[^>]+>/g, "") } })) }] : []),
   ];
-  write(a.url, layout({ url: a.url, title: a.seoTitle, description: a.description, body, jsonld: ld, ogType: "article", image: ART(`${a.slug}-share`) || a.image, bodyClass: "page-article", published: a.publishDate, modified: modOf(a) }));
+  write(a.url, layout({ url: a.url, title: a.seoTitle, description: a.description, body, jsonld: ld, ogType: "article", image: ART(`${a.slug}-share`) || a.image, imageAlt: a.title, bodyClass: "page-article", published: a.publishDate, modified: modOf(a) }));
   const plain = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   searchIndex.push({ t: a.title, d: a.answer ? a.answer.replace(/[*_`]/g, "") : a.description, u: a.url, c: cat.name, k: a.confidence, h: toc.map((t) => t.text).join(" · "), b: plain.slice(0, 1800), q: a.faqs.map((f) => f.q).join(" ") });
 }
@@ -324,7 +335,7 @@ for (const c of CATS) {
 ${list.length ? `<h2 class="section-h">All ${esc(c.name.toLowerCase())} pages</h2><div class="grid cards">${list.map((a) => card(a, url)).join("")}</div>` : `<p class="empty">Nothing published here yet. GTA VI launches ${fmtDate(cfg.launchDate)}; pages in this section need in-game verification first.</p>`}
 ${upcoming}</div>`;
   // empty category pages are kept out of the index until they have real content
-  write(url, layout({ url, title: `GTA 6 ${c.name}`, description: c.description, body, jsonld: [crumbLD(items)], noindex: list.length === 0 }));
+  write(url, layout({ url, title: `GTA 6 ${c.name}`, description: c.description, body, jsonld: [crumbLD(items), ...(list.length ? [{ "@context": "https://schema.org", "@type": "CollectionPage", name: `GTA 6 ${c.name}`, url: abs(url), description: c.description, mainEntity: { "@type": "ItemList", itemListElement: list.map((a, i) => ({ "@type": "ListItem", position: i + 1, url: abs(a.url), name: a.title })) } }] : [])], noindex: list.length === 0 }));
 }
 
 // ---------- home ----------
@@ -337,14 +348,23 @@ ${upcoming}</div>`;
   const catArt = { guides: "gta-6-pre-load-guide-card", characters: "char-lucia-caminos", locations: "region-leonida-keys", missions: "region-grassrivers", vehicles: "gta-6-vehicles-named-so-far-card", gameplay: "region-port-gellhorn", news: "gta-6-launch-week-everything-confirmed-card" };
   const trailers = liveBy["gta-6-trailers"], quiz = liveBy["gta-6-character-quiz"], map = liveBy["gta-6-map-leonida-regions"], chars = liveBy["gta-6-characters"];
   const body = `<section class="hero">${ART("home-hero") ? `<img class="hero-art" src="${href(ART("home-hero"))}" alt="" width="2000" height="900" fetchpriority="high">${IS_OFFICIAL(ART("home-hero")) ? `<span class="hero-credit">Image: Rockstar Games</span>` : ""}` : ""}<div class="wrap hero-inner"><div class="hero-copy">
-  <p class="eyebrow">Unofficial GTA VI guide · Sourced &amp; verified</p>
-  <h1>Every GTA VI answer, <span class="grad">checked</span> before you read it.</h1>
+  <p class="hero-tags"><span class="eyebrow">Unofficial GTA 6 guide · Sourced &amp; verified</span><a class="fresh-pill" href="#fresh-h"><span class="live-dot" aria-hidden="true"></span> Updated daily</a></p>
+  <h1>Every GTA 6 answer, <span class="grad">checked</span> before you read it.</h1>
   <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs drop as we play.</p>
   <form class="hero-search" role="search" action="${href("/search/")}" method="get"><label class="sr" for="q-hero">Search</label><input id="q-hero" name="q" type="search" placeholder="Try “pre-load size”, “Ultimate Edition”, “Lucia”"><button type="submit">Search</button></form>
   ${countdownHtml()}
 </div></div></section>
 <div class="wrap">
 ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class="live-strip-h" id="ls-h"><span class="live-dot" aria-hidden="true"></span> Live launch updates</p><ol>${LIVEFEED.slice(0, 3).map((e) => `<li><time datetime="${e.time}">${fmtLiveTime(e.time)}</time> ${new Marked().parseInline(e.text)}</li>`).join("")}</ol><a class="btn btn-ghost" href="${href(LIVE_URL)}">All live updates →</a></section>` : ""}
+<section class="fresh" aria-labelledby="fresh-h">
+  <div class="fresh-head"><p class="fresh-kicker"><span class="live-dot" aria-hidden="true"></span> Always current</p><h2 id="fresh-h">Updated daily</h2><p>GTA VI news moves fast in launch week. Neon Atlas is updated every day, so the unlock times, pre-load details, patches and server status you read here are the latest we've verified.</p></div>
+  <ol class="fresh-steps">
+    <li><b>Every day</b><span>We check Rockstar's official GTA VI pages, Newswire and support site for anything new or changed.</span></li>
+    <li><b>Verified first</b><span>New details are checked and labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong> before they go live.</span></li>
+    <li><b>Timestamped</b><span>Every page shows when it was last updated and last verified, so you always know how fresh it is.</span></li>
+  </ol>
+  ${LIVEFEED.length ? `<p class="fresh-last">Latest update: <time datetime="${LIVEFEED[0].time}">${fmtLiveTime(LIVEFEED[0].time)}</time> · <a href="${href(LIVE_URL)}">Follow the live updates →</a></p>` : ""}
+</section>
 <section aria-labelledby="start-h"><h2 id="start-h" class="section-h">Start here</h2><div class="grid cards">${featured.map((a) => card(a, url)).join("")}</div></section>
 ${trailers ? `<section aria-labelledby="tr-h"><h2 id="tr-h" class="section-h">Watch the official trailers</h2><p class="section-sub">All of Rockstar's GTA VI videos in one place, with what each one confirmed.</p>${shortcodes("<p>{{videos}}</p>", url)}<p><a class="btn btn-ghost" href="${href(trailers.url)}">Every trailer, explained →</a></p></section>` : ""}
 ${map ? `<section aria-labelledby="map-h"><h2 id="map-h" class="section-h">Explore Leonida</h2><p class="section-sub">The six regions Rockstar has officially named.</p>${shortcodes("<p>{{regions}}</p>", url)}<p><a class="btn btn-ghost" href="${href(map.url)}">The full map guide →</a></p></section>` : ""}
@@ -355,10 +375,11 @@ ${chars ? `<section aria-labelledby="ch-h"><h2 id="ch-h" class="section-h">Meet 
 <section class="legend" aria-labelledby="legend-h"><h2 id="legend-h" class="section-h">How to read our labels</h2><ul class="legend-list">${Object.entries(CONFIDENCE).map(([k, v]) => `<li>${badge(k)} <span>${esc(v.note)}</span></li>`).join("")}</ul><p class="small"><a href="${href("/editorial-standards/")}">Read our editorial standards</a></p></section>
 </div>`;
   const ld = [
-    { "@context": "https://schema.org", "@type": "WebSite", name: cfg.name, url: abs("/"), description: `${cfg.tagline}. Unofficial and independent.`, inLanguage: cfg.language },
-    { "@context": "https://schema.org", "@type": "Organization", name: cfg.name, url: abs("/"), logo: abs("/assets/logo-512.png") },
+    { "@context": "https://schema.org", "@type": "WebSite", "@id": abs("/#website"), name: cfg.name, alternateName: "Neon Atlas GTA 6 Guide", url: abs("/"), description: `${cfg.tagline}. Unofficial and independent. Updated daily.`, inLanguage: cfg.language, publisher: { "@id": abs("/#org") } },
+    { "@context": "https://schema.org", "@type": "Organization", "@id": abs("/#org"), name: cfg.name, url: abs("/"), logo: abs("/assets/logo-512.png") },
+    { "@context": "https://schema.org", "@type": "CollectionPage", name: "GTA 6 Guide", url: abs("/"), dateModified: modOf(LIVE[0] || { updated: NOW.toISOString().slice(0, 10) }), about: { "@type": "VideoGame", name: "Grand Theft Auto VI", alternateName: "GTA 6" }, isPartOf: { "@id": abs("/#website") }, mainEntity: { "@type": "ItemList", itemListElement: featured.map((a, i) => ({ "@type": "ListItem", position: i + 1, url: abs(a.url), name: a.title })) } },
   ];
-  write(url, layout({ url, title: `${cfg.name}: ${cfg.tagline}`, description: "Independent GTA VI guide: release time, pre-load size, editions, characters and map, with every claim labelled confirmed or unconfirmed and linked to its source.", body, jsonld: ld, bodyClass: "page-home" }));
+  write(url, layout({ url, title: "GTA 6 Guide: Release Time, Map, Characters & Live Updates", pageTitle: `GTA 6 Guide: Release Time, Map, Characters & Live Updates | ${cfg.name}`, description: "Independent GTA 6 guide, updated daily: unlock time, pre-load size, editions, characters and the Leonida map, with every claim sourced and labelled.", body, jsonld: ld, bodyClass: "page-home" }));
 }
 
 // ---------- launch live updates ----------
@@ -388,7 +409,8 @@ ${countdownHtml()}
   const items = [["Home", "/"], ["FAQ", url]];
   const body = `<div class="wrap narrow">${crumbs(url, items)}<header class="page-head"><h1>GTA VI FAQ</h1><p class="dek">Short, sourced answers to the questions people ask most. Each links to the full guide with sources.</p></header>
 ${CATS.filter((c) => groups[c.slug]).map((c) => `<section aria-labelledby="fq-${c.slug}"><h2 id="fq-${c.slug}">${esc(c.name)}</h2>${groups[c.slug].map((f) => `<details><summary>${esc(f.q)}</summary><div>${new Marked().parseInline(f.a)} <a href="${href(f.article.url)}">Full answer &amp; sources →</a></div></details>`).join("")}</section>`).join("")}</div>`;
-  write(url, layout({ url, title: "GTA 6 FAQ: Quick, Sourced Answers", description: "Quick answers to the most-asked GTA VI questions (release time, pre-load, editions, PC, physical copies), each linked to a sourced guide.", body, jsonld: [crumbLD(items)] }));
+  const faqLD = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: CATS.flatMap((c) => groups[c.slug] || []).map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: new Marked().parseInline(f.a).replace(/<[^>]+>/g, "") + ` Full answer: ${abs(f.article.url)}` } })) };
+  write(url, layout({ url, title: "GTA 6 FAQ: Quick, Sourced Answers", description: "Quick answers to the most-asked GTA VI questions (release time, pre-load, editions, PC, physical copies), each linked to a sourced guide.", body, jsonld: [crumbLD(items), faqLD] }));
   for (const f of faqAll) searchIndex.push({ t: f.q, d: f.a.replace(/[*_`\[\]]/g, "").replace(/\(article:[^)]+\)/g, ""), u: f.article.url, c: "FAQ", k: f.article.confidence, h: "", b: "", q: "" });
 }
 
@@ -434,11 +456,11 @@ write("/404.html", layout({ url: "/404.html", title: "Page not found", descripti
     { u: "/", m: LIVE[0]?.updated },
     ...CATS.filter((c) => LIVE.some((a) => a.category === c.slug)).map((c) => ({ u: `/${c.slug}/`, m: LIVE.filter((a) => a.category === c.slug)[0].updated })),
     { u: "/faq/", m: LIVE[0]?.updated },
-    ...LIVE.map((a) => ({ u: a.url, m: modOf(a) })),
+    ...LIVE.map((a) => ({ u: a.url, m: modOf(a), img: ART(a.slug), t: a.title })),
     ...(LIVEFEED.length ? [{ u: LIVE_URL, m: String(LIVEFEED[0].time).length > 10 ? new Date(LIVEFEED[0].time).toISOString() : LIVEFEED[0].time }] : []),
     ...PAGES.filter((p) => !p.noindex).map((p) => ({ u: p.url, m: p.updated })),
   ];
-  fs.writeFileSync(path.join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexable.map((x) => `  <url><loc>${abs(x.u)}</loc>${x.m ? `<lastmod>${x.m}</lastmod>` : ""}</url>`).join("\n")}\n</urlset>\n`);
+  fs.writeFileSync(path.join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${indexable.map((x) => `  <url><loc>${abs(x.u)}</loc>${x.m ? `<lastmod>${x.m}</lastmod>` : ""}${x.img ? `<image:image><image:loc>${abs(x.img)}</image:loc></image:image>` : ""}</url>`).join("\n")}\n</urlset>\n`);
   // Search engines and AI answer engines are explicitly welcome: being cited by them is the goal.
   const bots = ["Googlebot", "Bingbot", "OAI-SearchBot", "ChatGPT-User", "GPTBot", "PerplexityBot", "Perplexity-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "Google-Extended", "Applebot", "Applebot-Extended", "DuckDuckBot"];
   fs.writeFileSync(path.join(DIST, "robots.txt"), `${bots.map((b) => `User-agent: ${b}`).join("\n")}\nAllow: /\nDisallow: /search/\nDisallow: /admin/\n\nUser-agent: *\nAllow: /\nDisallow: /search/\nDisallow: /admin/\n\nSitemap: ${abs("/sitemap.xml")}\n`);
@@ -449,7 +471,7 @@ write("/404.html", layout({ url: "/404.html", title: "Page not found", descripti
   fs.writeFileSync(path.join(DIST, "llms-full.txt"), LIVE.map((a) => `# ${a.title}\nURL: ${abs(a.url)}\nUpdated: ${fmtMod(a)} · Facts verified: ${fmtDate(a.lastVerified)} · Confidence: ${CONFIDENCE[a.confidence].label}\n\nQuick answer: ${strip(a.answer || a.description)}\n\n${strip(a.body.replace(/^\{\{.*\}\}$/gm, "").replace(/<!--[\s\S]*?-->/g, "")).trim()}\n\nSources:\n${a.sources.map((x) => `- ${x.title}: ${x.url}`).join("\n")}`).join("\n\n---\n\n") + "\n");
   if (cfg.indexNowKey) fs.writeFileSync(path.join(DIST, `${cfg.indexNowKey}.txt`), cfg.indexNowKey);
   const feedItems = LIVE.slice(0, 30).map((a) => `<item><title>${esc(a.title)}</title><link>${abs(a.url)}</link><guid>${abs(a.url)}</guid><pubDate>${new Date(a.updatedAt || a.updated + "T12:00:00Z").toUTCString()}</pubDate><description>${esc(a.description)}</description></item>`).join("");
-  fs.writeFileSync(path.join(DIST, "feed.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>${esc(cfg.name)}</title><link>${abs("/")}</link><description>${esc(cfg.tagline)}</description><language>${cfg.language}</language>${feedItems}</channel></rss>\n`);
+  fs.writeFileSync(path.join(DIST, "feed.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>${esc(cfg.name)}</title><link>${abs("/")}</link><atom:link href="${abs("/feed.xml")}" rel="self" type="application/rss+xml"/><lastBuildDate>${NOW.toUTCString()}</lastBuildDate><description>${esc(cfg.tagline)}</description><language>${cfg.language}</language>${feedItems}</channel></rss>\n`);
   // Cloudflare Pages headers: security + caching
   fs.writeFileSync(path.join(DIST, "_headers"), `/*
   X-Content-Type-Options: nosniff
