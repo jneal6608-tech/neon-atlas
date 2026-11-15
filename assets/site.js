@@ -187,7 +187,7 @@
   const results = $("#search-results");
   if (results) {
     const input = $("#sq"), status = $("#search-status");
-    const base = document.querySelector('link[rel="stylesheet"][href$="styles.css"]').getAttribute("href").replace(/assets\/styles\.css$/, "");
+    const base = document.querySelector('link[rel="stylesheet"][href*="assets/styles.css"]').getAttribute("href").replace(/assets\/styles\.css(\?.*)?$/, "");
     const escH = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
     const norm = (s) => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/gta ?(6|vi)\b/g, "gta6");
     let index = null;
