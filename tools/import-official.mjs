@@ -10,6 +10,8 @@ import path from "node:path";
 import { chromium } from "./pw.mjs";
 import { ROOT } from "../src/content.mjs";
 
+// Per-image crop focus (object-position) where the subject isn't centred in Rockstar's 16:9 shot.
+const FOCUS = { "jason-duval": "88% 30%", "cal-hampton": "82% 25%", "dre-quan-priest": "62% 25%" };
 const SETS = {
   characters: { size: [600, 750], focus: "50% 25%", items: { "jason-duval": /jason[_ -]?duval/i, "lucia-caminos": /lucia[_ -]?caminos/i, "cal-hampton": /cal[_ -]?hampton/i, "boobie-ike": /boobie[_ -]?ike/i, "dre-quan-priest": /dre'?quan[_ -]?priest/i, "real-dimez": /real[_ -]?dimez/i, "raul-bautista": /raul[_ -]?bautista/i, "brian-heder": /brian[_ -]?heder/i } },
   regions: { size: [960, 540], focus: "50% 50%", items: { "vice-city": /^vice[_ -]?city[_ -]?\d/i, "leonida-keys": /leonida[_ -]?keys/i, "grassrivers": /grassrivers/i, "port-gellhorn": /port[_ -]?gellhorn/i, "ambrosia": /ambrosia/i, "mount-kalaga": /(mount[_ -]?)?kalaga/i } },
@@ -33,7 +35,7 @@ for (const [kind, set] of Object.entries(SETS)) {
     await page.setViewportSize({ width: w, height: h });
     const data = fs.readFileSync(match).toString("base64");
     const mime = /png$/i.test(match) ? "image/png" : /webp$/i.test(match) ? "image/webp" : "image/jpeg";
-    await page.setContent(`<body style="margin:0;background:#000"><img id="i" src="data:${mime};base64,${data}" style="width:${w}px;height:${h}px;object-fit:cover;object-position:${set.focus};display:block"></body>`);
+    await page.setContent(`<body style="margin:0;background:#000"><img id="i" src="data:${mime};base64,${data}" style="width:${w}px;height:${h}px;object-fit:cover;object-position:${FOCUS[slug] || set.focus};display:block"></body>`);
     await page.waitForFunction(() => document.getElementById("i").complete);
     await page.screenshot({ path: out, type: "jpeg", quality: 82 });
     found.push(`${kind}/${slug} ← ${path.basename(match)}`);

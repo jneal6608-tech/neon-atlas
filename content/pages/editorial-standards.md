@@ -28,7 +28,8 @@ A page's overall badge reflects its weakest important claim. Individual claims i
 - Invented features, missions, locations or mechanics.
 - Leaked material or content from unreleased builds.
 - Pages written only to rank for a search term without answering it.
-- Copies of other sites' work, or Rockstar's artwork, logos or text beyond short quotations with attribution.
+- Copies of other sites' work, or Rockstar's logos or text beyond short quotations with attribution.
+- Official Rockstar images other than unedited press images from Rockstar's own media pages, always credited "Image: Rockstar Games" and removed on request.
 
 ## 4. Status of a page
 

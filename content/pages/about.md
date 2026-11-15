@@ -23,9 +23,9 @@ Community discoveries are welcome and credited to the people who found them, onc
 
 We use AI tools to help organise research, spot questions people are asking, and suggest outlines. Every published page is written or reviewed by a human editor and checked against its sources before it goes live. We never auto-publish AI-generated text. Details are in our [editorial standards](/editorial-standards/).
 
-## Original artwork
+## Artwork and official images
 
-All graphics on {{siteName}} are our own. We don't copy Rockstar's logos, artwork or website design. Where official screenshots or trailers are relevant, we link to Rockstar's own pages.
+Our illustrations, logo and design are our own; we don't copy Rockstar's logos, fonts or website design. Official character images come from Rockstar's public media pages, are credited "Image: Rockstar Games" wherever they appear, and are used only to illustrate our coverage. Trailers play from Rockstar's official YouTube channel. Rights holders can ask us to remove any image through the [contact page](/contact/), and we will.
 
 ## Get in touch
 

@@ -166,7 +166,7 @@ ${body}
   <div class="wrap footer-grid">
     <div>
       <p class="brand footer-brand">${LOGO}<span class="brand-name">${esc(cfg.name)}</span></p>
-      <p class="disclaimer"><strong>Unofficial fan resource.</strong> ${esc(cfg.name)} is an independent guide and is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto, GTA VI and related names are trademarks of their respective owners. All artwork on this site is original.</p>
+      <p class="disclaimer"><strong>Unofficial fan resource.</strong> ${esc(cfg.name)} is an independent guide and is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto, GTA VI and related names are trademarks of their respective owners. Artwork is original unless credited; official images are © Rockstar Games and used for editorial coverage.</p>
     </div>
     <nav aria-label="Sections"><p class="foot-h">Sections</p><ul>${NAV.map(([n, u]) => `<li><a href="${href(u)}">${n}</a></li>`).join("")}</ul></nav>
     <nav aria-label="About"><p class="foot-h">About</p><ul>
