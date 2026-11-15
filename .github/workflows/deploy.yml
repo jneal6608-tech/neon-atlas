@@ -1,17 +1,18 @@
-# Builds, checks and deploys Neon Atlas to Cloudflare Pages (free plan).
+# Builds, checks and deploys Neon Atlas to the Cloudflare Worker "neonatlas" (free plan; config in wrangler.jsonc),
+# which serves neonatlasguide.com and neonatlas.jneal6608.workers.dev.
 # Runs on every push to main (including CMS saves), once a day (so scheduled articles go live on their date
 # and "facts last verified" checks stay current), and on demand from the Actions tab.
-# Needs two repository secrets: CLOUDFLARE_API_TOKEN (Pages:Edit permission) and CLOUDFLARE_ACCOUNT_ID.
+# Needs two repository secrets: CLOUDFLARE_API_TOKEN ("Edit Cloudflare Workers" token template) and CLOUDFLARE_ACCOUNT_ID.
 name: Build and deploy
 on:
   push:
     branches: [main]
-    paths-ignore: ["data/watch-state.json"]
+    paths-ignore: ["data/watch-state.json", "data/daily-build.txt"]
   schedule:
     - cron: "17 5 * * *"   # 05:17 UTC daily
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write   # only used by the daily nudge below
 concurrency:
   group: deploy
   cancel-in-progress: true
@@ -29,14 +30,24 @@ jobs:
       - run: npm ci --omit=optional
       - run: npm run build
       - run: node tools/check.mjs
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to the Cloudflare Worker
         # Skipped (not failed) until the two Cloudflare secrets are added to this repository.
         if: env.HAS_CF_TOKEN == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=neon-atlas --branch=main
+          command: deploy
+      - name: Daily nudge for Cloudflare's GitHub build (no token needed)
+        # When Cloudflare builds from GitHub itself (Workers & Pages > neonatlas > Settings > Builds), it only rebuilds
+        # on a change. Once a day this commits today's date, so scheduled articles still go live on their date.
+        if: github.event_name == 'schedule' && env.HAS_CF_TOKEN != 'true'
+        run: |
+          date -u +%Y-%m-%d > data/daily-build.txt
+          git config user.name "neon-atlas-daily"
+          git config user.email "daily@users.noreply.github.com"
+          git add data/daily-build.txt
+          git diff --cached --quiet || (git commit -m "Daily rebuild $(date -u +%Y-%m-%d)" && git push)
       - name: Tell Bing and IndexNow engines what changed (ChatGPT search uses Bing's index)
         run: node tools/indexnow.mjs
         continue-on-error: true

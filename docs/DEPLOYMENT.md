@@ -8,18 +8,26 @@ The site lives in its own repository, `jneal6608-tech/neon-atlas` (moved out of 
 
 ## 2. Choose a name and domain
 
-`site.config.json` → `url` is currently `https://neonatlas.pages.dev` (the free Cloudflare address). If you buy a domain (about $10–15/year), set `url` to it **before** submitting to Search Console. Canonicals, the sitemap and Open Graph all use this value. Also set `contactEmail` to a real inbox you check.
+`site.config.json` → `url` is `https://neonatlasguide.com`. Canonicals, the sitemap and Open Graph all use this value, so change it only if the domain changes. Also set `contactEmail` to a real inbox you check.
 
 > Avoid "GTA", "Rockstar" or "Grand Theft Auto" in the domain name. It invites trademark complaints and can block AdSense approval.
 
-## 3. Cloudflare Pages (hosting)
+## 3. Cloudflare (hosting)
 
-1. Create a free Cloudflare account **(parent/guardian if you're under the account's minimum age)**.
-2. Workers & Pages → Create → Pages → **Direct Upload**, name the project `neon-atlas`, and upload the `dist/` folder once (run `npm run build` first). This creates the project.
-3. My Profile → API Tokens → Create Token → template "Edit Cloudflare Workers" (or a custom token with *Account → Cloudflare Pages → Edit*). Copy it.
-4. In your GitHub repo: Settings → Secrets and variables → Actions → add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` (shown on the Cloudflare dashboard sidebar).
-5. Push to `main`. The workflow in `.github/workflows/deploy.yml` builds, runs the checks and deploys. It also runs **daily at 05:17 UTC**, which publishes scheduled articles on their date.
-6. Custom domain (optional): Pages project → Custom domains → add your domain and follow the DNS steps.
+The site runs as a free **Cloudflare Worker named `neonatlas`** that serves the built `dist/` folder (settings in `wrangler.jsonc`). It already exists and answers at neonatlasguide.com and neonatlas.jneal6608.workers.dev.
+
+To make every push to `main` go live automatically (one-time, about 5 minutes):
+
+1. Cloudflare dashboard → My Profile → API Tokens → **Create Token** → template **"Edit Cloudflare Workers"** → Continue → Create. Copy the token (it's shown once).
+2. Cloudflare dashboard → Workers & Pages: copy your **Account ID** (right-hand sidebar).
+3. GitHub → `jneal6608-tech/neon-atlas` → Settings → Secrets and variables → Actions → **New repository secret**: add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+4. Actions tab → "Build and deploy" → **Run workflow** (or push to `main`). It builds, runs the checks and runs `wrangler deploy`. It also runs **daily at 05:17 UTC**, which publishes scheduled articles on their date. Until the two secrets exist, the deploy step is skipped, not failed.
+
+**Or, with no token at all (simplest):** Workers & Pages → `neonatlas` → Settings → Builds → **Connect** → GitHub → `jneal6608-tech/neon-atlas`, branch `main`, build command `npm run build`, deploy command `npx wrangler deploy`. Cloudflare then deploys every change to `main` itself. Leave the two secrets unset: the workflow still checks every push, and once a day it commits the date to `data/daily-build.txt` so Cloudflare rebuilds and scheduled articles go live on their date.
+
+Deploying by hand from a computer instead: `npm run build && npx wrangler deploy` (asks you to log in to Cloudflare the first time).
+
+Custom domain: Workers & Pages → `neonatlas` → Settings → Domains & Routes.
 
 ## 4. Google Search Console
 
