@@ -11,7 +11,7 @@ local_backend: true
 publish_mode: simple               # our own six-status workflow lives in the "status" field
 media_folder: assets/uploads
 public_folder: /assets/uploads
-site_url: https://neonatlas.pages.dev
+site_url: https://neonatlas.jneal6608.workers.dev
 logo_url: /assets/logo-512.png
 
 collections:
