@@ -58,11 +58,12 @@ p, ul, ol { margin: 0 0 1em; }
 .brand-name { font: 400 1.45rem/1 var(--display); letter-spacing: .04em; text-transform: uppercase; background: var(--sunset); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .brand-tag { font-size: .7rem; color: var(--muted); border-left: 1px solid var(--line); padding-left: 10px; line-height: 1.2; max-width: 9em; text-transform: uppercase; letter-spacing: .06em; }
 .site-nav ul { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
-.site-nav a { display: block; padding: 8px 10px; border-radius: 8px; color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+.site-nav a { display: block; padding: 8px 8px; border-radius: 8px; color: var(--muted); text-decoration: none; font-size: .84rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--text); background: var(--surface); }
 .site-nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--pink); }
 .header-search { margin-left: auto; }
-.header-search input { width: 200px; }
+.header-search input { width: 170px; }
+@media (max-width: 1320px) { .brand-tag { display: none; } }
 input, select, textarea { font: inherit; color: var(--text); background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
 input::placeholder, textarea::placeholder { color: #a58fb8; }
 input:focus, select:focus, textarea:focus { border-color: var(--pink); outline: none; box-shadow: 0 0 0 3px rgba(255, 79, 154, .25); }
@@ -319,3 +320,25 @@ mark { background: rgba(255, 201, 77, .3); color: inherit; border-radius: 3px; p
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
 @media print { .site-header, .site-footer, .toc, .related, .ad-slot, .skip, .sidebar, .progress { display: none; } body { background: #fff; color: #000; } }
+
+/* quick answer (the block search engines and AI assistants quote) */
+.quick-answer { margin: 4px 0 22px; padding: 16px 20px; border-radius: 14px; background: linear-gradient(135deg, rgba(255, 79, 154, .14), rgba(255, 138, 61, .08)); border: 1px solid rgba(255, 79, 154, .5); }
+.qa-label { font: 800 .74rem var(--font); letter-spacing: .12em; text-transform: uppercase; color: var(--pink); margin: 0 0 6px !important; display: flex; flex-wrap: wrap; gap: 6px 12px; }
+.qa-label span { color: var(--muted); letter-spacing: .04em; text-transform: none; font-weight: 600; }
+.qa-text { margin: 0 !important; font-size: 1.12rem; line-height: 1.55; color: #fff; }
+
+/* live updates */
+.live-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ff3b3b; box-shadow: 0 0 0 0 rgba(255, 59, 59, .7); animation: pulse 1.8s infinite; vertical-align: middle; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(255, 59, 59, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0); } }
+.site-nav a[href*="launch-live"] { color: #ffb3b3; }
+.site-nav a[href*="launch-live"]::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ff3b3b; margin-right: 6px; vertical-align: middle; }
+.live-list { list-style: none; padding: 0; margin: 28px 0 0; border-left: 2px solid var(--line); }
+.live-entry { position: relative; padding: 4px 0 22px 22px; }
+.live-entry::before { content: ""; position: absolute; left: -7px; top: 10px; width: 12px; height: 12px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 10px var(--pink); }
+.live-entry time { font: 800 .8rem var(--font); color: var(--gold); letter-spacing: .04em; text-transform: uppercase; }
+.live-entry p { margin: 6px 0 0; }
+.live-strip { margin-top: 28px; padding: 16px 20px; border-radius: 16px; border: 1px solid rgba(255, 59, 59, .45); background: rgba(255, 59, 59, .06); }
+.live-strip-h { font: 400 1.3rem/1 var(--display); text-transform: uppercase; margin: 0 0 10px; display: flex; align-items: center; gap: 10px; }
+.live-strip ol { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 8px; }
+.live-strip time { font-weight: 800; color: var(--gold); font-size: .82rem; margin-right: 6px; }
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }

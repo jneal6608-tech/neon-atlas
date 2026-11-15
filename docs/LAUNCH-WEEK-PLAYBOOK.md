@@ -49,3 +49,7 @@ GTA VI launches **Thursday, November 19, 2026**. Most of the year's search deman
 - Never copy another site's walkthrough or screenshots. Use your own play and your own words.
 - Don't publish exploits that could get players banned or that break platform rules.
 - Spoilers: story pages carry spoiler warnings in the intro; keep titles spoiler-free.
+
+## Speed tools
+
+See [ANSWER-ENGINES.md](ANSWER-ENGINES.md): the 10-minute answer routine (`npm run ship`), live updates (`npm run live`), the official-source watcher and IndexNow.

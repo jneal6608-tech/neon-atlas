@@ -2,6 +2,7 @@
 title: "Every GTA 6 Trailer: Watch Them All in One Place"
 seoTitle: "GTA 6 Trailers: Watch Every Official Trailer"
 description: "Watch every official GTA VI trailer from Rockstar Games in one place: Trailer 1, Trailer 2, An Extended Look and the Launch Trailer, plus what each one confirmed."
+answer: "Rockstar has released four official GTA VI videos: **Trailer 1** (December 2023), **Trailer 2** (May 2025), **An Extended Look**, and the **Launch Trailer** (reported October 15, 2026)."
 category: news
 status: published
 confidence: confirmed

@@ -376,7 +376,7 @@
    "originalValue": "Tested recommendations with reasons",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-best-settings"
   },
   {
    "id": "bl020",
@@ -393,7 +393,7 @@
    "originalValue": "Fast answer to a top beginner question",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-how-to-save"
   },
   {
    "id": "bl021",
@@ -410,7 +410,7 @@
    "originalValue": "Answer-first, verified on both consoles",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-how-to-switch-characters"
   },
   {
    "id": "bl022",
@@ -424,7 +424,7 @@
    "originalValue": "Only tips we've verified ourselves",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-beginner-tips"
   },
   {
    "id": "bl023",
@@ -440,7 +440,7 @@
    "originalValue": "Hub for all walkthroughs; spoiler-safe layout",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-mission-list"
   },
   {
    "id": "bl024",
@@ -475,7 +475,7 @@
    "originalValue": "Prioritise during launch week",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-stuck-on-loading-screen"
   },
   {
    "id": "bl026",
@@ -492,7 +492,7 @@
    "originalValue": "Only if online services exist",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-servers-down"
   },
   {
    "id": "bl027",
@@ -508,7 +508,7 @@
    "originalValue": "First-party timing from our playthrough",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-how-long-to-beat"
   },
   {
    "id": "bl028",
@@ -524,7 +524,7 @@
    "originalValue": "Tested methods with payouts",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-how-to-make-money"
   },
   {
    "id": "bl029",
@@ -540,7 +540,7 @@
    "originalValue": "Mechanics explainer",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-wanted-level"
   },
   {
    "id": "bl030",
@@ -557,7 +557,7 @@
    "originalValue": "Huge evergreen GTA query; publish only if cheats exist",
    "publishable": "requires gameplay verification",
    "status": "research",
-   "slug": null
+   "slug": "gta-6-cheats"
   },
   {
    "id": "bl031",

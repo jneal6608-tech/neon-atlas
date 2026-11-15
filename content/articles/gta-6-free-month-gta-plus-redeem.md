@@ -2,6 +2,7 @@
 title: "How to Redeem the Free Month of GTA+ From Your GTA 6 Pre-Order"
 seoTitle: "GTA 6 Free GTA+ Month: How to Redeem (PS5 & Xbox)"
 description: "Pre-ordered GTA VI digitally? Here are Rockstar's exact steps to claim your free month of GTA+ on PS5 and Xbox, plus the redemption deadlines for each."
+answer: "If you pre-ordered on PlayStation Store or Microsoft Store before November 20, 2026, join GTA+ from the same account to start your free month. Redeem on PS5 by **March 31, 2027**, or on Xbox within **180 days** of purchase."
 category: guides
 status: published
 confidence: confirmed

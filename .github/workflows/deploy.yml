@@ -6,6 +6,7 @@ name: Build and deploy
 on:
   push:
     branches: [main]
+    paths-ignore: ["data/watch-state.json"]
   schedule:
     - cron: "17 5 * * *"   # 05:17 UTC daily
   workflow_dispatch:
@@ -32,3 +33,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=neon-atlas --branch=main
+      - name: Tell Bing and IndexNow engines what changed (ChatGPT search uses Bing's index)
+        run: node tools/indexnow.mjs
+        continue-on-error: true

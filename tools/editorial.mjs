@@ -10,6 +10,8 @@
 //   node tools/editorial.mjs outline <backlog-id> [--ai]     article outline (template, or Claude with --ai)
 //   node tools/editorial.mjs draft <backlog-id> [--fetch]    AI-assisted draft, saved with status "drafting" (never published)
 //   node tools/editorial.mjs status <slug> <status>          move an article through the pipeline
+//   node tools/editorial.mjs live "text" [--confidence confirmed] [--link article:slug|/path] [--link-text "..."]   add a timestamped live update
+//   node tools/editorial.mjs prep <backlog-id>...            create launch-ready answer pages (status research) from backlog items
 //
 // Data that is not available is reported as unavailable. Nothing here invents search volumes.
 import fs from "node:fs";
@@ -352,7 +354,38 @@ async function draft() {
   console.log(`Draft saved to content/articles/${slug}.md with status "drafting". It will not appear on the site until an editor publishes it.`);
 }
 
+// ---------------- live updates + launch prep ----------------
+function live() {
+  const text = args[1];
+  if (!text) throw new Error('usage: live "what happened" --confidence confirmed --link article:slug');
+  const conf = opt("confidence", "confirmed");
+  if (!["confirmed", "mixed", "unconfirmed", "predicted"].includes(conf)) throw new Error("confidence must be confirmed, mixed, unconfirmed or predicted");
+  const data = readJSON("data/live.json");
+  const e = { time: new Date().toISOString(), text, confidence: conf };
+  if (opt("link")) e.link = opt("link");
+  if (opt("link-text")) e.linkText = opt("link-text");
+  data.entries.push(e);
+  writeJSON("data/live.json", data);
+  console.log(`Live update added at ${e.time}. Build + push (or run tools/ship.mjs) to publish it.`);
+}
+function prep() {
+  const ids = args.slice(1);
+  if (!ids.length) throw new Error("usage: prep <backlog-id> [<backlog-id>...]");
+  const CAT = { "gta 6 controls": "gameplay", "gta 6 best settings": "guides", "gta 6 how to save": "gameplay", "gta 6 how to switch characters": "gameplay", "gta 6 beginner tips": "guides", "gta 6 mission list": "missions", "gta 6 stuck on loading screen": "guides", "gta 6 servers down": "news", "gta 6 how long to beat": "gameplay", "gta 6 how to make money": "gameplay", "gta 6 wanted level": "gameplay", "gta 6 cheats": "gameplay" };
+  for (const id of ids) {
+    const b = findBacklog(id);
+    const slug = b.slug || b.targetQuery.replace(/^gta 6 /, "gta-6-").replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "");
+    const file = path.join(ROOT, "content/articles", slug + ".md");
+    if (fs.existsSync(file)) { console.log(`exists: ${slug}`); continue; }
+    const fm = { title: b.title, description: `TODO: 150–160 characters that answer "${b.targetQuery}".`, answer: "TODO: the answer in 1–2 sentences, written the moment it's verified.", category: CAT[b.targetQuery] || "guides", status: "research", confidence: "confirmed", targetQuery: b.targetQuery, publishDate: cfg.launchDate, sources: [] };
+    const body = `<!-- RESEARCH: launch-ready skeleton. Fill the answer first, verify on console, add sources, remove this comment, then: node tools/ship.mjs ${slug} --live "..." -->\n\n**TODO: answer-first opening sentence.**\n\n${b.outline.map((o) => `## ${o}\n\nTODO\n`).join("\n")}\n## Verification checklist\n\n- [ ] Verified on PS5\n- [ ] Verified on Xbox Series X|S\n- [ ] Game version noted\n- [ ] Sources added (official page, or our own gameplay notes)\n`;
+    fs.writeFileSync(file, matter.stringify(body, fm));
+    const data = readJSON("data/backlog.json"); const item = data.items.find((x) => x.id === b.id); item.slug = slug; item.status = "research"; writeJSON("data/backlog.json", data);
+    console.log(`created content/articles/${slug}.md (research, not public)`);
+  }
+}
+
 // ---------------- dispatch ----------------
-const commands = { report, "add-question": addQuestion, questions: listQuestions, assign, "gsc-import": gscImport, links: () => { for (const l of linkOpportunities(loadArticles().filter((a) => isLive(a, today)))) console.log(`${l.from.slug}: "${l.phrase}" → article:${l.to.slug}`); }, outline, draft, status: setStatus };
+const commands = { report, "add-question": addQuestion, questions: listQuestions, assign, "gsc-import": gscImport, links: () => { for (const l of linkOpportunities(loadArticles().filter((a) => isLive(a, today)))) console.log(`${l.from.slug}: "${l.phrase}" → article:${l.to.slug}`); }, outline, draft, status: setStatus, live, prep };
 if (!commands[cmd]) { console.log(fs.readFileSync(new URL(import.meta.url), "utf8").split("\n").slice(1, 15).join("\n").replace(/^\/\/ ?/gm, "")); process.exit(cmd ? 1 : 0); }
 try { await commands[cmd](); } catch (e) { console.error("Error: " + e.message); process.exit(1); }

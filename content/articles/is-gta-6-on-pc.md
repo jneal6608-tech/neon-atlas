@@ -2,6 +2,7 @@
 title: "Is GTA 6 on PC? What Rockstar Has (and Hasn't) Said"
 seoTitle: "Is GTA 6 on PC? No PC Version Announced"
 description: "GTA VI launches only on PS5 and Xbox Series X|S. There is no announced PC version or date. Here's what that means, what to ignore, and how to play if you're on PC."
+answer: "**No.** GTA VI launches only on **PS5 and Xbox Series X|S**, and Rockstar has not announced a PC version or a PC release date."
 category: guides
 status: published
 confidence: confirmed

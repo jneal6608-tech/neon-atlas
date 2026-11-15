@@ -1,0 +1,36 @@
+# Checks Rockstar's official GTA VI pages every 15 minutes. When something changes, it opens a GitHub issue
+# (you get an email / GitHub app notification) listing the new and removed text. Verify, then ship the update.
+name: Watch official sources
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: watch
+  cancel-in-progress: false
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=optional --omit=dev
+      - id: watch
+        run: node tools/watch-official.mjs
+      - name: Open an alert issue
+        if: steps.watch.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Rockstar updated an official GTA VI page ($(date -u +'%b %d %H:%M') UTC)" --body-file reports/watch-latest.md --label "official-update" || gh issue create --title "Rockstar updated an official GTA VI page ($(date -u +'%b %d %H:%M') UTC)" --body-file reports/watch-latest.md
+      - name: Save the new snapshot
+        run: |
+          git config user.name "neon-atlas-watch"
+          git config user.email "watch@users.noreply.github.com"
+          git add data/watch-state.json
+          git diff --cached --quiet || (git commit -m "Update official-source snapshot [skip ci]" && git push)

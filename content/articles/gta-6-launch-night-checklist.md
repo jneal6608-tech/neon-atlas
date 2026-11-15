@@ -2,6 +2,7 @@
 title: "GTA 6 Launch Night Checklist: 8 Things to Do Before It Unlocks"
 seoTitle: "GTA 6 Launch Night Checklist: Be Ready to Play"
 description: "Pre-load, storage, system updates, codes, bonuses and timing: a short checklist so GTA VI is ready to play the moment it unlocks."
+answer: "Before it unlocks: finish your **pre-load**, keep spare space beyond the reported ~212 GB, update your console, redeem any box code early, and check your store's countdown for your exact unlock time."
 category: guides
 status: published
 confidence: mixed

@@ -2,6 +2,7 @@
 title: "How to Pre-Load GTA 6 on PS5 and Xbox Series X|S (and How Much Space You Need)"
 seoTitle: "GTA 6 Pre-Load: How to Download Early + File Size"
 description: "GTA VI pre-loading is open now. Step-by-step for PS5 and Xbox Series X|S, the reported 212 GB size, freeing up space, and fixes if it won't download."
+answer: "Pre-loading has been **open since November 10, 2026** on PS5 and Xbox Series X|S for digital and code-in-box copies (confirmed). Plan for about **212 GB** of free space (reported, up to 212 GB depending on device)."
 category: guides
 status: published
 confidence: mixed

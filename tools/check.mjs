@@ -71,11 +71,15 @@ const now = process.env.BUILD_DATE ? new Date(process.env.BUILD_DATE) : new Date
 for (const a of loadArticles()) {
   const built = pages.has(a.url);
   if (isLive(a, now) && !built) err(a.file, "live article was not built");
+  if (isLive(a, now) && !a.answer) warn(a.file, "no quick answer (front matter `answer`): answer engines quote this first");
   if (!isLive(a, now) && built) err(a.file, `not-live article (${a.status}) was published`);
 }
 const idx = JSON.parse(fs.readFileSync(path.join(DIST, "search-index.json"), "utf8"));
 for (const e of idx) if (!pages.has(e.u)) err("search-index.json", `points to missing page ${e.u}`);
 if (!/<rss/.test(fs.readFileSync(path.join(DIST, "feed.xml"), "utf8"))) err("feed.xml", "not an RSS feed");
+for (const f of ["llms.txt", "llms-full.txt"]) if (!fs.existsSync(path.join(DIST, f))) err(f, "missing");
+if (cfg.indexNowKey && fs.readFileSync(path.join(DIST, `${cfg.indexNowKey}.txt`), "utf8") !== cfg.indexNowKey) err("indexnow", "key file missing or wrong");
+for (const bot of ["OAI-SearchBot", "Bingbot", "Googlebot", "PerplexityBot"]) if (!robots.includes(`User-agent: ${bot}`)) err("robots.txt", `${bot} not explicitly allowed`);
 
 // secrets in the public output
 for (const f of files) {

@@ -2,6 +2,7 @@
 title: "GTA 6 Map: Leonida and Every Officially Named Region"
 seoTitle: "GTA 6 Map: Vice City, Leonida Keys & All Regions"
 description: "GTA VI is set in the state of Leonida. These are the regions Rockstar has officially named: Vice City, Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia and Mount Kalaga."
+answer: "GTA VI is set in the fictional state of **Leonida**. Rockstar has named six regions: **Vice City, Leonida Keys, Grassrivers, Port Gellhorn, Ambrosia and Mount Kalaga**. The official map size isn't confirmed."
 category: locations
 status: published
 confidence: confirmed

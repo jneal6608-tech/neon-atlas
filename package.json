@@ -18,7 +18,12 @@
     "report": "node tools/editorial.mjs report",
     "editorial": "node tools/editorial.mjs",
     "keywords": "node tools/keywords.mjs",
-    "cms": "npx --yes decap-server@3.11.3"
+    "cms": "npx --yes decap-server@3.11.3",
+    "ship": "node tools/ship.mjs",
+    "live": "node tools/editorial.mjs live",
+    "watch": "node tools/watch-official.mjs",
+    "indexnow": "node tools/indexnow.mjs",
+    "art": "node tools/make-art.mjs"
   },
   "dependencies": {
     "gray-matter": "4.0.3",

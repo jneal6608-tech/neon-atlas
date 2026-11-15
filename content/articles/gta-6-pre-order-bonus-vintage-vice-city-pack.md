@@ -2,6 +2,7 @@
 title: "GTA 6 Pre-Order Bonus: The Vintage Vice City Pack and How to Get It"
 seoTitle: "GTA 6 Pre-Order Bonus: Vintage Vice City Pack"
 description: "What the GTA VI Vintage Vice City Pack includes, the November 20 deadline, which purchases qualify, and how the free GTA+ month works."
+answer: "The pre-order bonus is the **Vintage Vice City Pack** ('55 Vapid Stanier Sedan and Garage, outfits and hairstyles, an exclusive weapon pattern) for orders **before November 20, 2026**. Digital store pre-orders also get a free month of GTA+."
 category: guides
 status: published
 confidence: confirmed

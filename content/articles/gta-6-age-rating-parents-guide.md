@@ -2,6 +2,7 @@
 title: "GTA 6 Age Rating and Content: A Guide for Parents"
 seoTitle: "GTA 6 Age Rating: 17+ and Content Explained"
 description: "What age GTA VI is rated for, the content descriptors Rockstar lists, in-game purchases, and the console parental controls that matter."
+answer: "GTA VI is for adults: the US Rockstar Store lists a **minimum age of 17**, with descriptors for intense violence, blood and gore, strong sexual content, nudity, drugs and alcohol and strong language, plus **in-game purchases**."
 category: guides
 status: published
 confidence: confirmed

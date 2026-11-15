@@ -2,6 +2,7 @@
 title: "GTA 6 Release Date and Unlock Time: What's Confirmed"
 seoTitle: "GTA 6 Release Date & Unlock Time (Nov 19, 2026)"
 description: "GTA VI launches November 19, 2026 on PS5 and Xbox Series X|S. What Rockstar confirmed, what's only reported about unlock times, and how to be ready."
+answer: "GTA VI releases **Thursday, November 19, 2026** on PS5 and Xbox Series X|S (confirmed by Rockstar). The unlock time is reported as **midnight local time**; some US storefronts may use Eastern time, which would mean 9 PM Pacific on November 18."
 category: guides
 status: published
 confidence: mixed

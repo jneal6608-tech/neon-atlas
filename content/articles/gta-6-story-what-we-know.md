@@ -2,6 +2,7 @@
 title: "GTA 6 Story: What Rockstar Has Revealed (No Spoilers)"
 seoTitle: "What Is GTA 6 About? The Official Story Setup"
 description: "What GTA VI's story is about, from Rockstar's official synopsis and character profiles: Jason and Lucia, a job gone wrong, and a conspiracy across Leonida. Spoiler-free."
+answer: "Officially, GTA VI follows **Jason and Lucia**, whose \"easy score\" goes wrong and drags them into a **criminal conspiracy across the state of Leonida**, where they must rely on each other to survive."
 category: characters
 status: published
 confidence: confirmed

@@ -28,5 +28,6 @@
   "stalenessDays": {
     "launchWindow": 3,
     "normal": 45
-  }
+  },
+  "indexNowKey": "d8bae8dd006d6aa8c5f911bf18ab24fa"
 }

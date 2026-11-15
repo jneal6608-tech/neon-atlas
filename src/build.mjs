@@ -24,6 +24,12 @@ const warnings = [];
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const decode = (s) => s.replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 const ART = (name) => (fs.existsSync(path.join(ROOT, `assets/art/${name}.jpg`)) ? `/assets/art/${name}.jpg` : null);
+const fmtDateTime = (iso) => new Date(iso).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/New_York", timeZoneName: "short" });
+const modOf = (a) => a.updatedAt || a.updated;
+const fmtMod = (a) => (a.updatedAt ? fmtDateTime(a.updatedAt) : fmtDate(a.updated));
+const LIVEFEED = (() => { try { return readJSON("data/live.json").entries.slice().sort((x, y) => String(y.time).localeCompare(String(x.time))); } catch { return []; } })();
+const LIVE_URL = "/news/gta-6-launch-live/";
+const fmtLiveTime = (t) => (String(t).length > 10 ? fmtDateTime(t) : fmtDate(t));
 const abs = (p) => cfg.url.replace(/\/$/, "") + p;
 const fmtDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
@@ -94,7 +100,7 @@ function renderMarkdown(md, fromUrl, ctxName) {
 }
 // ---------- layout ----------
 const NAV = [
-  ["Guides", "/guides/"], ["Characters", "/characters/"], ["Locations", "/locations/"], ["Missions", "/missions/"],
+  ["Live", LIVE_URL], ["Guides", "/guides/"], ["Characters", "/characters/"], ["Locations", "/locations/"], ["Missions", "/missions/"],
   ["Vehicles", "/vehicles/"], ["Gameplay", "/gameplay/"], ["News", "/news/"], ["FAQ", "/faq/"],
 ];
 const LOGO = `<svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 2 28 9v14l-12 7L4 23V9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16 8.5 21.5 22h-3l-1.2-3.2h-2.6L13.5 22h-3zm0 5.2-.9 2.7h1.8z" fill="currentColor"/></svg>`;
@@ -265,8 +271,9 @@ ${crumbs(a.url, items)}
   <p class="eyebrow"><a href="${href("/" + cat.slug + "/")}">${esc(cat.name)}</a> ${badge(a.confidence)}</p>
   <h1>${esc(a.title)}</h1>
   <p class="dek">${esc(a.description)}</p>
-  <p class="byline">By ${esc(a.author)} · Updated <time datetime="${a.updated}">${fmtDate(a.updated)}</time> · Facts last verified <time datetime="${a.lastVerified}">${fmtDate(a.lastVerified)}</time> · ${mins} min read</p>
+  <p class="byline">By ${esc(a.author)} · Updated <time datetime="${modOf(a)}">${fmtMod(a)}</time> · Facts last verified <time datetime="${a.lastVerified}">${fmtDate(a.lastVerified)}</time> · ${mins} min read</p>
 </header>
+${a.answer ? `<section class="quick-answer" aria-labelledby="qa-${a.slug}"><p class="qa-label" id="qa-${a.slug}">Quick answer <span>Updated ${fmtMod(a)}</span></p><p class="qa-text">${new Marked().parseInline(a.answer)}</p></section>` : ""}
 ${hero ? `<figure class="article-hero"><img src="${href(hero)}" alt="Original Vice City-style illustration for ${esc(a.title)}" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>Original illustration by Neon Atlas. Not official Rockstar artwork.</figcaption></figure>` : ""}
 ${needsUpdate}
 ${tocHtml}
@@ -288,16 +295,16 @@ ${relatedAll.length > 1 ? `<aside class="related" aria-labelledby="rel-h"><h2 id
   const ld = [
     {
       "@context": "https://schema.org", "@type": "Article", headline: a.title, description: a.description,
-      datePublished: a.publishDate, dateModified: a.updated, author: { "@type": "Organization", name: cfg.name, url: abs("/about/") },
+      datePublished: a.publishDate, dateModified: modOf(a), author: { "@type": "Organization", name: cfg.name, url: abs("/about/") },
       publisher: { "@type": "Organization", name: cfg.name, logo: { "@type": "ImageObject", url: abs("/assets/logo-512.png") } },
       mainEntityOfPage: abs(a.url), image: abs(ART(a.slug) || a.image || "/assets/og-default.jpg"), isAccessibleForFree: true,
       about: { "@type": "VideoGame", name: "Grand Theft Auto VI" },
     },
     crumbLD(items),
   ];
-  write(a.url, layout({ url: a.url, title: a.seoTitle, description: a.description, body, jsonld: ld, ogType: "article", image: ART(`${a.slug}-share`) || a.image, bodyClass: "page-article", published: a.publishDate, modified: a.updated }));
+  write(a.url, layout({ url: a.url, title: a.seoTitle, description: a.description, body, jsonld: ld, ogType: "article", image: ART(`${a.slug}-share`) || a.image, bodyClass: "page-article", published: a.publishDate, modified: modOf(a) }));
   const plain = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-  searchIndex.push({ t: a.title, d: a.description, u: a.url, c: cat.name, k: a.confidence, h: toc.map((t) => t.text).join(" · "), b: plain.slice(0, 1800), q: a.faqs.map((f) => f.q).join(" ") });
+  searchIndex.push({ t: a.title, d: a.answer ? a.answer.replace(/[*_`]/g, "") : a.description, u: a.url, c: cat.name, k: a.confidence, h: toc.map((t) => t.text).join(" · "), b: plain.slice(0, 1800), q: a.faqs.map((f) => f.q).join(" ") });
 }
 
 // ---------- category pages ----------
@@ -330,6 +337,7 @@ ${upcoming}</div>`;
   ${countdownHtml()}
 </div></div></section>
 <div class="wrap">
+${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class="live-strip-h" id="ls-h"><span class="live-dot" aria-hidden="true"></span> Live launch updates</p><ol>${LIVEFEED.slice(0, 3).map((e) => `<li><time datetime="${e.time}">${fmtLiveTime(e.time)}</time> ${new Marked().parseInline(e.text)}</li>`).join("")}</ol><a class="btn btn-ghost" href="${href(LIVE_URL)}">All live updates →</a></section>` : ""}
 <section aria-labelledby="start-h"><h2 id="start-h" class="section-h">Start here</h2><div class="grid cards">${featured.map((a) => card(a, url)).join("")}</div></section>
 ${trailers ? `<section aria-labelledby="tr-h"><h2 id="tr-h" class="section-h">Watch the official trailers</h2><p class="section-sub">All of Rockstar's GTA VI videos in one place, with what each one confirmed.</p>${shortcodes("<p>{{videos}}</p>", url)}<p><a class="btn btn-ghost" href="${href(trailers.url)}">Every trailer, explained →</a></p></section>` : ""}
 ${map ? `<section aria-labelledby="map-h"><h2 id="map-h" class="section-h">Explore Leonida</h2><p class="section-sub">The six regions Rockstar has officially named.</p>${shortcodes("<p>{{regions}}</p>", url)}<p><a class="btn btn-ghost" href="${href(map.url)}">The full map guide →</a></p></section>` : ""}
@@ -344,6 +352,20 @@ ${chars ? `<section aria-labelledby="ch-h"><h2 id="ch-h" class="section-h">Meet 
     { "@context": "https://schema.org", "@type": "Organization", name: cfg.name, url: abs("/"), logo: abs("/assets/logo-512.png") },
   ];
   write(url, layout({ url, title: `${cfg.name}: ${cfg.tagline}`, description: "Independent GTA VI guide: release time, pre-load size, editions, characters and map, with every claim labelled confirmed or unconfirmed and linked to its source.", body, jsonld: ld, bodyClass: "page-home" }));
+}
+
+// ---------- launch live updates ----------
+if (LIVEFEED.length) {
+  const url = LIVE_URL;
+  const href = linker(url);
+  const items = [["Home", "/"], ["News & Updates", "/news/"], ["Launch live updates", url]];
+  const entry = (e) => `<li class="live-entry" id="u-${String(e.time).replace(/[^0-9]/g, "")}"><time datetime="${e.time}">${fmtLiveTime(e.time)}</time>${e.confidence ? ` ${badge(e.confidence)}` : ""}<p>${new Marked().parseInline(e.text)}</p>${e.link ? `<p class="small"><a href="${href(e.link.startsWith("article:") ? (liveBy[e.link.slice(8)]?.url || "/") : e.link)}">${esc(e.linkText || "Full answer →")}</a></p>` : ""}</li>`;
+  const body = `<div class="wrap narrow">${crumbs(url, items)}<header class="page-head"><p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live · newest first</p><h1>GTA 6 launch: live updates</h1><p class="dek">Every confirmed GTA VI launch development as it happens: unlock times, patches, server status and new answers. Each entry is timestamped (US Eastern) and labelled.</p></header>
+${countdownHtml()}
+<ol class="live-list">${LIVEFEED.map(entry).join("")}</ol></div>`;
+  const ld = [{ "@context": "https://schema.org", "@type": "LiveBlogPosting", headline: "GTA 6 launch: live updates", description: "Timestamped, sourced GTA VI launch updates.", url: abs(url), coverageStartTime: "2026-11-15T00:00:00-05:00", coverageEndTime: "2026-12-01T00:00:00-05:00", dateModified: String(LIVEFEED[0].time).length > 10 ? new Date(LIVEFEED[0].time).toISOString() : LIVEFEED[0].time, publisher: { "@type": "Organization", name: cfg.name, logo: { "@type": "ImageObject", url: abs("/assets/logo-512.png") } }, about: { "@type": "VideoGame", name: "Grand Theft Auto VI" }, liveBlogUpdate: LIVEFEED.slice(0, 30).map((e) => ({ "@type": "BlogPosting", headline: e.text.replace(/[*_`]/g, "").slice(0, 110), articleBody: e.text.replace(/[*_`]/g, ""), datePublished: String(e.time).length > 10 ? new Date(e.time).toISOString() : e.time })) }, crumbLD(items)];
+  write(url, layout({ url, title: "GTA 6 Launch Live Updates", description: "Live, timestamped GTA VI launch updates: unlock times, pre-load, patches, server status and every new verified answer, newest first.", body, jsonld: ld, image: ART("gta-6-launch-week-everything-confirmed-share"), bodyClass: "page-live" }));
+  searchIndex.push({ t: "GTA 6 launch: live updates", d: LIVEFEED[0].text.replace(/[*_`]/g, ""), u: url, c: "Live", k: "mixed", h: "", b: LIVEFEED.map((e) => e.text).join(" ").slice(0, 1800), q: "" });
 }
 
 // ---------- FAQ ----------
@@ -405,12 +427,21 @@ write("/404.html", layout({ url: "/404.html", title: "Page not found", descripti
     { u: "/", m: LIVE[0]?.updated },
     ...CATS.filter((c) => LIVE.some((a) => a.category === c.slug)).map((c) => ({ u: `/${c.slug}/`, m: LIVE.filter((a) => a.category === c.slug)[0].updated })),
     { u: "/faq/", m: LIVE[0]?.updated },
-    ...LIVE.map((a) => ({ u: a.url, m: a.updated })),
+    ...LIVE.map((a) => ({ u: a.url, m: modOf(a) })),
+    ...(LIVEFEED.length ? [{ u: LIVE_URL, m: String(LIVEFEED[0].time).length > 10 ? new Date(LIVEFEED[0].time).toISOString() : LIVEFEED[0].time }] : []),
     ...PAGES.filter((p) => !p.noindex).map((p) => ({ u: p.url, m: p.updated })),
   ];
   fs.writeFileSync(path.join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexable.map((x) => `  <url><loc>${abs(x.u)}</loc>${x.m ? `<lastmod>${x.m}</lastmod>` : ""}</url>`).join("\n")}\n</urlset>\n`);
-  fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /search/\nDisallow: /admin/\n\nSitemap: ${abs("/sitemap.xml")}\n`);
-  const feedItems = LIVE.slice(0, 30).map((a) => `<item><title>${esc(a.title)}</title><link>${abs(a.url)}</link><guid>${abs(a.url)}</guid><pubDate>${new Date(a.updated + "T12:00:00Z").toUTCString()}</pubDate><description>${esc(a.description)}</description></item>`).join("");
+  // Search engines and AI answer engines are explicitly welcome: being cited by them is the goal.
+  const bots = ["Googlebot", "Bingbot", "OAI-SearchBot", "ChatGPT-User", "GPTBot", "PerplexityBot", "Perplexity-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "Google-Extended", "Applebot", "Applebot-Extended", "DuckDuckBot"];
+  fs.writeFileSync(path.join(DIST, "robots.txt"), `${bots.map((b) => `User-agent: ${b}`).join("\n")}\nAllow: /\nDisallow: /search/\nDisallow: /admin/\n\nUser-agent: *\nAllow: /\nDisallow: /search/\nDisallow: /admin/\n\nSitemap: ${abs("/sitemap.xml")}\n`);
+  // llms.txt: a plain-text map of the site's answers for AI assistants (emerging convention)
+  const byCat = CATS.map((c) => [c, LIVE.filter((a) => a.category === c.slug)]).filter(([, l]) => l.length);
+  const strip = (t) => t.replace(/\*\*|__|`/g, "").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+  fs.writeFileSync(path.join(DIST, "llms.txt"), `# ${cfg.name}\n\n> ${cfg.tagline}. Independent and unofficial (not affiliated with Rockstar Games or Take-Two). Every page labels each claim as confirmed (official Rockstar source), reported (other outlets) or unconfirmed, lists its sources, and shows when it was last updated and verified.\n\nGTA VI release: ${fmtDate(cfg.launchDate)} on PlayStation 5 and Xbox Series X|S.\n${LIVEFEED.length ? `\nLatest live update (${fmtLiveTime(LIVEFEED[0].time)}): ${strip(LIVEFEED[0].text)}\n- [Launch live updates](${abs(LIVE_URL)})\n` : ""}\n${byCat.map(([c, l]) => `## ${c.name}\n\n${l.map((a) => `- [${a.title}](${abs(a.url)}): ${strip(a.answer || a.description)} (updated ${fmtMod(a)}; ${CONFIDENCE[a.confidence].label.toLowerCase()})`).join("\n")}`).join("\n\n")}\n\n## Full text\n\n- [llms-full.txt](${abs("/llms-full.txt")}): every article's answer and body in plain text\n`);
+  fs.writeFileSync(path.join(DIST, "llms-full.txt"), LIVE.map((a) => `# ${a.title}\nURL: ${abs(a.url)}\nUpdated: ${fmtMod(a)} · Facts verified: ${fmtDate(a.lastVerified)} · Confidence: ${CONFIDENCE[a.confidence].label}\n\nQuick answer: ${strip(a.answer || a.description)}\n\n${strip(a.body.replace(/^\{\{.*\}\}$/gm, "").replace(/<!--[\s\S]*?-->/g, "")).trim()}\n\nSources:\n${a.sources.map((x) => `- ${x.title}: ${x.url}`).join("\n")}`).join("\n\n---\n\n") + "\n");
+  if (cfg.indexNowKey) fs.writeFileSync(path.join(DIST, `${cfg.indexNowKey}.txt`), cfg.indexNowKey);
+  const feedItems = LIVE.slice(0, 30).map((a) => `<item><title>${esc(a.title)}</title><link>${abs(a.url)}</link><guid>${abs(a.url)}</guid><pubDate>${new Date(a.updatedAt || a.updated + "T12:00:00Z").toUTCString()}</pubDate><description>${esc(a.description)}</description></item>`).join("");
   fs.writeFileSync(path.join(DIST, "feed.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>${esc(cfg.name)}</title><link>${abs("/")}</link><description>${esc(cfg.tagline)}</description><language>${cfg.language}</language>${feedItems}</channel></rss>\n`);
   // Cloudflare Pages headers: security + caching
   fs.writeFileSync(path.join(DIST, "_headers"), `/*

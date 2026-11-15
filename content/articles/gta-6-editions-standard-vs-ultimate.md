@@ -2,6 +2,7 @@
 title: "GTA 6 Editions Explained: Standard vs Ultimate Edition"
 seoTitle: "GTA 6 Standard vs Ultimate Edition: Price & Contents"
 description: "Every GTA VI edition, what's actually in the Ultimate Edition, confirmed prices, which editions come on a code-in-box, and how to upgrade later."
+answer: "There are two editions: **Standard** ($79.99 US, digital or code-in-box) and **Ultimate** (digital only, reported at $99.99), which adds vehicles, weapons, shops and outfits spread through the story. You can upgrade from Standard to Ultimate later."
 category: guides
 status: published
 confidence: mixed

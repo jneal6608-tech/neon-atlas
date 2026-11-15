@@ -2,6 +2,7 @@
 title: "Does the GTA 6 Physical Copy Have a Disc? What's Actually in the Box"
 seoTitle: "GTA 6 Physical Copy: No Disc, Download Code Only"
 description: "GTA VI's physical edition contains a download code, not a disc. What that means for internet, storage, region locks and resale, according to Rockstar."
+answer: "**No disc.** Rockstar says the physical GTA VI box contains only a **download code**, so you still download the whole game, with an internet connection and a platform account."
 category: guides
 status: published
 confidence: confirmed
