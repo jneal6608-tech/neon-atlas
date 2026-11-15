@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 // Watches Rockstar's official GTA VI pages and reports what changed, so a new announcement reaches the site first.
 //   node tools/watch-official.mjs          check now; prints added/removed lines; updates data/watch-state.json
-// In CI (.github/workflows/watch.yml) it runs every 15 minutes. Changes are written to reports/watch-changes.json,
-// which tools/auto-update.mjs turns into live-feed entries (only what Rockstar's own pages now say).
-// The snapshot file is only rewritten when a page's text actually changes, so quiet checks make no commits.
+// In CI (.github/workflows/watch.yml) it runs every 15 minutes and opens a GitHub issue when something changes,
+// which notifies you by email/app. A change is a lead to verify, not something to publish automatically.
 import fs from "node:fs";
 import path from "node:path";
 import { ROOT } from "../src/content.mjs";
@@ -44,12 +43,10 @@ for (const t of TARGETS) {
       const added = lines.filter((l) => !old.has(l)), removed = prev.lines.filter((l) => !now.has(l));
       if (added.length || removed.length) changes.push({ ...t, added, removed });
     }
-    if (!prev || changes.some((c) => c.id === t.id)) state[t.id] = { lines, checked: new Date().toISOString(), url: t.url };
+    state[t.id] = { lines, checked: new Date().toISOString(), url: t.url };
   } catch (e) { failures.push(`${t.name}: ${e.message}`); }
 }
 fs.writeFileSync(STATE, JSON.stringify(state, null, 1) + "\n");
-fs.mkdirSync(path.join(ROOT, "reports"), { recursive: true });
-fs.writeFileSync(path.join(ROOT, "reports/watch-changes.json"), JSON.stringify({ checked: new Date().toISOString(), changes: changes.map(({ id, name, url, added, removed }) => ({ id, name, url, added, removed })), failures }, null, 1) + "\n");
 
 let md = "";
 for (const c of changes) {
@@ -59,6 +56,7 @@ for (const c of changes) {
 }
 if (changes.length) {
   md = `Rockstar changed ${changes.length} official page(s). Verify, then update the affected guides and the live feed (\`node tools/ship.mjs <slug> --live "..."\`).\n\n${md}`;
+  fs.mkdirSync(path.join(ROOT, "reports"), { recursive: true });
   fs.writeFileSync(path.join(ROOT, "reports/watch-latest.md"), md);
   console.log(md);
 } else console.log(`No changes on ${TARGETS.length - failures.length} page(s) checked.${Object.keys(state).length && !changes.length ? "" : ""}`);

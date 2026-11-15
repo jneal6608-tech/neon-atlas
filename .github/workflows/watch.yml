@@ -1,16 +1,9 @@
-# Every 15 minutes: check Rockstar's official GTA VI pages and update the site by itself when something new appears.
-#   1. tools/watch-official.mjs compares the official pages with the last snapshot (data/watch-state.json).
-#   2. tools/auto-update.mjs asks Claude whether the change is real news and, if so, writes a "confirmed" entry
-#      (stating only what Rockstar's page now says, with the source) to the live feed in data/live.json.
-#   3. The site is rebuilt and checked, the change is committed to main, and the site is deployed.
-# Quiet checks change nothing and make no commits. GitHub may start scheduled runs a few minutes late when busy.
-# Secrets: ANTHROPIC_API_KEY (needed to publish automatically; without it a GitHub issue is opened instead),
-# and optionally CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID (deploy from here; otherwise Cloudflare's own
-# GitHub build deploys the pushed commit).
-name: Watch official sources and self-update
+# Checks Rockstar's official GTA VI pages every 15 minutes. When something changes, it opens a GitHub issue
+# (you get an email / GitHub app notification) listing the new and removed text. Verify, then ship the update.
+name: Watch official sources
+# The schedule is off: the Claude watcher session checks hourly and notifies through the Claude app instead
+# (GitHub issue alerts aren't read). To turn this back on, restore:  schedule: [{cron: "*/15 * * * *"}]
 on:
-  schedule:
-    - cron: "*/15 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -21,54 +14,23 @@ concurrency:
 jobs:
   watch:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      HAS_CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm ci --omit=dev   # includes the optional Anthropic SDK
-      - name: Check Rockstar's official pages
-        id: watch
+      - run: npm ci --omit=optional --omit=dev
+      - id: watch
         run: node tools/watch-official.mjs
-      - name: Write live updates from any real change
-        id: auto
+      - name: Open an alert issue
         if: steps.watch.outputs.changed == 'true'
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node tools/auto-update.mjs
-      - name: Build and check the site
-        if: steps.auto.outputs.published == 'true'
-        run: npm run build && node tools/check.mjs
-      - name: Commit the update (or just the new snapshot)
-        if: steps.watch.outputs.changed == 'true'
-        env:
-          SUMMARY: ${{ steps.auto.outputs.summary }}
-          PUBLISHED: ${{ steps.auto.outputs.published }}
-        run: |
-          git config user.name "neon-atlas-watch"
-          git config user.email "watch@users.noreply.github.com"
-          git add data/watch-state.json data/live.json
-          if git diff --cached --quiet; then exit 0; fi
-          if [ "$PUBLISHED" = "true" ]; then MSG="Live update: ${SUMMARY}"; else MSG="Update official-source snapshot [skip ci]"; fi
-          git commit -m "$MSG"
-          for i in 1 2 3 4; do git pull --rebase -q && git push && break; sleep $((i * 5)); done
-      - name: Deploy to the Cloudflare Worker
-        if: steps.auto.outputs.published == 'true' && env.HAS_CF_TOKEN == 'true'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
-      - name: Tell Bing and IndexNow engines about the new live update
-        if: steps.auto.outputs.published == 'true'
-        run: node tools/indexnow.mjs
-        continue-on-error: true
-      - name: Open an alert issue when a change could not be handled automatically
-        if: steps.auto.outputs.needs_review == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh issue create --title "Rockstar updated an official GTA VI page ($(date -u +'%b %d %H:%M') UTC)" --body-file reports/watch-latest.md --label "official-update" || gh issue create --title "Rockstar updated an official GTA VI page ($(date -u +'%b %d %H:%M') UTC)" --body-file reports/watch-latest.md
+      - name: Save the new snapshot
+        run: |
+          git config user.name "neon-atlas-watch"
+          git config user.email "watch@users.noreply.github.com"
+          git add data/watch-state.json
+          git diff --cached --quiet || (git commit -m "Update official-source snapshot [skip ci]" && git push)

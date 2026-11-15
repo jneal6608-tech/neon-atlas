@@ -24,7 +24,6 @@ Editing in the browser (local): run `npm run cms` in one terminal and `npm run d
 | Editorial dashboard | [Decap CMS](https://decapcms.org) at `/admin/` | Free, open source, Git-based. Edit, schedule, and change status without touching code. |
 | Hosting | Cloudflare Worker `neonatlas` with static assets (free; `wrangler.jsonc`) | Global CDN, HTTPS, free plan, security headers via `_headers`. |
 | Deploys | GitHub Actions (`.github/workflows/deploy.yml`, `wrangler deploy`) | Builds and checks on every save and once a day (publishes scheduled articles). |
-| Self-updating | `.github/workflows/watch.yml` every 15 minutes | Checks Rockstar's official pages; real changes become sourced live-feed entries automatically (needs `ANTHROPIC_API_KEY`; see docs/AI-EDITORIAL.md). |
 | Search | Prebuilt JSON index + small client-side script | No server and no paid search service; works offline from the CDN. |
 | AI tools | Claude via the Anthropic SDK, **command line only** | The key stays on your computer or in CI secrets, never in the website. |
 | Analytics | Google Analytics 4 (optional) + Search Console CSV import | Free; GA loads only when an ID is configured. |
