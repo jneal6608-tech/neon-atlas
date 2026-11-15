@@ -1,6 +1,7 @@
 // Builds the whole site into dist/. Usage: node src/build.mjs   (PREVIEW=1 writes explicit index.html links
 // so the output also works from a file server that has no directory indexes.)
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { Marked } from "marked";
 import {
@@ -36,6 +37,10 @@ const LIVEFEED = (() => { try { return readJSON("data/live.json").entries.slice(
 const LIVE_URL = "/news/gta-6-launch-live/";
 const fmtLiveTime = (t) => (String(t).length > 10 ? fmtDateTime(t) : fmtDate(t));
 const OFFICIAL = (kind, slug) => (fs.existsSync(path.join(ROOT, `assets/official/${kind}/${slug}.jpg`)) ? `/assets/official/${kind}/${slug}.jpg` : null);
+// Cache-busting: /assets/* is cached for a week, so CSS and JS are linked with a fingerprint of their contents.
+// Any change gets a new URL that browsers and Cloudflare must fetch; unchanged files stay cached.
+const ver = (p) => crypto.createHash("sha256").update(fs.readFileSync(path.join(ROOT, p))).digest("hex").slice(0, 10);
+const ASSET_V = { css: ver("assets/styles.css"), js: ver("assets/site.js") };
 const abs = (p) => cfg.url.replace(/\/$/, "") + p;
 const fmtDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
@@ -174,7 +179,7 @@ ${cfg.searchConsole.googleSiteVerification ? `<meta name="google-site-verificati
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap"></noscript>
-<link rel="stylesheet" href="${href("/assets/styles.css")}">
+<link rel="stylesheet" href="${href("/assets/styles.css")}?v=${ASSET_V.css}">
 ${url === "/" && ART("home-hero") ? `<link rel="preload" as="image" href="${href(ART("home-hero"))}" fetchpriority="high">` : ""}
 ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, "\\u003c")}</script>`).join("\n")}
 ${ga ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(ga)}"></script>
@@ -213,7 +218,7 @@ ${body}
   </div>
   <div class="wrap foot-base"><p>&copy; ${NOW.getUTCFullYear()} ${esc(cfg.name)}. Facts are checked against official sources; see each page for its sources and last-verified date.</p></div>
 </footer>
-<script src="${href("/assets/site.js")}" defer></script>
+<script src="${href("/assets/site.js")}?v=${ASSET_V.js}" defer></script>
 </body>
 </html>
 `;
@@ -388,9 +393,9 @@ ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class
 <section class="fresh" aria-labelledby="fresh-h">
   <div class="fresh-head"><p class="fresh-kicker"><span class="live-dot" aria-hidden="true"></span> Always current</p><h2 id="fresh-h">Updated daily</h2><p>GTA VI news moves fast in launch week. Neon Atlas is updated every day, so the unlock times, pre-load details, patches and server status you read here are the latest we've verified.</p></div>
   <ol class="fresh-steps">
-    <li><b>Every day</b><span>We check Rockstar's official GTA VI pages, Newswire and support site for anything new or changed.</span></li>
-    <li><b>Verified first</b><span>New details are checked and labeled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong> before they go live.</span></li>
-    <li><b>Timestamped</b><span>Every page shows when it was last updated and last verified, so you always know how fresh it is.</span></li>
+    <li><b>Every day<span class="sr">:</span></b> <span>We check Rockstar's official GTA VI pages, Newswire and support site for anything new or changed.</span></li>
+    <li><b>Verified first<span class="sr">:</span></b> <span>New details are checked and labeled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong> before they go live.</span></li>
+    <li><b>Timestamped<span class="sr">:</span></b> <span>Every page shows when it was last updated and last verified, so you always know how fresh it is.</span></li>
   </ol>
   ${LIVEFEED.length ? `<p class="fresh-last">Latest update: <time datetime="${LIVEFEED[0].time}">${fmtLiveTime(LIVEFEED[0].time)}</time> · <a href="${href(LIVE_URL)}">Follow the live updates →</a></p>` : ""}
 </section>

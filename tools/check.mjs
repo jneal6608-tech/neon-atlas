@@ -43,7 +43,7 @@ for (const [u, h] of pages) {
     const href = m[1];
     if (/^(https?:|mailto:|data:)/.test(href)) continue;
     links++;
-    const [p, hash] = href.split("#");
+    const [p, hash] = href.split("?")[0].split("#");
     const target = p === "" ? u : p;
     if (target.startsWith("/assets/") || target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".svg")) {
       if (!fs.existsSync(path.join(DIST, target))) err(f, `broken asset link ${href}`);
