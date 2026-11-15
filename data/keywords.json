@@ -1,0 +1,1646 @@
+{
+ "generated": "2026-11-15",
+ "about": "Neon Atlas keyword opportunity database. No search volumes are recorded because none were measured. Demand and competition are labelled levels with their basis. Replace 'estimate' with 'measured' only when a figure comes from Search Console, Google Trends or a keyword tool, and record the source in 'notes'.",
+ "measuredSignals": [
+  {
+   "date": "2026-11",
+   "signal": "Searches for 'GTA' and 'GTA VI' reached their highest level since the June 2026 pre-order period, per a Benzinga article citing Google Trends (relative interest, not volume).",
+   "source": "https://www.benzinga.com/node/61446662"
+  },
+  {
+   "date": "2025-12",
+   "signal": "Google's 2025 Year in Search: coverage reports 'Grand Theft Auto 6' at 7th in one games list and 9th in another, behind ARC Raiders and Battlefield 6 (relative ranking, not volume).",
+   "source": "https://www.gtaboom.com/gta-6-isnt-the-most-searched-game-of-2025"
+  }
+ ],
+ "keywords": [
+  {
+   "id": "kw001",
+   "query": "gta 6 release date",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "answer-first explainer + timeline",
+   "coveredBy": "gta-6-release-date-time",
+   "notes": "Peak query category per Google year-end lists 2025; many competitors."
+  },
+  {
+   "id": "kw002",
+   "query": "gta 6 release time",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "time-zone table, clearly labelled reported/confirmed",
+   "coveredBy": "gta-6-release-date-time",
+   "notes": "10+ competitor pages seen; most state unlock times as fact without sourcing."
+  },
+  {
+   "id": "kw003",
+   "query": "what time does gta 6 unlock",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "same page (variant)",
+   "coveredBy": "gta-6-release-date-time",
+   "notes": ""
+  },
+  {
+   "id": "kw004",
+   "query": "gta 6 pre load",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "step-by-step per console",
+   "coveredBy": "gta-6-pre-load-guide",
+   "notes": ""
+  },
+  {
+   "id": "kw005",
+   "query": "gta 6 file size",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "answer + storage planning",
+   "coveredBy": "gta-6-pre-load-guide",
+   "notes": "Reported 212 GB; per-console sizes not official."
+  },
+  {
+   "id": "kw006",
+   "query": "gta 6 pre load not working",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 5,
+   "format": "troubleshooting checklist",
+   "coveredBy": "gta-6-pre-load-guide",
+   "notes": "Troubleshooting intent historically spikes on launch day (GTA V, RDR2)."
+  },
+  {
+   "id": "kw007",
+   "query": "gta 6 ultimate edition",
+   "stage": "pre-launch",
+   "intent": "commercial",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "edition comparison table",
+   "coveredBy": "gta-6-editions-standard-vs-ultimate",
+   "notes": "Most competitors list contents but not which are verified."
+  },
+  {
+   "id": "kw008",
+   "query": "gta 6 ultimate edition worth it",
+   "stage": "pre-launch",
+   "intent": "commercial",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "opinion section, clearly labelled",
+   "coveredBy": "gta-6-editions-standard-vs-ultimate",
+   "notes": ""
+  },
+  {
+   "id": "kw009",
+   "query": "gta 6 price",
+   "stage": "pre-launch",
+   "intent": "transactional",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 2,
+   "format": "short answer on editions page",
+   "coveredBy": "gta-6-editions-standard-vs-ultimate",
+   "notes": ""
+  },
+  {
+   "id": "kw010",
+   "query": "gta 6 pre order bonus",
+   "stage": "pre-launch",
+   "intent": "commercial",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "contents + eligibility table",
+   "coveredBy": "gta-6-pre-order-bonus-vintage-vice-city-pack",
+   "notes": ""
+  },
+  {
+   "id": "kw011",
+   "query": "vintage vice city pack",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "same page",
+   "coveredBy": "gta-6-pre-order-bonus-vintage-vice-city-pack",
+   "notes": "Rockstar-specific name; few dedicated pages expected."
+  },
+  {
+   "id": "kw012",
+   "query": "gta 6 free gta+ month redeem",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 5,
+   "format": "official step list + deadlines",
+   "coveredBy": "gta-6-free-month-gta-plus-redeem",
+   "notes": "Underserved: official FAQ text only on Rockstar Store."
+  },
+  {
+   "id": "kw013",
+   "query": "gta 6 physical copy disc",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "myth-buster + region lock table",
+   "coveredBy": "gta-6-physical-copy-no-disc",
+   "notes": ""
+  },
+  {
+   "id": "kw014",
+   "query": "gta 6 code in box region lock",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "now",
+   "opportunity": 5,
+   "format": "region table",
+   "coveredBy": "gta-6-physical-copy-no-disc",
+   "notes": "Underserved; costly mistake for buyers abroad."
+  },
+  {
+   "id": "kw015",
+   "query": "cancel gta 6 pre order rockstar store",
+   "stage": "pre-launch",
+   "intent": "navigational",
+   "demand": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "section in physical copy guide",
+   "coveredBy": "gta-6-physical-copy-no-disc",
+   "notes": ""
+  },
+  {
+   "id": "kw016",
+   "query": "is gta 6 on pc",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "answer + scam warning",
+   "coveredBy": "is-gta-6-on-pc",
+   "notes": ""
+  },
+  {
+   "id": "kw017",
+   "query": "gta 6 pc release date",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "same page; prediction labelled",
+   "coveredBy": "is-gta-6-on-pc",
+   "notes": "Do not publish a date; none announced."
+  },
+  {
+   "id": "kw018",
+   "query": "gta 6 ps4",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 2,
+   "format": "FAQ entry",
+   "coveredBy": "is-gta-6-on-pc",
+   "notes": ""
+  },
+  {
+   "id": "kw019",
+   "query": "gta 6 xbox series s",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "FAQ + storage note",
+   "coveredBy": "gta-6-pre-load-guide",
+   "notes": ""
+  },
+  {
+   "id": "kw020",
+   "query": "gta 6 age rating",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 4,
+   "format": "parents guide",
+   "coveredBy": "gta-6-age-rating-parents-guide",
+   "notes": ""
+  },
+  {
+   "id": "kw021",
+   "query": "gta 6 characters",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "official roster",
+   "coveredBy": "gta-6-characters",
+   "notes": ""
+  },
+  {
+   "id": "kw022",
+   "query": "gta 6 jason",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 2,
+   "format": "section",
+   "coveredBy": "gta-6-characters",
+   "notes": ""
+  },
+  {
+   "id": "kw023",
+   "query": "gta 6 lucia",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 2,
+   "format": "section",
+   "coveredBy": "gta-6-characters",
+   "notes": ""
+  },
+  {
+   "id": "kw024",
+   "query": "gta 6 real dimez",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "section",
+   "coveredBy": "gta-6-characters",
+   "notes": ""
+  },
+  {
+   "id": "kw025",
+   "query": "what is gta 6 about",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "spoiler-free story explainer",
+   "coveredBy": "gta-6-story-what-we-know",
+   "notes": ""
+  },
+  {
+   "id": "kw026",
+   "query": "gta 6 map",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "observed",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "official regions table",
+   "coveredBy": "gta-6-map-leonida-regions",
+   "notes": ""
+  },
+  {
+   "id": "kw027",
+   "query": "gta 6 map size",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "answer after measurement in game",
+   "coveredBy": "gta-6-map-leonida-regions",
+   "notes": "Do not publish estimates as facts."
+  },
+  {
+   "id": "kw028",
+   "query": "leonida",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "map page",
+   "coveredBy": "gta-6-map-leonida-regions",
+   "notes": ""
+  },
+  {
+   "id": "kw029",
+   "query": "gta 6 cars",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "vehicle database (grows after launch)",
+   "coveredBy": "gta-6-vehicles-named-so-far",
+   "notes": ""
+  },
+  {
+   "id": "kw030",
+   "query": "gta 6 online",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "what's confirmed explainer",
+   "coveredBy": null,
+   "notes": "In pipeline (fact-checking). Nothing official yet."
+  },
+  {
+   "id": "kw031",
+   "query": "gta 6 news",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "now",
+   "opportunity": 2,
+   "format": "daily-updated hub",
+   "coveredBy": "gta-6-launch-week-everything-confirmed",
+   "notes": ""
+  },
+  {
+   "id": "kw032",
+   "query": "gta 6 trailer 3",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "now",
+   "opportunity": 1,
+   "format": "skip: launch trailer already out; low value",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw033",
+   "query": "gta 6 launch trailer",
+   "stage": "pre-launch",
+   "intent": "navigational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "now",
+   "opportunity": 1,
+   "format": "link out to official",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw034",
+   "query": "gta 6 soundtrack",
+   "stage": "pre-launch",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "radio + soundtrack list from official music page",
+   "coveredBy": null,
+   "notes": "Official music page exists; verify list before writing."
+  },
+  {
+   "id": "kw035",
+   "query": "gta 6 collectors edition",
+   "stage": "pre-launch",
+   "intent": "commercial",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "now",
+   "opportunity": 3,
+   "format": "what's in the Vice City Collection box",
+   "coveredBy": null,
+   "notes": "Verify on Rockstar Store merch page."
+  },
+  {
+   "id": "kw036",
+   "query": "gta 6 servers down",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "live status explainer + official status links",
+   "coveredBy": null,
+   "notes": "Only if online services exist; link Rockstar Service Status."
+  },
+  {
+   "id": "kw037",
+   "query": "gta 6 stuck on loading screen",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 5,
+   "format": "troubleshooting",
+   "coveredBy": null,
+   "notes": "Historically big for GTA V/RDR2 launches."
+  },
+  {
+   "id": "kw038",
+   "query": "gta 6 crashing ps5",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 5,
+   "format": "troubleshooting",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw039",
+   "query": "gta 6 day one patch size",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "update page",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw040",
+   "query": "gta 6 controls",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "PS5 + Xbox tables",
+   "coveredBy": "gta-6-controls-ps5-xbox",
+   "notes": "Research status: needs the game."
+  },
+  {
+   "id": "kw041",
+   "query": "gta 6 best settings",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "settings guide (performance/quality modes)",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw042",
+   "query": "gta 6 performance mode",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "30 vs 60 fps modes, if any",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw043",
+   "query": "gta 6 how to save",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 5,
+   "format": "short how-to",
+   "coveredBy": null,
+   "notes": "RDR2-era query pattern: saving is a top beginner question."
+  },
+  {
+   "id": "kw044",
+   "query": "gta 6 beginner tips",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "tips list (verified)",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw045",
+   "query": "gta 6 how to switch characters",
+   "stage": "launch-day",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "after-launch",
+   "opportunity": 5,
+   "format": "how-to",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw046",
+   "query": "gta 6 how long to beat",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "our measured playtime + method",
+   "coveredBy": null,
+   "notes": "Publish only from our own playthrough timing."
+  },
+  {
+   "id": "kw047",
+   "query": "gta 6 mission list",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "mission hub",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw048",
+   "query": "gta 6 how many missions",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "FAQ on mission hub",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw049",
+   "query": "gta 6 cheats",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "unknown",
+   "opportunity": 3,
+   "format": "cheat list if cheats exist",
+   "coveredBy": null,
+   "notes": "GTA V cheat queries were among its biggest evergreen terms."
+  },
+  {
+   "id": "kw050",
+   "query": "gta 6 money glitch",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "unknown",
+   "opportunity": 2,
+   "format": "only if verified; avoid exploits that risk bans",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw051",
+   "query": "gta 6 how to make money",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 5,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "money guide",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw052",
+   "query": "gta 6 wanted level",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 5,
+   "format": "mechanic explainer",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw053",
+   "query": "gta 6 how to lose cops",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 5,
+   "format": "how-to",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw054",
+   "query": "gta 6 safehouses",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "location list",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw055",
+   "query": "gta 6 properties to buy",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "list + costs",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw056",
+   "query": "gta 6 collectibles",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "collectible hub + maps",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw057",
+   "query": "gta 6 100% completion",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "checklist",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw058",
+   "query": "gta 6 fastest car",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "tested top speed table",
+   "coveredBy": null,
+   "notes": "Only with our own tests, method stated."
+  },
+  {
+   "id": "kw059",
+   "query": "gta 6 rare cars locations",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "locations with spawn conditions",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw060",
+   "query": "gta 6 weapons list",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "database",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw061",
+   "query": "gta 6 where to find armor",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "how-to",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw062",
+   "query": "gta 6 ending explained",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "spoiler-tagged explainer",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw063",
+   "query": "gta 6 endings",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "choices and outcomes",
+   "coveredBy": null,
+   "notes": "Unconfirmed whether multiple endings exist."
+  },
+  {
+   "id": "kw064",
+   "query": "gta 6 trophies",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "trophy/achievement guide",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw065",
+   "query": "gta 6 hunting",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "guide",
+   "coveredBy": null,
+   "notes": "Mount Kalaga officially mentions hunting and fishing."
+  },
+  {
+   "id": "kw066",
+   "query": "gta 6 fishing",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "guide",
+   "coveredBy": null,
+   "notes": "Officially mentioned for Mount Kalaga."
+  },
+  {
+   "id": "kw067",
+   "query": "gta 6 scuba diving",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "guide",
+   "coveredBy": null,
+   "notes": "Official Leonida Keys imagery shows scuba divers; verify it's playable."
+  },
+  {
+   "id": "kw068",
+   "query": "gta 6 bank heists",
+   "stage": "first-month",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "heist guide",
+   "coveredBy": null,
+   "notes": "Raul is officially a bank robber; heist mechanics unconfirmed."
+  },
+  {
+   "id": "kw069",
+   "query": "gta 6 easter eggs",
+   "stage": "long-term",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "curated, credited discoveries",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw070",
+   "query": "gta 6 secrets",
+   "stage": "long-term",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "same",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw071",
+   "query": "gta 6 update",
+   "stage": "long-term",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "after-launch",
+   "opportunity": 3,
+   "format": "patch notes summaries",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw072",
+   "query": "gta 6 dlc",
+   "stage": "long-term",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "unknown",
+   "opportunity": 2,
+   "format": "only when announced",
+   "coveredBy": null,
+   "notes": ""
+  },
+  {
+   "id": "kw073",
+   "query": "gta 6 pc requirements",
+   "stage": "long-term",
+   "intent": "informational",
+   "demand": {
+    "level": "high",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 4,
+   "verifiable": "unknown",
+   "opportunity": 3,
+   "format": "publish only if official",
+   "coveredBy": null,
+   "notes": "No PC version announced."
+  },
+  {
+   "id": "kw074",
+   "query": "gta 6 gta+ benefits",
+   "stage": "long-term",
+   "intent": "informational",
+   "demand": {
+    "level": "medium",
+    "basis": "estimate",
+    "method": "Relative estimate from GTA V / RDR2 launch-era query patterns and current coverage; no keyword tool used."
+   },
+   "competition": {
+    "level": "low",
+    "basis": "estimate",
+    "method": "observed = competing pages seen in web search results on 2026-11-15; estimate = expected"
+   },
+   "likelihood": 3,
+   "verifiable": "after-launch",
+   "opportunity": 4,
+   "format": "what GTA+ includes",
+   "coveredBy": null,
+   "notes": ""
+  }
+ ]
+}

@@ -1,0 +1,629 @@
+{
+ "generated": "2026-11-15",
+ "items": [
+  {
+   "id": "bl001",
+   "title": "GTA 6 Release Date and Unlock Time: What's Confirmed",
+   "targetQuery": "gta 6 release date",
+   "intent": "informational",
+   "outline": [
+    "Answer: Nov 19, 2026, PS5/Xbox Series",
+    "Unlock time: reported vs confirmed",
+    "US time-zone table (labelled calculation)",
+    "How to find your exact time",
+    "Timeline",
+    "Launch-night prep"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI",
+    "https://store.rockstargames.com/game/buy-gta-vi"
+   ],
+   "originalValue": "Only page we've seen that separates confirmed from reported unlock times",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-release-date-time"
+  },
+  {
+   "id": "bl002",
+   "title": "How to Pre-Load GTA 6 on PS5 and Xbox",
+   "targetQuery": "gta 6 pre load",
+   "intent": "informational",
+   "outline": [
+    "Answer: open since Nov 10",
+    "Size (reported 212 GB)",
+    "PS5 steps",
+    "Xbox steps",
+    "Free space",
+    "Troubleshooting"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI",
+    "https://store.rockstargames.com/game/buy-gta-vi"
+   ],
+   "originalValue": "Steps + storage planning + troubleshooting in one page",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-pre-load-guide"
+  },
+  {
+   "id": "bl003",
+   "title": "GTA 6 Editions Explained: Standard vs Ultimate",
+   "targetQuery": "gta 6 ultimate edition",
+   "intent": "commercial",
+   "outline": [
+    "Answer: two editions",
+    "Comparison table",
+    "Ultimate contents (verbatim names)",
+    "Which to buy (labelled opinion)",
+    "Upgrading later",
+    "Collector's box"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI/editions",
+    "https://store.rockstargames.com/game/buy-gta-vi"
+   ],
+   "originalValue": "Verbatim official item names; flags where Rockstar's own pages differ",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-editions-standard-vs-ultimate"
+  },
+  {
+   "id": "bl004",
+   "title": "GTA 6 Pre-Order Bonus: Vintage Vice City Pack",
+   "targetQuery": "gta 6 pre order bonus",
+   "intent": "commercial",
+   "outline": [
+    "Answer + deadline",
+    "Contents",
+    "Eligibility table",
+    "Deadline explained",
+    "In-game delivery (prediction labelled)"
+   ],
+   "verifiedSources": [
+    "https://store.rockstargames.com/game/buy-gta-vi",
+    "https://www.rockstargames.com/VI/editions"
+   ],
+   "originalValue": "Eligibility table across purchase types",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-pre-order-bonus-vintage-vice-city-pack"
+  },
+  {
+   "id": "bl005",
+   "title": "How to Redeem the Free Month of GTA+",
+   "targetQuery": "gta 6 free gta+ redeem",
+   "intent": "informational",
+   "outline": [
+    "Eligibility",
+    "PS5 steps + deadline",
+    "Xbox steps + deadline",
+    "When to redeem"
+   ],
+   "verifiedSources": [
+    "https://store.rockstargames.com/game/buy-gta-vi"
+   ],
+   "originalValue": "Official steps buried in a store FAQ, made findable",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-free-month-gta-plus-redeem"
+  },
+  {
+   "id": "bl006",
+   "title": "Does the GTA 6 Physical Copy Have a Disc?",
+   "targetQuery": "gta 6 physical copy disc",
+   "intent": "informational",
+   "outline": [
+    "Answer: no disc, code only",
+    "What it means",
+    "PlayStation region lock table",
+    "Shipping and cancellations",
+    "Resale"
+   ],
+   "verifiedSources": [
+    "https://store.rockstargames.com/game/buy-gta-vi",
+    "https://www.rockstargames.com/VI/editions"
+   ],
+   "originalValue": "Region-lock table almost nobody covers",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-physical-copy-no-disc"
+  },
+  {
+   "id": "bl007",
+   "title": "Is GTA 6 on PC?",
+   "targetQuery": "is gta 6 on pc",
+   "intent": "informational",
+   "outline": [
+    "Answer: no",
+    "Other platforms",
+    "Prediction (labelled)",
+    "Scam warning",
+    "Options for PC players"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI",
+    "https://store.rockstargames.com/game/buy-gta-vi"
+   ],
+   "originalValue": "Scam-download warning adds safety value",
+   "publishable": "now",
+   "status": "published",
+   "slug": "is-gta-6-on-pc"
+  },
+  {
+   "id": "bl008",
+   "title": "GTA 6 Age Rating: A Guide for Parents",
+   "targetQuery": "gta 6 age rating",
+   "intent": "informational",
+   "outline": [
+    "Answer: 17+ (US store)",
+    "Descriptors table",
+    "Other regions",
+    "Parental controls"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI",
+    "https://store.rockstargames.com/game/buy-gta-vi",
+    "https://www.esrb.org/ratings-guide/"
+   ],
+   "originalValue": "Parent-focused, practical controls",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-age-rating-parents-guide"
+  },
+  {
+   "id": "bl009",
+   "title": "GTA 6 Characters: Every Official Character",
+   "targetQuery": "gta 6 characters",
+   "intent": "informational",
+   "outline": [
+    "Quick reference table",
+    "One section per character",
+    "How they connect"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI/only-in-leonida"
+   ],
+   "originalValue": "Only official profiles, no leak contamination",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-characters"
+  },
+  {
+   "id": "bl010",
+   "title": "GTA 6 Story: What Rockstar Has Revealed",
+   "targetQuery": "what is gta 6 about",
+   "intent": "informational",
+   "outline": [
+    "Official synopsis",
+    "What it tells us",
+    "Where leads start",
+    "Unconfirmed"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI",
+    "https://www.rockstargames.com/VI/only-in-leonida"
+   ],
+   "originalValue": "Spoiler-free promise",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-story-what-we-know"
+  },
+  {
+   "id": "bl011",
+   "title": "GTA 6 Map: Leonida and Every Official Region",
+   "targetQuery": "gta 6 map",
+   "intent": "informational",
+   "outline": [
+    "Six regions table",
+    "Other place names",
+    "Unconfirmed: size"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI/only-in-leonida"
+   ],
+   "originalValue": "Official region descriptions condensed",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-map-leonida-regions"
+  },
+  {
+   "id": "bl012",
+   "title": "GTA 6 Vehicles Named So Far",
+   "targetQuery": "gta 6 cars",
+   "intent": "informational",
+   "outline": [
+    "Named vehicles table",
+    "Unknowns",
+    "Mod shops",
+    "After launch"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI/editions",
+    "https://store.rockstargames.com/game/buy-gta-vi"
+   ],
+   "originalValue": "Seeds the vehicle database that grows after launch",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-vehicles-named-so-far"
+  },
+  {
+   "id": "bl013",
+   "title": "GTA 6 Launch Week: Everything Confirmed",
+   "targetQuery": "gta 6 news",
+   "intent": "informational",
+   "outline": [
+    "Confirmed table",
+    "Reported",
+    "Not confirmed",
+    "Official media"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI",
+    "https://www.rockstargames.com/VI/editions",
+    "https://store.rockstargames.com/game/buy-gta-vi",
+    "https://www.rockstargames.com/VI/only-in-leonida"
+   ],
+   "originalValue": "Hub page; re-verified daily",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-launch-week-everything-confirmed"
+  },
+  {
+   "id": "bl014",
+   "title": "GTA 6 Launch Night Checklist",
+   "targetQuery": "gta 6 launch checklist",
+   "intent": "informational",
+   "outline": [
+    "8-step checklist"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI",
+    "https://store.rockstargames.com/game/buy-gta-vi"
+   ],
+   "originalValue": "Scheduled for Nov 18",
+   "publishable": "now",
+   "status": "published",
+   "slug": "gta-6-launch-night-checklist"
+  },
+  {
+   "id": "bl015",
+   "title": "GTA 6 Soundtrack and Radio Stations",
+   "targetQuery": "gta 6 soundtrack",
+   "intent": "informational",
+   "outline": [
+    "Answer: where to listen officially",
+    "Stations Rockstar has named",
+    "Score vs soundtrack",
+    "After launch: full tracklists"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI/music"
+   ],
+   "originalValue": "Verify the official music page before writing; track lists only from official sources",
+   "publishable": "now",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl016",
+   "title": "What's in the GTA 6 Vice City Collection Collector's Box",
+   "targetQuery": "gta 6 collectors edition",
+   "intent": "commercial",
+   "outline": [
+    "Answer",
+    "Contents (official)",
+    "Price and availability",
+    "Is it a game edition? (no)"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI"
+   ],
+   "originalValue": "Clears up confusion between merch and editions",
+   "publishable": "now",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl017",
+   "title": "Does GTA 6 Have GTA Online?",
+   "targetQuery": "gta 6 online",
+   "intent": "informational",
+   "outline": [
+    "Short answer",
+    "Confirmed",
+    "Not confirmed",
+    "What GTA+ is"
+   ],
+   "verifiedSources": [
+    "https://store.rockstargames.com/game/buy-gta-vi"
+   ],
+   "originalValue": "Honest status page; hold until launch-day verification",
+   "publishable": "requires gameplay verification",
+   "status": "fact-checking",
+   "slug": "gta-6-online-what-we-know"
+  },
+  {
+   "id": "bl018",
+   "title": "GTA 6 Controls for PS5 and Xbox",
+   "targetQuery": "gta 6 controls",
+   "intent": "informational",
+   "outline": [
+    "Core table",
+    "On foot",
+    "Driving",
+    "Combat",
+    "Phone/menus",
+    "Settings to change"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Verified on both consoles",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": "gta-6-controls-ps5-xbox"
+  },
+  {
+   "id": "bl019",
+   "title": "GTA 6 Best Settings (Graphics Modes, Camera, Aim)",
+   "targetQuery": "gta 6 best settings",
+   "intent": "informational",
+   "outline": [
+    "Answer: our recommended settings",
+    "Graphics/performance modes",
+    "Camera and aim",
+    "Accessibility"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Tested recommendations with reasons",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl020",
+   "title": "How to Save in GTA 6",
+   "targetQuery": "gta 6 how to save",
+   "intent": "informational",
+   "outline": [
+    "Answer",
+    "Autosave",
+    "Manual save",
+    "Cloud saves"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Fast answer to a top beginner question",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl021",
+   "title": "How to Switch Between Jason and Lucia",
+   "targetQuery": "gta 6 how to switch characters",
+   "intent": "informational",
+   "outline": [
+    "Answer",
+    "When switching unlocks",
+    "Button",
+    "Limits"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Answer-first, verified on both consoles",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl022",
+   "title": "GTA 6 Beginner Tips: 15 Things to Know",
+   "targetQuery": "gta 6 beginner tips",
+   "intent": "informational",
+   "outline": [
+    "Tips verified in first 10 hours"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Only tips we've verified ourselves",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl023",
+   "title": "GTA 6 Mission List (Story Order)",
+   "targetQuery": "gta 6 mission list",
+   "intent": "informational",
+   "outline": [
+    "Mission table by chapter",
+    "Links to walkthroughs",
+    "Spoiler controls"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Hub for all walkthroughs; spoiler-safe layout",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl024",
+   "title": "GTA 6 Walkthrough: Mission 1",
+   "targetQuery": "gta 6 first mission",
+   "intent": "informational",
+   "outline": [
+    "Objectives",
+    "Checkpoints",
+    "Tips",
+    "Rewards"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Template for every mission walkthrough",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl025",
+   "title": "GTA 6 Stuck on Loading Screen / Crashing: Fixes",
+   "targetQuery": "gta 6 stuck on loading screen",
+   "intent": "informational",
+   "outline": [
+    "Known issue status",
+    "Fixes in order",
+    "When to contact support"
+   ],
+   "verifiedSources": [
+    "https://support.rockstargames.com"
+   ],
+   "originalValue": "Prioritise during launch week",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl026",
+   "title": "Is GTA 6 Down? Server Status",
+   "targetQuery": "gta 6 servers down",
+   "intent": "informational",
+   "outline": [
+    "How to check official status",
+    "Known outages (dated)"
+   ],
+   "verifiedSources": [
+    "https://support.rockstargames.com"
+   ],
+   "originalValue": "Only if online services exist",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl027",
+   "title": "How Long Is GTA 6?",
+   "targetQuery": "gta 6 how long to beat",
+   "intent": "informational",
+   "outline": [
+    "Our measured story time",
+    "Completionist estimate (labelled)",
+    "Method"
+   ],
+   "verifiedSources": [],
+   "originalValue": "First-party timing from our playthrough",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl028",
+   "title": "How to Make Money Fast in GTA 6",
+   "targetQuery": "gta 6 how to make money",
+   "intent": "informational",
+   "outline": [
+    "Best early methods",
+    "Mid-game",
+    "Late game"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Tested methods with payouts",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl029",
+   "title": "GTA 6 Wanted Level Explained",
+   "targetQuery": "gta 6 wanted level",
+   "intent": "informational",
+   "outline": [
+    "How it works",
+    "How to lose it",
+    "Differences from GTA V"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Mechanics explainer",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl030",
+   "title": "GTA 6 Cheats (If They Exist)",
+   "targetQuery": "gta 6 cheats",
+   "intent": "informational",
+   "outline": [
+    "Whether cheats exist",
+    "How to enter",
+    "Full list",
+    "Trophy impact"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Huge evergreen GTA query; publish only if cheats exist",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl031",
+   "title": "GTA 6 Safehouses and Properties",
+   "targetQuery": "gta 6 safehouses",
+   "intent": "informational",
+   "outline": [
+    "Safehouse list",
+    "Buyable properties",
+    "Costs",
+    "Map"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Map-based",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl032",
+   "title": "GTA 6 Collectibles Hub",
+   "targetQuery": "gta 6 collectibles",
+   "intent": "informational",
+   "outline": [
+    "Types",
+    "Locations by region",
+    "Rewards"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Region-by-region maps",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl033",
+   "title": "GTA 6 Fastest Cars (Tested)",
+   "targetQuery": "gta 6 fastest car",
+   "intent": "informational",
+   "outline": [
+    "Our test method",
+    "Top speed table"
+   ],
+   "verifiedSources": [],
+   "originalValue": "Original testing, not copied lists",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  },
+  {
+   "id": "bl034",
+   "title": "GTA 6 Hunting and Fishing Guide",
+   "targetQuery": "gta 6 hunting",
+   "intent": "informational",
+   "outline": [
+    "Where (Mount Kalaga officially mentions both)",
+    "How",
+    "Rewards"
+   ],
+   "verifiedSources": [
+    "https://www.rockstargames.com/VI/only-in-leonida"
+   ],
+   "originalValue": "Grounded in an official region description",
+   "publishable": "requires gameplay verification",
+   "status": "research",
+   "slug": null
+  }
+ ]
+}

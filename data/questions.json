@@ -1,0 +1,12 @@
+{
+ "about": "Reader-question inbox. source: search | search-console | site-search | email | comments | social | reddit | forum. Social-only questions are flagged 'watch' rather than written up, because social popularity is not search demand.",
+ "questions": [
+  { "id": "q0001", "text": "when does gta 6 release", "source": "search", "count": 1, "added": "2026-11-15", "url": "observed in Google-question lists reported by Omelete (undated)" },
+  { "id": "q0002", "text": "which xbox will run gta 6", "source": "search", "count": 1, "added": "2026-11-15", "url": "observed in Google-question lists reported by Omelete (undated)" },
+  { "id": "q0003", "text": "how much does gta 6 cost", "source": "search", "count": 1, "added": "2026-11-15", "url": "observed in Google-question lists reported by Omelete (undated)" },
+  { "id": "q0004", "text": "what time does gta 6 unlock on the west coast", "source": "search", "count": 1, "added": "2026-11-15", "url": "topic of multiple news articles 2026-11-12/13" },
+  { "id": "q0005", "text": "is there a gta 6 day one patch", "source": "search", "count": 1, "added": "2026-11-15", "url": "topic of news articles, unconfirmed by Rockstar" },
+  { "id": "q0006", "text": "what is in the gta 6 collectors box", "source": "site-search", "count": 1, "added": "2026-11-15" },
+  { "id": "q0007", "text": "gta 6 soundtrack radio stations list", "source": "search", "count": 1, "added": "2026-11-15" }
+ ]
+}

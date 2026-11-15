@@ -1,0 +1,69 @@
+{
+  "categories": [
+    {
+      "slug": "guides",
+      "name": "Guides",
+      "description": "Practical GTA VI help: buying, pre-loading, editions, setup and beginner guides, written from verified sources.",
+      "upcoming": [
+        "Beginner tips for your first hours",
+        "Best settings on PS5 and Xbox Series X|S",
+        "How saving works"
+      ]
+    },
+    {
+      "slug": "missions",
+      "name": "Missions",
+      "description": "Mission walkthroughs for GTA VI. Every walkthrough is written from real playthroughs, never guessed.",
+      "upcoming": [
+        "Full mission list in story order",
+        "Walkthroughs with objectives and checkpoints",
+        "Choices that change outcomes, if any"
+      ]
+    },
+    {
+      "slug": "characters",
+      "name": "Characters",
+      "description": "Who's who in GTA VI, from Rockstar's official character profiles, with clear labels on anything unconfirmed.",
+      "upcoming": [
+        "Character pages updated with in-game details after launch"
+      ]
+    },
+    {
+      "slug": "locations",
+      "name": "Locations",
+      "description": "Leonida, Vice City and every officially named region of the GTA VI map.",
+      "upcoming": [
+        "Interactive map notes after launch",
+        "Safehouses and properties",
+        "Points of interest by region"
+      ]
+    },
+    {
+      "slug": "vehicles",
+      "name": "Vehicles",
+      "description": "GTA VI cars, boats and more: every vehicle Rockstar has officially named, and after launch, where to find each one and how to customise it.",
+      "upcoming": [
+        "Vehicle list with locations",
+        "Rare and hidden vehicles",
+        "Customisation shops"
+      ]
+    },
+    {
+      "slug": "gameplay",
+      "name": "Gameplay",
+      "description": "How GTA VI's systems work: controls, money, wanted levels, character switching. Published only once verified in the game.",
+      "upcoming": [
+        "Controls for PS5 and Xbox",
+        "How the wanted level works",
+        "Making money",
+        "Switching between Jason and Lucia"
+      ]
+    },
+    {
+      "slug": "news",
+      "name": "News & Updates",
+      "description": "Official GTA VI announcements and updates from Rockstar, summarised with links to the source and clear labels on anything unconfirmed.",
+      "upcoming": []
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+# Neon Atlas editorial dashboard (Decap CMS). Docs: https://decapcms.org/docs/
+# Local editing: run `npm run cms` in one terminal and `npm run dev` in another, then open http://localhost:4321/admin/
+# Online editing: see docs/DEPLOYMENT.md, "Editorial dashboard online" (GitHub backend + a free OAuth worker).
+backend:
+  name: github
+  repo: OWNER/neon-atlas          # TODO: set to your repository
+  branch: main
+  base_url: https://YOUR-OAUTH-WORKER.workers.dev   # TODO: free OAuth proxy, see docs/DEPLOYMENT.md
+local_backend: true
+
+publish_mode: simple               # our own six-status workflow lives in the "status" field
+media_folder: assets/uploads
+public_folder: /assets/uploads
+site_url: https://neonatlas.pages.dev
+logo_url: /assets/logo-512.png
+
+collections:
+  - name: articles
+    label: Articles
+    label_singular: Article
+    folder: content/articles
+    create: true
+    delete: false                  # unpublish by changing status instead, so nothing is lost
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    summary: "[{{status}}] {{title}}  ·  {{category}}  ·  updated {{updated}}"
+    sortable_fields: [updated, title, status, category]
+    view_filters:
+      - { label: "Research needed", field: status, pattern: "^research$" }
+      - { label: "Drafting", field: status, pattern: "^drafting$" }
+      - { label: "Fact-checking", field: status, pattern: "^fact-checking$" }
+      - { label: "Ready for review", field: status, pattern: "^review$" }
+      - { label: "Published", field: status, pattern: "^published$" }
+      - { label: "Needs updating", field: status, pattern: "^needs-updating$" }
+    view_groups:
+      - { label: Status, field: status }
+      - { label: Section, field: category }
+    fields:
+      - { name: title, label: Title, widget: string, hint: "Descriptive, answers a real question. Shown as the page H1." }
+      - { name: seoTitle, label: "SEO title (optional)", widget: string, required: false, hint: "Under ~60 characters. Defaults to the title." }
+      - { name: description, label: "Meta description / summary", widget: text, hint: "150–160 characters that answer the query." }
+      - name: category
+        label: Section
+        widget: select
+        options: [guides, missions, characters, locations, vehicles, gameplay, news]
+      - name: status
+        label: Status
+        widget: select
+        default: research
+        options:
+          - { label: "1. Research needed", value: research }
+          - { label: "2. Drafting", value: drafting }
+          - { label: "3. Fact-checking", value: fact-checking }
+          - { label: "4. Ready for review", value: review }
+          - { label: "5. Published", value: published }
+          - { label: "6. Needs updating (stays live, shows a notice)", value: needs-updating }
+        hint: "Only Published and Needs updating appear on the site."
+      - name: confidence
+        label: Confidence label
+        widget: select
+        default: unconfirmed
+        options:
+          - { label: "Confirmed (official sources)", value: confirmed }
+          - { label: "Confirmed + reported", value: mixed }
+          - { label: "Unconfirmed", value: unconfirmed }
+          - { label: "Prediction", value: predicted }
+      - { name: targetQuery, label: "Target search query", widget: string, required: false }
+      - { name: featured, label: "Feature on homepage", widget: boolean, default: false, required: false }
+      - { name: publishDate, label: "Publish date (future = scheduled)", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", hint: "A future date schedules the article; the daily rebuild publishes it." }
+      - { name: updated, label: "Last updated", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
+      - { name: lastVerified, label: "Facts last verified", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
+      - { name: reviewBy, label: "Re-check by", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false, hint: "The daily report flags the page on this date." }
+      - { name: image, label: "Image (optional, original or licensed only)", widget: image, required: false }
+      - { name: imageAlt, label: "Image alt text", widget: string, required: false }
+      - name: sources
+        label: Sources
+        widget: list
+        hint: "Required before publishing. Official = Rockstar or the platform holder."
+        fields:
+          - { name: type, label: Type, widget: select, options: [official, platform, reported, community] }
+          - { name: title, label: Title, widget: string }
+          - { name: url, label: URL, widget: string }
+          - { name: publisher, label: Publisher, widget: string, required: false }
+          - { name: accessed, label: Accessed, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", required: false }
+      - name: faqs
+        label: "Quick answers (FAQ)"
+        widget: list
+        required: false
+        fields:
+          - { name: q, label: Question, widget: string }
+          - { name: a, label: Answer, widget: text }
+      - name: related
+        label: "Related articles (internal links)"
+        widget: relation
+        collection: articles
+        search_fields: [title]
+        value_field: "{{slug}}"
+        display_fields: [title]
+        multiple: true
+        required: false
+      - name: updateLog
+        label: "Update history"
+        widget: list
+        required: false
+        fields:
+          - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+          - { name: note, label: "What changed", widget: string }
+      - { name: author, label: Author, widget: string, default: "Neon Atlas Editors", required: false }
+      - { name: body, label: Body, widget: markdown, hint: "Answer first. Link other articles with [text](article:slug). Callouts: > [!CONFIRMED], > [!REPORTED], > [!UNCONFIRMED], > [!PREDICTED], > [!NOTE]" }
+
+  - name: pages
+    label: Site pages
+    folder: content/pages
+    create: false
+    delete: false
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: updated, label: Updated, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: data
+    label: Editorial data
+    files:
+      - name: sections
+        label: Sections (categories)
+        file: content/categories.json
+        fields:
+          - name: categories
+            label: Sections
+            widget: list
+            fields:
+              - { name: slug, label: Slug, widget: string }
+              - { name: name, label: Name, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: upcoming, label: "Planned coverage", widget: list, required: false }
+      - name: faq
+        label: Extra site FAQs
+        file: data/faq.json
+        fields:
+          - name: items
+            label: FAQs
+            widget: list
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Answer, widget: text }
+              - { name: article, label: "Answering article (slug)", widget: string }
+      - name: questions
+        label: Reader question inbox
+        file: data/questions.json
+        fields:
+          - { name: about, label: About, widget: hidden }
+          - name: questions
+            label: Questions
+            widget: list
+            summary: "{{fields.text}} ({{fields.source}})"
+            fields:
+              - { name: id, label: ID, widget: string }
+              - { name: text, label: Question, widget: string }
+              - { name: source, label: Source, widget: select, options: [search, search-console, site-search, email, comments, social, reddit, forum] }
+              - { name: count, label: "Times seen", widget: number, default: 1 }
+              - { name: added, label: Added, widget: string }
+              - { name: assignedTo, label: "Assigned to (backlog id or slug)", widget: string, required: false }

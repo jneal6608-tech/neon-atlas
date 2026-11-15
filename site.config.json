@@ -1,0 +1,25 @@
+{
+  "name": "Neon Atlas",
+  "tagline": "The independent GTA VI guide",
+  "url": "https://neonatlas.pages.dev",
+  "language": "en",
+  "locale": "en_US",
+  "contactEmail": "hello@example.com",
+  "launchDate": "2026-11-19",
+  "formEndpoint": "",
+  "analytics": {
+    "ga4MeasurementId": ""
+  },
+  "searchConsole": {
+    "googleSiteVerification": ""
+  },
+  "ads": {
+    "enabled": false,
+    "adsenseClient": "",
+    "slots": { "inArticle": "", "articleEnd": "" }
+  },
+  "affiliate": {
+    "enabled": false
+  },
+  "stalenessDays": { "launchWindow": 3, "normal": 45 }
+}

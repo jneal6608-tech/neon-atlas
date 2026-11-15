@@ -1,0 +1,34 @@
+# Builds, checks and deploys Neon Atlas to Cloudflare Pages (free plan).
+# Runs on every push to main (including CMS saves), once a day (so scheduled articles go live on their date
+# and "facts last verified" checks stay current), and on demand from the Actions tab.
+# Needs two repository secrets: CLOUDFLARE_API_TOKEN (Pages:Edit permission) and CLOUDFLARE_ACCOUNT_ID.
+name: Build and deploy
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 5 * * *"   # 05:17 UTC daily
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=optional
+      - run: npm run build
+      - run: node tools/check.mjs
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=neon-atlas --branch=main
