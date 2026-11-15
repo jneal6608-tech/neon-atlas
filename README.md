@@ -22,8 +22,8 @@ Editing in the browser (local): run `npm run cms` in one terminal and `npm run d
 | Site generator | ~400 lines of plain Node (`src/build.mjs`), Markdown + JSON content | No framework to upgrade or break; builds in under a second; easy to read and change. |
 | Content | Markdown files with front matter (`content/articles/`), JSON data (`data/`, `content/categories.json`) | Versioned in Git: every change is tracked and reversible. |
 | Editorial dashboard | [Decap CMS](https://decapcms.org) at `/admin/` | Free, open source, Git-based. Edit, schedule, and change status without touching code. |
-| Hosting | Cloudflare Pages (free) | Global CDN, HTTPS, unlimited bandwidth on the free plan, security headers via `_headers`. |
-| Deploys | GitHub Actions (`.github/workflows/deploy.yml`) | Builds and checks on every save and once a day (publishes scheduled articles). |
+| Hosting | Cloudflare Worker `neonatlas` with static assets (free; `wrangler.jsonc`) | Global CDN, HTTPS, free plan, security headers via `_headers`. |
+| Deploys | GitHub Actions (`.github/workflows/deploy.yml`, `wrangler deploy`) | Builds and checks on every save and once a day (publishes scheduled articles). |
 | Search | Prebuilt JSON index + small client-side script | No server and no paid search service; works offline from the CDN. |
 | AI tools | Claude via the Anthropic SDK, **command line only** | The key stays on your computer or in CI secrets, never in the website. |
 | Analytics | Google Analytics 4 (optional) + Search Console CSV import | Free; GA loads only when an ID is configured. |
