@@ -17,7 +17,7 @@ sources: []
 
 TODO
 
-## Completionist estimate (labelled)
+## Completionist estimate (labeled)
 
 TODO
 

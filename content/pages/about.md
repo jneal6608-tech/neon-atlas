@@ -10,7 +10,7 @@ updated: 2026-11-15
 Big game launches drown in noise: rumours repeated as fact, old leaks presented as news, and pages that never say where their information came from. We wanted a guide that does three things consistently:
 
 1. **Answers the question first.** The answer is at the top of the page, before any background.
-2. **Shows its work.** Every page lists its sources, and every important claim is labelled *confirmed* (official), *reported* (another outlet, not yet confirmed by Rockstar), *unconfirmed* or *prediction*.
+2. **Shows its work.** Every page lists its sources, and every important claim is labeled *confirmed* (official), *reported* (another outlet, not yet confirmed by Rockstar), *unconfirmed* or *prediction*.
 3. **Stays current.** Every page shows when it was last updated and when its facts were last checked. When something changes, we update the page and note what changed.
 
 ## What we will and won't publish
@@ -21,7 +21,7 @@ Community discoveries are welcome and credited to the people who found them, onc
 
 ## How we use AI
 
-We use AI tools to help organise research, spot questions people are asking, and suggest outlines. Every published page is written or reviewed by a human editor and checked against its sources before it goes live. We never auto-publish AI-generated text. Details are in our [editorial standards](/editorial-standards/).
+We use AI tools to help organize research, spot questions people are asking, and suggest outlines. Every published page is written or reviewed by a human editor and checked against its sources before it goes live. We never auto-publish AI-generated text. Details are in our [editorial standards](/editorial-standards/).
 
 ## Artwork and official images
 

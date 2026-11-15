@@ -31,14 +31,14 @@ Rockstar's own description, in full:
 ## What that tells us
 
 - **Two leads, one partnership.** Rockstar frames the story around Jason and Lucia relying on each other. Their profiles hint at the tension: for Jason, Lucia "could be the best or worst thing"; for Lucia, Jason "could be her way out."
-- **A job that goes wrong starts it.** The synopsis calls it "an easy score". What it is hasn't been revealed.
-- **The scope is the whole state.** The conspiracy stretches "across the state of Leonida", not just Vice City. See the [official regions of Leonida](article:gta-6-map-leonida-regions).
+- **A job that goes wrong starts it.** The synopsis calls it "an easy score." What it is hasn't been revealed.
+- **The scope is the whole state.** The conspiracy stretches "across the state of Leonida," not just Vice City. See the [official regions of Leonida](article:gta-6-map-leonida-regions).
 
 ## Where the leads start
 
 From the official character profiles:
 
-- **Jason** lives in the Keys, rent-free at a property owned by smuggler **Brian Heder**, in exchange for helping with "local shakedowns".
+- **Jason** lives in the Keys, rent-free at a property owned by smuggler **Brian Heder**, in exchange for helping with "local shakedowns."
 - **Lucia** has just been released from **Leonida Penitentiary**, determined to make "only smart moves from here."
 
 ## The wider cast

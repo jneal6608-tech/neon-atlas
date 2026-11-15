@@ -37,7 +37,7 @@ faqs:
 The year prefixes ('95, '67, '55) are part of Rockstar's names.
 
 > [!NOTE]
-> Rockstar hasn't said what type of vehicle the Shitzu Squalo or Ganado Retro Build is, or which cars are in "Jason's Safehouse Vehicles" and the "Classic Car Collection". In earlier Rockstar games, Shitzu made boats and the Squalo was a speedboat, but **we're not assuming that carries over**. We'll confirm each one in the game.
+> Rockstar hasn't said what type of vehicle the Shitzu Squalo or Ganado Retro Build is, or which cars are in "Jason's Safehouse Vehicles" and the "Classic Car Collection." In earlier Rockstar games, Shitzu made boats and the Squalo was a speedboat, but **we're not assuming that carries over**. We'll confirm each one in the game.
 
 ## Vehicle-related shops
 
@@ -47,4 +47,4 @@ The Ultimate Edition also lists two mod shops, **Rideout Customs Mod Shop** and 
 
 - A full vehicle list with categories and where to find each one.
 - Rare and hidden vehicles, with locations and spawn conditions verified in the game.
-- Customisation and mod shop guides.
+- Customization and mod shop guides.

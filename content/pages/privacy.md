@@ -15,7 +15,7 @@ We don't sell personal information, and we don't knowingly collect personal info
 
 ## Advertising (if enabled)
 
-If we show ads, they may be served by Google AdSense. Google and its partners may use cookies to serve ads based on your visits to this and other websites. You can opt out of personalised advertising at [Google Ads Settings](https://adssettings.google.com/) or learn more at [How Google uses information from sites that use its services](https://policies.google.com/technologies/partner-sites). Visitors in the European Economic Area, the UK and Switzerland will be asked for consent before any advertising or analytics cookies are set.
+If we show ads, they may be served by Google AdSense. Google and its partners may use cookies to serve ads based on your visits to this and other websites. You can opt out of personalized advertising at [Google Ads Settings](https://adssettings.google.com/) or learn more at [How Google uses information from sites that use its services](https://policies.google.com/technologies/partner-sites). Visitors in the European Economic Area, the UK and Switzerland will be asked for consent before any advertising or analytics cookies are set.
 
 ## Your choices
 

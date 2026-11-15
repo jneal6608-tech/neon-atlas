@@ -48,7 +48,7 @@ Jason grew up around grifters and crooks, joined the Army to shake off a trouble
 
 ## Lucia Caminos
 
-Lucia was taught to fight by her father "as soon as she could walk". Fighting for her family landed her in the **Leonida Penitentiary** (see [the map of Leonida](article:gta-6-map-leonida-regions)); in Rockstar's words, "sheer luck got her out." Her family's history goes back to **Liberty City**, where her mother dreamed of a better life. Fresh out of prison, she's committed to her plan "no matter what it takes", and a life with Jason "could be her way out."
+Lucia was taught to fight by her father "as soon as she could walk." Fighting for her family landed her in the **Leonida Penitentiary** (see [the map of Leonida](article:gta-6-map-leonida-regions)); in Rockstar's words, "sheer luck got her out." Her family's history goes back to **Liberty City**, where her mother dreamed of a better life. Fresh out of prison, she's committed to her plan "no matter what it takes," and a life with Jason "could be her way out."
 
 ## Cal Hampton
 
@@ -68,11 +68,11 @@ Always more hustler than gangster, Dre'Quan dealt on the streets to get by, but 
 
 ## Raul Bautista
 
-A seasoned **bank robber** with "confidence, charm, and cunning", always looking for people willing to take big risks for big rewards. Rockstar warns that his "recklessness raises the stakes with every score".
+A seasoned **bank robber** with "confidence, charm, and cunning," always looking for people willing to take big risks for big rewards. Rockstar warns that his "recklessness raises the stakes with every score."
 
 ## Brian Heder
 
-A drug runner from "the golden age of smuggling in the Keys", still moving product through his **boat yard** with his third wife, **Lori**. He lets Jason live rent-free in one of his properties, as long as Jason helps with local shakedowns.
+A drug runner from "the golden age of smuggling in the Keys," still moving product through his **boat yard** with his third wife, **Lori**. He lets Jason live rent-free in one of his properties, as long as Jason helps with local shakedowns.
 
 ## How they connect
 

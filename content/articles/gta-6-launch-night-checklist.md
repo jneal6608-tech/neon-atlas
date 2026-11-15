@@ -22,7 +22,7 @@ sources:
 **Do these eight things before launch night and GTA VI will be ready the moment it unlocks.**
 
 1. **Pre-load the game.** Start the download now; see the [pre-load guide](article:gta-6-pre-load-guide).
-2. **Check the download really finished.** Open your game library and make sure GTA VI shows as installed, not "queued" or "paused".
+2. **Check the download really finished.** Open your game library and make sure GTA VI shows as installed, not "queued" or "paused."
 3. **Leave room for an update.** The install is reported at up to about 212 GB. Leave extra free space in case a launch update arrives.
 4. **Update your console.** Install pending system software updates before launch night.
 5. **Redeem physical-copy codes early.** The box contains a code, not a disc, and PlayStation codes are region-locked. See [physical copy](article:gta-6-physical-copy-no-disc).
