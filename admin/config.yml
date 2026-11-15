@@ -3,7 +3,7 @@
 # Online editing: see docs/DEPLOYMENT.md, "Editorial dashboard online" (GitHub backend + a free OAuth worker).
 backend:
   name: github
-  repo: OWNER/neon-atlas          # TODO: set to your repository
+  repo: jneal6608-tech/neon-atlas
   branch: main
   base_url: https://YOUR-OAUTH-WORKER.workers.dev   # TODO: free OAuth proxy, see docs/DEPLOYMENT.md
 local_backend: true

@@ -1,9 +1,9 @@
 # Checks Rockstar's official GTA VI pages every 15 minutes. When something changes, it opens a GitHub issue
 # (you get an email / GitHub app notification) listing the new and removed text. Verify, then ship the update.
 name: Watch official sources
+# The schedule is off: the Claude watcher session checks hourly and notifies through the Claude app instead
+# (GitHub issue alerts aren't read). To turn this back on, restore:  schedule: [{cron: "*/15 * * * *"}]
 on:
-  schedule:
-    - cron: "*/15 * * * *"
   workflow_dispatch:
 permissions:
   contents: write

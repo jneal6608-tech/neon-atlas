@@ -2,21 +2,9 @@
 
 Everything here is free. Steps marked **(parent/guardian)** involve accounts with age or payment requirements.
 
-## 1. Put the site in its own GitHub repository
+## 1. Its own GitHub repository (done)
 
-The site currently lives in `sites/neon-atlas/` of another repository. Give it a home of its own:
-
-1. Create a new **empty** repository on GitHub named `neon-atlas` (public or private both work).
-2. From this folder:
-
-```bash
-cd sites/neon-atlas
-git init -b main
-git add .
-git commit -m "Neon Atlas initial import"
-git remote add origin https://github.com/<you>/neon-atlas.git
-git push -u origin main
-```
+The site lives in its own repository, `jneal6608-tech/neon-atlas` (moved out of `animation-studio/sites/neon-atlas/` on 2026-11-15 with its full history). Run every command from the repository root.
 
 ## 2. Choose a name and domain
 
@@ -65,7 +53,7 @@ To edit from anywhere at `https://<your-site>/admin/`:
 
 1. Deploy a free GitHub OAuth proxy for Decap, for example the open-source "decap-proxy" Cloudflare Worker (search GitHub for "decap cms cloudflare oauth worker"; check its licence and code before deploying).
 2. Create a GitHub OAuth App (Settings → Developer settings → OAuth Apps) with the callback URL the proxy's README gives, and put its client ID/secret into the worker's secrets.
-3. In `admin/config.yml` set `backend.repo` to `<you>/neon-atlas` and `backend.base_url` to the worker URL. Push.
+3. In `admin/config.yml` check `backend.repo` is `jneal6608-tech/neon-atlas` (already set) and set `backend.base_url` to the worker URL. Push.
 4. Log in at `/admin/` with GitHub. Every save is a commit, and the deploy runs automatically.
 
 ## 7. Google AdSense (parent/guardian)
