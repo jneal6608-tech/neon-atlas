@@ -23,6 +23,8 @@ To make every push to `main` go live automatically (one-time, about 5 minutes):
 3. GitHub → `jneal6608-tech/neon-atlas` → Settings → Secrets and variables → Actions → **New repository secret**: add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
 4. Actions tab → "Build and deploy" → **Run workflow** (or push to `main`). It builds, runs the checks and runs `wrangler deploy`. It also runs **daily at 05:17 UTC**, which publishes scheduled articles on their date. Until the two secrets exist, the deploy step is skipped, not failed.
 
+**Or, with no token at all (simplest):** Workers & Pages → `neonatlas` → Settings → Builds → **Connect** → GitHub → `jneal6608-tech/neon-atlas`, branch `main`, build command `npm run build`, deploy command `npx wrangler deploy`. Cloudflare then deploys every change to `main` itself. Leave the two secrets unset: the workflow still checks every push, and once a day it commits the date to `data/daily-build.txt` so Cloudflare rebuilds and scheduled articles go live on their date.
+
 Deploying by hand from a computer instead: `npm run build && npx wrangler deploy` (asks you to log in to Cloudflare the first time).
 
 Custom domain: Workers & Pages → `neonatlas` → Settings → Domains & Routes.
