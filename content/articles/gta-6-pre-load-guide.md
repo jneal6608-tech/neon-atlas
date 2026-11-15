@@ -27,7 +27,7 @@ faqs:
 **You can pre-load GTA VI right now.** Pre-loading opened on **November 10, 2026** on PlayStation 5 and Xbox Series X|S for anyone who bought the game digitally or has a code from a physical box. Plan for roughly **212 GB** of free space.
 
 > [!CONFIRMED]
-> Rockstar's Newswire announced "Grand Theft Auto VI Pre-Load Begins on November 10" (posted November 3, 2026), and the official site now shows "Pre-Load Now". The Rockstar Store says physical boxes contain a download code "to support pre-load on November 10".
+> Rockstar's Newswire announced "Grand Theft Auto VI Pre-Load Begins on November 10" (posted November 3, 2026), and the official site now shows "Pre-Load Now." The Rockstar Store says physical boxes contain a download code "to support pre-load on November 10."
 
 > [!REPORTED]
 > **Size: up to 212 GB, depending on the device.** TweakTown and Engadget both report this figure from Rockstar's pre-load announcement. We couldn't load the full Newswire post ourselves, so treat the number as reported. Rockstar hasn't published separate PS5, Series X and Series S sizes on a page we could verify.

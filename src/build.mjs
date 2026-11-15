@@ -1,6 +1,7 @@
 // Builds the whole site into dist/. Usage: node src/build.mjs   (PREVIEW=1 writes explicit index.html links
 // so the output also works from a file server that has no directory indexes.)
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { Marked } from "marked";
 import {
@@ -36,6 +37,10 @@ const LIVEFEED = (() => { try { return readJSON("data/live.json").entries.slice(
 const LIVE_URL = "/news/gta-6-launch-live/";
 const fmtLiveTime = (t) => (String(t).length > 10 ? fmtDateTime(t) : fmtDate(t));
 const OFFICIAL = (kind, slug) => (fs.existsSync(path.join(ROOT, `assets/official/${kind}/${slug}.jpg`)) ? `/assets/official/${kind}/${slug}.jpg` : null);
+// Cache-busting: /assets/* is cached for a week, so CSS and JS are linked with a fingerprint of their contents.
+// Any change gets a new URL that browsers and Cloudflare must fetch; unchanged files stay cached.
+const ver = (p) => crypto.createHash("sha256").update(fs.readFileSync(path.join(ROOT, p))).digest("hex").slice(0, 10);
+const ASSET_V = { css: ver("assets/styles.css"), js: ver("assets/site.js") };
 const abs = (p) => cfg.url.replace(/\/$/, "") + p;
 const fmtDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
@@ -52,10 +57,32 @@ function linker(fromUrl) {
   };
 }
 
+// Typographer's quotes: straight " and ' in visible text become curly quotes and apostrophes. Tags, attributes,
+// <script>, <style>, <code>, <pre> and form fields are left untouched, so links, JSON-LD and code are unaffected.
+function smartQuotes(html) {
+  let skip = 0, prev = " ";
+  return html.split(/(<[^>]+>)/).map((part) => {
+    if (part.startsWith("<")) {
+      const m = part.match(/^<(\/?)(script|style|code|pre|textarea|title)\b/i);
+      if (m) skip += m[1] ? -1 : 1;
+      if (/^<\/?(p|li|h[1-6]|td|th|div|section|figcaption|summary|br|dt|dd|blockquote)\b/i.test(part)) prev = " ";
+      return part;
+    }
+    if (skip > 0 || !part) return part;
+    const out = part.replace(/&quot;|&#39;|"|'/g, (q, i, str) => {
+      const before = i === 0 ? prev : decode(str.slice(Math.max(0, i - 6), i)).slice(-1) || prev;
+      const open = /[\s(\[{\u2014\u2013\/-]/.test(before) || before === "";
+      return q === '"' || q === "&quot;" ? (open ? "\u201c" : "\u201d") : (open ? "\u2018" : "\u2019");
+    });
+    prev = decode(part).slice(-1);
+    return out;
+  }).join("");
+}
+
 function write(urlPath, html) {
   const file = urlPath.endsWith("/") ? path.join(DIST, urlPath, "index.html") : path.join(DIST, urlPath);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, html);
+  fs.writeFileSync(file, file.endsWith(".html") ? smartQuotes(html) : html);
 }
 
 // ---------- markdown ----------
@@ -152,7 +179,7 @@ ${cfg.searchConsole.googleSiteVerification ? `<meta name="google-site-verificati
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap"></noscript>
-<link rel="stylesheet" href="${href("/assets/styles.css")}">
+<link rel="stylesheet" href="${href("/assets/styles.css")}?v=${ASSET_V.css}">
 ${url === "/" && ART("home-hero") ? `<link rel="preload" as="image" href="${href(ART("home-hero"))}" fetchpriority="high">` : ""}
 ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, "\\u003c")}</script>`).join("\n")}
 ${ga ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(ga)}"></script>
@@ -169,7 +196,7 @@ ${ads ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsb
     <nav id="site-nav" class="site-nav" aria-label="Main"><ul>${nav}</ul></nav>
     <form class="header-search" role="search" action="${href("/search/")}" method="get">
       <label class="sr" for="hq">Search the guide</label>
-      <input id="hq" name="q" type="search" placeholder="Search the guide" autocomplete="off">
+      <input id="hq" name="q" type="search" placeholder="Search" autocomplete="off">
     </form>
   </div>
 </header>
@@ -191,7 +218,7 @@ ${body}
   </div>
   <div class="wrap foot-base"><p>&copy; ${NOW.getUTCFullYear()} ${esc(cfg.name)}. Facts are checked against official sources; see each page for its sources and last-verified date.</p></div>
 </footer>
-<script src="${href("/assets/site.js")}" defer></script>
+<script src="${href("/assets/site.js")}?v=${ASSET_V.js}" defer></script>
 </body>
 </html>
 `;
@@ -218,7 +245,7 @@ function card(a, fromUrl) {
 const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Beach, Little Cuba, VC Port."], ["leonida-keys", "Leonida Keys", "A tropical archipelago next to beautiful, dangerous waters."], ["grassrivers", "Grassrivers", "A primordial expanse of mangroves, gators and worse."], ["port-gellhorn", "Port Gellhorn", "A faded vacation town with cheap motels and a new economy."], ["ambrosia", "Ambrosia", "Sugar-refinery industry town run by a biker gang."], ["mount-kalaga", "Mount Kalaga", "Hunting, fishing and off-road trails by the northern border."]];
 const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug runners"], ["lucia-caminos", "Lucia Caminos", "Fresh out of Leonida Penitentiary"], ["cal-hampton", "Cal Hampton", "Jason's paranoid friend"], ["boobie-ike", "Boobie Ike", "Vice City legend and businessman"], ["dre-quan-priest", "Dre'Quan Priest", "Only Raw Records"], ["real-dimez", "Real Dimez", "Rap duo Bae-Luxe and Roxy"], ["raul-bautista", "Raul Bautista", "Seasoned bank robber"], ["brian-heder", "Brian Heder", "Old-school Keys smuggler"]];
 function countdownHtml(compact = false) {
-  return `<div class="countdown" data-launch="${cfg.launchDate}"><span class="cd-label">GTA VI unlocks in</span><div class="cd-units" aria-live="off"><div class="cd-unit"><b data-u="d">--</b><small>days</small></div><div class="cd-unit"><b data-u="h">--</b><small>hrs</small></div><div class="cd-unit"><b data-u="m">--</b><small>min</small></div>${compact ? "" : `<div class="cd-unit"><b data-u="s">--</b><small>sec</small></div>`}</div><span class="cd-note">to midnight, Nov 19, your time (reported unlock time)</span></div>`;
+  return `<div class="countdown" data-launch="${cfg.launchDate}"><span class="cd-label">GTA VI unlocks in</span><div class="cd-units" aria-live="off"><div class="cd-unit"><b data-u="d">--</b><small>days</small></div><div class="cd-unit"><b data-u="h">--</b><small>hrs</small></div><div class="cd-unit"><b data-u="m">--</b><small>min</small></div>${compact ? "" : `<div class="cd-unit"><b data-u="s">--</b><small>sec</small></div>`}</div><span class="cd-note">Until midnight on Nov 19, your local time (reported unlock time).</span></div>`;
 }
 function video(id, label, fromUrl) {
   const href = linker(fromUrl);
@@ -226,12 +253,19 @@ function video(id, label, fromUrl) {
   // A real link to the video: plays inline on the site (site.js), and opens YouTube wherever embedding is blocked.
   return `<div class="yt" data-id="${esc(id)}"><a class="yt-play" href="https://www.youtube.com/watch?v=${esc(id)}" target="_blank" rel="noopener" aria-label="Play ${esc(label)}, official Rockstar Games video on YouTube"><img src="https://i.ytimg.com/vi/${esc(id)}/maxresdefault.jpg" data-alt-src="https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg" data-fallback="${fallback ? href(fallback) : ""}" alt="" loading="lazy" width="1280" height="720"><span class="yt-btn" aria-hidden="true"></span><span class="yt-title">${esc(label)}</span></a><p class="yt-credit">Official Rockstar Games video on YouTube. <a href="https://www.youtube.com/watch?v=${esc(id)}" rel="noopener" target="_blank" class="ext">Open on YouTube</a></p></div>`;
 }
+// Videos Rockstar hosts only in its own player (no YouTube upload we could verify): the poster links to Rockstar's page.
+function rockstarVideo(url, label, img, fromUrl) {
+  const href = linker(fromUrl);
+  return `<div class="yt yt-rockstar"><a class="yt-play" href="${esc(url)}" target="_blank" rel="noopener" aria-label="Play ${esc(label)}, official Rockstar Games video (opens Rockstar's site)"><img src="${href(img)}" alt="" loading="lazy" width="1280" height="720"><span class="yt-btn" aria-hidden="true"></span><span class="yt-title">${esc(label)}</span></a><p class="yt-credit">Official Rockstar Games video. Plays on Rockstar's site. <a href="${esc(url)}" rel="noopener" target="_blank" class="ext">Watch on rockstargames.com</a></p></div>`;
+}
+const LAUNCH_TRAILER = ["https://www.rockstargames.com/VI/launch-trailer", "Launch Trailer", "/assets/official/art/video-launch-trailer.jpg"];
 function shortcodes(html, fromUrl) {
   const href = linker(fromUrl);
   return html.replace(/<p>\{\{([a-z-]+)(?::([^}|]*))?(?:\|([^}]*))?\}\}<\/p>/g, (m, name, arg, label) => {
     switch (name) {
       case "video": return video(arg, label || "Watch the trailer", fromUrl);
-      case "videos": return `<div class="video-row">${[["QdBZY2fkU-0", "Trailer 1"], ["VQRLujxTm3c", "Trailer 2"], ["tJbzMqJGH4k", "An Extended Look"]].map(([i, l]) => video(i, l, fromUrl)).join("")}</div>`;
+      case "launchtrailer": return rockstarVideo(...LAUNCH_TRAILER, fromUrl);
+      case "videos": return `<div class="video-row">${rockstarVideo(...LAUNCH_TRAILER, fromUrl)}${[["QdBZY2fkU-0", "Trailer 1"], ["VQRLujxTm3c", "Trailer 2"], ["tJbzMqJGH4k", "An Extended Look"]].map(([i, l]) => video(i, l, fromUrl)).join("")}</div>`;
       case "countdown": return countdownHtml();
       case "regions": return `<div class="gallery">${REGIONS.map(([s, n, d]) => { const off = OFFICIAL("regions", s); return `<figure><img src="${href(off || ART("region-" + s))}" alt="${off ? `${n} in GTA VI` : `Original illustration of ${n}`}" width="960" height="540" loading="lazy"><figcaption><strong>${n}</strong>${esc(d)}${off ? `<span class="credit">Image: Rockstar Games</span>` : ""}</figcaption></figure>`; }).join("")}</div>`;
       case "characters": return `<div class="gallery people">${PEOPLE.map(([s, n, d]) => { const off = OFFICIAL("characters", s); return `<a href="${liveBy["gta-6-characters"] ? href(liveBy["gta-6-characters"].url) : ""}#${slugify(n)}"><figure><img src="${href(off || ART("char-" + s))}" alt="${off ? `${esc(n)} in GTA VI` : `Original poster-style card for ${esc(n)}`}" width="600" height="750" loading="lazy"><figcaption><strong>${esc(n)}</strong>${esc(d)}${off ? `<span class="credit">Image: Rockstar Games</span>` : ""}</figcaption></figure></a>`; }).join("")}</div>`;
@@ -298,7 +332,7 @@ ${bodyHtml}
 </div>
 ${faqs}
 <section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2>
-<p class="muted small">Official = Rockstar Games or the platform holder. Reported = another outlet's reporting we could not check against an official page; it's labelled wherever it's used.</p>
+<p class="muted small">Official = Rockstar Games or the platform holder. Reported = another outlet's reporting we could not check against an official page; it's labeled wherever it's used.</p>
 <ol>${sources}</ol>${log}
 <p class="small">Spotted an error? <a href="${href("/contact/")}">Send a correction</a>; we fix verified errors quickly and note them in the update history.</p></section>
 ${adSlot("articleEnd")}
@@ -318,7 +352,7 @@ ${relatedAll.length > 1 ? `<aside class="related" aria-labelledby="rel-h"><h2 id
       about: { "@type": "VideoGame", name: "Grand Theft Auto VI" },
     },
     crumbLD(items),
-    ...(a.faqs.length ? [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: a.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: new Marked().parseInline(f.a).replace(/<[^>]+>/g, "") } })) }] : []),
+    ...(a.faqs.length ? [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: a.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: decode(new Marked().parseInline(f.a).replace(/<[^>]+>/g, "")) } })) }] : []),
   ];
   write(a.url, layout({ url: a.url, title: a.seoTitle, description: a.description, body, jsonld: ld, ogType: "article", image: ART(`${a.slug}-share`) || a.image, imageAlt: a.title, bodyClass: "page-article", published: a.publishDate, modified: modOf(a) }));
   const plain = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
@@ -350,7 +384,7 @@ ${upcoming}</div>`;
   const body = `<section class="hero">${ART("home-hero") ? `<img class="hero-art" src="${href(ART("home-hero"))}" alt="" width="2000" height="900" fetchpriority="high">${IS_OFFICIAL(ART("home-hero")) ? `<span class="hero-credit">Image: Rockstar Games</span>` : ""}` : ""}<div class="wrap hero-inner"><div class="hero-copy">
   <p class="hero-tags"><span class="eyebrow">Unofficial GTA 6 guide · Sourced &amp; verified</span><a class="fresh-pill" href="#fresh-h"><span class="live-dot" aria-hidden="true"></span> Updated daily</a></p>
   <h1>Every GTA 6 answer, <span class="grad">checked</span> before you read it.</h1>
-  <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs drop as we play.</p>
+  <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labeled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs arrive as we play.</p>
   <form class="hero-search" role="search" action="${href("/search/")}" method="get"><label class="sr" for="q-hero">Search</label><input id="q-hero" name="q" type="search" placeholder="Try “pre-load size”, “Ultimate Edition”, “Lucia”"><button type="submit">Search</button></form>
   ${countdownHtml()}
 </div></div></section>
@@ -359,14 +393,14 @@ ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class
 <section class="fresh" aria-labelledby="fresh-h">
   <div class="fresh-head"><p class="fresh-kicker"><span class="live-dot" aria-hidden="true"></span> Always current</p><h2 id="fresh-h">Updated daily</h2><p>GTA VI news moves fast in launch week. Neon Atlas is updated every day, so the unlock times, pre-load details, patches and server status you read here are the latest we've verified.</p></div>
   <ol class="fresh-steps">
-    <li><b>Every day</b><span>We check Rockstar's official GTA VI pages, Newswire and support site for anything new or changed.</span></li>
-    <li><b>Verified first</b><span>New details are checked and labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong> before they go live.</span></li>
-    <li><b>Timestamped</b><span>Every page shows when it was last updated and last verified, so you always know how fresh it is.</span></li>
+    <li><b>Every day<span class="sr">:</span></b> <span>We check Rockstar's official GTA VI pages, Newswire and support site for anything new or changed.</span></li>
+    <li><b>Verified first<span class="sr">:</span></b> <span>New details are checked and labeled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong> before they go live.</span></li>
+    <li><b>Timestamped<span class="sr">:</span></b> <span>Every page shows when it was last updated and last verified, so you always know how fresh it is.</span></li>
   </ol>
   ${LIVEFEED.length ? `<p class="fresh-last">Latest update: <time datetime="${LIVEFEED[0].time}">${fmtLiveTime(LIVEFEED[0].time)}</time> · <a href="${href(LIVE_URL)}">Follow the live updates →</a></p>` : ""}
 </section>
 <section aria-labelledby="start-h"><h2 id="start-h" class="section-h">Start here</h2><div class="grid cards">${featured.map((a) => card(a, url)).join("")}</div></section>
-${trailers ? `<section aria-labelledby="tr-h"><h2 id="tr-h" class="section-h">Watch the official trailers</h2><p class="section-sub">All of Rockstar's GTA VI videos in one place, with what each one confirmed.</p>${shortcodes("<p>{{videos}}</p>", url)}<p><a class="btn btn-ghost" href="${href(trailers.url)}">Every trailer, explained →</a></p></section>` : ""}
+${trailers ? `<section aria-labelledby="tr-h"><h2 id="tr-h" class="section-h">Watch the official trailers</h2><p class="section-sub">All four of Rockstar's GTA VI videos in one place, newest first, with what each one confirmed.</p>${shortcodes("<p>{{videos}}</p>", url)}<p><a class="btn btn-ghost" href="${href(trailers.url)}">Every trailer, explained →</a></p></section>` : ""}
 ${map ? `<section aria-labelledby="map-h"><h2 id="map-h" class="section-h">Explore Leonida</h2><p class="section-sub">The six regions Rockstar has officially named.</p>${shortcodes("<p>{{regions}}</p>", url)}<p><a class="btn btn-ghost" href="${href(map.url)}">The full map guide →</a></p></section>` : ""}
 ${quiz ? `<section class="band" aria-labelledby="quiz-h">${ART("gta-6-character-quiz-card") ? `<img src="${href(ART("gta-6-character-quiz-card"))}" alt="" width="800" height="450" loading="lazy">` : ""}<div class="band-copy"><h2 id="quiz-h">Which GTA 6 character are you?</h2><p>Six questions, eight official characters. Find out if you're a Jason, a Lucia or a Boobie Ike.</p><a class="btn" href="${href(quiz.url)}">Take the quiz</a></div></section>` : ""}
 ${chars ? `<section aria-labelledby="ch-h"><h2 id="ch-h" class="section-h">Meet the cast</h2>${shortcodes("<p>{{characters}}</p>", chars.url).replaceAll('href="#', `href="${href(chars.url)}#`)}</section>` : ""}
@@ -379,7 +413,7 @@ ${chars ? `<section aria-labelledby="ch-h"><h2 id="ch-h" class="section-h">Meet 
     { "@context": "https://schema.org", "@type": "Organization", "@id": abs("/#org"), name: cfg.name, url: abs("/"), logo: abs("/assets/logo-512.png") },
     { "@context": "https://schema.org", "@type": "CollectionPage", name: "GTA 6 Guide", url: abs("/"), dateModified: modOf(LIVE[0] || { updated: NOW.toISOString().slice(0, 10) }), about: { "@type": "VideoGame", name: "Grand Theft Auto VI", alternateName: "GTA 6" }, isPartOf: { "@id": abs("/#website") }, mainEntity: { "@type": "ItemList", itemListElement: featured.map((a, i) => ({ "@type": "ListItem", position: i + 1, url: abs(a.url), name: a.title })) } },
   ];
-  write(url, layout({ url, title: "GTA 6 Guide: Release Time, Map, Characters & Live Updates", pageTitle: `GTA 6 Guide: Release Time, Map, Characters & Live Updates | ${cfg.name}`, description: "Independent GTA 6 guide, updated daily: unlock time, pre-load size, editions, characters and the Leonida map, with every claim sourced and labelled.", body, jsonld: ld, bodyClass: "page-home" }));
+  write(url, layout({ url, title: "GTA 6 Guide: Release Time, Map, Characters & Live Updates", pageTitle: `GTA 6 Guide: Release Time, Map, Characters & Live Updates | ${cfg.name}`, description: "Independent GTA 6 guide, updated daily: unlock time, pre-load size, editions, characters and the Leonida map, with every claim sourced and labeled.", body, jsonld: ld, bodyClass: "page-home" }));
 }
 
 // ---------- launch live updates ----------
@@ -388,7 +422,7 @@ if (LIVEFEED.length) {
   const href = linker(url);
   const items = [["Home", "/"], ["News & Updates", "/news/"], ["Launch live updates", url]];
   const entry = (e) => `<li class="live-entry" id="u-${String(e.time).replace(/[^0-9]/g, "")}"><time datetime="${e.time}">${fmtLiveTime(e.time)}</time>${e.confidence ? ` ${badge(e.confidence)}` : ""}<p>${new Marked().parseInline(e.text)}</p>${e.link ? `<p class="small"><a href="${href(e.link.startsWith("article:") ? (liveBy[e.link.slice(8)]?.url || "/") : e.link)}">${esc(e.linkText || "Full answer →")}</a></p>` : ""}</li>`;
-  const body = `<div class="wrap narrow">${crumbs(url, items)}<header class="page-head"><p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live · newest first</p><h1>GTA 6 launch: live updates</h1><p class="dek">Every confirmed GTA VI launch development as it happens: unlock times, patches, server status and new answers. Each entry is timestamped (US Eastern) and labelled.</p></header>
+  const body = `<div class="wrap narrow">${crumbs(url, items)}<header class="page-head"><p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live · newest first</p><h1>GTA 6 launch: live updates</h1><p class="dek">Every confirmed GTA VI launch development as it happens: unlock times, patches, server status and new answers. Each entry is timestamped (US Eastern) and labeled.</p></header>
 ${countdownHtml()}
 <ol class="live-list">${LIVEFEED.map(entry).join("")}</ol></div>`;
   const ld = [{ "@context": "https://schema.org", "@type": "LiveBlogPosting", headline: "GTA 6 launch: live updates", description: "Timestamped, sourced GTA VI launch updates.", url: abs(url), coverageStartTime: "2026-11-15T00:00:00-05:00", coverageEndTime: "2026-12-01T00:00:00-05:00", dateModified: String(LIVEFEED[0].time).length > 10 ? new Date(LIVEFEED[0].time).toISOString() : LIVEFEED[0].time, publisher: { "@type": "Organization", name: cfg.name, logo: { "@type": "ImageObject", url: abs("/assets/logo-512.png") } }, about: { "@type": "VideoGame", name: "Grand Theft Auto VI" }, liveBlogUpdate: LIVEFEED.slice(0, 30).map((e) => ({ "@type": "BlogPosting", headline: e.text.replace(/[*_`]/g, "").slice(0, 110), articleBody: e.text.replace(/[*_`]/g, ""), datePublished: String(e.time).length > 10 ? new Date(e.time).toISOString() : e.time })) }, crumbLD(items)];
@@ -409,7 +443,7 @@ ${countdownHtml()}
   const items = [["Home", "/"], ["FAQ", url]];
   const body = `<div class="wrap narrow">${crumbs(url, items)}<header class="page-head"><h1>GTA VI FAQ</h1><p class="dek">Short, sourced answers to the questions people ask most. Each links to the full guide with sources.</p></header>
 ${CATS.filter((c) => groups[c.slug]).map((c) => `<section aria-labelledby="fq-${c.slug}"><h2 id="fq-${c.slug}">${esc(c.name)}</h2>${groups[c.slug].map((f) => `<details><summary>${esc(f.q)}</summary><div>${new Marked().parseInline(f.a)} <a href="${href(f.article.url)}">Full answer &amp; sources →</a></div></details>`).join("")}</section>`).join("")}</div>`;
-  const faqLD = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: CATS.flatMap((c) => groups[c.slug] || []).map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: new Marked().parseInline(f.a).replace(/<[^>]+>/g, "") + ` Full answer: ${abs(f.article.url)}` } })) };
+  const faqLD = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: CATS.flatMap((c) => groups[c.slug] || []).map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: decode(new Marked().parseInline(f.a).replace(/<[^>]+>/g, "")) + ` Full answer: ${abs(f.article.url)}` } })) };
   write(url, layout({ url, title: "GTA 6 FAQ: Quick, Sourced Answers", description: "Quick answers to the most-asked GTA VI questions (release time, pre-load, editions, PC, physical copies), each linked to a sourced guide.", body, jsonld: [crumbLD(items), faqLD] }));
   for (const f of faqAll) searchIndex.push({ t: f.q, d: f.a.replace(/[*_`\[\]]/g, "").replace(/\(article:[^)]+\)/g, ""), u: f.article.url, c: "FAQ", k: f.article.confidence, h: "", b: "", q: "" });
 }

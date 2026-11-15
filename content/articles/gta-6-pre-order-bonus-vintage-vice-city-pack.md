@@ -23,7 +23,7 @@ faqs:
 **The GTA VI pre-order bonus is the Vintage Vice City Pack.** Get it by ordering **before November 20, 2026**. Rockstar describes it as "unique benefits that flash back to when the neon burned brightest."
 
 > [!CONFIRMED]
-> The Rockstar Store says: "Order before November 20 to get the Vintage Vice City Pack at no additional cost." The offer carries an asterisk whose note reads "While supplies last". The page doesn't say exactly which orders that applies to.
+> The Rockstar Store says: "Order before November 20 to get the Vintage Vice City Pack at no additional cost." The offer carries an asterisk whose note reads "While supplies last." The page doesn't say exactly which orders that applies to.
 
 ## What's in the Vintage Vice City Pack?
 

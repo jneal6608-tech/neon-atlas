@@ -56,14 +56,14 @@ p, ul, ol { margin: 0 0 1em; }
 .brand:hover { color: var(--text); }
 .logo-mark { width: 32px; height: 32px; color: var(--pink); flex: none; filter: drop-shadow(0 0 8px rgba(255, 79, 154, .7)); }
 .brand-name { font: 400 1.45rem/1 var(--display); letter-spacing: .04em; text-transform: uppercase; background: var(--sunset); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.brand-tag { font-size: .7rem; color: var(--muted); border-left: 1px solid var(--line); padding-left: 10px; line-height: 1.2; max-width: 9em; text-transform: uppercase; letter-spacing: .06em; }
+.brand-tag { font-size: .66rem; color: var(--muted); border-left: 1px solid var(--line); padding-left: 10px; line-height: 1.25; width: 8.5em; white-space: normal; text-transform: uppercase; letter-spacing: .06em; }
 .site-nav ul { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; }
 .site-nav a { display: block; padding: 8px 8px; border-radius: 8px; color: var(--muted); text-decoration: none; font-size: .84rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--text); background: var(--surface); }
 .site-nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--pink); }
 .header-search { margin-left: auto; }
 .header-search input { width: 170px; }
-@media (max-width: 1500px) { .brand-tag { display: none; } }
+@media (max-width: 1250px) { .brand-tag { display: none; } }
 input, select, textarea { font: inherit; color: var(--text); background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
 input::placeholder, textarea::placeholder { color: #a58fb8; }
 input:focus, select:focus, textarea:focus { border-color: var(--pink); outline: none; box-shadow: 0 0 0 3px rgba(255, 79, 154, .25); }
@@ -283,7 +283,7 @@ details[open] summary { color: var(--pink); }
 .yt-title { position: absolute; z-index: 2; left: 20px; right: 20px; bottom: 16px; font: 400 clamp(1.3rem, 1rem + 1.5vw, 2rem)/1.05 var(--display); text-transform: uppercase; color: #fff; }
 .yt iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 16px; display: block; }
 .yt-credit { font-size: .8rem; color: var(--muted); margin: 6px 0 0 !important; }
-.video-row { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+.video-row { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
 .video-row .yt { margin: 0; }
 
 /* pages */

@@ -14,7 +14,7 @@ export const PUBLIC_STATUSES = new Set(["published", "needs-updating"]);
 // How sure we are about the page as a whole. Individual claims also carry callouts in the body.
 export const CONFIDENCE = {
   confirmed: { label: "Confirmed", note: "Every key claim is backed by an official Rockstar source." },
-  mixed: { label: "Confirmed + reported", note: "Official facts plus clearly labelled reports from other outlets." },
+  mixed: { label: "Confirmed + reported", note: "Official facts plus clearly labeled reports from other outlets." },
   unconfirmed: { label: "Unconfirmed", note: "Not yet confirmed by Rockstar. Treat as provisional." },
   predicted: { label: "Prediction", note: "Our expectation, not a fact. Clearly marked as a prediction." },
 };

@@ -22,7 +22,7 @@ faqs:
   - { q: "Is the GTA 6 Ultimate Edition available physically?", a: "No. Rockstar lists the Ultimate Edition as **Digital** only. The Standard Edition comes as Digital or Code in Box." }
   - { q: "Can I upgrade to the Ultimate Edition later?", a: "Yes. The Rockstar Store says you can upgrade to the Ultimate Edition on PlayStation Store or Microsoft Store \"at any time\" after buying the game." }
 ---
-**There are two editions of GTA VI: Standard and Ultimate.** Both include the full game. Ultimate adds a set of in-game items that Rockstar says are "threaded across all aspects of Jason and Lucia's story". Standard is **$79.99** (US) and comes as a digital download or a code in a box. Ultimate is **digital only**.
+**There are two editions of GTA VI: Standard and Ultimate.** Both include the full game. Ultimate adds a set of in-game items that Rockstar says are "threaded across all aspects of Jason and Lucia's story." Standard is **$79.99** (US) and comes as a digital download or a code in a box. Ultimate is **digital only**.
 
 ## Side-by-side
 
@@ -67,7 +67,7 @@ These are the item names exactly as Rockstar lists them. Rockstar hasn't explain
 - PTT Youngin$ Compound (the Editions page calls it "PTT Youngin$ Illegal Goods Store")
 
 > [!NOTE]
-> We've grouped the items into categories based on their names. Rockstar doesn't group them this way. The Rockstar Store adds that Ultimate items are spread through the story, "with new items uncovered behind each chapter", so you won't get everything at the start.
+> We've grouped the items into categories based on their names. Rockstar doesn't group them this way. The Rockstar Store adds that Ultimate items are spread through the story, "with new items uncovered behind each chapter," so you won't get everything at the start.
 
 ## Which edition should you buy?
 

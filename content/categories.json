@@ -41,11 +41,11 @@
     {
       "slug": "vehicles",
       "name": "Vehicles",
-      "description": "GTA VI cars, boats and more: every vehicle Rockstar has officially named, and after launch, where to find each one and how to customise it.",
+      "description": "GTA VI cars, boats and more: every vehicle Rockstar has officially named, and after launch, where to find each one and how to customize it.",
       "upcoming": [
         "Vehicle list with locations",
         "Rare and hidden vehicles",
-        "Customisation shops"
+        "Customization shops"
       ]
     },
     {
@@ -62,7 +62,7 @@
     {
       "slug": "news",
       "name": "News & Updates",
-      "description": "Official GTA VI announcements and updates from Rockstar, summarised with links to the source and clear labels on anything unconfirmed.",
+      "description": "Official GTA VI announcements and updates from Rockstar, summarized with links to the source and clear labels on anything unconfirmed.",
       "upcoming": []
     }
   ]

@@ -53,6 +53,7 @@
   document.addEventListener("click", (e) => {
     const link = e.target.closest(".yt-play"); if (!link) return;
     const box = link.closest(".yt");
+    if (!box.dataset.id) { track("video_play", { video_id: link.href, mode: "rockstar" }); return; } // opens Rockstar's player
     track("video_play", { video_id: box.dataset.id, mode: framed ? "youtube" : "inline" });
     if (framed) return; // let the link open YouTube in a new tab
     e.preventDefault();
@@ -96,7 +97,7 @@
       const eastern = new Date(w.dataset.launch + "T05:00:00Z"); // midnight Eastern (EST, UTC-5)
       out.innerHTML = `<strong>Midnight local time (reported):</strong> Thu, Nov 19, 12:00 AM in your zone.` +
         (us ? `<br><strong>If your US store uses Eastern time (reported for some storefronts):</strong> ${fmt(eastern, tz)} your time.` : "") +
-        `<br><span class="muted small">Check the countdown on your console store's GTA VI page for your exact time.</span>`;
+        `<br><span class="muted small">Check the countdown on your console store’s GTA VI page for your exact time.</span>`;
     };
     sel.addEventListener("change", () => { show(); track("tool_use", { tool: "unlock", tz: sel.value }); }); show();
   }
@@ -186,7 +187,7 @@
   const results = $("#search-results");
   if (results) {
     const input = $("#sq"), status = $("#search-status");
-    const base = document.querySelector('link[rel="stylesheet"][href$="styles.css"]').getAttribute("href").replace(/assets\/styles\.css$/, "");
+    const base = document.querySelector('link[rel="stylesheet"][href*="assets/styles.css"]').getAttribute("href").replace(/assets\/styles\.css(\?.*)?$/, "");
     const escH = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
     const norm = (s) => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/gta ?(6|vi)\b/g, "gta6");
     let index = null;

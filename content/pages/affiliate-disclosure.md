@@ -11,6 +11,6 @@ If that changes, these rules apply:
 - Affiliate links will be marked with `rel="sponsored"`.
 - We will only link to products that are genuinely relevant to the page (for example, a storage drive in a guide about install size), and we will never recommend a product we haven't assessed honestly.
 - Affiliate relationships never change what a guide says. Prices and availability can change; always check the retailer.
-- Sponsored content, if we ever publish it, will be clearly labelled as sponsored.
+- Sponsored content, if we ever publish it, will be clearly labeled as sponsored.
 
 Questions? See the [contact page](/contact/).

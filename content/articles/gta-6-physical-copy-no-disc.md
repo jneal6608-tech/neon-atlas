@@ -29,7 +29,7 @@ faqs:
 
 - **You download the whole game either way.** A code-in-box copy needs the same free space as a digital copy (reported at up to 212 GB). See our [pre-load guide](article:gta-6-pre-load-guide).
 - **No disc drive needed.** Because there's no disc, the code works on consoles without a disc drive, as long as it's for the right platform (PS5 or Xbox Series X|S).
-- **You can pre-load it.** Rockstar says the code-in-box format exists "to support pre-load on November 10".
+- **You can pre-load it.** Rockstar says the code-in-box format exists "to support pre-load on November 10."
 - **Only the Standard Edition comes in a box.** Rockstar lists Standard as "Digital or Code in Box" and Ultimate as "Digital" only. See [editions](article:gta-6-editions-standard-vs-ultimate).
 
 ## PlayStation codes are region-locked
@@ -55,7 +55,7 @@ Rockstar doesn't list an equivalent table for Xbox codes on the page we checked.
 
 ## Can you resell or lend a code-in-box copy?
 
-A download code is usually single-use: once it's redeemed, the game is tied to that account. The store's terms mention a "single-use serial code". If resale or lending matters to you, keep that in mind before choosing a boxed copy.
+A download code is usually single-use: once it's redeemed, the game is tied to that account. The store's terms mention a "single-use serial code." If resale or lending matters to you, keep that in mind before choosing a boxed copy.
 
 > [!NOTE]
 > Retailers other than the Rockstar Store may have their own bonus and shipping terms. The details above come from the Rockstar Store only.
