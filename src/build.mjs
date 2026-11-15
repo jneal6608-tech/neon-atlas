@@ -348,7 +348,7 @@ ${upcoming}</div>`;
   const catArt = { guides: "gta-6-pre-load-guide-card", characters: "char-lucia-caminos", locations: "region-leonida-keys", missions: "region-grassrivers", vehicles: "gta-6-vehicles-named-so-far-card", gameplay: "region-port-gellhorn", news: "gta-6-launch-week-everything-confirmed-card" };
   const trailers = liveBy["gta-6-trailers"], quiz = liveBy["gta-6-character-quiz"], map = liveBy["gta-6-map-leonida-regions"], chars = liveBy["gta-6-characters"];
   const body = `<section class="hero">${ART("home-hero") ? `<img class="hero-art" src="${href(ART("home-hero"))}" alt="" width="2000" height="900" fetchpriority="high">${IS_OFFICIAL(ART("home-hero")) ? `<span class="hero-credit">Image: Rockstar Games</span>` : ""}` : ""}<div class="wrap hero-inner"><div class="hero-copy">
-  <p class="hero-tags"><span class="eyebrow">Unofficial GTA 6 guide · Sourced &amp; verified</span><a class="fresh-pill" href="#fresh-h"><span class="live-dot" aria-hidden="true"></span> Updated every 15 minutes</a></p>
+  <p class="hero-tags"><span class="eyebrow">Unofficial GTA 6 guide · Sourced &amp; verified</span><a class="fresh-pill" href="#fresh-h"><span class="live-dot" aria-hidden="true"></span> Updated daily</a></p>
   <h1>Every GTA 6 answer, <span class="grad">checked</span> before you read it.</h1>
   <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs drop as we play.</p>
   <form class="hero-search" role="search" action="${href("/search/")}" method="get"><label class="sr" for="q-hero">Search</label><input id="q-hero" name="q" type="search" placeholder="Try “pre-load size”, “Ultimate Edition”, “Lucia”"><button type="submit">Search</button></form>
@@ -357,9 +357,9 @@ ${upcoming}</div>`;
 <div class="wrap">
 ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class="live-strip-h" id="ls-h"><span class="live-dot" aria-hidden="true"></span> Live launch updates</p><ol>${LIVEFEED.slice(0, 3).map((e) => `<li><time datetime="${e.time}">${fmtLiveTime(e.time)}</time> ${new Marked().parseInline(e.text)}</li>`).join("")}</ol><a class="btn btn-ghost" href="${href(LIVE_URL)}">All live updates →</a></section>` : ""}
 <section class="fresh" aria-labelledby="fresh-h">
-  <div class="fresh-head"><p class="fresh-kicker"><span class="live-dot" aria-hidden="true"></span> Always current</p><h2 id="fresh-h">Updated every 15 minutes</h2><p>GTA VI news moves fast in launch week. Neon Atlas refreshes every 15 minutes, so the unlock times, pre-load details, patches and server status you read here are the latest we've verified.</p></div>
+  <div class="fresh-head"><p class="fresh-kicker"><span class="live-dot" aria-hidden="true"></span> Always current</p><h2 id="fresh-h">Updated daily</h2><p>GTA VI news moves fast in launch week. Neon Atlas is updated every day, so the unlock times, pre-load details, patches and server status you read here are the latest we've verified.</p></div>
   <ol class="fresh-steps">
-    <li><b>Every 15 min</b><span>We check Rockstar's official GTA VI pages, Newswire and support site for anything new or changed.</span></li>
+    <li><b>Every day</b><span>We check Rockstar's official GTA VI pages, Newswire and support site for anything new or changed.</span></li>
     <li><b>Verified first</b><span>New details are checked and labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong> before they go live.</span></li>
     <li><b>Timestamped</b><span>Every page shows when it was last updated and last verified, so you always know how fresh it is.</span></li>
   </ol>
@@ -375,11 +375,11 @@ ${chars ? `<section aria-labelledby="ch-h"><h2 id="ch-h" class="section-h">Meet 
 <section class="legend" aria-labelledby="legend-h"><h2 id="legend-h" class="section-h">How to read our labels</h2><ul class="legend-list">${Object.entries(CONFIDENCE).map(([k, v]) => `<li>${badge(k)} <span>${esc(v.note)}</span></li>`).join("")}</ul><p class="small"><a href="${href("/editorial-standards/")}">Read our editorial standards</a></p></section>
 </div>`;
   const ld = [
-    { "@context": "https://schema.org", "@type": "WebSite", "@id": abs("/#website"), name: cfg.name, alternateName: "Neon Atlas GTA 6 Guide", url: abs("/"), description: `${cfg.tagline}. Unofficial and independent. Updated every 15 minutes.`, inLanguage: cfg.language, publisher: { "@id": abs("/#org") } },
+    { "@context": "https://schema.org", "@type": "WebSite", "@id": abs("/#website"), name: cfg.name, alternateName: "Neon Atlas GTA 6 Guide", url: abs("/"), description: `${cfg.tagline}. Unofficial and independent. Updated daily.`, inLanguage: cfg.language, publisher: { "@id": abs("/#org") } },
     { "@context": "https://schema.org", "@type": "Organization", "@id": abs("/#org"), name: cfg.name, url: abs("/"), logo: abs("/assets/logo-512.png") },
     { "@context": "https://schema.org", "@type": "CollectionPage", name: "GTA 6 Guide", url: abs("/"), dateModified: modOf(LIVE[0] || { updated: NOW.toISOString().slice(0, 10) }), about: { "@type": "VideoGame", name: "Grand Theft Auto VI", alternateName: "GTA 6" }, isPartOf: { "@id": abs("/#website") }, mainEntity: { "@type": "ItemList", itemListElement: featured.map((a, i) => ({ "@type": "ListItem", position: i + 1, url: abs(a.url), name: a.title })) } },
   ];
-  write(url, layout({ url, title: "GTA 6 Guide: Release Time, Map, Characters & Live Updates", pageTitle: `GTA 6 Guide: Release Time, Map, Characters & Live Updates | ${cfg.name}`, description: "Independent GTA 6 guide, updated every 15 minutes: unlock time, pre-load size, editions, characters and the Leonida map, with every claim sourced and labelled.", body, jsonld: ld, bodyClass: "page-home" }));
+  write(url, layout({ url, title: "GTA 6 Guide: Release Time, Map, Characters & Live Updates", pageTitle: `GTA 6 Guide: Release Time, Map, Characters & Live Updates | ${cfg.name}`, description: "Independent GTA 6 guide, updated daily: unlock time, pre-load size, editions, characters and the Leonida map, with every claim sourced and labelled.", body, jsonld: ld, bodyClass: "page-home" }));
 }
 
 // ---------- launch live updates ----------
