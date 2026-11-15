@@ -16,6 +16,8 @@ sources:
   - { type: official, title: "Rockstar Store: Grand Theft Auto VI", url: "https://store.rockstargames.com/game/buy-gta-vi", publisher: "Rockstar Games", accessed: 2026-11-15 }
   - { type: reported, title: "Rockstar reveals GTA 6 pre-load times, confirms 212GB install size", url: "https://www.tweaktown.com/news/114473/rockstar-reveals-gta-6-pre-load-times-confirms-212gb-install-size/index.html", publisher: "TweakTown" }
 ---
+{{countdown}}
+
 **Do these eight things before launch night and GTA VI will be ready the moment it unlocks.**
 
 1. **Pre-load the game.** Start the download now; see the [pre-load guide](article:gta-6-pre-load-guide).

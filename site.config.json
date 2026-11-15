@@ -16,10 +16,17 @@
   "ads": {
     "enabled": false,
     "adsenseClient": "",
-    "slots": { "inArticle": "", "articleEnd": "" }
+    "slots": {
+      "inArticle": "",
+      "articleEnd": "",
+      "sidebar": ""
+    }
   },
   "affiliate": {
     "enabled": false
   },
-  "stalenessDays": { "launchWindow": 3, "normal": 45 }
+  "stalenessDays": {
+    "launchWindow": 3,
+    "normal": 45
+  }
 }

@@ -24,6 +24,10 @@ faqs:
 > [!CONFIRMED]
 > The source for this page is Rockstar's official "Only in Leonida" page, checked November 15, 2026. Quotes are Rockstar's; descriptions are our summaries.
 
+{{characters}}
+
+Which one are you? [Take the character quiz](article:gta-6-character-quiz).
+
 ## Quick reference
 
 | Character | Who they are (officially) | Connected to |

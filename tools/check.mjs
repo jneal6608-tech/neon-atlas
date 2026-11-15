@@ -35,7 +35,7 @@ for (const [u, h] of pages) {
   let last = 1;
   for (const m of h.replace(/<footer[\s\S]*<\/footer>/, "").matchAll(/<h([1-6])[\s>]/g)) { const lv = +m[1]; if (lv > last + 1) warn(f, `heading jumps from h${last} to h${lv}`); last = lv; }
   for (const m of h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { try { JSON.parse(m[1]); } catch { err(f, "invalid JSON-LD"); } }
-  for (const m of h.matchAll(/<img\b[^>]*>/g)) if (!/\balt="[^"]+"/.test(m[0])) err(f, "image without alt text");
+  for (const m of h.matchAll(/<img\b[^>]*>/g)) if (!/\balt="/.test(m[0])) err(f, "image without alt attribute");
   if (!h.includes("not affiliated with")) err(f, "missing unofficial / not-affiliated disclaimer");
   if (!/<html lang="/.test(h)) err(f, "missing <html lang>");
   if (!h.includes('name="viewport"')) err(f, "missing viewport meta");

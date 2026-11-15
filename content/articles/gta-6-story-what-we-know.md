@@ -19,6 +19,8 @@ faqs:
 ---
 **GTA VI follows Jason Duval and Lucia Caminos, a couple whose "easy score" goes wrong and drags them into a criminal conspiracy across the state of Leonida.** This page covers only what Rockstar has officially revealed before launch, so there are no story spoilers.
 
+{{video:VQRLujxTm3c|GTA VI Trailer 2}}
+
 ## The official synopsis
 
 Rockstar's own description, in full:

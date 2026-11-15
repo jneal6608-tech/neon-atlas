@@ -65,6 +65,13 @@ Only **published** and **needs-updating** appear on the site; *needs-updating* s
 - Label claims with callouts: `> [!CONFIRMED]`, `> [!REPORTED]`, `> [!UNCONFIRMED]`, `> [!PREDICTED]`, `> [!NOTE]`, `> [!WARNING]`.
 - Every published article needs `sources`, `lastVerified` and a `confidence` label.
 
+## Images and engagement features
+
+- **Artwork:** `node tools/make-art.mjs` draws original Vice City-style art (no Rockstar assets): a hero, card and social-share image for every article, plus region and character cards. For a new article, run `node tools/make-art.mjs <slug>`; the build warns if one is missing.
+- **Your own screenshots (after launch):** take them on your console (PS5: Create button; Xbox: Share button), resize to about 1600 px wide, put them in `assets/uploads/` (or upload in the CMS), and add them in Markdown with alt text: `![Lucia at the Ocean Beach safehouse](/assets/uploads/lucia-safehouse.jpg)`. Your own gameplay screenshots are the standard for guide sites; never copy images from other sites.
+- **Shortcodes** (on their own line in an article): `{{countdown}}`, `{{unlock}}` (unlock time by time zone), `{{storage}}` (will it fit?), `{{edition}}` (edition picker), `{{quiz}}` (character quiz), `{{regions}}`, `{{characters}}`, `{{videos}}` (all trailers), `{{video:YOUTUBE_ID|Title}}` (official videos only).
+- **Built in for time on site:** reading progress bar, sticky "Popular right now" sidebar, "Up next" card, "Keep reading" grid, click-to-play trailers (YouTube loads only on click, so pages stay fast), and a sidebar ad slot ready for AdSense.
+
 ## Daily maintenance (15 minutes)
 
 1. `npm run report` and work the top of "Tomorrow's priorities".

@@ -28,6 +28,8 @@ faqs:
 > [!CONFIRMED]
 > Release date: **November 19, 2026**. Platforms: **PlayStation 5** and **Xbox Series X|S**. Source: Rockstar's official GTA VI site, checked November 15, 2026.
 
+{{countdown}}
+
 ## What time does GTA 6 unlock?
 
 This is the one launch detail that isn't settled on an official page we can read directly.
@@ -45,6 +47,8 @@ Reports also suggest the US PlayStation Store may use **Eastern time** for the w
 | Pacific (PT) | 12:00 AM, Thu Nov 19 | 9:00 PM, Wed Nov 18 |
 
 The right-hand column is a **calculation from reports, not a Rockstar statement**. Outside the US, midnight local time is the consistent message across every report we've read.
+
+{{unlock}}
 
 ### How to find your exact unlock time
 

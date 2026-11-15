@@ -23,6 +23,7 @@ const warnings = [];
 // ---------- helpers ----------
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const decode = (s) => s.replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+const ART = (name) => (fs.existsSync(path.join(ROOT, `assets/art/${name}.jpg`)) ? `/assets/art/${name}.jpg` : null);
 const abs = (p) => cfg.url.replace(/\/$/, "") + p;
 const fmtDate = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
 
@@ -102,7 +103,7 @@ function layout({ url, title, description, body, jsonld = [], ogType = "website"
   const href = linker(url);
   const canonical = abs(url);
   const fullTitle = url === "/" ? `${cfg.name}: ${cfg.tagline} (Unofficial)` : `${title} | ${cfg.name}`;
-  const ogImage = abs(image || "/assets/og-default.png");
+  const ogImage = abs(image || "/assets/og-default.jpg");
   const ga = cfg.analytics.ga4MeasurementId;
   const ads = cfg.ads.enabled && cfg.ads.adsenseClient;
   const nav = NAV.map(([n, u]) => `<li><a href="${href(u)}"${url.startsWith(u) ? ' aria-current="page"' : ""}>${n}</a></li>`).join("");
@@ -124,13 +125,13 @@ ${noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="robo
 <meta property="og:locale" content="${cfg.locale}">
 ${published ? `<meta property="article:published_time" content="${published}">\n<meta property="article:modified_time" content="${modified}">` : ""}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0e13">
+<meta name="theme-color" content="#12061f">
 ${cfg.searchConsole.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(cfg.searchConsole.googleSiteVerification)}">` : ""}
 <link rel="icon" href="${href("/assets/favicon.svg")}" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="${esc(cfg.name)}" href="${href("/feed.xml")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="${href("/assets/styles.css")}">
 ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, "\\u003c")}</script>`).join("\n")}
 ${ga ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(ga)}"></script>
@@ -139,6 +140,7 @@ ${ads ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsb
 </head>
 <body class="${bodyClass}">
 <a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span></span></div>
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="${href("/")}" aria-label="${esc(cfg.name)} home">${LOGO}<span class="brand-name">${esc(cfg.name)}</span><span class="brand-tag">Unofficial GTA VI guide</span></a>
@@ -186,8 +188,38 @@ const adSlot = (name) => cfg.ads.enabled && cfg.ads.adsenseClient && cfg.ads.slo
 
 function card(a, fromUrl) {
   const href = linker(fromUrl);
-  return `<article class="card"><p class="card-meta"><a class="card-cat" href="${href("/" + a.category + "/")}">${esc(catBy[a.category].name)}</a> ${badge(a.confidence)}</p>
-<h3><a href="${href(a.url)}">${esc(a.title)}</a></h3><p>${esc(a.description)}</p><p class="card-date">Updated <time datetime="${a.updated}">${fmtDate(a.updated)}</time></p></article>`;
+  const img = ART(`${a.slug}-card`);
+  return `<article class="card">${img ? `<img class="card-img" src="${href(img)}" alt="" width="800" height="450" loading="lazy" decoding="async">` : ""}<div class="card-body"><p class="card-meta"><a class="card-cat" href="${href("/" + a.category + "/")}">${esc(catBy[a.category].name)}</a> ${badge(a.confidence)}</p>
+<h3><a href="${href(a.url)}">${esc(a.title)}</a></h3><p>${esc(a.description)}</p><p class="card-date">Updated <time datetime="${a.updated}">${fmtDate(a.updated)}</time></p></div></article>`;
+}
+
+// ---------- shortcodes: {{name}} or {{name:arg|label}} on their own line in Markdown ----------
+const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Beach, Little Cuba, VC Port."], ["leonida-keys", "Leonida Keys", "A tropical archipelago next to beautiful, dangerous waters."], ["grassrivers", "Grassrivers", "A primordial expanse of mangroves, gators and worse."], ["port-gellhorn", "Port Gellhorn", "A faded vacation town with cheap motels and a new economy."], ["ambrosia", "Ambrosia", "Sugar-refinery industry town run by a biker gang."], ["mount-kalaga", "Mount Kalaga", "Hunting, fishing and off-road trails by the northern border."]];
+const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug runners"], ["lucia-caminos", "Lucia Caminos", "Fresh out of Leonida Penitentiary"], ["cal-hampton", "Cal Hampton", "Jason's paranoid friend"], ["boobie-ike", "Boobie Ike", "Vice City legend and businessman"], ["dre-quan-priest", "Dre'Quan Priest", "Only Raw Records"], ["real-dimez", "Real Dimez", "Rap duo Bae-Luxe and Roxy"], ["raul-bautista", "Raul Bautista", "Seasoned bank robber"], ["brian-heder", "Brian Heder", "Old-school Keys smuggler"]];
+function countdownHtml(compact = false) {
+  return `<div class="countdown" data-launch="${cfg.launchDate}"><span class="cd-label">GTA VI unlocks in</span><div class="cd-units" aria-live="off"><div class="cd-unit"><b data-u="d">--</b><small>days</small></div><div class="cd-unit"><b data-u="h">--</b><small>hrs</small></div><div class="cd-unit"><b data-u="m">--</b><small>min</small></div>${compact ? "" : `<div class="cd-unit"><b data-u="s">--</b><small>sec</small></div>`}</div><span class="cd-note">to midnight, Nov 19, your time (reported unlock time)</span></div>`;
+}
+function video(id, label, fromUrl) {
+  const href = linker(fromUrl);
+  const poster = ART("gta-6-trailers-card") || ART("home-hero");
+  return `<div class="yt" data-id="${esc(id)}"><button class="yt-play" type="button" aria-label="Play ${esc(label)} (official Rockstar Games video, loads YouTube)">${poster ? `<img src="${href(poster)}" alt="" loading="lazy" width="800" height="450">` : ""}<span class="yt-btn" aria-hidden="true"></span><span class="yt-title">${esc(label)}</span></button><p class="yt-credit">Official Rockstar Games video, played from YouTube. <a href="https://www.youtube.com/watch?v=${esc(id)}" rel="noopener" class="ext">Watch on YouTube</a></p></div>`;
+}
+function shortcodes(html, fromUrl) {
+  const href = linker(fromUrl);
+  return html.replace(/<p>\{\{([a-z-]+)(?::([^}|]*))?(?:\|([^}]*))?\}\}<\/p>/g, (m, name, arg, label) => {
+    switch (name) {
+      case "video": return video(arg, label || "Watch the trailer", fromUrl);
+      case "videos": return `<div class="video-row">${[["QdBZY2fkU-0", "Trailer 1"], ["VQRLujxTm3c", "Trailer 2"], ["tJbzMqJGH4k", "An Extended Look"]].map(([i, l]) => video(i, l, fromUrl)).join("")}</div>`;
+      case "countdown": return countdownHtml();
+      case "regions": return `<div class="gallery">${REGIONS.map(([s, n, d]) => `<figure><img src="${href(ART("region-" + s))}" alt="Original illustration of ${n}" width="960" height="540" loading="lazy"><figcaption><strong>${n}</strong>${esc(d)}</figcaption></figure>`).join("")}</div>`;
+      case "characters": return `<div class="gallery people">${PEOPLE.map(([s, n, d]) => `<a href="${liveBy["gta-6-characters"] ? href(liveBy["gta-6-characters"].url) : ""}#${slugify(n)}"><figure><img src="${href(ART("char-" + s))}" alt="Original poster-style card for ${esc(n)}" width="600" height="750" loading="lazy"><figcaption><strong>${esc(n)}</strong>${esc(d)}</figcaption></figure></a>`).join("")}</div>`;
+      case "storage": return `<div class="widget" data-widget="storage"><p class="widget-h">Will GTA 6 fit on your console?</p><p>Check your free space (PS5: Settings → Storage; Xbox: Settings → System → Storage devices) and enter it below.</p><div class="row"><div><label for="w-free">Free space (GB)</label><input id="w-free" type="number" min="0" max="8000" inputmode="numeric" placeholder="e.g. 180"></div><div><label for="w-console">Console</label><select id="w-console"><option value="ps5">PS5 / PS5 Pro</option><option value="xsx">Xbox Series X</option><option value="xss">Xbox Series S</option></select></div><div style="flex:0 0 auto"><button type="button" data-act="check">Check</button></div></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
+      case "unlock": return `<div class="widget" data-widget="unlock" data-launch="${cfg.launchDate}"><p class="widget-h">When does it unlock where you live?</p><p>Pick your time zone. We show both reported scenarios, because Rockstar's exact per-region times aren't on a page we could verify.</p><div class="row"><div><label for="w-tz">Your time zone</label><select id="w-tz"></select></div></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
+      case "edition": return `<div class="widget" data-widget="edition"><p class="widget-h">Standard or Ultimate? Answer 3 questions</p><div class="quiz-box"></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
+      case "quiz": return `<div class="widget" data-widget="quiz"><p class="widget-h">Which GTA 6 character are you?</p><p>Six quick questions. Results are based on Rockstar's official character profiles. Just for fun.</p><div class="quiz-box"></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
+      default: warnings.push(`unknown shortcode {{${name}}} in ${fromUrl}`); return m;
+    }
+  });
 }
 
 // ---------- article pages ----------
@@ -208,7 +240,7 @@ for (const a of LIVE) {
   const tocHtml = toc.filter((t) => t.depth === 2).length >= 3
     ? `<nav class="toc" aria-label="On this page"><p class="toc-h">On this page</p><ol>${toc.filter((t) => t.depth === 2).map((t) => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join("")}</ol></nav>` : "";
   // put the first ad (if enabled) after the second paragraph-level block, never above the answer
-  let bodyHtml = html;
+  let bodyHtml = shortcodes(html, a.url);
   const slot = adSlot("inArticle");
   if (slot) { let n = 0; bodyHtml = bodyHtml.replace(/<\/p>\n/g, (m) => (++n === 3 ? m + slot : m)); }
   const sources = a.sources.map((s) => `<li><span class="src-type src-${esc(s.type || "reported")}">${esc(SOURCE_TYPES[s.type] || "Reported")}</span> <a href="${esc(s.url)}" rel="noopener" class="ext">${esc(s.title)}</a>${s.publisher ? ` <span class="muted">(${esc(s.publisher)})</span>` : ""}${s.accessed ? ` <span class="muted">accessed ${fmtDate(s.accessed)}</span>` : ""}</li>`).join("");
@@ -216,8 +248,18 @@ for (const a of LIVE) {
   for (const f of a.faqs) faqAll.push({ ...f, article: a });
   const needsUpdate = a.status === "needs-updating" ? `<p class="callout callout-warning" role="note"><strong>Being updated.</strong> Some details on this page may be out of date; we're re-checking it now.</p>` : "";
   const log = a.updateLog.length ? `<details class="update-log"><summary>Update history</summary><ul>${a.updateLog.map((u) => `<li><time datetime="${u.date}">${fmtDate(u.date)}</time>: ${esc(u.note)}</li>`).join("")}</ul></details>` : "";
-  const body = `<div class="wrap article-wrap">
+  const hero = ART(a.slug);
+  if (!hero) warnings.push(`${a.file}: no artwork yet. Run: node tools/make-art.mjs ${a.slug}`);
+  const next = relatedAll[0];
+  const popular = LIVE.filter((x) => x.featured && x.slug !== a.slug && x !== next).slice(0, 5);
+  const sidebar = `<aside class="sidebar" aria-label="More from Neon Atlas">
+<div class="side-box"><p class="side-h grad">Popular right now</p><div class="grid cards compact">${popular.map((p) => card(p, a.url)).join("")}</div></div>
+${adSlot("sidebar")}
+<div class="side-box"><p class="side-h">Launch countdown</p>${countdownHtml(true)}</div>
+</aside>`;
+  const body = `<div class="wrap">
 ${crumbs(a.url, items)}
+<div class="article-layout">
 <article class="article" data-slug="${a.slug}" data-category="${a.category}">
 <header class="article-head">
   <p class="eyebrow"><a href="${href("/" + cat.slug + "/")}">${esc(cat.name)}</a> ${badge(a.confidence)}</p>
@@ -225,6 +267,7 @@ ${crumbs(a.url, items)}
   <p class="dek">${esc(a.description)}</p>
   <p class="byline">By ${esc(a.author)} · Updated <time datetime="${a.updated}">${fmtDate(a.updated)}</time> · Facts last verified <time datetime="${a.lastVerified}">${fmtDate(a.lastVerified)}</time> · ${mins} min read</p>
 </header>
+${hero ? `<figure class="article-hero"><img src="${href(hero)}" alt="Original Vice City-style illustration for ${esc(a.title)}" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>Original illustration by Neon Atlas. Not official Rockstar artwork.</figcaption></figure>` : ""}
 ${needsUpdate}
 ${tocHtml}
 <div class="prose">
@@ -236,20 +279,23 @@ ${faqs}
 <ol>${sources}</ol>${log}
 <p class="small">Spotted an error? <a href="${href("/contact/")}">Send a correction</a>; we fix verified errors quickly and note them in the update history.</p></section>
 ${adSlot("articleEnd")}
+${next ? `<aside class="up-next" aria-label="Up next">${ART(`${next.slug}-card`) ? `<img src="${href(ART(`${next.slug}-card`))}" alt="" width="800" height="450" loading="lazy">` : ""}<div><p class="label">Up next</p><a href="${href(next.url)}">${esc(next.title)}</a><p>${esc(next.description)}</p></div></aside>` : ""}
 </article>
-${relatedAll.length ? `<aside class="related" aria-labelledby="rel-h"><h2 id="rel-h">Keep reading</h2><div class="grid cards">${relatedAll.map((r) => card(r, a.url)).join("")}</div></aside>` : ""}
+${sidebar}
+</div>
+${relatedAll.length > 1 ? `<aside class="related" aria-labelledby="rel-h"><h2 id="rel-h" class="section-h">Keep reading</h2><div class="grid cards">${relatedAll.slice(1).concat(LIVE.filter((x) => x.featured && x.slug !== a.slug && !relatedAll.includes(x))).slice(0, 6).map((r) => card(r, a.url)).join("")}</div></aside>` : ""}
 </div>`;
   const ld = [
     {
       "@context": "https://schema.org", "@type": "Article", headline: a.title, description: a.description,
       datePublished: a.publishDate, dateModified: a.updated, author: { "@type": "Organization", name: cfg.name, url: abs("/about/") },
       publisher: { "@type": "Organization", name: cfg.name, logo: { "@type": "ImageObject", url: abs("/assets/logo-512.png") } },
-      mainEntityOfPage: abs(a.url), image: abs(a.image || "/assets/og-default.png"), isAccessibleForFree: true,
+      mainEntityOfPage: abs(a.url), image: abs(ART(a.slug) || a.image || "/assets/og-default.jpg"), isAccessibleForFree: true,
       about: { "@type": "VideoGame", name: "Grand Theft Auto VI" },
     },
     crumbLD(items),
   ];
-  write(a.url, layout({ url: a.url, title: a.seoTitle, description: a.description, body, jsonld: ld, ogType: "article", image: a.image, bodyClass: "page-article", published: a.publishDate, modified: a.updated }));
+  write(a.url, layout({ url: a.url, title: a.seoTitle, description: a.description, body, jsonld: ld, ogType: "article", image: ART(`${a.slug}-share`) || a.image, bodyClass: "page-article", published: a.publishDate, modified: a.updated }));
   const plain = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   searchIndex.push({ t: a.title, d: a.description, u: a.url, c: cat.name, k: a.confidence, h: toc.map((t) => t.text).join(" · "), b: plain.slice(0, 1800), q: a.faqs.map((f) => f.q).join(" ") });
 }
@@ -274,18 +320,24 @@ ${upcoming}</div>`;
   const featured = LIVE.filter((a) => a.featured).slice(0, 6);
   const latest = LIVE.slice(0, 6);
   const catCounts = CATS.map((c) => ({ ...c, n: LIVE.filter((a) => a.category === c.slug).length }));
-  const body = `<section class="hero"><div class="wrap hero-inner">
-  <p class="eyebrow">Independent &amp; unofficial · Sourced and verified</p>
-  <h1>Straight answers for <span class="hl">GTA VI</span>, checked against official sources.</h1>
-  <p class="dek">Release times, pre-loading, editions, characters and the map, with every claim labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs follow once we've played them.</p>
-  <form class="hero-search" role="search" action="${href("/search/")}" method="get"><label class="sr" for="q-hero">Search</label><input id="q-hero" name="q" type="search" placeholder="Try “pre-load”, “Ultimate Edition”, “Lucia”"><button type="submit">Search</button></form>
-  <div class="countdown" data-launch="${cfg.launchDate}" aria-live="polite"><span class="cd-label">Launch</span> <strong class="cd-date">${fmtDate(cfg.launchDate)}</strong> <span class="cd-left"></span></div>
-</div></section>
+  const catArt = { guides: "gta-6-pre-load-guide-card", characters: "char-lucia-caminos", locations: "region-leonida-keys", missions: "region-grassrivers", vehicles: "gta-6-vehicles-named-so-far-card", gameplay: "region-port-gellhorn", news: "gta-6-launch-week-everything-confirmed-card" };
+  const trailers = liveBy["gta-6-trailers"], quiz = liveBy["gta-6-character-quiz"], map = liveBy["gta-6-map-leonida-regions"], chars = liveBy["gta-6-characters"];
+  const body = `<section class="hero">${ART("home-hero") ? `<img class="hero-art" src="${href(ART("home-hero"))}" alt="" width="2000" height="900" fetchpriority="high">` : ""}<div class="wrap hero-inner"><div class="hero-copy">
+  <p class="eyebrow">Unofficial GTA VI guide · Sourced &amp; verified</p>
+  <h1>Every GTA VI answer, <span class="grad">checked</span> before you read it.</h1>
+  <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs drop as we play.</p>
+  <form class="hero-search" role="search" action="${href("/search/")}" method="get"><label class="sr" for="q-hero">Search</label><input id="q-hero" name="q" type="search" placeholder="Try “pre-load size”, “Ultimate Edition”, “Lucia”"><button type="submit">Search</button></form>
+  ${countdownHtml()}
+</div></div></section>
 <div class="wrap">
 <section aria-labelledby="start-h"><h2 id="start-h" class="section-h">Start here</h2><div class="grid cards">${featured.map((a) => card(a, url)).join("")}</div></section>
-<section class="legend" aria-labelledby="legend-h"><h2 id="legend-h" class="section-h">How to read our labels</h2><ul class="legend-list">${Object.entries(CONFIDENCE).map(([k, v]) => `<li>${badge(k)} <span>${esc(v.note)}</span></li>`).join("")}</ul><p class="small"><a href="${href("/editorial-standards/")}">Read our editorial standards</a></p></section>
-<section aria-labelledby="cat-h"><h2 id="cat-h" class="section-h">Browse the guide</h2><div class="grid cats">${catCounts.map((c) => `<a class="cat-tile" href="${href("/" + c.slug + "/")}"><span class="cat-name">${esc(c.name)}</span><span class="cat-n">${c.n ? `${c.n} ${c.n === 1 ? "page" : "pages"}` : "After launch"}</span></a>`).join("")}</div></section>
+${trailers ? `<section aria-labelledby="tr-h"><h2 id="tr-h" class="section-h">Watch the official trailers</h2><p class="section-sub">All of Rockstar's GTA VI videos in one place, with what each one confirmed.</p>${shortcodes("<p>{{videos}}</p>", url)}<p><a class="btn btn-ghost" href="${href(trailers.url)}">Every trailer, explained →</a></p></section>` : ""}
+${map ? `<section aria-labelledby="map-h"><h2 id="map-h" class="section-h">Explore Leonida</h2><p class="section-sub">The six regions Rockstar has officially named.</p>${shortcodes("<p>{{regions}}</p>", url)}<p><a class="btn btn-ghost" href="${href(map.url)}">The full map guide →</a></p></section>` : ""}
+${quiz ? `<section class="band" aria-labelledby="quiz-h">${ART("gta-6-character-quiz-card") ? `<img src="${href(ART("gta-6-character-quiz-card"))}" alt="" width="800" height="450" loading="lazy">` : ""}<div class="band-copy"><h2 id="quiz-h">Which GTA 6 character are you?</h2><p>Six questions, eight official characters. Find out if you're a Jason, a Lucia or a Boobie Ike.</p><a class="btn" href="${href(quiz.url)}">Take the quiz</a></div></section>` : ""}
+${chars ? `<section aria-labelledby="ch-h"><h2 id="ch-h" class="section-h">Meet the cast</h2>${shortcodes("<p>{{characters}}</p>", chars.url).replaceAll('href="#', `href="${href(chars.url)}#`)}</section>` : ""}
+<section aria-labelledby="cat-h"><h2 id="cat-h" class="section-h">Browse the guide</h2><div class="grid cats">${catCounts.map((c) => `<a class="cat-tile" href="${href("/" + c.slug + "/")}">${ART(catArt[c.slug]) ? `<img src="${href(ART(catArt[c.slug]))}" alt="" loading="lazy" width="800" height="450">` : ""}<span class="cat-name">${esc(c.name)}</span><span class="cat-n">${c.n ? `${c.n} ${c.n === 1 ? "page" : "pages"}` : "Coming after launch"}</span></a>`).join("")}</div></section>
 <section aria-labelledby="latest-h"><h2 id="latest-h" class="section-h">Recently updated</h2><div class="grid cards">${latest.map((a) => card(a, url)).join("")}</div></section>
+<section class="legend" aria-labelledby="legend-h"><h2 id="legend-h" class="section-h">How to read our labels</h2><ul class="legend-list">${Object.entries(CONFIDENCE).map(([k, v]) => `<li>${badge(k)} <span>${esc(v.note)}</span></li>`).join("")}</ul><p class="small"><a href="${href("/editorial-standards/")}">Read our editorial standards</a></p></section>
 </div>`;
   const ld = [
     { "@context": "https://schema.org", "@type": "WebSite", name: cfg.name, url: abs("/"), description: `${cfg.tagline}. Unofficial and independent.`, inLanguage: cfg.language },

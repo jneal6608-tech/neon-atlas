@@ -26,6 +26,8 @@ faqs:
 
 ## The six official regions
 
+{{regions}}
+
 | Region | What Rockstar says about it (our summary) |
 | --- | --- |
 | **Vice City** | "The glamour, hustle, and greed of America captured in a single city." Neighbourhoods named so far: **Ocean Beach** (pastel art deco hotels, white sand), **Little Cuba** (panaderías), the **Tisha-Wocka flea market**, and **VC Port**, called "the cruise ship capital of the world". |

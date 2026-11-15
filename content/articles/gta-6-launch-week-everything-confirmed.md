@@ -60,4 +60,9 @@ If you see these presented as fact elsewhere, they're speculation until Rockstar
 
 ## Official media released for launch
 
+{{videos}}
+
+More in [every GTA 6 trailer](article:gta-6-trailers).
+
+
 Rockstar's site lists **Trailer 1**, **Trailer 2**, a **Launch Trailer** and **"An Extended Look"**, plus a **Launch Gallery** of screenshots (Newswire, November 5, 2026), the official soundtrack and score, and downloadable media. All are on Rockstar's official GTA VI site.

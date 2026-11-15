@@ -70,6 +70,8 @@ These are the item names exactly as Rockstar lists them. Rockstar hasn't explain
 
 ## Which edition should you buy?
 
+{{edition}}
+
 This is our opinion, not a recommendation from Rockstar:
 
 - **Pick Standard** if you want the game and nothing more, if you want a boxed copy (code-in-box), or if you'd rather wait and see whether the extras matter to you. You can [upgrade later](#can-you-upgrade-from-standard-to-ultimate).

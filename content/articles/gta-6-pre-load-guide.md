@@ -31,6 +31,8 @@ faqs:
 > [!REPORTED]
 > **Size: up to 212 GB, depending on the device.** TweakTown and Engadget both report this figure from Rockstar's pre-load announcement. We couldn't load the full Newswire post ourselves, so treat the number as reported. Rockstar hasn't published separate PS5, Series X and Series S sizes on a page we could verify.
 
+{{storage}}
+
 ## How to pre-load GTA 6 on PS5
 
 1. **Buy the game**, or redeem the code from your box: Settings → Users and Accounts → Account → Payment and Subscriptions → Redeem Codes (on the web or in the PlayStation App, use the "Redeem Code" option).
