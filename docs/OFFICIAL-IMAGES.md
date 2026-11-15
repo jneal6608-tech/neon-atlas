@@ -1,4 +1,21 @@
-# Adding official character and region pictures
+# Official Rockstar images
+
+The site shows **official Rockstar images** for the eight characters, the six regions, every article (hero, card and social-share image) and the home page as soon as the files are in `assets/official/`. Anything without an official image falls back to the original Neon Atlas artwork. Official images are credited "Image: Rockstar Games".
+
+## The quick way (two commands)
+
+```bash
+npm run fetch-official     # downloads Rockstar's own GTA VI media (rockstargames.com only) into .official-cache/
+npm run import-official    # crops them into assets/official/ (characters, regions, articles, home hero)
+npm test
+```
+
+**Which picture goes on which article** is set in `data/official-art.json`: `src` is the start of Rockstar's file name
+(e.g. `Vice_City_06`), `focus` is the crop centre. Change an entry and run `npm run import-official -- --force` to redo the
+crops; delete an entry to bring back the original artwork. A new article gets an official image by adding a line there.
+When Rockstar releases new screenshots (the watcher reports it), run `npm run fetch-official` again; only new files download.
+
+## The manual way
 
 The site shows **official Rockstar images** for the eight characters and six regions as soon as the files are in `assets/official/`. Until then it shows the original Neon Atlas artwork. Every official image is captioned "Image: Rockstar Games".
 

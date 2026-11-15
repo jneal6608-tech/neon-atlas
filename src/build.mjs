@@ -23,7 +23,12 @@ const warnings = [];
 // ---------- helpers ----------
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const decode = (s) => s.replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
-const ART = (name) => (fs.existsSync(path.join(ROOT, `assets/art/${name}.jpg`)) ? `/assets/art/${name}.jpg` : null);
+// Image lookup: an official Rockstar image (assets/official/art, from data/official-art.json via tools/import-official.mjs,
+// or the official region/character pictures) wins over the original artwork in assets/art.
+const ART = (name) => (fs.existsSync(path.join(ROOT, `assets/official/art/${name}.jpg`)) ? `/assets/official/art/${name}.jpg` : null)
+  || (name.startsWith("region-") && OFFICIAL("regions", name.slice(7))) || (name.startsWith("char-") && OFFICIAL("characters", name.slice(5)))
+  || (fs.existsSync(path.join(ROOT, `assets/art/${name}.jpg`)) ? `/assets/art/${name}.jpg` : null);
+const IS_OFFICIAL = (p) => !!p && p.startsWith("/assets/official/");
 const fmtDateTime = (iso) => new Date(iso).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/New_York", timeZoneName: "short" });
 const modOf = (a) => a.updatedAt || a.updated;
 const fmtMod = (a) => (a.updatedAt ? fmtDateTime(a.updatedAt) : fmtDate(a.updated));
@@ -276,7 +281,7 @@ ${crumbs(a.url, items)}
   <p class="byline">By ${esc(a.author)} · Updated <time datetime="${modOf(a)}">${fmtMod(a)}</time> · Facts last verified <time datetime="${a.lastVerified}">${fmtDate(a.lastVerified)}</time> · ${mins} min read</p>
 </header>
 ${a.answer ? `<section class="quick-answer" aria-labelledby="qa-${a.slug}"><p class="qa-label" id="qa-${a.slug}">Quick answer <span>Updated ${fmtMod(a)}</span></p><p class="qa-text">${new Marked().parseInline(a.answer)}</p></section>` : ""}
-${hero ? `<figure class="article-hero"><img src="${href(hero)}" alt="Original Vice City-style illustration for ${esc(a.title)}" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>Original illustration by Neon Atlas. Not official Rockstar artwork.</figcaption></figure>` : ""}
+${hero ? `<figure class="article-hero"><img src="${href(hero)}" alt="${IS_OFFICIAL(hero) ? `Official GTA VI image for ${esc(a.title)}` : `Original Vice City-style illustration for ${esc(a.title)}`}" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>${IS_OFFICIAL(hero) ? "Image: Rockstar Games (official GTA VI media)." : "Original illustration by Neon Atlas. Not official Rockstar artwork."}</figcaption></figure>` : ""}
 ${needsUpdate}
 ${tocHtml}
 <div class="prose">
@@ -331,7 +336,7 @@ ${upcoming}</div>`;
   const catCounts = CATS.map((c) => ({ ...c, n: LIVE.filter((a) => a.category === c.slug).length }));
   const catArt = { guides: "gta-6-pre-load-guide-card", characters: "char-lucia-caminos", locations: "region-leonida-keys", missions: "region-grassrivers", vehicles: "gta-6-vehicles-named-so-far-card", gameplay: "region-port-gellhorn", news: "gta-6-launch-week-everything-confirmed-card" };
   const trailers = liveBy["gta-6-trailers"], quiz = liveBy["gta-6-character-quiz"], map = liveBy["gta-6-map-leonida-regions"], chars = liveBy["gta-6-characters"];
-  const body = `<section class="hero">${ART("home-hero") ? `<img class="hero-art" src="${href(ART("home-hero"))}" alt="" width="2000" height="900" fetchpriority="high">` : ""}<div class="wrap hero-inner"><div class="hero-copy">
+  const body = `<section class="hero">${ART("home-hero") ? `<img class="hero-art" src="${href(ART("home-hero"))}" alt="" width="2000" height="900" fetchpriority="high">${IS_OFFICIAL(ART("home-hero")) ? `<span class="hero-credit">Image: Rockstar Games</span>` : ""}` : ""}<div class="wrap hero-inner"><div class="hero-copy">
   <p class="eyebrow">Unofficial GTA VI guide · Sourced &amp; verified</p>
   <h1>Every GTA VI answer, <span class="grad">checked</span> before you read it.</h1>
   <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labelled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs drop as we play.</p>

@@ -92,6 +92,7 @@ button:hover, .btn:hover { filter: brightness(1.08); color: var(--ink); }
 /* home hero */
 .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); min-height: 560px; display: flex; align-items: center; }
 .hero-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; }
+.hero-credit { position: absolute; right: 12px; bottom: 8px; z-index: 2; font-size: .7rem; color: rgba(255, 255, 255, .7); text-shadow: 0 1px 3px rgba(0, 0, 0, .8); }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(18, 6, 31, .95) 0%, rgba(18, 6, 31, .78) 45%, rgba(18, 6, 31, .25) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 30%); }
 .hero-inner { position: relative; z-index: 2; padding: 64px 16px 72px; width: 100%; }
 .hero-copy { max-width: 720px; }
