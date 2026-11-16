@@ -75,7 +75,26 @@ for (const a of loadArticles()) {
   if (!isLive(a, now) && built) err(a.file, `not-live article (${a.status}) was published`);
 }
 const idx = JSON.parse(fs.readFileSync(path.join(DIST, "search-index.json"), "utf8"));
-for (const e of idx) if (!pages.has(e.u)) err("search-index.json", `points to missing page ${e.u}`);
+for (const e of idx) if (!pages.has(e.u.split("#")[0])) err("search-index.json", `points to missing page ${e.u}`);
+
+// fan theories (data/theories.json): every item needs a stable id, the fields the page shows, and a real source
+{
+  const th = JSON.parse(fs.readFileSync(path.join(ROOT, "data/theories.json"), "utf8"));
+  const seen = new Set();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(th.updated || "")) err("data/theories.json", "`updated` must be a YYYY-MM-DD date");
+  for (const t of th.items) {
+    const f = `data/theories.json (${t.id || "no id"})`;
+    if (!/^[a-z0-9-]{3,60}$/.test(t.id || "")) err(f, "id must be 3–60 lowercase letters, digits or hyphens");
+    if (seen.has(t.id)) err(f, "duplicate id"); seen.add(t.id);
+    for (const k of ["title", "summary"]) if (!t[k] || typeof t[k] !== "string") err(f, `missing ${k}`);
+    if (!["open", "likely", "long-shot", "confirmed", "debunked"].includes(t.status)) err(f, `bad status "${t.status}"`);
+    if (!["rising", "steady", "cooling"].includes(t.trend)) err(f, `bad trend "${t.trend}"`);
+    for (const k of ["for", "against"]) if (!Array.isArray(t[k]) || !t[k].length) err(f, `needs at least one "${k}" point`);
+    if (!Array.isArray(t.sources) || !t.sources.length || t.sources.some((s) => !/^https:\/\//.test(s.url || "") || !s.publisher)) err(f, "needs at least one source with an https url and a publisher");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(t.updated || "")) err(f, "`updated` must be a YYYY-MM-DD date");
+  }
+  if (th.items.length && !pages.has("/theories/")) err("theories", "/theories/ page was not built");
+}
 if (!/<rss/.test(fs.readFileSync(path.join(DIST, "feed.xml"), "utf8"))) err("feed.xml", "not an RSS feed");
 for (const f of ["llms.txt", "llms-full.txt"]) if (!fs.existsSync(path.join(DIST, f))) err(f, "missing");
 if (cfg.indexNowKey && fs.readFileSync(path.join(DIST, `${cfg.indexNowKey}.txt`), "utf8") !== cfg.indexNowKey) err("indexnow", "key file missing or wrong");

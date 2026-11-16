@@ -17,6 +17,7 @@ export const CONFIDENCE = {
   mixed: { label: "Confirmed + reported", note: "Official facts plus clearly labeled reports from other outlets." },
   unconfirmed: { label: "Unconfirmed", note: "Not yet confirmed by Rockstar. Treat as provisional." },
   predicted: { label: "Prediction", note: "Our expectation, not a fact. Clearly marked as a prediction." },
+  theory: { label: "Fan theory", note: "A popular idea from the community, not a fact. Shown with the evidence for and against it." },
 };
 export const SOURCE_TYPES = { official: "Official", reported: "Reported", community: "Community", platform: "Platform holder" };
 
