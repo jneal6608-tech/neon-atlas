@@ -383,11 +383,28 @@ a.yt-play { text-decoration: none; }
 .t-trend.t-rising::before { content: "▲ "; }
 .t-trend.t-cooling { color: var(--muted); background: transparent; border: 1px dashed var(--line); }
 .t-spoiler { color: #ffe1a3; background: rgba(255, 201, 77, .14); }
-.theory { padding: 20px 22px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(160deg, rgba(255, 79, 154, .07), var(--surface) 45%); display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 90px; }
+.theory { border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(160deg, rgba(255, 79, 154, .07), var(--surface) 45%); overflow: hidden; scroll-margin-top: 90px; }
+.theory-body { padding: 18px 22px 20px; display: flex; flex-direction: column; gap: 10px; }
+.theory-img, .tf-img { position: relative; margin: 0; }
+.theory-img img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; }
+.theory-img::after, .tf-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(18, 6, 31, .55), transparent 45%); pointer-events: none; }
+.theory-img .credit, .tf-img .credit { position: absolute; right: 10px; bottom: 6px; z-index: 1; font-size: .68rem; color: rgba(255, 255, 255, .8); text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
+.theory-debunked .theory-img img, .theory-debunked .tf-img img { filter: grayscale(.7) brightness(.8); }
+/* theory "break" between homepage sections and inside articles */
+.theory-feature { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); margin: 2.4em 0 .6em; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255, 79, 154, .4); background: linear-gradient(120deg, rgba(255, 79, 154, .12), var(--surface) 55%); box-shadow: 0 18px 50px rgba(255, 79, 154, .12); }
+.tf-img img { width: 100%; height: 100%; min-height: 240px; object-fit: cover; }
+.tf-body { padding: 20px 24px 22px; display: flex; flex-direction: column; gap: 10px; }
+.tf-kicker { margin: 0; font: 400 .95rem/1 var(--display); letter-spacing: .08em; text-transform: uppercase; background: var(--sunset); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tf-more { margin: 0; font-size: .88rem; font-weight: 700; }
+.theory-feature .theory-title { font-size: clamp(1.4rem, 1.1rem + 1.1vw, 1.9rem); margin: 0; }
+.prose .theory-feature ul, .prose .theory-feature p { margin: 0; }
+.prose .theory-feature .theory-title a { text-decoration: none; }
+.article .theory-feature { grid-template-columns: 1fr; }
+.article .theory-feature .tf-img img { aspect-ratio: 21 / 9; min-height: 0; height: auto; }
+@media (max-width: 760px) { .theory-feature { grid-template-columns: 1fr; } .tf-img img { aspect-ratio: 16 / 9; min-height: 0; height: auto; } .theory-body, .tf-body { padding: 16px 16px 18px; } }
 .theory-list { display: grid; gap: 18px; margin: 18px 0 24px; }
 .theory-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0; }
 .theory-title { margin: 2px 0 0; font: 400 clamp(1.35rem, 1.1rem + 1vw, 1.8rem)/1.1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
-.theory.compact .theory-title { font-size: 1.3rem; }
 .theory-title a { color: var(--text); text-decoration: none; } .theory-title a:hover { color: var(--pink); }
 .theory-sum { margin: 0; color: var(--muted); }
 .theory-evidence { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
@@ -397,7 +414,6 @@ a.yt-play { text-decoration: none; }
 .ev-for .ev-h { color: #b8ffcf; } .ev-against .ev-h { color: #ffc2b6; }
 .theory-src { margin: 0; font-size: .82rem; color: var(--muted); }
 .theory-debunked .theory-title, .theory-debunked .theory-sum { opacity: .75; }
-.theories-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
 .t-key { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; font-size: .9rem; color: var(--muted); }
 .theory-note { margin-top: 18px; }
 .vote { margin-top: auto; padding-top: 4px; }

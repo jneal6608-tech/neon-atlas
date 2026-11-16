@@ -1,11 +1,17 @@
 {
- "about": "GTA VI fan theories shown at /theories/ and on the homepage. Updated nightly by the Claude research task (see docs/THEORIES.md), which opens a pull request. These are fan ideas, not facts: every item needs at least one source that shows fans discussing it. 'for' = what fans point to; 'against' = official Rockstar facts or strong counter-points. status: open | likely | long-shot | confirmed | debunked. trend: rising | steady | cooling. Items are shown in this order. Keep each id stable forever: votes are stored by id.",
+ "about": "GTA VI fan theories shown at /theories/ and on the homepage. Updated nightly by the Claude research task (see docs/THEORIES.md), which opens a pull request. These are fan ideas, not facts: every item needs at least one source that shows fans discussing it. 'for' = what fans point to; 'against' = official Rockstar facts or strong counter-points. status: open | likely | long-shot | confirmed | debunked. trend: rising | steady | cooling. Items are shown in this order. image = an official image name from docs/THEORIES.md (credited Image: Rockstar Games); related = article slugs the theory is shown inside. Keep each id stable forever: votes are stored by id.",
  "updated": "2026-11-16",
  "items": [
   {
    "id": "tony-prince-luis-lopez-return",
    "title": "GTA IV's Tony Prince and Luis Lopez return",
    "summary": "Fans think a recent pre-load promo video sets up a reunion of Gay Tony and Luis Lopez from GTA IV: The Ballad of Gay Tony, 17 years later.",
+   "image": "gta-6-character-quiz",
+   "imageAlt": "A couple dancing in a neon-lit Vice City nightclub",
+   "related": [
+    "gta-6-characters",
+    "gta-6-story-what-we-know"
+   ],
    "status": "open",
    "trend": "rising",
    "added": "2026-11-16",
@@ -18,13 +24,24 @@
     "Neither character appears in Rockstar's official GTA VI character profiles."
    ],
    "sources": [
-    { "title": "GTA 6 could reunite two beloved GTA 4 characters after 17 years as gamers spot telling clues", "url": "https://www.gamingbible.com/news/gta-6-gta-4-tony-prince-luis-lopez-reunion-17-years-008044-20261112", "publisher": "GAMINGbible" }
+    {
+     "title": "GTA 6 could reunite two beloved GTA 4 characters after 17 years as gamers spot telling clues",
+     "url": "https://www.gamingbible.com/news/gta-6-gta-4-tony-prince-luis-lopez-reunion-17-years-008044-20261112",
+     "publisher": "GAMINGbible"
+    }
    ]
   },
   {
    "id": "lucia-betrays-jason",
    "title": "Lucia will betray Jason",
    "summary": "The most debated theory: at some point Lucia turns on Jason, perhaps by informing on him or handing him to the police.",
+   "image": "gta-6-mission-list",
+   "imageAlt": "Lucia Caminos braced for a fight",
+   "related": [
+    "gta-6-characters",
+    "gta-6-story-what-we-know",
+    "gta-6-character-quiz"
+   ],
    "status": "open",
    "trend": "steady",
    "added": "2026-11-16",
@@ -37,14 +54,28 @@
     "Rockstar's official synopsis says the two are \"forced to rely on each other more than ever if they want to make it out alive.\""
    ],
    "sources": [
-    { "title": "GTA 6 Fans Spot a Worrying 'Foreshadowing' Detail", "url": "https://gamerant.com/gta-6-jason-lucia-betrayal-theory/", "publisher": "Game Rant" },
-    { "title": "Lucia Can Betray Jason During the Story of GTA 6, New Theory Claims", "url": "https://egw.news/gaming/news/37097/new-theory-claims-lucia-might-betray-jason-in-gta--mBLONBuLt", "publisher": "EGW" }
+    {
+     "title": "GTA 6 Fans Spot a Worrying 'Foreshadowing' Detail",
+     "url": "https://gamerant.com/gta-6-jason-lucia-betrayal-theory/",
+     "publisher": "Game Rant"
+    },
+    {
+     "title": "Lucia Can Betray Jason During the Story of GTA 6, New Theory Claims",
+     "url": "https://egw.news/gaming/news/37097/new-theory-claims-lucia-might-betray-jason-in-gta--mBLONBuLt",
+     "publisher": "EGW"
+    }
    ]
   },
   {
    "id": "three-birds-mystery",
    "title": "The \"three birds\" hint at something big",
    "summary": "Redditors noticed that several pieces of official GTA VI artwork feature exactly three birds. Some think they stand for Michael, Franklin and Trevor; others think they hint at an unrevealed third playable character.",
+   "image": "home-hero",
+   "imageAlt": "GTA VI key art: Jason and Lucia above Vice City with birds in the sky",
+   "related": [
+    "gta-6-trailers",
+    "gta-6-launch-week-everything-confirmed"
+   ],
    "status": "open",
    "trend": "rising",
    "added": "2026-11-16",
@@ -56,13 +87,23 @@
     "Rockstar's official synopsis and website name only two leads: Jason and Lucia."
    ],
    "sources": [
-    { "title": "GTA 6 Already Has a Mystery Players Are Trying to Solve", "url": "https://www.vice.com/en/article/gta-6-three-birds-mystery-fan-theories/", "publisher": "VICE" }
+    {
+     "title": "GTA 6 Already Has a Mystery Players Are Trying to Solve",
+     "url": "https://www.vice.com/en/article/gta-6-three-birds-mystery-fan-theories/",
+     "publisher": "VICE"
+    }
    ]
   },
   {
    "id": "jason-undercover-cop",
    "title": "Jason is an undercover cop",
    "summary": "Some fans believe Jason started out working undercover and fell for Lucia along the way.",
+   "image": "gta-6-wanted-level",
+   "imageAlt": "Vice City police officers at a nighttime traffic stop",
+   "related": [
+    "gta-6-characters",
+    "gta-6-story-what-we-know"
+   ],
    "status": "long-shot",
    "trend": "steady",
    "added": "2026-11-16",
@@ -75,13 +116,23 @@
     "Critics point out that Jason and Lucia take on police in the trailers, which is hard to square with an undercover role."
    ],
    "sources": [
-    { "title": "GTA 6 fans believe Jason might be an undercover cop", "url": "https://www.sportskeeda.com/gta/gta-6-fans-believe-jason-might-undercover-cop", "publisher": "Sportskeeda" }
+    {
+     "title": "GTA 6 fans believe Jason might be an undercover cop",
+     "url": "https://www.sportskeeda.com/gta/gta-6-fans-believe-jason-might-undercover-cop",
+     "publisher": "Sportskeeda"
+    }
    ]
   },
   {
    "id": "tragic-ending",
    "title": "Jason and Lucia get a Bonnie-and-Clyde ending",
    "summary": "Many fans are convinced the story ends tragically for at least one of the leads, and say the trailers have already given it away.",
+   "image": "gta-6-trailers",
+   "imageAlt": "Jason and Lucia in bandanas, outlaw-style, at a Vice City gas station",
+   "related": [
+    "gta-6-story-what-we-know",
+    "gta-6-trailers"
+   ],
    "status": "open",
    "trend": "steady",
    "added": "2026-11-16",
@@ -93,13 +144,23 @@
     "Rockstar hasn't said anything about the ending, and GTA endings have often depended on player choice."
    ],
    "sources": [
-    { "title": "GTA 6's ending has already been spoiled, fans agree", "url": "https://www.gamingbible.com/news/gta-6-ending-spoiled-356833-20250512", "publisher": "GAMINGbible" }
+    {
+     "title": "GTA 6's ending has already been spoiled, fans agree",
+     "url": "https://www.gamingbible.com/news/gta-6-ending-spoiled-356833-20250512",
+     "publisher": "GAMINGbible"
+    }
    ]
   },
   {
    "id": "phil-cassidy-returns",
    "title": "Phil Cassidy (or his son) is back",
    "summary": "A mulleted man in an in-game Ammu-Nation ad has fans convinced the classic Vice City arms dealer, or a relative, is returning.",
+   "image": "gta-6-age-rating-parents-guide",
+   "imageAlt": "An armed robber in a bandana inside a Leonida store",
+   "related": [
+    "gta-6-trailers",
+    "gta-6-map-leonida-regions"
+   ],
    "status": "open",
    "trend": "steady",
    "added": "2026-11-16",
@@ -112,14 +173,28 @@
     "Rockstar hasn't confirmed any returning characters."
    ],
    "sources": [
-    { "title": "GTA 6 Trailer 2 Breakdown: Voice Actors, Soundtrack, and Easter Eggs You May Have Missed", "url": "https://www.denofgeek.com/games/gta-6-trailer-breakdown-voice-actors-soundtrack-easter-eggs-you-missed/", "publisher": "Den of Geek" },
-    { "title": "All GTA 6 Easter Eggs So Far", "url": "https://beebom.com/gta-6-easter-eggs/", "publisher": "Beebom" }
+    {
+     "title": "GTA 6 Trailer 2 Breakdown: Voice Actors, Soundtrack, and Easter Eggs You May Have Missed",
+     "url": "https://www.denofgeek.com/games/gta-6-trailer-breakdown-voice-actors-soundtrack-easter-eggs-you-missed/",
+     "publisher": "Den of Geek"
+    },
+    {
+     "title": "All GTA 6 Easter Eggs So Far",
+     "url": "https://beebom.com/gta-6-easter-eggs/",
+     "publisher": "Beebom"
+    }
    ]
   },
   {
    "id": "michael-de-santa-boat",
    "title": "Michael De Santa is coming for his boat",
    "summary": "A boat near Jason's home looks a lot like Michael's yacht from GTA V, so some fans think GTA V's lead turns up in Leonida.",
+   "image": "gta-6-online-what-we-know",
+   "imageAlt": "Boats and jet skis crowding the water off Leonida",
+   "related": [
+    "gta-6-map-leonida-regions",
+    "gta-6-vehicles-named-so-far"
+   ],
    "status": "long-shot",
    "trend": "cooling",
    "added": "2026-11-16",
@@ -131,13 +206,24 @@
     "A similar-looking boat is more likely a reused vehicle model than a story clue, and Rockstar hasn't confirmed any GTA V characters."
    ],
    "sources": [
-    { "title": "\"He's coming, for his boat\": GTA 6 fans speculate GTA 5's Michael to return in Vice City", "url": "https://www.sportskeeda.com/gta/he-s-coming-boat-gta-6-fans-speculate-gta-5-s-michael-return-in-vice-city", "publisher": "Sportskeeda" }
+    {
+     "title": "\"He's coming, for his boat\": GTA 6 fans speculate GTA 5's Michael to return in Vice City",
+     "url": "https://www.sportskeeda.com/gta/he-s-coming-boat-gta-6-fans-speculate-gta-5-s-michael-return-in-vice-city",
+     "publisher": "Sportskeeda"
+    }
    ]
   },
   {
    "id": "third-delay",
    "title": "GTA 6 will be delayed a third time",
    "summary": "A rumor that GTA VI would slip again spread fast online and even moved prediction-market bets.",
+   "image": "gta-6-release-date-time",
+   "imageAlt": "GTA VI key art with the November 19, 2026 release date",
+   "related": [
+    "gta-6-release-date-time",
+    "gta-6-launch-week-everything-confirmed",
+    "gta-6-pre-load-guide"
+   ],
    "status": "debunked",
    "trend": "cooling",
    "added": "2026-11-16",
@@ -149,7 +235,11 @@
     "Rockstar's official site still says November 19, 2026, and pre-loading opened on November 10."
    ],
    "sources": [
-    { "title": "GTA 6 speculation mutates into delay 'rumor,' leading to anxious fans and a prediction market betting frenzy for no good reason", "url": "https://www.pcgamer.com/games/grand-theft-auto/casual-gta-6-speculation-mutates-into-delay-rumor-leading-to-anxious-fans-and-prediction-market-frenzy-for-no-good-reason/", "publisher": "PC Gamer" }
+    {
+     "title": "GTA 6 speculation mutates into delay 'rumor,' leading to anxious fans and a prediction market betting frenzy for no good reason",
+     "url": "https://www.pcgamer.com/games/grand-theft-auto/casual-gta-6-speculation-mutates-into-delay-rumor-leading-to-anxious-fans-and-prediction-market-frenzy-for-no-good-reason/",
+     "publisher": "PC Gamer"
+    }
    ]
   }
  ]

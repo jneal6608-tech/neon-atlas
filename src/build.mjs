@@ -253,22 +253,56 @@ function card(a, fromUrl) {
 
 // Fan-theory card: status, the theory, evidence for/against, the community vote (filled in by site.js from /api/votes)
 // and where fans are discussing it. compact = homepage strip.
-function theoryCard(t, fromUrl, compact = false) {
-  const href = linker(fromUrl);
+const theoryImg = (t) => (t.image ? ART(`${t.image}-card`) || ART(t.image) : null);
+const theoryMeta = (t) => {
   const [statusLabel, statusNote] = THEORY_STATUS[t.status] || THEORY_STATUS.open;
+  return `<p class="theory-meta">${badge("theory")} <span class="t-status t-${t.status}" title="${esc(statusNote)}">${statusLabel}</span>${THEORY_TREND[t.trend] ? ` <span class="t-trend t-${t.trend}">${THEORY_TREND[t.trend]}</span>` : ""}${t.spoiler ? ' <span class="t-spoiler">Story spoilers</span>' : ""}</p>`;
+};
+const theoryVote = (t) => {
   const settled = t.status === "confirmed" || t.status === "debunked";
-  const H = compact ? "h3" : "h2";
+  return `<div class="vote" data-theory="${esc(t.id)}"${settled ? ' data-settled="true"' : ""}>${settled ? "" : `<p class="vote-q">What do you think?</p><div class="vote-btns"><button type="button" class="vote-btn vote-yes" data-choice="yes" aria-pressed="false">Believe it</button><button type="button" class="vote-btn vote-no" data-choice="no" aria-pressed="false">Doubt it</button></div>`}<div class="vote-bar" hidden><span></span></div><p class="vote-result" role="status" aria-live="polite">${settled ? "Voting is closed." : "No votes yet. Be the first to call it."}</p></div>`;
+};
+const theoryFigure = (t, fromUrl, cls) => {
+  const img = theoryImg(t);
+  return img ? `<figure class="${cls}"><img src="${linker(fromUrl)(img)}" alt="${esc(t.imageAlt || "")}" width="800" height="450" loading="lazy" decoding="async">${IS_OFFICIAL(img) ? `<figcaption class="credit">Image: Rockstar Games</figcaption>` : ""}</figure>` : "";
+};
+
+// Full theory card for /theories/: picture, status, the theory, evidence for/against, the community vote
+// (filled in by site.js from /api/votes) and where fans are discussing it.
+function theoryCard(t, fromUrl) {
   const list = (items) => `<ul>${items.map((x) => `<li>${new Marked().parseInline(esc(x))}</li>`).join("")}</ul>`;
-  const vote = `<div class="vote" data-theory="${esc(t.id)}"${settled ? ' data-settled="true"' : ""}>${settled ? "" : `<p class="vote-q">What do you think?</p><div class="vote-btns"><button type="button" class="vote-btn vote-yes" data-choice="yes" aria-pressed="false">Believe it</button><button type="button" class="vote-btn vote-no" data-choice="no" aria-pressed="false">Doubt it</button></div>`}<div class="vote-bar" hidden><span></span></div><p class="vote-result" role="status" aria-live="polite">${settled ? "Voting is closed." : "No votes yet. Be the first to call it."}</p></div>`;
-  return `<article class="theory theory-${t.status}${compact ? " compact" : ""}" id="${esc(t.id)}">
-<p class="theory-meta">${badge("theory")} <span class="t-status t-${t.status}" title="${esc(statusNote)}">${statusLabel}</span>${THEORY_TREND[t.trend] ? ` <span class="t-trend t-${t.trend}">${THEORY_TREND[t.trend]}</span>` : ""}${t.spoiler ? ' <span class="t-spoiler">Story spoilers</span>' : ""}</p>
-<${H} class="theory-title">${compact ? `<a href="${href(THEORIES_URL)}#${esc(t.id)}">${esc(t.title)}</a>` : esc(t.title)}</${H}>
+  return `<article class="theory theory-${t.status}" id="${esc(t.id)}">
+${theoryFigure(t, fromUrl, "theory-img")}
+<div class="theory-body">
+${theoryMeta(t)}
+<h2 class="theory-title">${esc(t.title)}</h2>
 <p class="theory-sum">${esc(t.summary)}</p>
-${compact ? "" : `<div class="theory-evidence"><div class="ev ev-for"><p class="ev-h">What fans point to</p>${list(t.for)}</div><div class="ev ev-against"><p class="ev-h">The case against</p>${list(t.against)}</div></div>`}
-${vote}
-${compact ? "" : `<p class="theory-src">Where fans are talking about it: ${t.sources.map((s) => `<a href="${esc(s.url)}" rel="noopener" class="ext">${esc(s.publisher)}</a>`).join(", ")} · Updated <time datetime="${esc(t.updated)}">${fmtDate(t.updated)}</time></p>`}
+<div class="theory-evidence"><div class="ev ev-for"><p class="ev-h">What fans point to</p>${list(t.for)}</div><div class="ev ev-against"><p class="ev-h">The case against</p>${list(t.against)}</div></div>
+${theoryVote(t)}
+<p class="theory-src">Where fans are talking about it: ${t.sources.map((s) => `<a href="${esc(s.url)}" rel="noopener" class="ext">${esc(s.publisher)}</a>`).join(", ")} · Updated <time datetime="${esc(t.updated)}">${fmtDate(t.updated)}</time></p>
+</div>
 </article>`;
 }
+
+// Image-led theory "break" mixed into the homepage and into articles as you scroll: picture, the theory, a quick
+// vote and a link to the evidence on /theories/.
+function theoryFeature(t, fromUrl, H = "h3") {
+  const href = linker(fromUrl);
+  return `<aside class="theory-feature theory-${t.status}" aria-label="Fan theory: ${esc(t.title)}">
+${theoryFigure(t, fromUrl, "tf-img")}
+<div class="tf-body">
+<p class="tf-kicker">Fan theory break</p>
+${theoryMeta(t)}
+<${H} class="theory-title"><a href="${href(THEORIES_URL)}#${esc(t.id)}">${esc(t.title)}</a></${H}>
+<p class="theory-sum">${esc(t.summary)}</p>
+${theoryVote(t)}
+<p class="tf-more"><a href="${href(THEORIES_URL)}#${esc(t.id)}">See the evidence for and against →</a></p>
+</div>
+</aside>`;
+}
+// Which theory to show inside an article: one tied to that article, else the hottest one.
+const THEORY_OPEN = THEORIES.items.filter((t) => t.status !== "debunked");
+const theoryFor = (slug) => THEORY_OPEN.find((t) => (t.related || []).includes(slug)) || THEORY_OPEN[0];
 
 // ---------- shortcodes: {{name}} or {{name:arg|label}} on their own line in Markdown ----------
 const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Beach, Little Cuba, VC Port."], ["leonida-keys", "Leonida Keys", "A tropical archipelago next to beautiful, dangerous waters."], ["grassrivers", "Grassrivers", "A primordial expanse of mangroves, gators and worse."], ["port-gellhorn", "Port Gellhorn", "A faded vacation town with cheap motels and a new economy."], ["ambrosia", "Ambrosia", "Sugar-refinery industry town run by a biker gang."], ["mount-kalaga", "Mount Kalaga", "Hunting, fishing and off-road trails by the northern border."]];
@@ -326,6 +360,8 @@ for (const a of LIVE) {
     ? `<nav class="toc" aria-label="On this page"><p class="toc-h">On this page</p><ol>${toc.filter((t) => t.depth === 2).map((t) => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join("")}</ol></nav>` : "";
   // put the first ad (if enabled) after the second paragraph-level block, never above the answer
   let bodyHtml = shortcodes(html, a.url);
+  const tf = THEORY_OPEN.length ? theoryFeature(theoryFor(a.slug), a.url) : "";
+  if (tf) { let n = 0; const before = bodyHtml; bodyHtml = bodyHtml.replace(/<h2 /g, (m) => (++n === 3 ? tf + "\n" + m : m)); if (bodyHtml === before) bodyHtml += "\n" + tf; }
   const slot = adSlot("inArticle");
   if (slot) { let n = 0; bodyHtml = bodyHtml.replace(/<\/p>\n/g, (m) => (++n === 3 ? m + slot : m)); }
   const sources = a.sources.map((s) => `<li><span class="src-type src-${esc(s.type || "reported")}">${esc(SOURCE_TYPES[s.type] || "Reported")}</span> <a href="${esc(s.url)}" rel="noopener" class="ext">${esc(s.title)}</a>${s.publisher ? ` <span class="muted">(${esc(s.publisher)})</span>` : ""}${s.accessed ? ` <span class="muted">accessed ${fmtDate(s.accessed)}</span>` : ""}</li>`).join("");
@@ -409,6 +445,8 @@ ${upcoming}</div>`;
   const latest = LIVE.slice(0, 6);
   const catCounts = CATS.map((c) => ({ ...c, n: LIVE.filter((a) => a.category === c.slug).length }));
   const catArt = { guides: "gta-6-pre-load-guide-card", characters: "char-lucia-caminos", locations: "region-leonida-keys", missions: "region-grassrivers", vehicles: "gta-6-vehicles-named-so-far-card", gameplay: "region-port-gellhorn", news: "gta-6-launch-week-everything-confirmed-card" };
+  // fan theories mixed in between sections as you scroll (hottest first, debunked ones stay on /theories/)
+  const tBreak = (i) => (THEORY_OPEN[i] ? theoryFeature(THEORY_OPEN[i], url) : "");
   const trailers = liveBy["gta-6-trailers"], quiz = liveBy["gta-6-character-quiz"], map = liveBy["gta-6-map-leonida-regions"], chars = liveBy["gta-6-characters"];
   const body = `<section class="hero">${ART("home-hero") ? `<img class="hero-art" src="${href(ART("home-hero"))}" alt="" width="2000" height="900" fetchpriority="high">${IS_OFFICIAL(ART("home-hero")) ? `<span class="hero-credit">Image: Rockstar Games</span>` : ""}` : ""}<div class="wrap hero-inner"><div class="hero-copy">
   <p class="hero-tags"><span class="eyebrow">Unofficial GTA 6 guide · Sourced &amp; verified</span><a class="fresh-pill" href="#fresh-h"><span class="live-dot" aria-hidden="true"></span> Updated daily</a></p>
@@ -429,12 +467,16 @@ ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class
   ${LIVEFEED.length ? `<p class="fresh-last">Latest update: <time datetime="${LIVEFEED[0].time}">${fmtLiveTime(LIVEFEED[0].time)}</time> · <a href="${href(LIVE_URL)}">Follow the live updates →</a></p>` : ""}
 </section>
 <section aria-labelledby="start-h"><h2 id="start-h" class="section-h">Start here</h2><div class="grid cards">${featured.map((a) => card(a, url)).join("")}</div></section>
-${THEORIES.items.length ? `<section class="theory-strip" aria-labelledby="th-h"><h2 id="th-h" class="section-h">Fan theories everyone's arguing about</h2><p class="section-sub">The community's biggest GTA VI theories, checked against what Rockstar has actually said. Cast your vote.</p><div class="grid theories-grid">${THEORIES.items.filter((t) => t.status !== "debunked").slice(0, 3).map((t) => theoryCard(t, url, true)).join("")}</div><p><a class="btn btn-ghost" href="${href(THEORIES_URL)}">All ${THEORIES.items.length} theories →</a></p></section>` : ""}
+${tBreak(0)}
 ${trailers ? `<section aria-labelledby="tr-h"><h2 id="tr-h" class="section-h">Watch the official trailers</h2><p class="section-sub">All four of Rockstar's GTA VI videos in one place, newest first, with what each one confirmed.</p>${shortcodes("<p>{{videos}}</p>", url)}<p><a class="btn btn-ghost" href="${href(trailers.url)}">Every trailer, explained →</a></p></section>` : ""}
+${tBreak(1)}
 ${map ? `<section aria-labelledby="map-h"><h2 id="map-h" class="section-h">Explore Leonida</h2><p class="section-sub">The six regions Rockstar has officially named.</p>${shortcodes("<p>{{regions}}</p>", url)}<p><a class="btn btn-ghost" href="${href(map.url)}">The full map guide →</a></p></section>` : ""}
+${tBreak(2)}
 ${quiz ? `<section class="band" aria-labelledby="quiz-h">${ART("gta-6-character-quiz-card") ? `<img src="${href(ART("gta-6-character-quiz-card"))}" alt="" width="800" height="450" loading="lazy">` : ""}<div class="band-copy"><h2 id="quiz-h">Which GTA 6 character are you?</h2><p>Six questions, eight official characters. Find out if you're a Jason, a Lucia or a Boobie Ike.</p><a class="btn" href="${href(quiz.url)}">Take the quiz</a></div></section>` : ""}
 ${chars ? `<section aria-labelledby="ch-h"><h2 id="ch-h" class="section-h">Meet the cast</h2>${shortcodes("<p>{{characters}}</p>", chars.url).replaceAll('href="#', `href="${href(chars.url)}#`)}</section>` : ""}
+${tBreak(3)}
 <section aria-labelledby="cat-h"><h2 id="cat-h" class="section-h">Browse the guide</h2><div class="grid cats">${catCounts.map((c) => `<a class="cat-tile" href="${href("/" + c.slug + "/")}">${ART(catArt[c.slug]) ? `<img src="${href(ART(catArt[c.slug]))}" alt="" loading="lazy" width="800" height="450">` : ""}<span class="cat-name">${esc(c.name)}</span><span class="cat-n">${c.n ? `${c.n} ${c.n === 1 ? "page" : "pages"}` : "Coming after launch"}</span></a>`).join("")}</div></section>
+${tBreak(4)}
 <section aria-labelledby="latest-h"><h2 id="latest-h" class="section-h">Recently updated</h2><div class="grid cards">${latest.map((a) => card(a, url)).join("")}</div></section>
 <section class="legend" aria-labelledby="legend-h"><h2 id="legend-h" class="section-h">How to read our labels</h2><ul class="legend-list">${Object.entries(CONFIDENCE).map(([k, v]) => `<li>${badge(k)} <span>${esc(v.note)}</span></li>`).join("")}</ul><p class="small"><a href="${href("/editorial-standards/")}">Read our editorial standards</a></p></section>
 </div>`;
