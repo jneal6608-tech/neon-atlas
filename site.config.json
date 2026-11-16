@@ -15,8 +15,8 @@
     "googleSiteVerification": ""
   },
   "ads": {
-    "enabled": false,
-    "adsenseClient": "",
+    "enabled": true,
+    "adsenseClient": "ca-pub-1342898006615155",
     "slots": {
       "inArticle": "",
       "articleEnd": "",
