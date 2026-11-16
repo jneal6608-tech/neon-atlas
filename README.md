@@ -25,6 +25,7 @@ Editing in the browser (local): run `npm run cms` in one terminal and `npm run d
 | Hosting | Cloudflare Worker `neonatlas` with static assets (free; `wrangler.jsonc`) | Global CDN, HTTPS, free plan, security headers via `_headers`. |
 | Deploys | GitHub Actions (`.github/workflows/deploy.yml`, `wrangler deploy`) | Builds and checks on every save and once a day (publishes scheduled articles). |
 | Search | Prebuilt JSON index + small client-side script | No server and no paid search service; works offline from the CDN. |
+| Fan theories + votes | `data/theories.json` → `/theories/`; votes via `src/worker.mjs` + a SQLite Durable Object (free plan) | Researched nightly by a Claude scheduled task that opens a PR; shared "Believe it / Doubt it" totals. See docs/THEORIES.md. |
 | AI tools | Claude via the Anthropic SDK, **command line only** | The key stays on your computer or in CI secrets, never in the website. |
 | Analytics | Google Analytics 4 (optional) + Search Console CSV import | Free; GA loads only when an ID is configured. |
 | Tests | Custom static checker + Playwright + axe-core | Links, metadata, sitemap, accessibility, mobile layout, console errors. |

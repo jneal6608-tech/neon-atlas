@@ -63,7 +63,7 @@ p, ul, ol { margin: 0 0 1em; }
 .site-nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--pink); }
 .header-search { margin-left: auto; }
 .header-search input { width: 170px; }
-@media (max-width: 1250px) { .brand-tag { display: none; } }
+.brand-tag { display: none; } /* the header has no room for it next to the full menu; "Unofficial" is in the hero, title and footer */
 input, select, textarea { font: inherit; color: var(--text); background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
 input::placeholder, textarea::placeholder { color: #a58fb8; }
 input:focus, select:focus, textarea:focus { border-color: var(--pink); outline: none; box-shadow: 0 0 0 3px rgba(255, 79, 154, .25); }
@@ -79,7 +79,7 @@ button:hover, .btn:hover { filter: brightness(1.08); color: var(--ink); }
 .nav-toggle[aria-expanded="true"] .bars { background: transparent; }
 .nav-toggle[aria-expanded="true"] .bars::before { transform: translateY(7px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .bars::after { transform: translateY(-7px) rotate(-45deg); }
-@media (max-width: 1120px) {
+@media (max-width: 1200px) {
   .header-search { display: none; }
   .nav-toggle { display: block; }
   .site-nav { display: none; position: absolute; inset: 68px 0 auto 0; background: var(--bg-2); border-bottom: 1px solid var(--line); padding: 8px 16px 16px; }
@@ -370,3 +370,47 @@ a.yt-play { text-decoration: none; }
 @media (max-width: 1000px) { .fresh { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .fresh { padding: 18px; } .fresh-steps { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .fresh-pill .live-dot, .fresh-kicker .live-dot { animation: none; } }
+
+/* fan theories: label, status chips, cards, evidence and community vote */
+.badge-theory { color: #ffb0d4; border-color: rgba(255, 79, 154, .55); background: rgba(255, 79, 154, .1); }
+.t-status, .t-trend, .t-spoiler { display: inline-block; font: 700 .7rem/1 var(--font); letter-spacing: .06em; text-transform: uppercase; padding: 5px 8px; border-radius: 999px; white-space: nowrap; }
+.t-open { color: var(--text); background: rgba(255, 255, 255, .08); }
+.t-likely { color: #b8ffcf; background: rgba(80, 220, 130, .14); }
+.t-long-shot { color: #dccbe9; background: rgba(196, 161, 255, .12); }
+.t-confirmed { color: var(--ink); background: var(--aqua); }
+.t-debunked { color: #ffd0c8; background: rgba(255, 141, 122, .18); text-decoration: line-through; text-decoration-thickness: 1px; }
+.t-trend.t-rising { color: var(--ink); background: var(--sunset); }
+.t-trend.t-rising::before { content: "▲ "; }
+.t-trend.t-cooling { color: var(--muted); background: transparent; border: 1px dashed var(--line); }
+.t-spoiler { color: #ffe1a3; background: rgba(255, 201, 77, .14); }
+.theory { padding: 20px 22px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(160deg, rgba(255, 79, 154, .07), var(--surface) 45%); display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 90px; }
+.theory-list { display: grid; gap: 18px; margin: 18px 0 24px; }
+.theory-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0; }
+.theory-title { margin: 2px 0 0; font: 400 clamp(1.35rem, 1.1rem + 1vw, 1.8rem)/1.1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.theory.compact .theory-title { font-size: 1.3rem; }
+.theory-title a { color: var(--text); text-decoration: none; } .theory-title a:hover { color: var(--pink); }
+.theory-sum { margin: 0; color: var(--muted); }
+.theory-evidence { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.ev { padding: 12px 14px; border-radius: 12px; background: rgba(18, 6, 31, .55); border: 1px solid var(--line); font-size: .93rem; }
+.ev ul { margin: 0; padding-left: 1.1em; } .ev li + li { margin-top: 6px; }
+.ev-h { margin: 0 0 6px; font: 700 .74rem/1.2 var(--font); letter-spacing: .1em; text-transform: uppercase; }
+.ev-for .ev-h { color: #b8ffcf; } .ev-against .ev-h { color: #ffc2b6; }
+.theory-src { margin: 0; font-size: .82rem; color: var(--muted); }
+.theory-debunked .theory-title, .theory-debunked .theory-sum { opacity: .75; }
+.theories-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.t-key { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; font-size: .9rem; color: var(--muted); }
+.theory-note { margin-top: 18px; }
+.vote { margin-top: auto; padding-top: 4px; }
+.vote-q { margin: 0 0 8px; font-weight: 700; font-size: .92rem; }
+.vote-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.vote-btn { background: transparent; color: var(--text); border: 1px solid var(--line); padding: 9px 16px; font-size: .82rem; }
+.vote-btn:hover { color: var(--text); border-color: var(--pink); filter: none; }
+.vote-btn[aria-pressed="true"].vote-yes { background: rgba(80, 220, 130, .2); border-color: #50dc82; }
+.vote-btn[aria-pressed="true"].vote-no { background: rgba(255, 141, 122, .2); border-color: #ff8d7a; }
+.vote-btn[aria-pressed="true"]::before { content: "✓ "; }
+.vote-btn:disabled { opacity: .5; cursor: not-allowed; }
+.vote-bar { margin: 10px 0 0; height: 8px; border-radius: 999px; background: rgba(255, 141, 122, .45); overflow: hidden; }
+.vote-bar span { display: block; height: 100%; width: 50%; background: #50dc82; border-radius: 999px 0 0 999px; transition: width .4s; }
+.vote-result { margin: 8px 0 0; font-size: .86rem; color: var(--muted); }
+.vote-result strong { color: var(--text); }
+@media (prefers-reduced-motion: reduce) { .vote-bar span { transition: none; } }

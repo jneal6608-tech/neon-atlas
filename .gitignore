@@ -3,3 +3,4 @@ dist/
 reports/*.html
 .env
 .official-cache/
+.wrangler/

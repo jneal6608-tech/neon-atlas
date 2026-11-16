@@ -35,6 +35,16 @@ const modOf = (a) => a.updatedAt || a.updated;
 const fmtMod = (a) => (a.updatedAt ? fmtDateTime(a.updatedAt) : fmtDate(a.updated));
 const LIVEFEED = (() => { try { return readJSON("data/live.json").entries.slice().sort((x, y) => String(y.time).localeCompare(String(x.time))); } catch { return []; } })();
 const LIVE_URL = "/news/gta-6-launch-live/";
+const THEORIES_URL = "/theories/";
+const THEORIES = (() => { try { return readJSON("data/theories.json"); } catch { return { updated: "", items: [] }; } })();
+const THEORY_STATUS = {
+  open: ["Open", "Unproven either way."],
+  likely: ["Looking likely", "The evidence is stacking up, but Rockstar hasn't confirmed it."],
+  "long-shot": ["Long shot", "Fun to think about, but the evidence is thin."],
+  confirmed: ["Confirmed", "Rockstar or the game has proven it true."],
+  debunked: ["Debunked", "Rockstar or the game has proven it false."],
+};
+const THEORY_TREND = { rising: "Trending", steady: "", cooling: "Cooling off" };
 const fmtLiveTime = (t) => (String(t).length > 10 ? fmtDateTime(t) : fmtDate(t));
 const OFFICIAL = (kind, slug) => (fs.existsSync(path.join(ROOT, `assets/official/${kind}/${slug}.jpg`)) ? `/assets/official/${kind}/${slug}.jpg` : null);
 // Cache-busting: /assets/* is cached for a week, so CSS and JS are linked with a fingerprint of their contents.
@@ -133,7 +143,7 @@ function renderMarkdown(md, fromUrl, ctxName) {
 }
 // ---------- layout ----------
 const NAV = [
-  ["Live", LIVE_URL], ["Guides", "/guides/"], ["Characters", "/characters/"], ["Locations", "/locations/"], ["Missions", "/missions/"],
+  ["Live", LIVE_URL], ["Theories", THEORIES_URL], ["Guides", "/guides/"], ["Characters", "/characters/"], ["Locations", "/locations/"], ["Missions", "/missions/"],
   ["Vehicles", "/vehicles/"], ["Gameplay", "/gameplay/"], ["News", "/news/"], ["FAQ", "/faq/"],
 ];
 const LOGO = `<svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 2 28 9v14l-12 7L4 23V9z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M16 8.5 21.5 22h-3l-1.2-3.2h-2.6L13.5 22h-3zm0 5.2-.9 2.7h1.8z" fill="currentColor"/></svg>`;
@@ -239,6 +249,25 @@ function card(a, fromUrl) {
   const img = ART(`${a.slug}-card`);
   return `<article class="card">${img ? `<img class="card-img" src="${href(img)}" alt="" width="800" height="450" loading="lazy" decoding="async">` : ""}<div class="card-body"><p class="card-meta"><a class="card-cat" href="${href("/" + a.category + "/")}">${esc(catBy[a.category].name)}</a> ${badge(a.confidence)}</p>
 <h3><a href="${href(a.url)}">${esc(a.title)}</a></h3><p>${esc(a.description)}</p><p class="card-date">Updated <time datetime="${a.updated}">${fmtDate(a.updated)}</time></p></div></article>`;
+}
+
+// Fan-theory card: status, the theory, evidence for/against, the community vote (filled in by site.js from /api/votes)
+// and where fans are discussing it. compact = homepage strip.
+function theoryCard(t, fromUrl, compact = false) {
+  const href = linker(fromUrl);
+  const [statusLabel, statusNote] = THEORY_STATUS[t.status] || THEORY_STATUS.open;
+  const settled = t.status === "confirmed" || t.status === "debunked";
+  const H = compact ? "h3" : "h2";
+  const list = (items) => `<ul>${items.map((x) => `<li>${new Marked().parseInline(esc(x))}</li>`).join("")}</ul>`;
+  const vote = `<div class="vote" data-theory="${esc(t.id)}"${settled ? ' data-settled="true"' : ""}>${settled ? "" : `<p class="vote-q">What do you think?</p><div class="vote-btns"><button type="button" class="vote-btn vote-yes" data-choice="yes" aria-pressed="false">Believe it</button><button type="button" class="vote-btn vote-no" data-choice="no" aria-pressed="false">Doubt it</button></div>`}<div class="vote-bar" hidden><span></span></div><p class="vote-result" role="status" aria-live="polite">${settled ? "Voting is closed." : "No votes yet. Be the first to call it."}</p></div>`;
+  return `<article class="theory theory-${t.status}${compact ? " compact" : ""}" id="${esc(t.id)}">
+<p class="theory-meta">${badge("theory")} <span class="t-status t-${t.status}" title="${esc(statusNote)}">${statusLabel}</span>${THEORY_TREND[t.trend] ? ` <span class="t-trend t-${t.trend}">${THEORY_TREND[t.trend]}</span>` : ""}${t.spoiler ? ' <span class="t-spoiler">Story spoilers</span>' : ""}</p>
+<${H} class="theory-title">${compact ? `<a href="${href(THEORIES_URL)}#${esc(t.id)}">${esc(t.title)}</a>` : esc(t.title)}</${H}>
+<p class="theory-sum">${esc(t.summary)}</p>
+${compact ? "" : `<div class="theory-evidence"><div class="ev ev-for"><p class="ev-h">What fans point to</p>${list(t.for)}</div><div class="ev ev-against"><p class="ev-h">The case against</p>${list(t.against)}</div></div>`}
+${vote}
+${compact ? "" : `<p class="theory-src">Where fans are talking about it: ${t.sources.map((s) => `<a href="${esc(s.url)}" rel="noopener" class="ext">${esc(s.publisher)}</a>`).join(", ")} · Updated <time datetime="${esc(t.updated)}">${fmtDate(t.updated)}</time></p>`}
+</article>`;
 }
 
 // ---------- shortcodes: {{name}} or {{name:arg|label}} on their own line in Markdown ----------
@@ -400,6 +429,7 @@ ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class
   ${LIVEFEED.length ? `<p class="fresh-last">Latest update: <time datetime="${LIVEFEED[0].time}">${fmtLiveTime(LIVEFEED[0].time)}</time> · <a href="${href(LIVE_URL)}">Follow the live updates →</a></p>` : ""}
 </section>
 <section aria-labelledby="start-h"><h2 id="start-h" class="section-h">Start here</h2><div class="grid cards">${featured.map((a) => card(a, url)).join("")}</div></section>
+${THEORIES.items.length ? `<section class="theory-strip" aria-labelledby="th-h"><h2 id="th-h" class="section-h">Fan theories everyone's arguing about</h2><p class="section-sub">The community's biggest GTA VI theories, checked against what Rockstar has actually said. Cast your vote.</p><div class="grid theories-grid">${THEORIES.items.filter((t) => t.status !== "debunked").slice(0, 3).map((t) => theoryCard(t, url, true)).join("")}</div><p><a class="btn btn-ghost" href="${href(THEORIES_URL)}">All ${THEORIES.items.length} theories →</a></p></section>` : ""}
 ${trailers ? `<section aria-labelledby="tr-h"><h2 id="tr-h" class="section-h">Watch the official trailers</h2><p class="section-sub">All four of Rockstar's GTA VI videos in one place, newest first, with what each one confirmed.</p>${shortcodes("<p>{{videos}}</p>", url)}<p><a class="btn btn-ghost" href="${href(trailers.url)}">Every trailer, explained →</a></p></section>` : ""}
 ${map ? `<section aria-labelledby="map-h"><h2 id="map-h" class="section-h">Explore Leonida</h2><p class="section-sub">The six regions Rockstar has officially named.</p>${shortcodes("<p>{{regions}}</p>", url)}<p><a class="btn btn-ghost" href="${href(map.url)}">The full map guide →</a></p></section>` : ""}
 ${quiz ? `<section class="band" aria-labelledby="quiz-h">${ART("gta-6-character-quiz-card") ? `<img src="${href(ART("gta-6-character-quiz-card"))}" alt="" width="800" height="450" loading="lazy">` : ""}<div class="band-copy"><h2 id="quiz-h">Which GTA 6 character are you?</h2><p>Six questions, eight official characters. Find out if you're a Jason, a Lucia or a Boobie Ike.</p><a class="btn" href="${href(quiz.url)}">Take the quiz</a></div></section>` : ""}
@@ -428,6 +458,25 @@ ${countdownHtml()}
   const ld = [{ "@context": "https://schema.org", "@type": "LiveBlogPosting", headline: "GTA 6 launch: live updates", description: "Timestamped, sourced GTA VI launch updates.", url: abs(url), coverageStartTime: "2026-11-15T00:00:00-05:00", coverageEndTime: "2026-12-01T00:00:00-05:00", dateModified: String(LIVEFEED[0].time).length > 10 ? new Date(LIVEFEED[0].time).toISOString() : LIVEFEED[0].time, publisher: { "@type": "Organization", name: cfg.name, logo: { "@type": "ImageObject", url: abs("/assets/logo-512.png") } }, about: { "@type": "VideoGame", name: "Grand Theft Auto VI" }, liveBlogUpdate: LIVEFEED.slice(0, 30).map((e) => ({ "@type": "BlogPosting", headline: e.text.replace(/[*_`]/g, "").slice(0, 110), articleBody: e.text.replace(/[*_`]/g, ""), datePublished: String(e.time).length > 10 ? new Date(e.time).toISOString() : e.time })) }, crumbLD(items)];
   write(url, layout({ url, title: "GTA 6 Launch Live Updates", description: "Live, timestamped GTA VI launch updates: unlock times, pre-load, patches, server status and every new verified answer, newest first.", body, jsonld: ld, image: ART("gta-6-launch-week-everything-confirmed-share"), bodyClass: "page-live" }));
   searchIndex.push({ t: "GTA 6 launch: live updates", d: LIVEFEED[0].text.replace(/[*_`]/g, ""), u: url, c: "Live", k: "mixed", h: "", b: LIVEFEED.map((e) => e.text).join(" ").slice(0, 1800), q: "" });
+}
+
+// ---------- fan theories ----------
+if (THEORIES.items.length) {
+  const url = THEORIES_URL;
+  const href = linker(url);
+  const items = [["Home", "/"], ["Fan theories", url]];
+  const counts = Object.fromEntries(Object.keys(THEORY_STATUS).map((k) => [k, THEORIES.items.filter((t) => t.status === k).length]));
+  const body = `<div class="wrap narrow">${crumbs(url, items)}<header class="page-head"><p class="eyebrow">${badge("theory")} Updated <time datetime="${THEORIES.updated}">${fmtDate(THEORIES.updated)}</time></p><h1>GTA 6 fan theories</h1>
+<p class="dek">The biggest GTA VI theories the community is debating right now, from Lucia's loyalty to returning characters. Each one shows what fans point to, the case against, and where fans are discussing it. Then you decide.</p></header>
+<aside class="callout callout-note theory-note"><p class="callout-label">Theories, not facts</p><p>Everything on this page is fan speculation, refreshed nightly from what people are discussing. The case against each theory uses Rockstar's official information. For confirmed facts, see our <a href="${href("/news/gta-6-launch-week-everything-confirmed/")}">launch-week fact sheet</a>. We don't cover leaks.</p></aside>
+<ul class="t-key">${Object.entries(THEORY_STATUS).map(([k, [l, n]]) => `<li><span class="t-status t-${k}">${l}</span> ${esc(n)}${counts[k] ? ` <span class="muted">(${counts[k]})</span>` : ""}</li>`).join("")}</ul>
+<div class="theory-list">${THEORIES.items.map((t) => theoryCard(t, url)).join("")}</div>
+<p class="small muted">Votes are anonymous: we store a random ID in a cookie so you can change your vote, and nothing else. Percentages appear once a theory has 10 votes.</p></div>`;
+  const ld = [crumbLD(items), { "@context": "https://schema.org", "@type": "CollectionPage", name: "GTA 6 fan theories", url: abs(url), dateModified: THEORIES.updated, about: { "@type": "VideoGame", name: "Grand Theft Auto VI" }, mainEntity: { "@type": "ItemList", itemListElement: THEORIES.items.map((t, i) => ({ "@type": "ListItem", position: i + 1, url: abs(url) + "#" + t.id, name: t.title })) } }];
+  write(url, layout({ url, title: "GTA 6 Fan Theories: The Biggest Ideas, Fact-Checked", description: "The biggest GTA 6 fan theories right now, from Lucia betraying Jason to returning characters, with the evidence for and against each. Updated nightly. Vote on each one.", body, jsonld: ld, bodyClass: "page-theories" }));
+  fs.mkdirSync(path.join(DIST, "theories"), { recursive: true });
+  fs.writeFileSync(path.join(DIST, "theories/ids.json"), JSON.stringify(THEORIES.items.map((t) => t.id)));
+  for (const t of THEORIES.items) searchIndex.push({ t: `Fan theory: ${t.title}`, d: t.summary, u: `${url}#${t.id}`, c: "Fan theory", k: "theory", h: "", b: [...t.for, ...t.against].join(" "), q: "" });
 }
 
 // ---------- FAQ ----------
@@ -492,6 +541,7 @@ write("/404.html", layout({ url: "/404.html", title: "Page not found", descripti
     { u: "/faq/", m: LIVE[0]?.updated },
     ...LIVE.map((a) => ({ u: a.url, m: modOf(a), img: ART(a.slug), t: a.title })),
     ...(LIVEFEED.length ? [{ u: LIVE_URL, m: String(LIVEFEED[0].time).length > 10 ? new Date(LIVEFEED[0].time).toISOString() : LIVEFEED[0].time }] : []),
+    ...(THEORIES.items.length ? [{ u: THEORIES_URL, m: THEORIES.updated }] : []),
     ...PAGES.filter((p) => !p.noindex).map((p) => ({ u: p.url, m: p.updated })),
   ];
   fs.writeFileSync(path.join(DIST, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${indexable.map((x) => `  <url><loc>${abs(x.u)}</loc>${x.m ? `<lastmod>${x.m}</lastmod>` : ""}${x.img ? `<image:image><image:loc>${abs(x.img)}</image:loc></image:image>` : ""}</url>`).join("\n")}\n</urlset>\n`);
@@ -501,7 +551,7 @@ write("/404.html", layout({ url: "/404.html", title: "Page not found", descripti
   // llms.txt: a plain-text map of the site's answers for AI assistants (emerging convention)
   const byCat = CATS.map((c) => [c, LIVE.filter((a) => a.category === c.slug)]).filter(([, l]) => l.length);
   const strip = (t) => t.replace(/\*\*|__|`/g, "").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
-  fs.writeFileSync(path.join(DIST, "llms.txt"), `# ${cfg.name}\n\n> ${cfg.tagline}. Independent and unofficial (not affiliated with Rockstar Games or Take-Two). Every page labels each claim as confirmed (official Rockstar source), reported (other outlets) or unconfirmed, lists its sources, and shows when it was last updated and verified.\n\nGTA VI release: ${fmtDate(cfg.launchDate)} on PlayStation 5 and Xbox Series X|S.\n${LIVEFEED.length ? `\nLatest live update (${fmtLiveTime(LIVEFEED[0].time)}): ${strip(LIVEFEED[0].text)}\n- [Launch live updates](${abs(LIVE_URL)})\n` : ""}\n${byCat.map(([c, l]) => `## ${c.name}\n\n${l.map((a) => `- [${a.title}](${abs(a.url)}): ${strip(a.answer || a.description)} (updated ${fmtMod(a)}; ${CONFIDENCE[a.confidence].label.toLowerCase()})`).join("\n")}`).join("\n\n")}\n\n## Full text\n\n- [llms-full.txt](${abs("/llms-full.txt")}): every article's answer and body in plain text\n`);
+  fs.writeFileSync(path.join(DIST, "llms.txt"), `# ${cfg.name}\n\n> ${cfg.tagline}. Independent and unofficial (not affiliated with Rockstar Games or Take-Two). Every page labels each claim as confirmed (official Rockstar source), reported (other outlets) or unconfirmed, lists its sources, and shows when it was last updated and verified.\n\nGTA VI release: ${fmtDate(cfg.launchDate)} on PlayStation 5 and Xbox Series X|S.\n${LIVEFEED.length ? `\nLatest live update (${fmtLiveTime(LIVEFEED[0].time)}): ${strip(LIVEFEED[0].text)}\n- [Launch live updates](${abs(LIVE_URL)})\n` : ""}\n${byCat.map(([c, l]) => `## ${c.name}\n\n${l.map((a) => `- [${a.title}](${abs(a.url)}): ${strip(a.answer || a.description)} (updated ${fmtMod(a)}; ${CONFIDENCE[a.confidence].label.toLowerCase()})`).join("\n")}`).join("\n\n")}${THEORIES.items.length ? `\n\n## Fan theories (speculation, not facts)\n\n${THEORIES.items.map((t) => `- [${t.title}](${abs(THEORIES_URL)}#${t.id}): ${t.summary} Status: ${THEORY_STATUS[t.status][0].toLowerCase()}.`).join("\n")}` : ""}\n\n## Full text\n\n- [llms-full.txt](${abs("/llms-full.txt")}): every article's answer and body in plain text\n`);
   fs.writeFileSync(path.join(DIST, "llms-full.txt"), LIVE.map((a) => `# ${a.title}\nURL: ${abs(a.url)}\nUpdated: ${fmtMod(a)} · Facts verified: ${fmtDate(a.lastVerified)} · Confidence: ${CONFIDENCE[a.confidence].label}\n\nQuick answer: ${strip(a.answer || a.description)}\n\n${strip(a.body.replace(/^\{\{.*\}\}$/gm, "").replace(/<!--[\s\S]*?-->/g, "")).trim()}\n\nSources:\n${a.sources.map((x) => `- ${x.title}: ${x.url}`).join("\n")}`).join("\n\n---\n\n") + "\n");
   if (cfg.indexNowKey) fs.writeFileSync(path.join(DIST, `${cfg.indexNowKey}.txt`), cfg.indexNowKey);
   const feedItems = LIVE.slice(0, 30).map((a) => `<item><title>${esc(a.title)}</title><link>${abs(a.url)}</link><guid>${abs(a.url)}</guid><pubDate>${new Date(a.updatedAt || a.updated + "T12:00:00Z").toUTCString()}</pubDate><description>${esc(a.description)}</description></item>`).join("");

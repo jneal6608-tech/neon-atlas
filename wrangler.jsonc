@@ -1,11 +1,19 @@
-// Cloudflare Workers static-site config: serves the built site in dist/.
-// (Used when the Cloudflare project is a Worker; Pages projects ignore this file.)
+// Cloudflare Worker config: serves the built site in dist/, and runs src/worker.mjs for /api/* (fan-theory votes).
+// The VoteCounter Durable Object (SQLite storage, free plan) is created automatically on deploy by "migrations".
+// Keep the migration list append-only: never edit or remove an existing tag.
 {
   "name": "neonatlas",
+  "main": "src/worker.mjs",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "not_found_handling": "404-page",
-    "html_handling": "auto-trailing-slash"
-  }
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": ["/api/*"]
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "VOTES", "class_name": "VoteCounter" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["VoteCounter"] }]
 }
