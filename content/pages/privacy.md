@@ -8,7 +8,7 @@ This policy explains what {{siteName}} collects when you visit, and why. If anyt
 ## What we collect
 
 - **Server logs.** Our host (Cloudflare Pages) processes standard request data such as IP address, browser type and the page requested, to deliver and protect the site.
-- **Analytics (if enabled).** We may use Google Analytics 4 to understand which pages are useful: pages viewed, approximate location (country/city), device type, how you reached us, and on-site events such as searches and reading an article to the end. Google Analytics uses cookies or similar technologies. We don't use it to identify you.
+- **Analytics (if enabled).** We use Google Tag Manager to load Google Analytics 4, to understand which pages are useful: pages viewed, approximate location (country/city), device type, how you reached us, and on-site events such as searches and reading an article to the end. Google Analytics uses cookies or similar technologies. We don't use it to identify you.
 - **Messages you send us.** If you use the contact form or email us, we receive what you write and any contact details you include, and use them only to reply and improve the site.
 
 We don't sell personal information, and we don't knowingly collect personal information from children under 13.

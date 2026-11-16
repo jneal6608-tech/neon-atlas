@@ -8,6 +8,7 @@
   "launchDate": "2026-11-19",
   "formEndpoint": "",
   "analytics": {
+    "gtmContainerId": "GTM-WB2JH8WJ",
     "ga4MeasurementId": ""
   },
   "searchConsole": {
