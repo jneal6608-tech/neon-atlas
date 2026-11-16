@@ -92,6 +92,12 @@ for (const e of idx) if (!pages.has(e.u.split("#")[0])) err("search-index.json",
     for (const k of ["for", "against"]) if (!Array.isArray(t[k]) || !t[k].length) err(f, `needs at least one "${k}" point`);
     if (!Array.isArray(t.sources) || !t.sources.length || t.sources.some((s) => !/^https:\/\//.test(s.url || "") || !s.publisher)) err(f, "needs at least one source with an https url and a publisher");
     if (!/^\d{4}-\d{2}-\d{2}$/.test(t.updated || "")) err(f, "`updated` must be a YYYY-MM-DD date");
+    if (t.image) {
+      const [kind, name] = t.image.startsWith("region-") ? ["regions", t.image.slice(7)] : t.image.startsWith("char-") ? ["characters", t.image.slice(5)] : ["art", t.image];
+      if (!fs.existsSync(path.join(ROOT, `assets/official/${kind}/${name}.jpg`)) && !fs.existsSync(path.join(ROOT, `assets/art/${t.image}.jpg`))) err(f, `image "${t.image}" not found (see the list in docs/THEORIES.md)`);
+      if (!t.imageAlt) err(f, "image needs imageAlt (describe what's in the picture)");
+    } else warn(f, "no image: add one from the list in docs/THEORIES.md");
+    for (const r of t.related || []) if (!loadArticles().some((a) => a.slug === r)) err(f, `related article "${r}" does not exist`);
   }
   if (th.items.length && !pages.has("/theories/")) err("theories", "/theories/ page was not built");
 }
