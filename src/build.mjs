@@ -154,6 +154,7 @@ function layout({ url, title, description, body, jsonld = [], ogType = "website"
   const fullTitle = pageTitle || `${title} | ${cfg.name}`;
   const ogImage = abs(image || "/assets/og-default.jpg");
   const ga = cfg.analytics.ga4MeasurementId;
+  const gtm = /^GTM-[A-Z0-9]+$/.test(cfg.analytics.gtmContainerId || "") ? cfg.analytics.gtmContainerId : "";
   const ads = cfg.ads.enabled && cfg.ads.adsenseClient;
   const nav = NAV.map(([n, u]) => `<li><a href="${href(u)}"${url.startsWith(u) ? ' aria-current="page"' : ""}>${n}</a></li>`).join("");
   return `<!doctype html>
@@ -192,11 +193,14 @@ ${cfg.searchConsole.googleSiteVerification ? `<meta name="google-site-verificati
 <link rel="stylesheet" href="${href("/assets/styles.css")}?v=${ASSET_V.css}">
 ${url === "/" && ART("home-hero") ? `<link rel="preload" as="image" href="${href(ART("home-hero"))}" fetchpriority="high">` : ""}
 ${jsonld.map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, "\\u003c")}</script>`).join("\n")}
+${gtm ? `<!-- Google Tag Manager -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtm}');</script>` : ""}
 ${ga ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${esc(ga)}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${esc(ga)}');</script>` : ""}
 ${ads ? `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${esc(cfg.ads.adsenseClient)}" crossorigin="anonymous"></script>` : ""}
 </head>
 <body class="${bodyClass}">
+${gtm ? `<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtm}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>` : ""}
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"><span></span></div>
 <header class="site-header">
