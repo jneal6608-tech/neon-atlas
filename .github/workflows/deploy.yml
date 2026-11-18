@@ -7,7 +7,7 @@ name: Build and deploy
 on:
   push:
     branches: [main]
-    paths-ignore: ["data/watch-state.json", "data/daily-build.txt"]
+    paths-ignore: ["data/watch-state.json", "data/daily-build.txt", "studio/**"]
   schedule:
     - cron: "17 5 * * *"   # 05:17 UTC daily
   workflow_dispatch:

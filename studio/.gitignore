@@ -1,0 +1,13 @@
+# Raw gameplay is huge: it never goes in git. It lives in footage/raw/ (or Google Drive) and is re-downloaded when needed.
+footage/raw/
+footage/cache/
+# regenerable per-video output
+videos/*/work/
+videos/*/cache/
+videos/*/renders/
+shorts/*/work/
+shorts/*/renders/
+models/
+__pycache__/
+*.pyc
+.DS_Store
