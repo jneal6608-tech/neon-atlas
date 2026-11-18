@@ -2,6 +2,13 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-18: tools built fresh, separate from the animation studio
+- **Decision:** the user wants the studio's infrastructure separate from the animation studio: nothing copied from it.
+- **Change:** the "Bring over from animation-studio" table is replaced by "Tools: built fresh in `studio/`", which lists
+  what each tool must do (requirements only); voice tools became their own build step; `KICKOFF.md` rewritten so the
+  building session starts from scratch, one step at a time, with tests and a pull request per step.
+- **Files:** `studio/BRIEF.md`, `studio/KICKOFF.md`, `studio/README.md`.
+
 ## 2026-11-18: the GTA script reference
 - **Input:** six transcripts the user chose (MrBossFTW news, two DarkViperAU, Broughy1322, two lore/theory videos).
 - **Change:** `studio/prompts/script-reference-gta.md`: measured pace (160-225 wpm; target 155-175 for the user), the

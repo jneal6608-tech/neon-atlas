@@ -65,41 +65,42 @@ git), and deletes raw clips after export. Cloud session disk is limited; raw foo
 The user reads the scripts, so they must be good:
 - written for speaking (short sentences, natural words, no tongue-twisters), with a read-aloud pass where every stumble is
   rewritten;
-- calibrated against GTA guide/theory channels the user likes (`prompts/script-reference.md`, rebuilt for GTA: ask the user
-  for 2-3 channels);
+- calibrated against the reference videos the user chose (`prompts/script-reference-gta.md`, 2026-11-18);
 - scored 80+ on the scorecard, every fact sourced (Neon Atlas articles, official Rockstar material, our own gameplay, fresh
   research).
 
-## Bring over from animation-studio (copy, then adapt)
+## Tools: built fresh in `studio/`, separate from the animation studio (user decision, 2026-11-18)
 
-Add `jneal6608-tech/animation-studio` to the session (read access is enough) and copy these into `studio/`, then strip
-the animation and survival assumptions:
+Nothing is copied from `jneal6608-tech/animation-studio`, and it is not attached to studio sessions. The tools below are
+written new for footage editing. What each must do (the requirements, not code to copy):
 
-| From animation-studio | Keep | Change |
-|---|---|---|
-| `tools/vo_prep.py` | all: trim, rumble filter, -16 LUFS level | nothing |
-| `tools/align.py` | Parakeet word timestamps, script-to-speech matching | align to edit segments instead of animated shots |
-| `tools/script_check.py`, `tools/script_score.py` (+ tests) | scorecard, interest map, loop ledger, sourcing check | GTA formats (guide, explainer, theory, topn-short); drop the "survival numbers" rule; wpm from the user's measured pace, not the synthetic narrator |
-| `tools/music.py`, `tools/mix.py`, `tools/export.py` | music bed, ducking under the voice, -14 LUFS master | nothing (no `vo_style` step: the user's voice is cleaned only) |
-| `tools/qc.py` | file, timing, sound, captions, safe area, package checks | drop the palette, animated-shot and builder "direction" checks; add footage checks (no other creator's clips, no watermark, overlays on cues) |
-| `tools/package.py` (+ test) | titles and thumbnail concepts compared before choosing | GTA title angles; description template with the unofficial notice and the Neon Atlas link |
-| `tools/retention.py` (+ test) | retention/CTR log, drop-off reports, experiments | a fresh `analytics/RETENTION.md`: lessons from survival videos do not carry over |
-| `.claude/commands/voiceover.md`, `retention.md` | the flow | `/voiceover` without voice styling |
-| `tools/ensure_deps.sh` | ffmpeg, Parakeet, MusicGen | drop HyperFrames-only and Kokoro/Piper parts unless the edit renderer or a Shorts voice needs them |
+| Tool | Does |
+|---|---|
+| `tools/vo_prep.py` | cleans the user's recording only: keeps the original untouched; trims silence at the very start and end; removes rumble under ~60 Hz; levels to -16 LUFS with one gain change (a transparent limiter only on peaks past -1.5 dBTP). Never changes pacing, pitch or delivery. |
+| `tools/align.py` | word-level timestamps for the voiceover (a local speech-to-text model, e.g. Whisper or Parakeet), matched to the script text, so every cut and overlay is placed with `cue("word")`. |
+| `tools/script_check.py`, `tools/script_score.py` (+ tests) | measure a script against `prompts/script-reference-gta.md`: length at the user's pace, the hook checks, units with claim/evidence/reaction, series structure, unlabelled guesses, sources; a score out of 100 with weak stretches by timestamp. 80+ with no dimension under 6 goes to recording. |
+| `tools/footage.py` | download the clips a video needs (Google Drive), cut them into scenes, sample frames, tag them, write `footage/index.json`, delete raw clips after export. |
+| `tools/edit.py` (+ renderer) | the edit: clips matched to sentences, the overlays from `STYLE.md` on word cues, a low-res storyboard preview first, then the full 1080p60 render. |
+| `tools/music.py`, `tools/mix.py`, `tools/export.py` | a music bed (the user's track or a generated one) ducked under the voice, master at -14 LUFS, true peak under -1 dBTP, H.264 + AAC export. |
+| `tools/qc.py` | the gate before "finished": file, resolution, sync, loudness, no black or frozen stretches, captions inside safe areas (Shorts: clear of the YouTube buttons), only our own footage, script score present. |
+| `tools/package.py` | 5+ titles (series formulas in `research/reference-channels.md`) and 3+ thumbnail concepts compared before one is chosen; description with the unofficial notice, sources and the Neon Atlas link; chapters. |
+| `tools/retention.py` | log real YouTube numbers (retention at 0:30 and 1:00, average view, CTR; Shorts: viewed vs swiped) into a fresh `analytics/RETENTION.md`. |
+| `tools/ensure_deps.sh` | installs only what is missing (ffmpeg, the speech model, Python packages). |
 
-Do not bring over: `library/` (animation pieces, palettes, rigs), `STYLE.md`, `build.py`, `narrate.py`, `vo_style.py`,
-`voice_*`, `catalog.py`, `palette_sheet.py`, the survival scripts, videos and analytics.
+Each tool has its usage in its docstring and a test where it computes something (scores, timing, loudness, QC).
 
 ## Build order
 
-1. **GTA script mode** (`/write-script`): formats, GTA script reference, read-aloud pass, scoring. Needs no footage, so it
-   comes first and makes the first recording session count.
-2. **The YouTube edit look** (`STYLE.md`, written with the user and confirmed before it locks): punch-in zooms, arrows and
+1. **GTA script mode** (`/write-script`, `script_check`, `script_score`): formats, the GTA script reference, read-aloud
+   pass, scoring. Needs no footage, so it comes first and makes the first recording session count.
+2. **Voice tools** (`/voiceover`, `vo_prep`, `align`): the user's recording cleaned and timed word by word.
+3. **The YouTube edit look** (`STYLE.md`, written with the user and confirmed before it locks): punch-in zooms, arrows and
    circles, map pins on Leonida, captions with highlighted keywords, counters, pop-ups, whooshes and dings, chapter cards.
-3. **Footage library**: download, scene-cut, tag, index; "what to record" shot lists when a script needs footage we lack.
-4. **Edit pipeline** (`/make-video`): clip matching per sentence, overlays on word cues, storyboard, render, mix, QC.
-5. **Top-N Shorts template** (`/make-shorts`): vertical crop of gameplay, rank, name, stat, safe areas.
-6. **Gameplay upload helper**: trim, chapters, title, description, thumbnail, the link and embed for the matching Neon Atlas
+4. **Footage library**: download, scene-cut, tag, index; "what to record" shot lists when a script needs footage we lack.
+5. **Edit pipeline** (`/make-video`): clip matching per sentence, overlays on word cues, storyboard, render, music, mix,
+   export, QC, package.
+6. **Shorts** (`/make-shorts`): top-N, this-or-that and funny clips from the same pieces: vertical crop of gameplay, rank, name, stat, safe areas.
+7. **Gameplay upload helper**: trim, chapters, title, description, thumbnail, the link and embed for the matching Neon Atlas
    article.
 
 ## The site and the studio share this repository (2026-11-18)
