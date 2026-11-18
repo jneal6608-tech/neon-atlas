@@ -15,14 +15,17 @@ We copy structure, pacing and technique. We never copy wording, jokes, persona, 
 
 ## Pace
 
-Measured from transcript timestamps (spoken words over the opening stretch):
+Words counted by hand over one 28-46 s stretch of narration per video, timed from the transcript timestamps. These are
+samples, not whole-video averages; the real average comes from measuring the user's own recordings.
 
-| Video | Words per minute |
-|---|---|
-| MrBossFTW news | ~160 |
-| Broughy1322 | ~190 |
-| Mount Chiliad theory | ~190 |
-| DarkViperAU | ~225 (fast, dense, jokes land on the cut) |
+| Video | Stretch | Words | Words per minute |
+|---|---|---|---|
+| The Altruists deep dive (#5) | 0:05-0:51, the cold open | 116 | ~150 (slow, deliberate) |
+| MrBossFTW news (#1) | 0:00-0:46 | 122 | ~160 |
+| Mount Chiliad theory (#6) | 0:00-0:41 | 124 | ~180 |
+| Broughy1322 (#4) | 0:00-0:28 | 88 | ~190 |
+| DarkViperAU facts #100 (#3) | 0:20-0:58, the first fact | 121 | ~190 |
+| DarkViperAU cutscenes (#2) | 0:00-0:30 | 113 | ~225 (fast, dense, jokes land on the cut) |
 
 **Target for the user's voice: 155-175 wpm** until their own pace is measured on the first recording, then their real
 pace. A 12-minute news script is therefore about 1,900-2,100 words; a 15-minute lore script about 2,400-2,600.
@@ -66,7 +69,8 @@ However").
 ## Structure by series
 
 ### `news` (MrBossFTW, #1): 10-15 min
-- One news event, then **15-25 items**, biggest and most concrete first (robberies, then choices, then the world).
+- One news event, then **20-30 items** (#1 has about 27 in 14 min, roughly 30 s each), biggest and most concrete first
+  (robberies, then choices, then the world).
 - A funny or surprising item around the middle to reset attention (#1: switching to Jason and finding him in the shower).
 - Unknowns said out loud: "Who knows?", "we don't know exactly how... but". Never fill a gap with a guess presented as fact.
 - Ending: one recap line, **the narrator's own favourite item** ("mine again has to be those random strangers"), then
