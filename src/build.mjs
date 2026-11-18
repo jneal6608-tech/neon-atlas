@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { Marked } from "marked";
 import {
   ROOT, config, categories, loadArticles, loadPages, isLive, isScheduled, readJSON,
@@ -37,6 +38,23 @@ const LIVEFEED = (() => { try { return readJSON("data/live.json").entries.slice(
 const LIVE_URL = "/news/gta-6-launch-live/";
 const THEORIES_URL = "/theories/";
 const THEORIES = (() => { try { return readJSON("data/theories.json"); } catch { return { updated: "", items: [] }; } })();
+// When the site last changed, shown on the home page ("Last updated ..."). It moves on its own whenever the site is
+// updated: the newest commit that changed content/, data/ or assets/ (not the daily rebuild nudge or the official-page
+// watcher's snapshot, which change nothing a reader sees), or the newest date in the content itself, whichever is later.
+// SITE_UPDATED=<ISO date> overrides it (for tests).
+const SITE_UPDATED = (() => {
+  if (process.env.SITE_UPDATED) return process.env.SITE_UPDATED;
+  let lastCommit = null;
+  try {
+    lastCommit = execFileSync("git", ["log", "-1", "--format=%cI", "--", "content", "data", "assets",
+      ":(exclude)data/watch-state.json", ":(exclude)data/daily-build.txt"],
+    { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim() || null;
+  } catch { /* not a git checkout: fall back to the dates in the content */ }
+  const stamp = (d) => (String(d).length > 10 ? Date.parse(d) : Date.parse(d + "T12:00:00Z"));
+  const dates = [lastCommit, LIVEFEED[0]?.time, THEORIES.updated, ...LIVE.map((a) => a.updatedAt || a.updated)]
+    .filter((d) => d && !Number.isNaN(stamp(d)) && stamp(d) <= NOW.getTime() + 60_000);
+  return dates.sort((a, b) => stamp(b) - stamp(a))[0] || null;
+})();
 const THEORY_STATUS = {
   open: ["Open", "Unproven either way."],
   likely: ["Looking likely", "The evidence is stacking up, but Rockstar hasn't confirmed it."],
@@ -475,7 +493,7 @@ ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class
     <li><b>Verified first<span class="sr">:</span></b> <span>New details are checked and labeled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong> before they go live.</span></li>
     <li><b>Timestamped<span class="sr">:</span></b> <span>Every page shows when it was last updated and last verified, so you always know how fresh it is.</span></li>
   </ol>
-  ${LIVEFEED.length ? `<p class="fresh-last">Latest update: <time datetime="${LIVEFEED[0].time}">${fmtLiveTime(LIVEFEED[0].time)}</time> · <a href="${href(LIVE_URL)}">Follow the live updates →</a></p>` : ""}
+  ${SITE_UPDATED ? `<p class="fresh-last">Last updated: <time datetime="${SITE_UPDATED}">${fmtLiveTime(SITE_UPDATED)}</time>${LIVEFEED.length ? ` · <a href="${href(LIVE_URL)}">Follow the live updates →</a>` : ""}</p>` : ""}
 </section>
 <section aria-labelledby="start-h"><h2 id="start-h" class="section-h">Start here</h2><div class="grid cards">${featured.map((a) => card(a, url)).join("")}</div></section>
 ${tBreak(0)}

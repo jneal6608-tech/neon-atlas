@@ -23,6 +23,8 @@ jobs:
       HAS_CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history: the home page's "Last updated" date comes from the last content commit
       - uses: actions/setup-node@v4
         with:
           node-version: 22

@@ -2,6 +2,15 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-18: the home page's "Last updated" date updates itself (site)
+- **Feedback:** under "Updated daily" the home page said the latest update was November 15 although the user updated
+  the site that day; they want the date to change by itself whenever they update the site.
+- **Change:** the line showed the newest entry of the launch live feed (`data/live.json`), not the site's last change. It
+  now shows "Last updated" from the newest commit that changed `content/`, `data/` or `assets/` (the daily rebuild nudge
+  and the official-page watcher's snapshot don't count), or the newest date inside the content, whichever is later.
+  The deploy checks out full history so the date can be read. Tested: an article edit moves it; the daily rebuild doesn't.
+- **Files:** `src/build.mjs`, `.github/workflows/deploy.yml`.
+
 ## 2026-11-18: the site can embed our own gameplay videos
 - **Request:** prepare the site for the user's gameplay uploads (launch week: gameplay on the site and the channel).
 - **Change:** a `{{ourvideo:YOUTUBE_ID|Title}}` shortcode: the same click-to-play player as the trailers, credited "Our
