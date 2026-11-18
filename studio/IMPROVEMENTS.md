@@ -2,6 +2,31 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-18: build step 1, the GTA script mode
+- **Request:** build the studio's tools from scratch, one step at a time, starting with the script mode, with tests.
+- **Change:**
+  - A script markup the tools read (`prompts/script-template.md`): `## Hook`, named chapters, `## Ending`; lines tagged
+    `[claim]`, `[evidence]`, `[reaction]` (plus hook, theory and ending tags); `[S1]` source ids matching
+    `source/sources.md`; `>` editor notes that are not spoken.
+  - `tools/script_check.py`: times every sentence at the user's pace (`voice.json`, 165 wpm until measured) and checks
+    the script reference: length, the three-part hook and first item before 0:30, claim > evidence > reaction units,
+    unit pacing, series structure (order said out loud, item rate, chapters, car test method and our own numbers,
+    guide query/answer/article, top-N countdown), the ending, sources (reported facts attributed out loud, no leaks),
+    unlabelled guesses and theories, "unofficial", speakability (long sentences, brackets, glued units, tongue-twisters,
+    past stumbles) and voice (opinions in reactions, transitions). Also `read` (the reading copy), `timeline` and
+    `stumble` (records words the user tripped on in `prompts/stumbles.txt`, checked in every later script).
+  - `tools/script_score.py`: ten dimensions out of 10, total out of 100, the 80/6 bar, rule-breaking findings that fail
+    whatever the score, weak stretches by timestamp; saves `script-score.json` with the script's hash for QC.
+  - `tools/formats.py`: each format's rules in one place. Where `CLAUDE.md` and the script reference give different
+    lengths (news 6-12 vs 10-15 min, lore 8-15 vs 12-20), the allowed range is the span of both, and falling short
+    of the reference's range costs up to 1.5 points ("ideal").
+  - `/write-script` (root `.claude/commands/`), `tools/ensure_deps.sh`, 59 tests (`tools/tests/`, `pytest.ini`) and a
+    `Studio tests` workflow that runs them on studio pull requests.
+  - First real script: `videos/gta-6-launch-everything-confirmed/` (launch-eve news, facts from the site's articles).
+- **Files:** `studio/tools/`, `studio/prompts/script-template.md`, `studio/prompts/stumbles.txt`, `studio/voice.json`,
+  `studio/pytest.ini`, `studio/videos/gta-6-launch-everything-confirmed/`, `.claude/commands/write-script.md`,
+  `.github/workflows/studio-tests.yml`, `studio/README.md`, `studio/BRIEF.md`, `studio/.gitignore`.
+
 ## 2026-11-18: tools built fresh, separate from the animation studio
 - **Decision:** the user wants the studio's infrastructure separate from the animation studio: nothing copied from it.
 - **Change:** the "Bring over from animation-studio" table is replaced by "Tools: built fresh in `studio/`", which lists

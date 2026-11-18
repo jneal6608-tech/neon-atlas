@@ -1,0 +1,21 @@
+# Runs the video studio's tool tests (studio/tools/tests) on every pull request or branch push that touches studio/.
+# It never deploys anything; the website's build and deploy stay in deploy.yml.
+name: Studio tests
+on:
+  pull_request:
+    paths: ["studio/**", ".github/workflows/studio-tests.yml"]
+  push:
+    branches-ignore: [main]
+    paths: ["studio/**", ".github/workflows/studio-tests.yml"]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: bash studio/tools/ensure_deps.sh
+      - run: python -m pytest studio/tools/tests

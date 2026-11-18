@@ -1,0 +1,6 @@
+{
+  "wpm": 165,
+  "measured": false,
+  "target_range": [155, 175],
+  "note": "Words per minute the scripts are timed at. 165 is the middle of the script reference's 155-175 target until the user's own pace is measured from a real recording (tools/align.py, build step 2), which then replaces it and sets measured to true."
+}
