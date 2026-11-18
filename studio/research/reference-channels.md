@@ -4,7 +4,8 @@ Measured from each channel's uploads list on 2026-11-18 (`uploads-<channel>-2026
 title; MrBossFTW's latest 60 uploads, DarkViperAU's latest 360, Broughy1322's latest 90). Views are YouTube's rounded
 counts at that moment, so newer videos are under-counted. This is the title, length and topic half of the study. The
 script half (hooks, structure, pacing) needs transcripts: YouTube blocks transcript downloads from cloud sessions, so the
-user pastes them (YouTube: the video's "...more" > "Show transcript", copy it) into `transcripts/<channel>-<video-id>.txt`.
+user pastes them into the chat (YouTube: the video's "...more" > "Show transcript"). They are not committed (this repository
+is public; `research/transcripts/` is git-ignored). The script half is `../prompts/script-reference-gta.md` (2026-11-18).
 
 ## MrBossFTW: the news format we copy
 
@@ -40,7 +41,7 @@ user pastes them (YouTube: the video's "...more" > "Show transcript", copy it) i
 - For us: **"I Tested Every Car In GTA 6"** (by class, as the cars become known), **"Fastest <class> - GTA 6 Best Cars
   Countdown"**, and a day-one physics/handling explainer. 7-10 min unless it is a full analysis.
 
-## What this means for the scripts (draft rules, to confirm with transcripts)
+## What this means for the scripts (confirmed by transcripts: see `../prompts/script-reference-gta.md`)
 
 1. News: 10-15 min, title by the MrBossFTW formula, the most concrete item first, never a bare mystery.
 2. Lore: 12-20 min, a discovery or a question, numbered when it is a series.

@@ -11,3 +11,5 @@ models/
 __pycache__/
 *.pyc
 .DS_Store
+# Other creators' transcripts (their words): kept locally for study, never committed (this repository is public)
+research/transcripts/

@@ -2,6 +2,14 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-18: the GTA script reference
+- **Input:** six transcripts the user chose (MrBossFTW news, two DarkViperAU, Broughy1322, two lore/theory videos).
+- **Change:** `studio/prompts/script-reference-gta.md`: measured pace (160-225 wpm; target 155-175 for the user), the
+  three-part hook every one of them uses, the claim > evidence > reaction unit with one honest opinion line per unit,
+  structure per series, Shorts from the same units, and a pre-recording checklist. Transcripts are not committed (public
+  repository); `research/transcripts/` is git-ignored.
+- **Files:** `studio/prompts/script-reference-gta.md`, `studio/research/reference-channels.md`, `studio/.gitignore`.
+
 ## 2026-11-18: an all-round GTA 6 channel in named series
 - **Decision:** the user wants an all-round GTA 6 channel: DarkViperAU-style lore topics, MrBossFTW's voice-over format
   (news and "everything new"), Broughy1322-style car countdowns, and Shorts that are top 5/10, this-or-that and funny clips.
