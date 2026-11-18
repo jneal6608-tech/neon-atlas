@@ -1,6 +1,6 @@
 {
  "about": "GTA VI fan theories shown at /theories/ and on the homepage. Updated nightly by the Claude research task (see docs/THEORIES.md), which opens a pull request. These are fan ideas, not facts: every item needs at least one source that shows fans discussing it. 'for' = what fans point to; 'against' = official Rockstar facts or strong counter-points. status: open | likely | long-shot | confirmed | debunked. trend: rising | steady | cooling. Items are shown in this order. image = an official image name from docs/THEORIES.md (credited Image: Rockstar Games); related = article slugs the theory is shown inside. Keep each id stable forever: votes are stored by id.",
- "updated": "2026-11-16",
+ "updated": "2026-11-17",
  "items": [
   {
    "id": "tony-prince-luis-lopez-return",
@@ -15,19 +15,61 @@
    "status": "open",
    "trend": "rising",
    "added": "2026-11-16",
-   "updated": "2026-11-16",
+   "updated": "2026-11-17",
    "for": [
     "Players say they spotted telling clues to both characters in a pre-load promo video released last week.",
-    "Fans note Tony would be in his early 60s by 2026, which they say fits the older man they spotted."
+    "Fans note Tony would be in his early 60s by 2026, which they say fits the older man they spotted.",
+    "A second wave of posts this week says a bearded man with glasses in a brief shot of a recent Rockstar clip has Tony's face and voice."
    ],
    "against": [
-    "Neither character appears in Rockstar's official GTA VI character profiles."
+    "Neither character appears in Rockstar's official GTA VI character profiles.",
+    "Skeptics note Rockstar could simply have reused a voice actor for a new character."
    ],
    "sources": [
     {
      "title": "GTA 6 could reunite two beloved GTA 4 characters after 17 years as gamers spot telling clues",
      "url": "https://www.gamingbible.com/news/gta-6-gta-4-tony-prince-luis-lopez-reunion-17-years-008044-20261112",
      "publisher": "GAMINGbible"
+    },
+    {
+     "title": "GTA 6 fans convinced iconic GTA 4 character's cameo has been revealed",
+     "url": "https://www.dexerto.com/gta/gta-6-fans-convinced-iconic-gta-4-characters-cameo-has-been-revealed-3427340/",
+     "publisher": "Dexerto"
+    }
+   ]
+  },
+  {
+   "id": "liberty-city-second-map",
+   "title": "Liberty City is a secret second map",
+   "summary": "A long-running theory got a boost from the latest trailer: fans think part of GTA VI, maybe Lucia's backstory or a later expansion, takes place in Liberty City.",
+   "image": "gta-6-map-leonida-regions",
+   "imageAlt": "A news helicopter flying over wooded hills in Leonida at sunset",
+   "related": [
+    "gta-6-map-leonida-regions",
+    "gta-6-characters"
+   ],
+   "status": "long-shot",
+   "trend": "rising",
+   "added": "2026-11-17",
+   "updated": "2026-11-17",
+   "for": [
+    "Rockstar's own profile of Lucia says her family's history goes back to Liberty City.",
+    "Fans have spotted Liberty City references in the trailers, such as a license plate and bikers wearing Liberty City hats."
+   ],
+   "against": [
+    "Every official Rockstar map and region description covers only the state of Leonida; Liberty City is mentioned only as part of Lucia's past.",
+    "Skeptics argue a reference is just a reference: GTA games often name-drop other cities without letting you visit them."
+   ],
+   "sources": [
+    {
+     "title": "Liberty City in GTA 6? New trailer fuels hopes of a second city",
+     "url": "https://www.notebookcheck.net/Liberty-City-in-GTA-6-New-trailer-fuels-hopes-of-a-second-city.1447790.0.html",
+     "publisher": "Notebookcheck"
+    },
+    {
+     "title": "GTA 6 Keeps Pointing at Liberty City Whether It Means To or Not",
+     "url": "https://www.gfinityesports.com/article/gta-6-keeps-pointing-at-liberty-city-whether-it-means-to-or-not",
+     "publisher": "Gfinity"
     }
    ]
   },
