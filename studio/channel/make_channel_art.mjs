@@ -70,7 +70,7 @@ h1 span{background:linear-gradient(180deg,${C.gold},${C.orange} 55%,${C.pink});-
  <div>
   <h1>NEON <span>ATLAS</span></h1>
   <p class="tag">The independent GTA 6 guide</p>
-  <p class="series">NEWS &#183; LORE &#183; CAR TESTS &#183; GUIDES &#183; SHORTS</p>
+  <p class="series">NEWS &#183; LORE &#183; THEORIES &#183; GUIDES &#183; SHORTS</p>
   <p class="small">UNOFFICIAL FAN CHANNEL &#183; NEONATLASGUIDE.COM</p>
  </div>
 </div>

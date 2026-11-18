@@ -5,11 +5,11 @@ Paste the text between the lines into YouTube Studio > Customization > Basic inf
 ---
 Neon Atlas is the independent GTA 6 guide.
 
-News, lore, car tests, guides and Shorts, made from our own gameplay with every fact checked against the source.
+News, lore, theories, guides and Shorts, made from our own gameplay with every fact checked against the source.
 
 - News: what Rockstar actually confirmed, and what it hasn't
-- Lore: the story and world of Leonida, with theories clearly labelled as theories
-- Car tests: every car tested the same way, with our own numbers
+- Lore: the story and world of Leonida, explained
+- Theories: fan theories weighed up, with the evidence for and against
 - Guides: straight answers to what you're searching for, step by step
 - Shorts: top 5s, head-to-heads and the funniest moments
 
