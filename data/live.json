@@ -1,9 +1,40 @@
 {
  "about": "Launch live updates, newest first on the site. Add entries with: node tools/editorial.mjs live \"text\" --confidence confirmed --link article:slug. time = ISO datetime (or a date when the exact time isn't known). Only verified facts; label anything else.",
  "entries": [
-  { "time": "2026-11-03", "text": "Rockstar announces that GTA VI pre-loading begins **November 10**.", "confidence": "confirmed", "link": "article:gta-6-pre-load-guide", "linkText": "How to pre-load →" },
-  { "time": "2026-11-10", "text": "Pre-loading opens. Rockstar's site switches to **\"Pre-Load Now.\"** The install size is reported to be up to 212 GB.", "confidence": "mixed", "link": "article:gta-6-pre-load-guide", "linkText": "Pre-load steps and size →" },
-  { "time": "2026-11-12", "text": "Rockstar Store physical (code-in-box) orders start shipping. The box contains a download code, **not a disc**.", "confidence": "confirmed", "link": "article:gta-6-physical-copy-no-disc", "linkText": "What's in the box →" },
-  { "time": "2026-11-15", "text": "We re-checked Rockstar's official pages: the release is still **Thursday, November 19, 2026**, on PS5 and Xbox Series X|S.", "confidence": "confirmed", "link": "article:gta-6-release-date-time", "linkText": "Release date and unlock time →" }
+  {
+   "time": "2026-11-03",
+   "text": "Rockstar announces that GTA VI pre-loading begins **November 10**.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-pre-load-guide",
+   "linkText": "How to pre-load →"
+  },
+  {
+   "time": "2026-11-10",
+   "text": "Pre-loading opens. Rockstar's site switches to **\"Pre-Load Now.\"** The install size is reported to be up to 212 GB.",
+   "confidence": "mixed",
+   "link": "article:gta-6-pre-load-guide",
+   "linkText": "Pre-load steps and size →"
+  },
+  {
+   "time": "2026-11-12",
+   "text": "Rockstar Store physical (code-in-box) orders start shipping. The box contains a download code, **not a disc**.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-physical-copy-no-disc",
+   "linkText": "What's in the box →"
+  },
+  {
+   "time": "2026-11-15",
+   "text": "We re-checked Rockstar's official pages: the release is still **Thursday, November 19, 2026**, on PS5 and Xbox Series X|S.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-release-date-time",
+   "linkText": "Release date and unlock time →"
+  },
+  {
+   "time": "2026-11-18T23:47:41.082Z",
+   "text": "Rockstar Store update: code-in-box copies now say pre-load **from November 12**, PlayStation codes work in **15 more countries**, and Rockstar says **Xbox codes aren't region-locked**. The store's video list now also names a **\"Trailer 3\"** and a **\"Pre-Load Now Trailer\"**.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-physical-copy-no-disc",
+   "linkText": "What's in the box →"
+  }
  ]
 }
