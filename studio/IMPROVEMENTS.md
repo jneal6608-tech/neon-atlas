@@ -2,6 +2,18 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-18: /write-script asks the format (or your idea), never the length
+- **Feedback:** the user wants `/write-script` to ask which format they want, or whether they have their own idea, and
+  not to ask the length: "just give me whatever length is good for a good video".
+- **Change:** step 1 of `/write-script` is one question (news, lore or theory, guide, Short, or "Other" for their own
+  idea), then up to three topic suggestions from the site's research if they gave no topic. Every format now has an
+  `aim` length in `tools/formats.py` (news 10-12 min, lore 12-16, theory 15-20, deep dive 18-22, cars 8-9, guide 6-8,
+  top 5 Short 45-55 s, this-or-that 40-55 s, funny Short 15-30 s), from the reference videos' sweet spots.
+  `script_check.py budget <format>` gives the length and word budget at the user's pace; the score report shows it.
+  Scripts are never padded to reach it: when verified material runs out, the script is shorter and says so.
+- **Files:** `.claude/commands/write-script.md`, `studio/tools/formats.py`, `studio/tools/script_check.py`,
+  `studio/tools/script_score.py`, `studio/tools/tests/test_script_check.py`.
+
 ## 2026-11-18: build step 1, the GTA script mode
 - **Request:** build the studio's tools from scratch, one step at a time, starting with the script mode, with tests.
 - **Change:**

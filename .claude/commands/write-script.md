@@ -1,6 +1,6 @@
 ---
 description: Write a Neon Atlas video script (news, lore, cars, guide or a Short), score it to 80+, then run the read-aloud pass
-argument-hint: <format> <topic, backlog id or article slug>
+argument-hint: [format or your own idea] (optional: it asks if empty)
 ---
 
 Write a script for the Neon Atlas studio: $ARGUMENTS
@@ -8,11 +8,23 @@ Write a script for the Neon Atlas studio: $ARGUMENTS
 Work from `studio/`. Before writing, read `studio/CLAUDE.md`, `studio/BRIEF.md`, `studio/prompts/script-reference-gta.md`
 (how it should sound) and `studio/prompts/script-template.md` (the markup the tools read). Work on a branch, never `main`.
 
-## 1. Format and topic
-- Format is one of `news`, `lore` (with `kind:` investigation, facts, deep-dive or theory), `cars`, `guide`,
-  `topn-short`, `this-or-that-short`, `funny-short`. Gameplay uploads have no script. If the format or topic is missing
-  or unclear, ask the user (one question), suggesting topics from the site's research: `data/keywords.json`,
-  `data/backlog.json`, `data/questions.json` (guides), `data/theories.json` and `docs/THEORIES.md` (theories).
+## 1. Ask what to make (format or the user's own idea); never ask the length
+- If `$ARGUMENTS` already names a format or an idea, skip the question. Otherwise ask ONE question with
+  AskUserQuestion: "What do you want to make?" with these options (the user can type their own idea under "Other"):
+  - **News / everything new**: what Rockstar just confirmed or what's new in the game (10-12 min).
+  - **Lore or theory**: one question about the story or world, argued for and against (12-16 min).
+  - **Guide**: answers one search, steps on screen (6-8 min).
+  - **Short**: a top 5, or a this-or-that (under a minute).
+  Cars countdowns are offered only once the car test method is written down (`BRIEF.md`); if the user asks for one
+  before that, say so and offer to write the method first.
+- If they picked a format but no topic, ask ONE follow-up with up to three topic suggestions drawn from the site's
+  research (`data/keywords.json`, `data/backlog.json`, `data/questions.json` for guides, `data/theories.json` and
+  `docs/THEORIES.md` for theories, the newest verified facts for news), each with a one-line reason (search demand,
+  what's new). "Other" lets them type their own.
+- If they typed their own idea, pick the format that fits it best yourself and tell them which in one line.
+- **Length is never asked.** It is chosen per format: run `python3 studio/tools/script_check.py budget <format>
+  [--kind <lore kind>]` and write to that length and word budget at the user's pace. Never pad to reach it: if the
+  verified material runs out, the script is shorter (still inside the allowed range), and say so in the report.
 - Pick the matching Neon Atlas article in `content/articles/` (required for guides; use it for facts in every format).
 - Slug: lowercase-hyphenated. Long-form goes in `studio/videos/<slug>/`, Shorts in `studio/shorts/<slug>/`.
 
@@ -28,7 +40,7 @@ Work from `studio/`. Before writing, read `studio/CLAUDE.md`, `studio/BRIEF.md`,
 - Follow the script reference for the series: the three-part hook (bold specific claim, one true authority line, a
   promise), the first item before 0:30, the order said out loud, units of claim > evidence > reaction, transitions,
   the series ending (recap, the narrator's pick, a question, call to action under 20 s, the next episode for a series).
-- Length: at the user's pace in `studio/voice.json` (165 wpm until it is measured). The checker gives the word budget.
+- Length: the `budget` from step 1, at the user's pace in `studio/voice.json` (165 wpm until it is measured).
 - Written for speaking: short sentences, words a person says, numbers and units as words, no brackets or slashes.
 - Every unit gets one `[reaction]` line: an honest opinion for the user to say in their own words. Mark in a comment
   at the top that reactions are suggestions. Never invent experience ("my 1,000 hours") or test numbers we don't have.

@@ -14,6 +14,8 @@ Usage (from the repository root or studio/):
       the reading copy for the read-aloud pass: spoken words only, numbered lines (--map adds file line numbers)
   python3 studio/tools/script_check.py stumble  "phrase" ["phrase" ...]
       record words the user tripped on in prompts/stumbles.txt; every later script is checked for them
+  python3 studio/tools/script_check.py budget   <format> [--kind facts] [--wpm 165]
+      the length to write to (chosen per format, not asked) and its word budget at the user's pace
 
 Sources are read from source/sources.md next to the script (or the `sources:` path in the front matter).
 Exit codes: 0 checked (findings or not), 2 the script could not be read.
@@ -1024,6 +1026,8 @@ def measures(sc: Script) -> dict:
         "words": sc.words,
         "duration_s": round(sc.duration, 1),
         "target_s": list(sc.spec["length"]),
+        "aim_s": list(sc.spec["aim"]),
+        "aim_words": [round(x / 60 * sc.wpm) for x in sc.spec["aim"]],
         "units": len(sc.units),
         "chapters": len(sc.chapters),
         "hook_s": round(hook[-1].end, 1) if hook else 0,
@@ -1095,6 +1099,16 @@ def add_stumbles(phrases: list[str]) -> list[str]:
     return added
 
 
+def budget(fmt: str, kind: str | None = None, wpm: float | None = None) -> dict:
+    """The length /write-script writes to for a format, and how many words that is at the user's pace."""
+    sp = formats.spec(fmt, kind)
+    wpm = float(wpm or load_voice_wpm())
+    lo, hi = sp["aim"]
+    return {"format": fmt, "kind": kind, "wpm": wpm, "aim_s": [lo, hi],
+            "aim_words": [round(lo / 60 * wpm), round(hi / 60 * wpm)], "allowed_s": list(sp["length"]),
+            "units": sp.get("items_per_min") and [round(lo / 60 * 2), round(hi / 60 * 2)]}
+
+
 def format_findings(findings: list[Finding]) -> str:
     if not findings:
         return "No findings."
@@ -1120,7 +1134,23 @@ def main(argv: list[str] | None = None) -> int:
             p.add_argument("--map", action="store_true")
     p = sub.add_parser("stumble")
     p.add_argument("phrases", nargs="+")
+    p = sub.add_parser("budget")
+    p.add_argument("format")
+    p.add_argument("--kind")
+    p.add_argument("--wpm", type=float)
     args = ap.parse_args(argv)
+
+    if args.cmd == "budget":
+        try:
+            b = budget(args.format, args.kind, args.wpm)
+        except ValueError as e:
+            print(f"script_check: {e}", file=sys.stderr)
+            return 2
+        items = f", about {b['units'][0]}-{b['units'][1]} items" if b["units"] else ""
+        print(f"{args.format}{' (' + args.kind + ')' if args.kind else ''}: write to {mmss(b['aim_s'][0])}-"
+              f"{mmss(b['aim_s'][1])}, about {b['aim_words'][0]}-{b['aim_words'][1]} words at {b['wpm']:g} wpm"
+              f"{items}. Allowed {mmss(b['allowed_s'][0])}-{mmss(b['allowed_s'][1])}; never pad to reach it.")
+        return 0
 
     if args.cmd == "stumble":
         added = add_stumbles(args.phrases)

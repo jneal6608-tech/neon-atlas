@@ -133,8 +133,9 @@ def report(res: dict, show_all: bool = False) -> str:
     pace = f"{m['wpm']:g} wpm" + ("" if m["wpm_measured"] else " (default until your pace is measured)")
     rows = [
         f"Script: {res['script']}",
-        f"Format: {m['format']}   {m['words']} words   {mmss(m['duration_s'])} at {pace}   "
-        f"(target {mmss(lo)}-{mmss(hi)})",
+        f"Format: {m['format']}   {m['words']} words   {mmss(m['duration_s'])} at {pace}",
+        f"Length: aim {mmss(m['aim_s'][0])}-{mmss(m['aim_s'][1])} (about {m['aim_words'][0]}-{m['aim_words'][1]} "
+        f"words), allowed {mmss(lo)}-{mmss(hi)}",
         f"Units: {m['units']}   chapters: {m['chapters']}   first item at {mmss(m['first_unit_s'])}   "
         f"avg sentence {m['avg_sentence_words']} words   sources: {m['sources']}",
         "",

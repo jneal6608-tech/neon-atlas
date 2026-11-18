@@ -397,3 +397,31 @@ def test_real_sample_script_parses():
     sc = c.parse(sample)
     assert sc.spec["format"] == "news" and len(sc.units) >= 10
     assert not [r for ln in sc.lines for r in ln.refs if r not in sc.sources]
+
+
+# ------------------------------------------------------------------------------------------ the length /write-script aims for
+
+def test_every_format_has_an_aim_inside_its_allowed_and_ideal_range():
+    import formats
+    shapes = [(f, None) for f in formats.FORMATS] + [("lore", k) for k in formats.LORE_KINDS]
+    for fmt, kind in shapes:
+        sp = formats.spec(fmt, kind)
+        (alo, ahi), (lo, hi) = sp["aim"], sp["length"]
+        assert lo <= alo < ahi <= hi, (fmt, kind)
+        if sp.get("ideal"):
+            assert sp["ideal"][0] <= alo and ahi <= sp["ideal"][1], (fmt, kind)
+
+
+def test_budget_words_at_the_users_pace(capsys):
+    b = c.budget("news")
+    assert b["aim_s"] == [600, 720] and b["aim_words"] == [1650, 1980] and b["units"] == [20, 24]
+    assert c.budget("news", wpm=150)["aim_words"] == [1500, 1800]
+    assert c.budget("lore", "theory")["aim_s"] == [900, 1200]
+    assert c.main(["budget", "topn-short"]) == 0
+    assert "write to 0:45-0:55" in capsys.readouterr().out
+    assert c.main(["budget", "podcast"]) == 2
+
+
+def test_a_script_at_the_aim_loses_nothing_for_length(write_script):
+    _, f = findings_for(write_script(f"## Hook\n{words(165 * 11)}."), "length")   # 11 min news
+    assert f == []
