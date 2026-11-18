@@ -2,6 +2,15 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-18: the channel is rebranded Neon Atlas
+- **Decision:** the user is rebranding the existing YouTube channel to Neon Atlas now. They want a profile picture that
+  matches the site's logo on Google, a banner, and a matching description. Launch week goes to the site; the first
+  narrated video waits until the Sunday after launch.
+- **Change:** `studio/channel/`: the profile picture (the site's sunset-compass logo from `assets/favicon.svg`, scaled for
+  the circle crop), the 2560x1440 banner (site colours and fonts, text inside YouTube's safe area, "unofficial fan
+  channel"), previews per device, the description (under 1,000 characters, unofficial notice), and the generator script.
+- **Files:** `studio/channel/`, `studio/BRIEF.md`.
+
 ## 2026-11-18: /write-script asks the format (or your idea), never the length
 - **Feedback:** the user wants `/write-script` to ask which format they want, or whether they have their own idea, and
   not to ask the length: "just give me whatever length is good for a good video".

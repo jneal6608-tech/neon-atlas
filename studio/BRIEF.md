@@ -5,6 +5,10 @@ start of every session; update it when a decision changes (with the date).
 
 ## The channel
 
+- **Renamed Neon Atlas (user decision, 2026-11-18):** the existing channel is rebranded now, before the first GTA
+  upload, rather than after a few weeks. Profile picture, banner and description: `channel/` (regenerate with
+  `node studio/channel/make_channel_art.mjs`). First GTA uploads: gameplay, on the site and the channel; the first
+  narrated video waits until the Sunday after launch while the site takes launch week.
 - **Same YouTube channel** as the survival/what-if animations: it is already approved for monetization and had about 60
   subscribers and 300 views, so switching niche costs little. The survival videos stay up. If GTA clearly wins after a few
   weeks, the channel may be renamed Neon Atlas (a rename does not affect monetization).
