@@ -314,11 +314,17 @@ const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug run
 function countdownHtml(compact = false) {
   return `<div class="countdown" data-launch="${cfg.launchDate}"><span class="cd-label">GTA VI unlocks in</span><div class="cd-units" aria-live="off"><div class="cd-unit"><b data-u="d">--</b><small>days</small></div><div class="cd-unit"><b data-u="h">--</b><small>hrs</small></div><div class="cd-unit"><b data-u="m">--</b><small>min</small></div>${compact ? "" : `<div class="cd-unit"><b data-u="s">--</b><small>sec</small></div>`}</div><span class="cd-note">Until midnight on Nov 19, your local time (reported unlock time).</span></div>`;
 }
-function video(id, label, fromUrl) {
+// Who made a YouTube video: Rockstar's own trailers ({{video}}) or our own gameplay ({{ourvideo}}), never mixed up.
+const VIDEO_CREDITS = {
+  rockstar: { aria: "official Rockstar Games video on YouTube", text: "Official Rockstar Games video on YouTube." },
+  ours: { aria: "Neon Atlas gameplay video on YouTube", text: "Our own gameplay, recorded by Neon Atlas. GTA VI is a Rockstar Games title; this is an unofficial fan video." },
+};
+function video(id, label, fromUrl, credit = "rockstar") {
+  const who = VIDEO_CREDITS[credit];
   const href = linker(fromUrl);
   const fallback = ART("gta-6-trailers-card") || ART("home-hero");
   // A real link to the video: plays inline on the site (site.js), and opens YouTube wherever embedding is blocked.
-  return `<div class="yt" data-id="${esc(id)}"><a class="yt-play" href="https://www.youtube.com/watch?v=${esc(id)}" target="_blank" rel="noopener" aria-label="Play ${esc(label)}, official Rockstar Games video on YouTube"><img src="https://i.ytimg.com/vi/${esc(id)}/maxresdefault.jpg" data-alt-src="https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg" data-fallback="${fallback ? href(fallback) : ""}" alt="" loading="lazy" width="1280" height="720"><span class="yt-btn" aria-hidden="true"></span><span class="yt-title">${esc(label)}</span></a><p class="yt-credit">Official Rockstar Games video on YouTube. <a href="https://www.youtube.com/watch?v=${esc(id)}" rel="noopener" target="_blank" class="ext">Open on YouTube</a></p></div>`;
+  return `<div class="yt" data-id="${esc(id)}"><a class="yt-play" href="https://www.youtube.com/watch?v=${esc(id)}" target="_blank" rel="noopener" aria-label="Play ${esc(label)}, ${who.aria}"><img src="https://i.ytimg.com/vi/${esc(id)}/maxresdefault.jpg" data-alt-src="https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg" data-fallback="${fallback ? href(fallback) : ""}" alt="" loading="lazy" width="1280" height="720"><span class="yt-btn" aria-hidden="true"></span><span class="yt-title">${esc(label)}</span></a><p class="yt-credit">${who.text} <a href="https://www.youtube.com/watch?v=${esc(id)}" rel="noopener" target="_blank" class="ext">Open on YouTube</a></p></div>`;
 }
 // Videos Rockstar hosts only in its own player (no YouTube upload we could verify): the poster links to Rockstar's page.
 function rockstarVideo(url, label, img, fromUrl) {
@@ -331,6 +337,7 @@ function shortcodes(html, fromUrl) {
   return html.replace(/<p>\{\{([a-z-]+)(?::([^}|]*))?(?:\|([^}]*))?\}\}<\/p>/g, (m, name, arg, label) => {
     switch (name) {
       case "video": return video(arg, label || "Watch the trailer", fromUrl);
+      case "ourvideo": return video(arg, label || "Watch our gameplay", fromUrl, "ours");
       case "launchtrailer": return rockstarVideo(...LAUNCH_TRAILER, fromUrl);
       case "videos": return `<div class="video-row">${rockstarVideo(...LAUNCH_TRAILER, fromUrl)}${[["QdBZY2fkU-0", "Trailer 1"], ["VQRLujxTm3c", "Trailer 2"], ["tJbzMqJGH4k", "An Extended Look"]].map(([i, l]) => video(i, l, fromUrl)).join("")}</div>`;
       case "countdown": return countdownHtml();

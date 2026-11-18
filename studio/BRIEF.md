@@ -5,6 +5,10 @@ start of every session; update it when a decision changes (with the date).
 
 ## The channel
 
+- **Renamed Neon Atlas (user decision, 2026-11-18):** the existing channel is rebranded now, before the first GTA
+  upload, rather than after a few weeks. Profile picture, banner and description: `channel/` (regenerate with
+  `node studio/channel/make_channel_art.mjs`). First GTA uploads: gameplay, on the site and the channel; the first
+  narrated video waits until the Sunday after launch while the site takes launch week.
 - **Same YouTube channel** as the survival/what-if animations: it is already approved for monetization and had about 60
   subscribers and 300 views, so switching niche costs little. The survival videos stay up. If GTA clearly wins after a few
   weeks, the channel may be renamed Neon Atlas (a rename does not affect monetization).
@@ -110,9 +114,9 @@ Each tool has its usage in its docstring and a test where it computes something 
   and the deploy workflow skips pushes that change only `studio/`.
 - Topic sources already in the site: `data/keywords.json` (keyword opportunities), `data/backlog.json` (34 outlined
   articles), `data/questions.json` (reader questions), `data/theories.json` (researched nightly), `content/articles/`.
-- Embedding our videos: the site's `{{video ID}}` shortcode (`src/build.mjs`) labels every video "Official Rockstar Games
-  video", so our own uploads need their own shortcode (for example `{{ourvideo ID "label"}}`, credited to Neon Atlas)
-  before the first one is embedded. That is a site change: run `npm test` from the root.
+- Embedding our videos: done 2026-11-18. Our own uploads use `{{ourvideo:YOUTUBE_ID|Title}}` (`src/build.mjs`),
+  credited "Our own gameplay, recorded by Neon Atlas" and marked unofficial; `{{video:...}}` stays for Rockstar's
+  official videos only.
 
 ## Open questions for the user
 

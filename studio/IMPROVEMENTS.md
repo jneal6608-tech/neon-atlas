@@ -2,6 +2,34 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-18: the site can embed our own gameplay videos
+- **Request:** prepare the site for the user's gameplay uploads (launch week: gameplay on the site and the channel).
+- **Change:** a `{{ourvideo:YOUTUBE_ID|Title}}` shortcode: the same click-to-play player as the trailers, credited "Our
+  own gameplay, recorded by Neon Atlas. GTA VI is a Rockstar Games title; this is an unofficial fan video." The
+  `{{video}}` shortcode still labels Rockstar's official videos only. How to use it is in the root `README.md`.
+- **Files:** `src/build.mjs`, `README.md`, `studio/BRIEF.md`.
+
+## 2026-11-18: the channel is rebranded Neon Atlas
+- **Decision:** the user is rebranding the existing YouTube channel to Neon Atlas now. They want a profile picture that
+  matches the site's logo on Google, a banner, and a matching description. Launch week goes to the site; the first
+  narrated video waits until the Sunday after launch.
+- **Change:** `studio/channel/`: the profile picture (the site's sunset-compass logo from `assets/favicon.svg`, scaled for
+  the circle crop), the 2560x1440 banner (site colours and fonts, text inside YouTube's safe area, "unofficial fan
+  channel"), previews per device, the description (under 1,000 characters, unofficial notice), and the generator script.
+- **Files:** `studio/channel/`, `studio/BRIEF.md`.
+
+## 2026-11-18: /write-script asks the format (or your idea), never the length
+- **Feedback:** the user wants `/write-script` to ask which format they want, or whether they have their own idea, and
+  not to ask the length: "just give me whatever length is good for a good video".
+- **Change:** step 1 of `/write-script` is one question (news, lore or theory, guide, Short, or "Other" for their own
+  idea), then up to three topic suggestions from the site's research if they gave no topic. Every format now has an
+  `aim` length in `tools/formats.py` (news 10-12 min, lore 12-16, theory 15-20, deep dive 18-22, cars 8-9, guide 6-8,
+  top 5 Short 45-55 s, this-or-that 40-55 s, funny Short 15-30 s), from the reference videos' sweet spots.
+  `script_check.py budget <format>` gives the length and word budget at the user's pace; the score report shows it.
+  Scripts are never padded to reach it: when verified material runs out, the script is shorter and says so.
+- **Files:** `.claude/commands/write-script.md`, `studio/tools/formats.py`, `studio/tools/script_check.py`,
+  `studio/tools/script_score.py`, `studio/tools/tests/test_script_check.py`.
+
 ## 2026-11-18: build step 1, the GTA script mode
 - **Request:** build the studio's tools from scratch, one step at a time, starting with the script mode, with tests.
 - **Change:**
