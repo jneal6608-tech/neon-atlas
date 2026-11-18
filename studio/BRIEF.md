@@ -92,7 +92,7 @@ Each tool has its usage in its docstring and a test where it computes something 
 ## Build order
 
 1. **GTA script mode** (`/write-script`, `script_check`, `script_score`): formats, the GTA script reference, read-aloud
-   pass, scoring. Needs no footage, so it comes first and makes the first recording session count.
+   pass, scoring. Needs no footage, so it comes first and makes the first recording session count. **Built 2026-11-18.**
 2. **Voice tools** (`/voiceover`, `vo_prep`, `align`): the user's recording cleaned and timed word by word.
 3. **The YouTube edit look** (`STYLE.md`, written with the user and confirmed before it locks): punch-in zooms, arrows and
    circles, map pins on Leonida, captions with highlighted keywords, counters, pop-ups, whooshes and dings, chapter cards.
