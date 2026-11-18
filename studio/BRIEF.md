@@ -12,19 +12,37 @@ start of every session; update it when a decision changes (with the date).
   voice that knows Leonida inside out, like a documentary narrator.
 - **No animation for GTA.** The animation studio (`jneal6608-tech/animation-studio`) stays as it is for survival videos.
 
-## What gets made
+## What gets made: an all-round GTA 6 channel in named series (2026-11-18)
 
-1. **Guides and explainers (the core).** Searchable, so a small channel can rank; each one matches a Neon Atlas article, so
-   the site and the channel feed each other. Examples: "10 things to do first in GTA 6", "how to make money fast in GTA 6",
-   "every hidden location in Vice City", "10 things GTA 6 never tells you".
-2. **Theories (every couple of weeks).** Fun and shareable but recommendation-driven, harder for a small channel. Always
-   labelled as theories.
-3. **Top-N Shorts from gameplay.** "Top 5 fastest cars", "top 10 hidden spots". Top 5 holds better in under 60 s; for a
-   top 10 the first items go fast and the last three get the time. Rank number, item name, one quick stat.
-4. **Regular gameplay uploads** with a light edit (trim, chapters, thumbnail, description linking the matching Neon Atlas
-   article). They are also embedded on the Neon Atlas site.
-5. **No full mission walkthroughs.** Hours of recording, big outlets own the searches, spoilers. A short "how to beat <hard
-   mission>" is a guide and is fine.
+The user chose an all-round GTA 6 channel. It stays all-round by running a few repeatable series, so viewers (and YouTube)
+know what each upload is. Reference channels, checked on YouTube 2026-11-18 (subscribers / typical recent views):
+
+| Series | Modelled on | What we take from it | We never copy |
+|---|---|---|---|
+| **News and "everything new"** | MrBossFTW (3.19M; 90K-200K, daily) | his format: voice over footage, no camera; fast turnaround; long, specific titles ("GTA 6 Just Got A NEW Update - ...") | his scripts, thumbnails, catchphrases |
+| **Lore and deep dives** (theories included) | DarkViperAU (2.35M; lore video 390K this week) | his topics and angles: a clear question ("Could Chef know Michael before Trevor?"), a stance, evidence argued for and against | his persona, jokes, opinions as ours |
+| **Cars** | Broughy1322 (294K; 12K-30K) | tested countdowns ("Fastest Supercars - Best Cars Countdown"): every car tested the same way, real numbers we measured, so the list is trustworthy | his data: we test our own cars |
+| **Guides** | (search-led; GTA Series Videos for clarity) | answers one search, steps on screen, chapters; each matches a Neon Atlas article | |
+
+Shorts (vertical, from our gameplay):
+- **Top 5 / top 10**: rank, name, one quick stat. Top 5 holds better under 60 s; a top 10 rushes the first items and gives
+  the last three the time.
+- **This or that**: two cars, weapons, places or outfits head to head, a verdict at the end.
+- **Funny clips**: moments the user saves on the PS5 right after they happen (Create > save recent gameplay); the studio adds
+  the cut, zooms, captions and sound effects. The user flags them; the studio does not hunt hours of footage for them.
+
+Also:
+- **Regular gameplay uploads** with a light edit (trim, chapters, thumbnail, description linking the matching Neon Atlas
+  article), embedded on the site.
+- **No full mission walkthroughs.** A short "how to beat <hard mission>" is a guide and is fine.
+
+Notes:
+- News scripts start from the site's own official-source watcher and live feed (`tools/watch-official.mjs`, the launch
+  live blog), so a news video and its site update come from the same verified facts.
+- Car tests need a fixed method (the same straight, fully upgraded, timed over a known distance from our footage) written
+  down before the first car video, so every number is comparable.
+- Rejected as a model: "GTA explained" (@GTAexplainedByBill). Its description matched the plan, but it had 3 subscribers,
+  0-30 views per video, sex-clickbait titles, an off-topic re-upload and "gameplay" posted before the game was out.
 
 ## Why the user's own voice and own footage
 
@@ -97,9 +115,9 @@ Do not bring over: `library/` (animation pieces, palettes, rigs), `STYLE.md`, `b
 
 ## Open questions for the user
 
-- Which 2-3 GTA YouTube channels' style do they like (for the script reference and the edit look)? The user is researching
-  this (2026-11-18). We learn their structure, pacing and editing rhythm; we never copy their scripts, footage, branding,
-  thumbnails or channel identity.
+- Reference channels: chosen 2026-11-18 (see "What gets made"). Next: study 2-3 top videos of each (structure, hook,
+  pacing, how often the picture changes) for the GTA script reference and the edit look. We learn their structure, pacing
+  and editing rhythm; we never copy their scripts, footage, branding, thumbnails or channel identity.
 - Shorts: text and music only, or the studio's synthetic voice?
-- The GTA 6 release date: as of mid-2026 it was 19 November 2026. Confirm it held; launch-week searches are the biggest
-  opportunity.
+- Release: GTA 6 launches 19 November 2026 (reference channels counted down to it on 2026-11-17). Launch-week searches are
+  the biggest opportunity.

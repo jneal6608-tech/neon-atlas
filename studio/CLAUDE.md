@@ -46,13 +46,18 @@ is the user's gameplay with edited graphics on top (the "YouTube edit" look in `
 
 ## Formats
 
-| Format | Length | Voice | Notes |
-|---|---|---|---|
-| `guide` | 6-12 min | user | answers one search ("how to make money fast in GTA 6"); steps shown on screen; chapters |
-| `explainer` | 6-12 min | user | "10 things GTA 6 never tells you", systems, map, characters |
-| `theory` | 8-15 min | user | labelled theory, evidence for and against, honest verdict |
-| `topn-short` | 30-60 s | text + music (or studio voice) | vertical 1080x1920, top 5 by default; top 10 gives the last three most time |
-| `gameplay` | any | none | trimmed, chapters, thumbnail, description linking the matching Neon Atlas article |
+Series and formats (the series, and the channels they are modelled on, are in `BRIEF.md`):
+
+| Format | Series | Length | Voice | Notes |
+|---|---|---|---|---|
+| `news` | News and "everything new" | 6-12 min | user | from verified sources only (the site's official-source watcher, the live blog); long, specific titles |
+| `lore` | Lore and deep dives | 8-15 min | user | one clear question, a stance, evidence for and against, an honest verdict; theories labelled as theories |
+| `cars` | Cars | 6-12 min | user | tested countdown: every car tested by the written method, our own measured numbers |
+| `guide` | Guides | 6-12 min | user | answers one search; steps shown on screen; chapters; matches a Neon Atlas article |
+| `topn-short` | Shorts | 30-60 s | text + music (or studio voice) | vertical 1080x1920, top 5 by default; top 10 gives the last three most time |
+| `this-or-that-short` | Shorts | 30-60 s | text + music (or studio voice) | two things head to head, one stat each round, a verdict at the end |
+| `funny-short` | Shorts | 10-45 s | game audio | a moment the user flagged; cut tight, zooms, captions, sound effects |
+| `gameplay` | | any | none | trimmed, chapters, thumbnail, description linking the matching Neon Atlas article |
 
 ## The pipeline (to be built: see BRIEF.md "Build order")
 
