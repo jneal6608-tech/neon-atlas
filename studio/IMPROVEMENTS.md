@@ -2,6 +2,13 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-18: the site can embed our own gameplay videos
+- **Request:** prepare the site for the user's gameplay uploads (launch week: gameplay on the site and the channel).
+- **Change:** a `{{ourvideo:YOUTUBE_ID|Title}}` shortcode: the same click-to-play player as the trailers, credited "Our
+  own gameplay, recorded by Neon Atlas. GTA VI is a Rockstar Games title; this is an unofficial fan video." The
+  `{{video}}` shortcode still labels Rockstar's official videos only. How to use it is in the root `README.md`.
+- **Files:** `src/build.mjs`, `README.md`, `studio/BRIEF.md`.
+
 ## 2026-11-18: the channel is rebranded Neon Atlas
 - **Decision:** the user is rebranding the existing YouTube channel to Neon Atlas now. They want a profile picture that
   matches the site's logo on Google, a banner, and a matching description. Launch week goes to the site; the first
