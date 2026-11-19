@@ -9,14 +9,18 @@ confidence: confirmed
 targetQuery: gta 6 map
 featured: true
 publishDate: 2026-11-15
-updated: 2026-11-15
-lastVerified: 2026-11-15
+updated: 2026-11-19
+lastVerified: 2026-11-19
 related: [gta-6-characters, gta-6-story-what-we-know, gta-6-vehicles-named-so-far]
 sources:
   - { type: official, title: "Grand Theft Auto VI: Only in Leonida (regions)", url: "https://www.rockstargames.com/VI/only-in-leonida", publisher: "Rockstar Games", accessed: 2026-11-15 }
   - { type: official, title: "Grand Theft Auto VI: official site", url: "https://www.rockstargames.com/VI", publisher: "Rockstar Games", accessed: 2026-11-15 }
+  - { type: community, title: "Neon Atlas: GTA VI in-game map on PS5, photographed on launch day (our own copy)", url: "https://neonatlasguide.com/locations/gta-6-map-leonida-regions/", publisher: "Neon Atlas", accessed: 2026-11-19 }
+updateLog:
+  - { date: 2026-11-19, note: "Added the counties shown on the in-game map (Mariana, Vice-Dale, Kelly, Lummox, Leonard), from our own PS5 copy." }
 faqs:
   - { q: "Where is the GTA 6 map set?", a: "In the fictional US state of **Leonida**, home to **Vice City**. Rockstar calls it \"the sunniest place in America.\"" }
+  - { q: "What counties are in GTA 6?", a: "The in-game map divides Leonida into counties. So far we've seen **Mariana County, Vice-Dale County, Kelly County, Lummox County and Leonard County**." }
   - { q: "How big is the GTA 6 map?", a: "Rockstar hasn't published an official size. Measurements you see online are estimates from trailers or leaks." }
   - { q: "Is Liberty City in GTA 6?", a: "It's mentioned: Lucia's family history goes back to Liberty City. Rockstar hasn't said it's a place you can visit in GTA VI." }
 ---
@@ -37,6 +41,23 @@ faqs:
 | **Port Gellhorn** | A faded vacation town of cheap motels, shut-down attractions and empty strip malls, with "a new economy" fuelled by "malt liquor, painkillers, and truck stop energy drinks." |
 | **Ambrosia** | "In the heart of Leonida": an industrial town where the **Allied Crystal** sugar refinery provides the jobs and "the local biker gang provides almost everything else." |
 | **Mount Kalaga** | "A national landmark up against the state's northern border," with hunting, fishing and off-road trails in **Mount Kalaga National Park**, and backwoods home to "hillbilly mystics and paranoid radicals." |
+
+## Counties on the in-game map
+
+The in-game map (pause menu → Map) divides **Leonida** into named **counties**. So far we've seen:
+
+- **Mariana County**
+- **Vice-Dale County**
+- **Kelly County**
+- **Lummox County**
+- **Leonard County**
+
+![GTA 6 in-game map zoomed in on Mariana County, with the map filters on the left and map controls on the right](/assets/uploads/gta-6-map-mariana-county.jpg)
+
+> [!CONFIRMED]
+> Seen on the in-game map on our own PS5 copy, launch day (November 19, 2026). The game doesn't say which of Rockstar's six regions sits in which county, so we're not matching them up yet. More of the map unlocks as you play; we'll add counties as we find them.
+
+Map controls: **L3** recenter, **R3** 2D view, **Square** add marker, **X** set destination. See the [pause menu guide](article:gta-6-pause-menu-stats-progress).
 
 ## Other official place names
 
