@@ -64,6 +64,7 @@ Only **published** and **needs-updating** appear on the site; *needs-updating* s
 - Answer the question in the first two sentences.
 - Link other articles with `[text](article:slug)`. Links to unpublished articles render as plain text, so nothing breaks.
 - Label claims with callouts: `> [!CONFIRMED]`, `> [!REPORTED]`, `> [!UNCONFIRMED]`, `> [!PREDICTED]`, `> [!NOTE]`, `> [!WARNING]`.
+- **Spoilers (rule): every story spoiler goes in a `> [!SPOILER]` box**, which stays hidden until the reader clicks "View spoiler". Write `> [!SPOILER]` on its own line, then the spoiler text, every line starting with `> `. Keep spoilers out of titles, descriptions, quick answers, headings, images and thumbnails. A FAQ whose answer is a spoiler ends its question with "(spoilers)". `npm run check` fails if a spoiler is only behind a "Spoilers" warning.
 - Every published article needs `sources`, `lastVerified` and a `confidence` label.
 
 ## Images and engagement features

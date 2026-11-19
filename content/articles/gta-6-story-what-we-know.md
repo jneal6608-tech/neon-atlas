@@ -8,12 +8,14 @@ status: published
 confidence: confirmed
 targetQuery: what is gta 6 about
 publishDate: 2026-11-15
-updated: 2026-11-15
-lastVerified: 2026-11-15
+updated: 2026-11-19
+lastVerified: 2026-11-19
 related: [gta-6-characters, gta-6-map-leonida-regions, gta-6-release-date-time]
 sources:
   - { type: official, title: "Grand Theft Auto VI: official site (synopsis)", url: "https://www.rockstargames.com/VI", publisher: "Rockstar Games", accessed: 2026-11-15 }
   - { type: official, title: "Grand Theft Auto VI: Only in Leonida (character profiles)", url: "https://www.rockstargames.com/VI/only-in-leonida", publisher: "Rockstar Games", accessed: 2026-11-15 }
+updateLog:
+  - { date: 2026-11-19, note: "Added a link to our GTA 6 First 10 Minutes video (spoiler warning)." }
 faqs:
   - { q: "What is the story of GTA 6?", a: "Jason and Lucia's \"easy score\" goes wrong, leaving them in a criminal conspiracy across the state of **Leonida**, where they have to rely on each other to survive. That's Rockstar's official setup." }
   - { q: "Where is GTA 6 set?", a: "In **Vice City** and across the fictional state of **Leonida**, which Rockstar calls \"the sunniest place in America.\"" }
@@ -51,3 +53,7 @@ Rockstar has introduced a smuggling circle in the Keys (Brian Heder and Cal Hamp
 ## After launch
 
 We'll keep this page spoiler-free. Story walkthroughs will live in the Missions section, with spoiler warnings, once we've played them.
+
+### Watch the first 10 minutes (spoilers)
+
+GTA VI is out. If you want to see how the game starts, watch our [GTA 6 First 10 Minutes](article:gta-6-first-10-minutes) video, recorded on our own PS5 with no commentary. It shows the opening story scenes, so skip it if you want to go in fresh.

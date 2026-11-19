@@ -117,7 +117,8 @@ function write(urlPath, html) {
 
 // ---------- markdown ----------
 // Supports: internal links as [text](article:slug), callouts as "> [!CONFIRMED] ..." (CONFIRMED, REPORTED,
-// UNCONFIRMED, PREDICTED, NOTE, TIP, WARNING), and gives every h2/h3 an id for the table of contents.
+// UNCONFIRMED, PREDICTED, NOTE, TIP, WARNING), spoilers as "> [!SPOILER]" (hidden until the reader clicks "View spoiler";
+// rule: every story spoiler goes in one), and gives every h2/h3 an id for the table of contents.
 function renderMarkdown(md, fromUrl, ctxName) {
   const href = linker(fromUrl);
   const toc = [];
@@ -154,6 +155,9 @@ function renderMarkdown(md, fromUrl, ctxName) {
     },
   });
   let html = marked.parse(md).replace(/<table>/g, '<div class="table-wrap" tabindex="0" role="region" aria-label="Table (scrolls sideways on small screens)"><table>').replace(/<\/table>/g, "</table></div>");
+  // Spoilers: a click-to-reveal box. The text stays in the page (search engines still read it), it's just hidden until opened.
+  html = html.replace(/<blockquote>\s*<p>\[!SPOILER\]\s*([\s\S]*?)<\/blockquote>/g, (_, inner) =>
+    `<details class="spoiler"><summary><span class="spoiler-btn"><span class="sp-show">View spoiler</span><span class="sp-hide">Hide spoiler</span></span><span class="spoiler-note">Story spoilers inside. Click to reveal.</span></summary><div class="spoiler-body">${/^<\/p>/.test(inner) ? inner.replace(/^<\/p>\s*/, "") : "<p>" + inner}</div></details>`);
   html = html.replace(/<blockquote>\s*<p>\[!(CONFIRMED|REPORTED|UNCONFIRMED|PREDICTED|NOTE|TIP|WARNING)\]\s*/g, (_, t) => {
     const k = t.toLowerCase();
     const label = { confirmed: "Confirmed", reported: "Reported, not confirmed by Rockstar", unconfirmed: "Unconfirmed", predicted: "Prediction", note: "Note", tip: "Tip", warning: "Heads up" }[k];
@@ -333,13 +337,17 @@ const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Be
 const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug runners"], ["lucia-caminos", "Lucia Caminos", "Fresh out of Leonida Penitentiary"], ["cal-hampton", "Cal Hampton", "Jason's paranoid friend"], ["boobie-ike", "Boobie Ike", "Vice City legend and businessman"], ["dre-quan-priest", "Dre'Quan Priest", "Only Raw Records"], ["real-dimez", "Real Dimez", "Rap duo Bae-Luxe and Roxy"], ["raul-bautista", "Raul Bautista", "Seasoned bank robber"], ["brian-heder", "Brian Heder", "Old-school Keys smuggler"]];
 // Home hero box "Recent news" (replaced the launch countdown): our newest guides made from our own PS5 copy of the game.
 // Picks live articles that cite our own gameplay as a source, newest first. Updates itself whenever we publish.
-function ourFreshHtml(fromUrl) {
+function ourFreshHtml(fromUrl, side = false) {
   const ours = LIVE.filter((a) => a.sources.some((s) => s.type === "community" && s.publisher === cfg.name))
     .sort((x, y) => String(modOf(y)).localeCompare(String(modOf(x)))).slice(0, 3);
   if (!ours.length) return "";
-  return `<section class="hero-fresh" aria-labelledby="hf-h"><p class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</p><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
+  if (side) return `<div class="side-box"><p class="side-h">Recent news</p><div class="grid cards compact">${ours.filter((x) => x.url !== fromUrl).map((x) => card(x, fromUrl)).join("")}</div></div>`;
+  return `<section class="hero-fresh" aria-labelledby="hf-h"><h2 class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</h2><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
 }
+// After launch the countdown has nothing left to count: show a short "out now" note instead (the build runs daily).
+const LAUNCHED = Date.now() >= new Date(cfg.launchDate).getTime();
 function countdownHtml(compact = false) {
+  if (LAUNCHED) return `<p class="out-now"><span class="live-dot" aria-hidden="true"></span> <strong>GTA VI is out now</strong> on PS5 and Xbox Series X|S (released ${fmtDate(String(cfg.launchDate).slice(0, 10))}).</p>`;
   return `<div class="countdown" data-launch="${cfg.launchDate}"><span class="cd-label">GTA VI unlocks in</span><div class="cd-units" aria-live="off"><div class="cd-unit"><b data-u="d">--</b><small>days</small></div><div class="cd-unit"><b data-u="h">--</b><small>hrs</small></div><div class="cd-unit"><b data-u="m">--</b><small>min</small></div>${compact ? "" : `<div class="cd-unit"><b data-u="s">--</b><small>sec</small></div>`}</div><span class="cd-note">Until midnight on Nov 19, your local time (reported unlock time).</span></div>`;
 }
 // Who made a YouTube video: Rockstar's own trailers ({{video}}) or our own gameplay ({{ourvideo}}), never mixed up.
@@ -348,6 +356,7 @@ const VIDEO_CREDITS = {
   ours: { aria: "Neon Atlas gameplay video on YouTube", text: "Our own gameplay, recorded by Neon Atlas. GTA VI is a Rockstar Games title; this is an unofficial fan video." },
 };
 function video(id, label, fromUrl, credit = "rockstar") {
+  label = decode(label); // shortcode text arrives HTML-escaped from Markdown; esc() below escapes it once
   const who = VIDEO_CREDITS[credit];
   const href = linker(fromUrl);
   const fallback = ART("gta-6-trailers-card") || ART("home-hero");
@@ -415,7 +424,7 @@ for (const a of LIVE) {
   const sidebar = `<aside class="sidebar" aria-label="More from Neon Atlas">
 <div class="side-box"><p class="side-h grad">Popular right now</p><div class="grid cards compact">${popular.map((p) => card(p, a.url)).join("")}</div></div>
 ${adSlot("sidebar")}
-<div class="side-box"><p class="side-h">Launch countdown</p>${countdownHtml(true)}</div>
+${LAUNCHED ? ourFreshHtml(a.url, true) : `<div class="side-box"><p class="side-h">Launch countdown</p>${countdownHtml(true)}</div>`}
 </aside>`;
   const body = `<div class="wrap">
 ${crumbs(a.url, items)}
