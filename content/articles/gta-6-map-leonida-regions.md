@@ -54,6 +54,14 @@ The in-game map (pause menu → Map) divides **Leonida** into named **counties**
 
 ![GTA 6 in-game map zoomed in on Mariana County, with the map filters on the left and map controls on the right](/assets/uploads/gta-6-map-mariana-county.jpg)
 
+### The full map, zoomed out
+
+Zoom all the way out and the map shows the whole state of **Leonida**, split into counties by white border lines. Early in the game, most of it is still unexplored. These are our own screenshots from launch day:
+
+![GTA 6 in-game map zoomed out on the state of Leonida, with county borders and Vice-Dale County labeled](/assets/uploads/gta-6-map-leonida-vice-dale.jpg)
+
+![GTA 6 in-game map zoomed out, showing the borders of Lummox County, Leonard County and Kelly County](/assets/uploads/gta-6-map-lummox-leonard-kelly.jpg)
+
 > [!CONFIRMED]
 > Seen on the in-game map on our own PS5 copy, launch day (November 19, 2026). The game doesn't say which of Rockstar's six regions sits in which county, so we're not matching them up yet. More of the map unlocks as you play; we'll add counties as we find them.
 

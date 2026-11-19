@@ -335,10 +335,12 @@ const theoryFor = (slug) => THEORY_OPEN.find((t) => (t.related || []).includes(s
 // ---------- shortcodes: {{name}} or {{name:arg|label}} on their own line in Markdown ----------
 const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Beach, Little Cuba, VC Port."], ["leonida-keys", "Leonida Keys", "A tropical archipelago next to beautiful, dangerous waters."], ["grassrivers", "Grassrivers", "A primordial expanse of mangroves, gators and worse."], ["port-gellhorn", "Port Gellhorn", "A faded vacation town with cheap motels and a new economy."], ["ambrosia", "Ambrosia", "Sugar-refinery industry town run by a biker gang."], ["mount-kalaga", "Mount Kalaga", "Hunting, fishing and off-road trails by the northern border."]];
 const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug runners"], ["lucia-caminos", "Lucia Caminos", "Fresh out of Leonida Penitentiary"], ["cal-hampton", "Cal Hampton", "Jason's paranoid friend"], ["boobie-ike", "Boobie Ike", "Vice City legend and businessman"], ["dre-quan-priest", "Dre'Quan Priest", "Only Raw Records"], ["real-dimez", "Real Dimez", "Rap duo Bae-Luxe and Roxy"], ["raul-bautista", "Raul Bautista", "Seasoned bank robber"], ["brian-heder", "Brian Heder", "Old-school Keys smuggler"]];
-// Home hero box "Recent news" (replaced the launch countdown): our newest guides made from our own PS5 copy of the game.
+// Home hero box "Recent news" (replaced the launch countdown): the newest posts on the site, whatever they are (guides,
+// videos, news). Updates itself: every newly published page goes to the top on the next build.
 // Picks live articles that cite our own gameplay as a source, newest first. Updates itself whenever we publish.
 // "Newest post" = when the page first went into the site: the git commit that added its file (exact time), falling
-// back to its publish date outside a git checkout. New posts go to the top automatically; later edits don't reshuffle.
+// back to its publish date outside a git checkout. A page written ahead as a draft and published later counts from
+// its publish time (publishedAt, stamped by tools/ship.mjs). New posts go to the top automatically; later edits don't reshuffle.
 const stampOf = (d) => (!d ? 0 : String(d).length > 10 ? Date.parse(d) : Date.parse(d + "T00:00:00Z")) || 0;
 const fileAddedTime = (file) => {
   try {
@@ -346,13 +348,13 @@ const fileAddedTime = (file) => {
     return Date.parse(out[out.length - 1]) || 0;
   } catch { return 0; }
 };
-const freshness = (a) => Math.max(stampOf(a.publishDate), fileAddedTime(a.file));
+const freshness = (a) => Math.max(stampOf(a.publishedAt), stampOf(a.publishDate), fileAddedTime(a.file));
 function ourFreshHtml(fromUrl, side = false) {
-  const ours = LIVE.filter((a) => a.sources.some((s) => s.type === "community" && s.publisher === cfg.name))
+  const ours = LIVE.filter((a) => a.url !== fromUrl)
     .map((a) => [a, freshness(a)]).sort((x, y) => y[1] - x[1]).map(([a]) => a).slice(0, 3);
   if (!ours.length) return "";
-  if (side) return `<div class="side-box"><p class="side-h">Recent news</p><div class="grid cards compact">${ours.filter((x) => x.url !== fromUrl).map((x) => card(x, fromUrl)).join("")}</div></div>`;
-  return `<section class="hero-fresh" aria-labelledby="hf-h"><h2 class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</h2><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
+  if (side) return `<div class="side-box"><p class="side-h">Recent news</p><div class="grid cards compact">${ours.map((x) => card(x, fromUrl)).join("")}</div></div>`;
+  return `<section class="hero-fresh" aria-labelledby="hf-h"><h2 class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</h2><p class="hero-fresh-note">The newest guides, videos and news on Neon Atlas.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
 }
 // After launch the countdown has nothing left to count: show a short "out now" note instead (the build runs daily).
 const LAUNCHED = Date.now() >= new Date(cfg.launchDate).getTime();
