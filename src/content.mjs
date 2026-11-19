@@ -65,6 +65,7 @@ export function loadArticles() {
       updateLog: data.updateLog || [],
       answer: data.answer || "",
       updatedAt: data.updatedAt ? new Date(data.updatedAt).toISOString() : null,
+      publishedAt: data.publishedAt ? new Date(data.publishedAt).toISOString() : null,
       author: data.author || "Neon Atlas Editors",
       body: content,
       url: `/${data.category}/${slug}/`,

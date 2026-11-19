@@ -26,6 +26,7 @@ if (/^description: .*TODO/m.test(fs.readFileSync(file, "utf8"))) problems.push("
 if (problems.length) { console.error(`Not shipping ${slug}:\n - ${problems.join("\n - ")}`); process.exit(1); }
 const now = new Date();
 const day = now.toISOString().slice(0, 10);
+if (!["published", "needs-updating"].includes(doc.data.status)) doc.data.publishedAt = now.toISOString(); // exact first-publish time (Recent news)
 doc.data.status = "published";
 doc.data.updatedAt = now.toISOString();
 doc.data.updated = day;
