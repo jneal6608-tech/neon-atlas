@@ -1,8 +1,8 @@
 ---
 title: "GTA 6 Fighting: How to Punch, Weave and Tackle"
 seoTitle: "GTA 6 Fighting: How to Weave and Tackle People"
-description: "How fighting works in GTA 6: punch with the melee button, weave to dodge, and sprint into someone then hit melee to tackle them to the ground."
-answer: "In GTA 6 you fight with the **melee button** (**Square** on PS5 by default). You can **weave** to dodge punches, and if someone runs, **sprint after them and press melee** to **tackle them to the ground**."
+description: "GTA 6 fighting controls on PS5: Square to punch, X to weave, hold Square for a special attack, R2 to choke, and L3 sprint plus Square to tackle."
+answer: "On PS5, **Square** punches, **X** weaves (dodges), **hold Square** for a special attack, and **hold R2 then tap Square** to choke. To **tackle**, sprint with **L3** and press **Square**."
 category: gameplay
 status: published
 publishedAt: '2026-11-19T21:21:11Z'
@@ -14,12 +14,23 @@ sources:
   - { type: community, title: "Neon Atlas: GTA VI on PS5, our own play (November 19, 2026)", url: "https://neonatlasguide.com/", publisher: "Neon Atlas", accessed: 2026-11-19 }
 faqs:
   - { q: "How do you tackle someone in GTA 6?", a: "**Sprint** toward them and press the **melee** button (Square on PS5 by default). Your character tackles them to the ground." }
-  - { q: "Can you dodge punches in GTA 6?", a: "Yes. You can **weave** to dodge an incoming punch during a fight." }
+  - { q: "Can you dodge punches in GTA 6?", a: "Yes. Press **X** to **weave** and dodge an incoming punch." }
+  - { q: "How do you choke someone in GTA 6?", a: "**Hold R2**, then **press Square repeatedly**." }
   - { q: "What button is punch in GTA 6?", a: "**Square** is melee in the default PS5 control scheme. You can change it in Settings, then Control Scheme." }
 ---
 **Fighting in GTA 6 is more than mashing punch.** You can throw punches, **weave** to dodge, and **tackle** someone who tries to run. Here's how, from our own PS5 copy.
 
 ![GTA 6 weapon wheel with Unarmed (fists) selected, which is how you fight hand to hand](/assets/uploads/gta-6-weapon-wheel.jpg)
+
+## Fighting controls (PS5)
+
+| Move | Buttons |
+| --- | --- |
+| Punch | **Square** |
+| Weave (dodge) | **X** |
+| Special attack (e.g. body slam) | **Hold Square** |
+| Choke | **Hold R2**, then tap **Square** repeatedly |
+| Tackle | **Sprint (L3)**, then **Square** |
 
 ## Get ready to fight
 
@@ -32,17 +43,22 @@ Press **melee** to throw punches. Keep pressing to string hits together.
 
 ## Weave to dodge
 
-You can **weave** to slip an incoming punch, then hit back while they're open.
+Press **X** to **weave** and slip an incoming punch, then hit back while they're open.
 
-> [!NOTE]
-> We haven't pinned down the exact weave button yet. We'll add it, plus a video, once we've recorded it.
+## Special attacks
+
+**Hold Square** for a **special attack**. Jason has some big moves, including a **body slam**.
+
+## Choke
+
+**Hold R2**, then **press Square repeatedly** to choke someone.
 
 ## Tackle someone who runs
 
 If someone runs away from a fight:
 
 1. **Sprint** after them (**L3** to run).
-2. When you're close, press **melee**.
+2. When you're close, press **Square**.
 3. Your character **tackles them to the ground**.
 
 ## Tips
