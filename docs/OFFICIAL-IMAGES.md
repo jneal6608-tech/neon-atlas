@@ -1,6 +1,6 @@
 # Official Rockstar images
 
-The site shows **official Rockstar images** for the eight characters, the six regions, every article (hero, card and social-share image) and the home page as soon as the files are in `assets/official/`. Anything without an official image falls back to the original Neon Atlas artwork. Official images are credited "Image: Rockstar Games".
+The site shows **official Rockstar images** for the eight characters, the six regions, every article (hero, card and social-share image) and the home page as soon as the files are in `assets/official/`. Anything without an official image uses our own gameplay screenshot (`assets/ours/art/`, credited "Screenshot: Neon Atlas"). **Generated or AI art is never used** (see the rule in `CLAUDE.md`); with no real picture, a page simply shows none. Official images are credited "Image: Rockstar Games".
 
 ## The quick way (two commands)
 
@@ -12,7 +12,7 @@ npm test
 
 **Which picture goes on which article** is set in `data/official-art.json`: `src` is the start of Rockstar's file name
 (e.g. `Vice_City_06`), `focus` is the crop centre. Change an entry and run `npm run import-official -- --force` to redo the
-crops; delete an entry to bring back the original artwork. A new article gets an official image by adding a line there.
+crops; delete an entry to remove that official image (the page then uses our own screenshot if there is one, otherwise no picture). A new article gets an official image by adding a line there.
 When Rockstar releases new screenshots (the watcher reports it), run `npm run fetch-official` again; only new files download.
 
 ## The manual way

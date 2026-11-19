@@ -68,7 +68,7 @@ Only **published** and **needs-updating** appear on the site; *needs-updating* s
 
 ## Images and engagement features
 
-- **Artwork:** `node tools/make-art.mjs` draws original Vice City-style art (no Rockstar assets): a hero, card and social-share image for every article, plus region and character cards. For a new article, run `node tools/make-art.mjs <slug>`; the build warns if one is missing.
+- **Pictures (rule): real GTA VI pictures only, never generated or AI art.** Every article picture is either an official Rockstar image (`assets/official/`, see `docs/OFFICIAL-IMAGES.md`) or our own gameplay screenshot. For our own, save a hero (1600x900), card (800x450) and share image (1200x630) as `assets/ours/art/<slug>.jpg`, `<slug>-card.jpg` and `<slug>-share.jpg`, cropped to the game screen only (no room, no reflections) and with photo metadata removed. `npm run check` fails if generated art comes back.
 - **Official Rockstar images:** `npm run fetch-official && npm run import-official` downloads Rockstar's own GTA VI media and puts it on every character, region, article and the home page, credited "Image: Rockstar Games". Which image goes where: `data/official-art.json`. Details: docs/OFFICIAL-IMAGES.md.
 - **Our own gameplay videos:** upload to the Neon Atlas YouTube channel, then put `{{ourvideo:YOUTUBE_ID|What it shows}}` on its own line in the matching article (the ID is the part after `watch?v=`). Never use `{{video}}` for our uploads: that one says "Official Rockstar Games video".
 - **Trailers** show YouTube's own thumbnail and play inside the page; wherever embedding is blocked (some previews and apps) they open YouTube instead.

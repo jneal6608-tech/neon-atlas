@@ -15,3 +15,7 @@ This repository has two parts:
   by pull request, and Claude merges only after asking the user and getting a yes for that pull request.
 - Neon Atlas is unofficial: never present it as Rockstar Games or Take-Two, on the site or in a video.
 - Raw gameplay footage never goes in git.
+- **No generated or AI art, ever.** Every picture on the site (article heroes, cards, share images, theory images,
+  inline images) is a real GTA VI picture: an official Rockstar image or our own gameplay screenshot
+  (`assets/ours/art/` or `assets/uploads/`). Screenshots are cropped to the game screen only (no room, no people, no
+  reflections) and saved fresh so photo metadata is removed. This applies to new articles and to any existing page.

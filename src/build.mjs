@@ -25,12 +25,14 @@ const warnings = [];
 // ---------- helpers ----------
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const decode = (s) => s.replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
-// Image lookup: an official Rockstar image (assets/official/art, from data/official-art.json via tools/import-official.mjs,
-// or the official region/character pictures) wins over the original artwork in assets/art.
+// Image lookup. Rule: real GTA VI pictures only, never generated art. An official Rockstar image (assets/official/art,
+// from data/official-art.json via tools/import-official.mjs, or the official region/character pictures) wins; otherwise
+// our own gameplay screenshot (assets/ours/art/<name>.jpg). No picture means no image, never an illustration.
 const ART = (name) => (fs.existsSync(path.join(ROOT, `assets/official/art/${name}.jpg`)) ? `/assets/official/art/${name}.jpg` : null)
   || (name.startsWith("region-") && OFFICIAL("regions", name.slice(7))) || (name.startsWith("char-") && OFFICIAL("characters", name.slice(5)))
-  || (fs.existsSync(path.join(ROOT, `assets/art/${name}.jpg`)) ? `/assets/art/${name}.jpg` : null);
+  || (fs.existsSync(path.join(ROOT, `assets/ours/art/${name}.jpg`)) ? `/assets/ours/art/${name}.jpg` : null);
 const IS_OFFICIAL = (p) => !!p && p.startsWith("/assets/official/");
+const IS_OURS = (p) => !!p && p.startsWith("/assets/ours/");
 const fmtDateTime = (iso) => new Date(iso).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/New_York", timeZoneName: "short" });
 const modOf = (a) => a.updatedAt || a.updated;
 const fmtMod = (a) => (a.updatedAt ? fmtDateTime(a.updatedAt) : fmtDate(a.updated));
@@ -286,7 +288,7 @@ const theoryVote = (t) => {
 };
 const theoryFigure = (t, fromUrl, cls) => {
   const img = theoryImg(t);
-  return img ? `<figure class="${cls}"><img src="${linker(fromUrl)(img)}" alt="${esc(t.imageAlt || "")}" width="800" height="450" loading="lazy" decoding="async">${IS_OFFICIAL(img) ? `<figcaption class="credit">Image: Rockstar Games</figcaption>` : ""}</figure>` : "";
+  return img ? `<figure class="${cls}"><img src="${linker(fromUrl)(img)}" alt="${esc(t.imageAlt || "")}" width="800" height="450" loading="lazy" decoding="async">${IS_OFFICIAL(img) ? `<figcaption class="credit">Image: Rockstar Games</figcaption>` : IS_OURS(img) ? `<figcaption class="credit">Screenshot: Neon Atlas</figcaption>` : ""}</figure>` : "";
 };
 
 // Full theory card for /theories/: picture, status, the theory, evidence for/against, the community vote
@@ -329,6 +331,14 @@ const theoryFor = (slug) => THEORY_OPEN.find((t) => (t.related || []).includes(s
 // ---------- shortcodes: {{name}} or {{name:arg|label}} on their own line in Markdown ----------
 const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Beach, Little Cuba, VC Port."], ["leonida-keys", "Leonida Keys", "A tropical archipelago next to beautiful, dangerous waters."], ["grassrivers", "Grassrivers", "A primordial expanse of mangroves, gators and worse."], ["port-gellhorn", "Port Gellhorn", "A faded vacation town with cheap motels and a new economy."], ["ambrosia", "Ambrosia", "Sugar-refinery industry town run by a biker gang."], ["mount-kalaga", "Mount Kalaga", "Hunting, fishing and off-road trails by the northern border."]];
 const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug runners"], ["lucia-caminos", "Lucia Caminos", "Fresh out of Leonida Penitentiary"], ["cal-hampton", "Cal Hampton", "Jason's paranoid friend"], ["boobie-ike", "Boobie Ike", "Vice City legend and businessman"], ["dre-quan-priest", "Dre'Quan Priest", "Only Raw Records"], ["real-dimez", "Real Dimez", "Rap duo Bae-Luxe and Roxy"], ["raul-bautista", "Raul Bautista", "Seasoned bank robber"], ["brian-heder", "Brian Heder", "Old-school Keys smuggler"]];
+// Home hero box "Recent news" (replaced the launch countdown): our newest guides made from our own PS5 copy of the game.
+// Picks live articles that cite our own gameplay as a source, newest first. Updates itself whenever we publish.
+function ourFreshHtml(fromUrl) {
+  const ours = LIVE.filter((a) => a.sources.some((s) => s.type === "community" && s.publisher === cfg.name))
+    .sort((x, y) => String(modOf(y)).localeCompare(String(modOf(x)))).slice(0, 3);
+  if (!ours.length) return "";
+  return `<section class="hero-fresh" aria-labelledby="hf-h"><p class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</p><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
+}
 function countdownHtml(compact = false) {
   return `<div class="countdown" data-launch="${cfg.launchDate}"><span class="cd-label">GTA VI unlocks in</span><div class="cd-units" aria-live="off"><div class="cd-unit"><b data-u="d">--</b><small>days</small></div><div class="cd-unit"><b data-u="h">--</b><small>hrs</small></div><div class="cd-unit"><b data-u="m">--</b><small>min</small></div>${compact ? "" : `<div class="cd-unit"><b data-u="s">--</b><small>sec</small></div>`}</div><span class="cd-note">Until midnight on Nov 19, your local time (reported unlock time).</span></div>`;
 }
@@ -359,8 +369,8 @@ function shortcodes(html, fromUrl) {
       case "launchtrailer": return rockstarVideo(...LAUNCH_TRAILER, fromUrl);
       case "videos": return `<div class="video-row">${rockstarVideo(...LAUNCH_TRAILER, fromUrl)}${[["QdBZY2fkU-0", "Trailer 1"], ["VQRLujxTm3c", "Trailer 2"], ["tJbzMqJGH4k", "An Extended Look"]].map(([i, l]) => video(i, l, fromUrl)).join("")}</div>`;
       case "countdown": return countdownHtml();
-      case "regions": return `<div class="gallery">${REGIONS.map(([s, n, d]) => { const off = OFFICIAL("regions", s); return `<figure><img src="${href(off || ART("region-" + s))}" alt="${off ? `${n} in GTA VI` : `Original illustration of ${n}`}" width="960" height="540" loading="lazy"><figcaption><strong>${n}</strong>${esc(d)}${off ? `<span class="credit">Image: Rockstar Games</span>` : ""}</figcaption></figure>`; }).join("")}</div>`;
-      case "characters": return `<div class="gallery people">${PEOPLE.map(([s, n, d]) => { const off = OFFICIAL("characters", s); return `<a href="${liveBy["gta-6-characters"] ? href(liveBy["gta-6-characters"].url) : ""}#${slugify(n)}"><figure><img src="${href(off || ART("char-" + s))}" alt="${off ? `${esc(n)} in GTA VI` : `Original poster-style card for ${esc(n)}`}" width="600" height="750" loading="lazy"><figcaption><strong>${esc(n)}</strong>${esc(d)}${off ? `<span class="credit">Image: Rockstar Games</span>` : ""}</figcaption></figure></a>`; }).join("")}</div>`;
+      case "regions": return `<div class="gallery">${REGIONS.map(([s, n, d]) => { const off = OFFICIAL("regions", s); return `<figure><img src="${href(off || ART("region-" + s))}" alt="${n} in GTA VI" width="960" height="540" loading="lazy"><figcaption><strong>${n}</strong>${esc(d)}${off ? `<span class="credit">Image: Rockstar Games</span>` : ""}</figcaption></figure>`; }).join("")}</div>`;
+      case "characters": return `<div class="gallery people">${PEOPLE.map(([s, n, d]) => { const off = OFFICIAL("characters", s); return `<a href="${liveBy["gta-6-characters"] ? href(liveBy["gta-6-characters"].url) : ""}#${slugify(n)}"><figure><img src="${href(off || ART("char-" + s))}" alt="${esc(n)} in GTA VI" width="600" height="750" loading="lazy"><figcaption><strong>${esc(n)}</strong>${esc(d)}${off ? `<span class="credit">Image: Rockstar Games</span>` : ""}</figcaption></figure></a>`; }).join("")}</div>`;
       case "storage": return `<div class="widget" data-widget="storage"><p class="widget-h">Will GTA 6 fit on your console?</p><p>Check your free space (PS5: Settings → Storage; Xbox: Settings → System → Storage devices) and enter it below.</p><div class="row"><div><label for="w-free">Free space (GB)</label><input id="w-free" type="number" min="0" max="8000" inputmode="numeric" placeholder="e.g. 180"></div><div><label for="w-console">Console</label><select id="w-console"><option value="ps5">PS5 / PS5 Pro</option><option value="xsx">Xbox Series X</option><option value="xss">Xbox Series S</option></select></div><div style="flex:0 0 auto"><button type="button" data-act="check">Check</button></div></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
       case "unlock": return `<div class="widget" data-widget="unlock" data-launch="${cfg.launchDate}"><p class="widget-h">When does it unlock where you live?</p><p>Pick your time zone. We show both reported scenarios, because Rockstar's exact per-region times aren't on a page we could verify.</p><div class="row"><div><label for="w-tz">Your time zone</label><select id="w-tz"></select></div></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
       case "edition": return `<div class="widget" data-widget="edition"><p class="widget-h">Standard or Ultimate? Answer 3 questions</p><div class="quiz-box"></div><div class="widget-out" role="status" aria-live="polite"></div></div>`;
@@ -399,7 +409,7 @@ for (const a of LIVE) {
   const needsUpdate = a.status === "needs-updating" ? `<p class="callout callout-warning" role="note"><strong>Being updated.</strong> Some details on this page may be out of date; we're re-checking it now.</p>` : "";
   const log = a.updateLog.length ? `<details class="update-log"><summary>Update history</summary><ul>${a.updateLog.map((u) => `<li><time datetime="${u.date}">${fmtDate(u.date)}</time>: ${esc(u.note)}</li>`).join("")}</ul></details>` : "";
   const hero = ART(a.slug);
-  if (!hero) warnings.push(`${a.file}: no artwork yet. Run: node tools/make-art.mjs ${a.slug}`);
+  if (!hero) warnings.push(`${a.file}: no picture yet. Add an official Rockstar image (npm run import-official) or our own screenshot as assets/ours/art/${a.slug}.jpg (never generated art).`);
   const next = relatedAll[0];
   const popular = LIVE.filter((x) => x.featured && x.slug !== a.slug && x !== next).slice(0, 5);
   const sidebar = `<aside class="sidebar" aria-label="More from Neon Atlas">
@@ -418,7 +428,7 @@ ${crumbs(a.url, items)}
   <p class="byline">By ${esc(a.author)} · Updated <time datetime="${modOf(a)}">${fmtMod(a)}</time> · Facts last verified <time datetime="${a.lastVerified}">${fmtDate(a.lastVerified)}</time> · ${mins} min read</p>
 </header>
 ${a.answer ? `<section class="quick-answer" aria-labelledby="qa-${a.slug}"><p class="qa-label" id="qa-${a.slug}">Quick answer <span>Updated ${fmtMod(a)}</span></p><p class="qa-text">${new Marked().parseInline(a.answer)}</p></section>` : ""}
-${hero ? `<figure class="article-hero"><img src="${href(hero)}" alt="${IS_OFFICIAL(hero) ? `Official GTA VI image for ${esc(a.title)}` : `Original Vice City-style illustration for ${esc(a.title)}`}" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>${IS_OFFICIAL(hero) ? "Image: Rockstar Games (official GTA VI media)." : "Original illustration by Neon Atlas. Not official Rockstar artwork."}</figcaption></figure>` : ""}
+${hero ? `<figure class="article-hero"><img src="${href(hero)}" alt="${IS_OFFICIAL(hero) ? `Official GTA VI image for ${esc(a.title)}` : `GTA VI gameplay screenshot for ${esc(a.title)}`}" width="1600" height="900" fetchpriority="high" decoding="async"><figcaption>${IS_OFFICIAL(hero) ? "Image: Rockstar Games (official GTA VI media)." : "Screenshot: Neon Atlas (our own PS5 capture). GTA VI is a Rockstar Games title."}</figcaption></figure>` : ""}
 ${needsUpdate}
 ${tocHtml}
 <div class="prose">
@@ -482,7 +492,7 @@ ${upcoming}</div>`;
   <h1>Every GTA 6 answer, <span class="grad">checked</span> before you read it.</h1>
   <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labeled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs arrive as we play.</p>
   <form class="hero-search" role="search" action="${href("/search/")}" method="get"><label class="sr" for="q-hero">Search</label><input id="q-hero" name="q" type="search" placeholder="Try “pre-load size”, “Ultimate Edition”, “Lucia”"><button type="submit">Search</button></form>
-  ${countdownHtml()}
+  ${ourFreshHtml(url)}
 </div></div></section>
 <div class="wrap">
 ${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class="live-strip-h" id="ls-h"><span class="live-dot" aria-hidden="true"></span> Live launch updates</p><ol>${LIVEFEED.slice(0, 3).map((e) => `<li><time datetime="${e.time}">${fmtLiveTime(e.time)}</time> ${new Marked().parseInline(e.text)}</li>`).join("")}</ol><a class="btn btn-ghost" href="${href(LIVE_URL)}">All live updates →</a></section>` : ""}

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // From "verified" to "live and pinged" in one command. Use it the moment an answer is confirmed.
 //   node tools/ship.mjs <slug> [--note "what changed"] [--live "text for the live feed"] [--confidence confirmed|mixed|unconfirmed] [--no-push]
-// Steps: validate → stamp published/updatedAt/lastVerified + update log → (optional) live-feed entry → artwork if
-// missing → build + checks → git commit + push (CI deploys, then pings IndexNow).
+// Steps: validate → stamp published/updatedAt/lastVerified + update log → (optional) live-feed entry → picture
+// check → build + checks → git commit + push (CI deploys, then pings IndexNow).
 import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
@@ -38,12 +38,13 @@ doc.data.updateLog = [...(doc.data.updateLog || []), { date: day, note }];
 fs.writeFileSync(file, matter.stringify(doc.content, doc.data));
 console.log(`✓ ${slug}: published, stamped ${now.toISOString()}`);
 if (opt("live")) sh(`node tools/editorial.mjs live ${JSON.stringify(opt("live"))} --confidence ${opt("confidence") || doc.data.confidence || "confirmed"} --link article:${slug}`);
-if (!fs.existsSync(path.join(ROOT, `assets/art/${slug}.jpg`))) { try { sh(`node tools/make-art.mjs ${slug}`); } catch { console.warn("! artwork not rendered (Playwright missing?); the page still works without it"); } }
+// Pictures: real GTA VI images only (official Rockstar media or our own screenshots in assets/ours/art). Never generated art.
+if (!["official/art", "ours/art"].some((d) => fs.existsSync(path.join(ROOT, `assets/${d}/${slug}.jpg`)))) console.warn(`! ${slug} has no picture yet: add our own screenshot as assets/ours/art/${slug}.jpg (+ -card, -share), or an official image. Never generated art.`);
 sh("node src/build.mjs");
 sh("node tools/check.mjs");
 if (args.includes("--no-push")) { console.log("Built and checked. Not pushed (--no-push)."); process.exit(0); }
 try {
-  sh(`git add -A content data assets/art && git commit -q -m ${JSON.stringify(`Ship ${slug}: ${note}`)}`);
+  sh(`git add -A content data assets/ours && git commit -q -m ${JSON.stringify(`Ship ${slug}: ${note}`)}`);
   sh("git push -q");
   console.log("✓ Pushed. The deploy workflow goes live in ~2 minutes and pings IndexNow.\n  For Google: Search Console → URL Inspection → paste the URL → Request indexing.");
 } catch { console.error("! git commit/push failed. The site is built in dist/; push manually."); process.exit(1); }
