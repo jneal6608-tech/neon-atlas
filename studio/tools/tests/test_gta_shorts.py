@@ -240,3 +240,23 @@ def test_end_to_end_offline(tmp_path, monkeypatch):
     assert state["status"] == "done", state.get("error")
     qc = state["renders"][str(best["n"])]["qc"]
     assert qc["pass"], qc
+
+
+def test_render_only_the_chosen_shorts(tmp_path, monkeypatch):
+    monkeypatch.setattr(gs, "JOBS", tmp_path)
+    done = []
+    monkeypatch.setattr(gs, "render_pick", lambda st, p, frame="zoom": done.append(p["n"]) or {"file": "x", "qc": {}})
+    monkeypatch.setattr(gs, "write_package", lambda st: None)
+    picks = [{"n": n, "selected": n == 3} for n in (1, 2, 3)]
+    state = {"id": "j", "picks": picks, "renders": {}}
+    gs.render(state, picks=[2])                 # "Render just this one"
+    assert done == [2] and state["picks"][2]["selected"]   # the other ticks are left alone
+    done.clear()
+    gs.render(state)                            # CLI without --picks: the ticked ones
+    assert done == [3]
+    done.clear()
+    for p in picks:
+        p["selected"] = False
+    gs.render(state)                            # nothing ticked: all of them
+    assert done == [1, 2, 3]
+    assert set(state["renders"]) == {"1", "2", "3"}

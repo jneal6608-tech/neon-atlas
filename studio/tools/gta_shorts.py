@@ -11,7 +11,7 @@ Usage (from studio/):
   python3 tools/gta_shorts.py serve [--port 8765] [--host 127.0.0.1]   the drop-an-MP4 studio page (easiest)
   python3 tools/gta_shorts.py analyze <gameplay.mp4> [--model M] [--effort E] [--count 4] [--candidates 10]
                                       [--transcribe] [--job NAME]       finds and packages the picks, stops there
-  python3 tools/gta_shorts.py render <job> [--picks 1,2,3] [--frame zoom|fit]   renders the approved picks
+  python3 tools/gta_shorts.py render <job> [--picks 1,3] [--frame zoom|fit]   renders only the Shorts you choose
   python3 tools/gta_shorts.py status [<job>]                            lists jobs, or one job's picks and renders
 
   --model    claude-opus-5-5 (default), claude-sonnet-5-5, claude-haiku-5-5 (cheapest), claude-fable-5-2 (most capable,
@@ -579,7 +579,7 @@ def finalize_picks(raw: list[dict], duration: float, count: int, from_claude: bo
             "moment": (p.get("moment") or "").strip(), "caption": tidy_caption(p.get("caption", "")),
             "title": title or tidy_caption(p.get("caption", "")), "description": tidy_description(p.get("description", "")),
             "hashtags": tidy_hashtags(p.get("hashtags", [])), "why": (p.get("why") or "").strip(),
-            "scores": scores, "total": sum(scores.values()), "selected": True,
+            "scores": scores, "total": sum(scores.values()), "selected": False,  # the user ticks the ones to render
             "picked_by": "claude" if from_claude else "offline",
         })
     if from_claude:  # Claude already ordered them best first; keep that order
@@ -954,9 +954,12 @@ def check_render(path: Path, expected: float) -> dict:
 
 
 def render(state: dict, picks: list[int] | None = None, frame: str = "zoom") -> dict:
-    chosen = [p for p in state["picks"] if (p["n"] in picks if picks else p.get("selected", True))]
+    if picks:
+        chosen = [p for p in state["picks"] if p["n"] in picks]
+    else:  # CLI without --picks: the ticked ones, or all of them if none are ticked
+        chosen = [p for p in state["picks"] if p.get("selected")] or list(state["picks"])
     if not chosen:
-        raise ShortsError("No picks are selected to render.")
+        raise ShortsError("None of those Shorts exist in this job.")
     update(state, status="rendering", error=None)
     renders = dict(state.get("renders") or {})
     try:
@@ -1022,7 +1025,7 @@ def main(argv=None):
     a.add_argument("--job")
     r = sub.add_parser("render")
     r.add_argument("job")
-    r.add_argument("--picks", help="comma-separated pick numbers (default: the selected ones)")
+    r.add_argument("--picks", help="comma-separated Short numbers to render, e.g. 1,3 (default: the ticked ones, else all)")
     r.add_argument("--frame", default="zoom", choices=("zoom", "fit"))
     s = sub.add_parser("status")
     s.add_argument("job", nargs="?")

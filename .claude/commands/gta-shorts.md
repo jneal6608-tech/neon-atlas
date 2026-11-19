@@ -16,7 +16,7 @@ Work from `studio/`, on a branch. Read `studio/CLAUDE.md` and `studio/BRIEF.md` 
 3. **Stop at the storyboard (rule 6).** Show the user each pick's storyboard image
    (`footage/gta-shorts/<job>/storyboard/short-NN.jpg`), caption, title, cut times and why. Apply any edits they ask
    for (the page does this, or edit `job.json` picks and re-run the storyboard). Render nothing until they say approved.
-4. **Render** the approved picks: `python3 tools/gta_shorts.py render <job> --picks 1,2,3`. Report each render's checks
+4. **Render** only the Shorts the user chose: `python3 tools/gta_shorts.py render <job> --picks 1,3`. Report each render's checks
    exactly as printed (PASS, or the problems). The studio's full `tools/qc.py` gate doesn't exist yet: say so.
 5. **Hand over** `renders/*.mp4` and `package.md` (titles, descriptions, hashtags). After upload, delete the job folder
    and any raw clip (rule 10).

@@ -108,10 +108,10 @@ class Handler(BaseHTTPRequestHandler):
                     self._edit(state, self._body_json())
                 elif action == "render":
                     body = self._body_json()
-                    for p in state["picks"]:
-                        p["selected"] = p["n"] in body.get("picks", [])
-                    gs.save_job(state)
-                    _start(job, gs.render, state, None, body.get("frame", "zoom"))
+                    picks = [int(n) for n in body.get("picks", [])]
+                    if not picks:
+                        raise gs.ShortsError("Tick at least one Short to render.")
+                    _start(job, gs.render, state, picks, body.get("frame", "zoom"))
                     self._json({"ok": True})
                 elif action == "analyze":
                     body = self._body_json()
@@ -284,6 +284,11 @@ button.ghost{background:var(--raise);color:var(--fg);border:1px solid var(--line
 .scores{font:12px ui-monospace,monospace;color:var(--muted)}.qc.ok{color:var(--ok)}.qc.bad{color:var(--bad)}
 .notes li{margin:4px 0}.err{color:var(--bad);font-weight:600}.copy{padding:2px 10px;font-size:12px;justify-self:start;margin-left:6px}
 .title-row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.choose{display:inline-flex;align-items:center;gap:8px;background:var(--raise);border:2px solid var(--line);border-radius:10px;
+padding:8px 14px;font:700 14px system-ui;color:var(--muted);cursor:pointer}.choose input{width:20px;height:20px;accent-color:var(--accent)}
+.choose:has(input:checked){border-color:var(--accent);color:var(--fg);background:#2a1422}
+.pick:has(.sel:checked){outline:2px solid var(--accent);outline-offset:6px;border-radius:6px}
+.pill.rendered{color:var(--ok)}.hint{margin:6px 0 0}
 </style></head><body><div class="wrap">
 <header><h1>GTA <b>Shorts</b> Studio</h1>
 <p class="muted">Drop in your GTA 6 gameplay. Claude finds the funniest moments and writes a caption, title and description
@@ -353,12 +358,14 @@ function render(j,busy){const v=$("#jobview");v.hidden=false;const u=j.usage;
   if(j.error)h+=`<p class="err">${esc(j.error)}</p>`;
   if(u)h+=`<p class="muted">Picked by ${esc(u.model)}: ${u.input_tokens.toLocaleString()} input + ${u.output_tokens.toLocaleString()} output tokens, about $${u.cost_usd.toFixed(3)}.</p>`;
   if(j.notes&&j.notes.length)h+=`<ul class="notes muted">${j.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`;
+  if((j.picks||[]).length&&!busy)h+=`<p class="hint"><b>Choose your Shorts:</b> tick "Render this Short" on the ones you want, then click Render at the bottom. Or render one at a time with "Render just this one".</p>`;
   (j.picks||[]).forEach(p=>{const rd=(j.renders||{})[p.n];const s=p.scores||{};
     h+=`<div class="pick" data-n="${p.n}"><div>${rd?`<video src="${files(rd.file)}" controls playsinline preload="metadata"></video>`
       :`<img src="${files(p.storyboard)}?v=${j.updated}" alt="Storyboard for Short ${p.n}">`}
       ${rd?`<p class="qc ${rd.qc.pass?"ok":"bad"}">${rd.qc.pass?"Checks passed":"Check: "+esc(rd.qc.problems.join("; "))} · ${rd.qc.size} · ${(rd.qc.duration||0).toFixed(1)} s · ${rd.qc.lufs??"?"} LUFS</p>
       <p><a href="${files(rd.file)}?download"><button class="ghost">Download MP4</button></a></p>`:""}</div>
-      <div class="fields"><div class="title-row"><b>Short ${p.n}</b><label style="display:inline"><input type="checkbox" class="sel" ${p.selected?"checked":""}> include</label></div>
+      <div class="fields"><div class="title-row"><b>Short ${p.n} ${rd?'<span class="pill rendered">rendered</span>':""}</b>
+        <label class="choose"><input type="checkbox" class="sel" ${p.selected?"checked":""}> Render this Short</label></div>
       <p class="muted" style="margin:0">${esc(p.moment)}<br><i>${esc(p.why)}</i></p>
       <p class="scores">read ${s.instant_read} · surprise ${s.surprise} · payoff ${s.payoff} · loop ${s.loop} · standalone ${s.standalone} = ${p.total}/50 · ${p.picked_by}</p>
       <label>Caption (on screen)<input type="text" class="caption" value="${esc(p.caption)}"></label>
@@ -369,12 +376,14 @@ function render(j,busy){const v=$("#jobview");v.hidden=false;const u=j.usage;
       <label>Title <button class="ghost copy" data-c="title">copy</button><input type="text" class="title" value="${esc(p.title)}"></label>
       <label>Description <button class="ghost copy" data-c="description">copy</button><textarea class="description">${esc(p.description)}</textarea></label>
       <label>Hashtags <button class="ghost copy" data-c="hashtags">copy</button><input type="text" class="hashtags" value="${esc(p.hashtags.join(" "))}"></label>
+      ${busy?"":`<div><button class="ghost one" data-n="${p.n}">${rd?"Re-render just this one":"Render just this one"}</button></div>`}
       </div></div>`});
   if((j.picks||[]).length&&!busy){const any=Object.keys(j.renders||{}).length;
     h+=`<div class="row" style="border-top:1px solid var(--line);padding-top:16px">
+      <button class="ghost" id="all">Select all</button><button class="ghost" id="none">Select none</button>
       <button class="ghost" id="save">Save edits</button>
       <label>Framing<select id="frame"><option value="zoom">Zoomed (fills more of the phone)</option><option value="fit">Whole picture</option></select></label>
-      <button id="go">Approve and render selected</button>
+      <button id="go">Render selected</button>
       ${any?`<a href="/api/job/${j.id}/zip"><button class="ghost">Download all (ZIP)</button></a>`:""}</div>`}
   if(!busy)h+=`<div class="row" style="margin-top:14px"><button class="ghost" id="again">Analyze again with the settings above</button>
     <button class="ghost" id="del">Delete this job (frees disk)</button></div>`;
@@ -387,8 +396,15 @@ function render(j,busy){const v=$("#jobview");v.hidden=false;const u=j.usage;
     hook_time:+el.querySelector(".hook").value}));
   const post=(a,b)=>fetch(`/api/job/${j.id}/${a}`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(b)}).then(r=>r.json());
   if($("#save"))$("#save").onclick=async()=>{const r=await post("edit",{picks:edits()});if(r.error)alert(r.error);render(r,false)};
-  if($("#go"))$("#go").onclick=async()=>{const e=edits();const r1=await post("edit",{picks:e});if(r1.error)return alert(r1.error);
-    const r=await post("render",{picks:e.filter(x=>x.selected).map(x=>x.n),frame:$("#frame").value});if(r.error)return alert(r.error);open(j.id)};
+  const go=async ns=>{const r1=await post("edit",{picks:edits()});if(r1.error)return alert(r1.error);
+    const r=await post("render",{picks:ns,frame:$("#frame").value});if(r.error)return alert(r.error);open(j.id)};
+  const count=()=>{const n=v.querySelectorAll(".sel:checked").length;if($("#go")){$("#go").disabled=!n;
+    $("#go").textContent=n?`Render ${n} selected Short${n>1?"s":""}`:"Tick the Shorts you want to render"}};
+  v.querySelectorAll(".sel").forEach(c=>c.onchange=count);count();
+  if($("#all"))$("#all").onclick=()=>{v.querySelectorAll(".sel").forEach(c=>c.checked=true);count()};
+  if($("#none"))$("#none").onclick=()=>{v.querySelectorAll(".sel").forEach(c=>c.checked=false);count()};
+  v.querySelectorAll(".one").forEach(b=>b.onclick=()=>go([+b.dataset.n]));
+  if($("#go"))$("#go").onclick=()=>go(edits().filter(x=>x.selected).map(x=>x.n));
   if($("#again"))$("#again").onclick=async()=>{const r=await post("analyze",{model:$("#model").value,effort:$("#effort").value,
     count:+$("#count").value,candidates:+$("#cands").value,transcribe:$("#transcribe").checked});if(r.error)return alert(r.error);open(j.id)};
   if($("#del"))$("#del").onclick=async()=>{if(!confirm("Delete this job and its renders?"))return;await post("delete",{});
