@@ -52,7 +52,7 @@ Rockstar has introduced a smuggling circle in the Keys (Brian Heder and Cal Hamp
 
 ## After launch
 
-We'll keep this page spoiler-free. Story walkthroughs will live in the Missions section, with spoiler warnings, once we've played them.
+We'll keep this page spoiler-free. Anything about the story after launch goes behind a spoiler button.
 
 ### Watch the first 10 minutes (spoilers)
 

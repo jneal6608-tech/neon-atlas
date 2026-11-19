@@ -515,7 +515,7 @@ ${upcoming}</div>`;
   const body = `<section class="hero">${ART("home-hero") ? `<img class="hero-art" src="${href(ART("home-hero"))}" alt="" width="2000" height="900" fetchpriority="high">${IS_OFFICIAL(ART("home-hero")) ? `<span class="hero-credit">Image: Rockstar Games</span>` : ""}` : ""}<div class="wrap hero-inner"><div class="hero-copy">
   <p class="hero-tags"><span class="eyebrow">Unofficial GTA 6 guide · Sourced &amp; verified</span><a class="fresh-pill" href="#fresh-h"><span class="live-dot" aria-hidden="true"></span> Updated daily</a></p>
   <h1>Every GTA 6 answer, <span class="grad">checked</span> before you read it.</h1>
-  <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labeled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. Walkthroughs arrive as we play.</p>
+  <p class="dek">Unlock times, pre-load size, editions, characters and the map of Leonida. Every claim is labeled <strong>confirmed</strong>, <strong>reported</strong> or <strong>unconfirmed</strong>. New guides arrive as we play.</p>
   <form class="hero-search" role="search" action="${href("/search/")}" method="get"><label class="sr" for="q-hero">Search</label><input id="q-hero" name="q" type="search" placeholder="Try “pre-load size”, “Ultimate Edition”, “Lucia”"><button type="submit">Search</button></form>
   ${ourFreshHtml(url)}
 </div></div></section>
