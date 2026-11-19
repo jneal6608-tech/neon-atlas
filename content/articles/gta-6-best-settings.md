@@ -11,6 +11,7 @@ answer: >-
   are HDR, safe zone and visual effects.
 category: guides
 status: published
+publishedAt: '2026-11-19T05:40:05Z'
 confidence: confirmed
 targetQuery: gta 6 best settings
 publishDate: '2026-11-19'

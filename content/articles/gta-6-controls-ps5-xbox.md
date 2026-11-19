@@ -11,6 +11,7 @@ answer: >-
   and the **touch pad** opens the map.
 category: gameplay
 status: published
+publishedAt: '2026-11-19T05:40:04Z'
 confidence: confirmed
 targetQuery: gta 6 controls
 publishDate: 2026-11-19T00:00:00.000Z

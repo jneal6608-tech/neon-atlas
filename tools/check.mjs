@@ -36,6 +36,9 @@ for (const f of fs.readdirSync(path.join(ROOT, "content/articles"))) {
   for (const m of md.matchAll(/q:\s*"([^"]*)",\s*a:\s*"\s*\**spoilers?\b/gi)) if (!/\(spoilers?\)/i.test(m[1])) err(`content/articles/${f}`, `FAQ "${m[1]}" has a spoiler answer: end the question with "(spoilers)"`);
 }
 
+// New posts need an exact publish time so Recent news can put them first (tools/ship.mjs stamps it).
+for (const a of loadArticles()) if (["published", "needs-updating"].includes(a.status) && a.publishDate >= "2026-11-19" && !a.publishedAt) warn(`content/articles/${a.file}`, "no publishedAt: Recent news may not list it first (publish with tools/ship.mjs)");
+
 let links = 0;
 for (const [u, h] of pages) {
   const f = u || "/";
