@@ -15,7 +15,7 @@ Big game launches drown in noise: rumours repeated as fact, old leaks presented 
 
 ## What we will and won't publish
 
-Before release, we only publish what can be verified from official material: Rockstar's website, the Rockstar Store, Rockstar Support, and the platform holders. Mission walkthroughs, controls and gameplay mechanics go up **only after we have verified them in the game**. We don't write guides for things we haven't seen.
+Before release, we only publish what can be verified from official material: Rockstar's website, the Rockstar Store, Rockstar Support, and the platform holders. Mission info, controls and gameplay mechanics go up **only after we have verified them in the game**. We don't write guides for things we haven't seen.
 
 Community discoveries are welcome and credited to the people who found them, once we've been able to check them.
 
