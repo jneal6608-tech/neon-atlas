@@ -20,6 +20,10 @@ const urlOf = (f) => "/" + path.relative(DIST, f).replace(/index\.html$/, "").re
 const pages = new Map(html.map((f) => [urlOf(f), fs.readFileSync(f, "utf8")]));
 const ids = new Map([...pages].map(([u, h]) => [u, new Set([...h.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]))]));
 
+// Rule: no generated art. Pictures must be official Rockstar media or our own screenshots.
+if (fs.existsSync(path.join(ROOT, "assets/art"))) err("assets/art", "generated artwork isn't allowed; use official images or our own screenshots (assets/ours/art)");
+for (const [u, h] of pages) if (/\/assets\/art\//.test(h)) err(u || "/", "uses generated artwork (/assets/art/); use an official image or our own screenshot");
+
 let links = 0;
 for (const [u, h] of pages) {
   const f = u || "/";
@@ -94,7 +98,7 @@ for (const e of idx) if (!pages.has(e.u.split("#")[0])) err("search-index.json",
     if (!/^\d{4}-\d{2}-\d{2}$/.test(t.updated || "")) err(f, "`updated` must be a YYYY-MM-DD date");
     if (t.image) {
       const [kind, name] = t.image.startsWith("region-") ? ["regions", t.image.slice(7)] : t.image.startsWith("char-") ? ["characters", t.image.slice(5)] : ["art", t.image];
-      if (!fs.existsSync(path.join(ROOT, `assets/official/${kind}/${name}.jpg`)) && !fs.existsSync(path.join(ROOT, `assets/art/${t.image}.jpg`))) err(f, `image "${t.image}" not found (see the list in docs/THEORIES.md)`);
+      if (!fs.existsSync(path.join(ROOT, `assets/official/${kind}/${name}.jpg`)) && !fs.existsSync(path.join(ROOT, `assets/ours/art/${t.image}.jpg`))) err(f, `image "${t.image}" not found (see the list in docs/THEORIES.md)`);
       if (!t.imageAlt) err(f, "image needs imageAlt (describe what's in the picture)");
     } else warn(f, "no image: add one from the list in docs/THEORIES.md");
     for (const r of t.related || []) if (!loadArticles().some((a) => a.slug === r)) err(f, `related article "${r}" does not exist`);
