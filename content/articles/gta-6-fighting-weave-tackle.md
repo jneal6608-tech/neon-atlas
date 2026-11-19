@@ -29,6 +29,7 @@ faqs:
 | Punch | **Square** |
 | Weave (dodge) | **X** |
 | Special attack (e.g. body slam) | **Hold Square** |
+| Kick someone who's down | **Hold Square** (when they're on the ground) |
 | Choke | **Hold R2**, then tap **Square** repeatedly |
 | Tackle | **Sprint (L3)**, then **Square** |
 
@@ -47,7 +48,7 @@ Press **X** to **weave** and slip an incoming punch, then hit back while they're
 
 ## Special attacks
 
-**Hold Square** for a **special attack**. Jason has some big moves, including a **body slam**, and he can **kick** too.
+**Hold Square** for a **special attack**. Jason has some big moves, including a **body slam**. When someone is **on the ground**, holding Square makes him **kick** them.
 
 ## Choke
 
