@@ -33,7 +33,12 @@ Shorts (vertical, from our gameplay):
   the last three the time.
 - **This or that**: two cars, weapons, places or outfits head to head, a verdict at the end.
 - **Funny clips**: moments the user saves on the PS5 right after they happen (Create > save recent gameplay); the studio adds
-  the cut, zooms, captions and sound effects. The user flags them; the studio does not hunt hours of footage for them.
+  the cut, zooms, captions and sound effects.
+  **Changed 2026-11-19 (user decision): the studio now hunts for them too.** `tools/gta_shorts.py` (the GTA Shorts
+  Studio, modelled on the user's Chronicle Shorts tool for the animation channel) takes a whole gameplay MP4, and Claude
+  (the user picks the model and effort) chooses the 3-5 funniest moments, each with one meme caption ("bro didn't see
+  this coming 💀"), a title, a description and hashtags. Picks stop at a storyboard for the user's approval, then render
+  as 1080x1920 Shorts with game audio. Rubric: `prompts/gta-funny-shorts.md`; research: `research/funny-shorts-algorithm.md`.
 
 Also:
 - **Regular gameplay uploads** with a light edit (trim, chapters, thumbnail, description linking the matching Neon Atlas

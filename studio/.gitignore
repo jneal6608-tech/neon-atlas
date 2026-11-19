@@ -14,3 +14,5 @@ __pycache__/
 # Other creators' transcripts (their words): kept locally for study, never committed (this repository is public)
 research/transcripts/
 .pytest_cache/
+# GTA Shorts jobs hold the uploaded gameplay and renders (tools/gta_shorts.py)
+footage/gta-shorts/

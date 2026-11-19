@@ -56,7 +56,7 @@ Series and formats (the series, and the channels they are modelled on, are in `B
 | `guide` | Guides | 6-12 min | user | answers one search; steps shown on screen; chapters; matches a Neon Atlas article |
 | `topn-short` | Shorts | 30-60 s | text + music (or studio voice) | vertical 1080x1920, top 5 by default; top 10 gives the last three most time |
 | `this-or-that-short` | Shorts | 30-60 s | text + music (or studio voice) | two things head to head, one stat each round, a verdict at the end |
-| `funny-short` | Shorts | 10-45 s | game audio | a moment the user flagged; cut tight, zooms, captions, sound effects |
+| `funny-short` | Shorts | 10-45 s | game audio | a moment the user flagged, or found by `tools/gta_shorts.py` (`/gta-shorts`); cut tight, punch-in zoom, one meme caption |
 | `gameplay` | | any | none | trimmed, chapters, thumbnail, description linking the matching Neon Atlas article |
 
 ## The pipeline (to be built: see BRIEF.md "Build order")
