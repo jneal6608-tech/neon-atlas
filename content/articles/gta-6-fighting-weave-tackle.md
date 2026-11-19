@@ -47,7 +47,7 @@ Press **X** to **weave** and slip an incoming punch, then hit back while they're
 
 ## Special attacks
 
-**Hold Square** for a **special attack**. Jason has some big moves, including a **body slam**.
+**Hold Square** for a **special attack**. Jason has some big moves, including a **body slam**, and he can **kick** too.
 
 ## Choke
 
