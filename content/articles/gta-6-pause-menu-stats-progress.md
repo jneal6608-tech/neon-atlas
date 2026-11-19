@@ -8,7 +8,7 @@ description: >-
 answer: >-
   GTA VI's pause menu has four tabs: **Jason & Lucia** (character stats such as
   sleep, nutrition, calories, muscle, body fat and strength), **Map**, **Brief**
-  and **Progress** (12 categories, including Stats, Vehicles, Weapons, Animals,
+  and **Progress** (12 categories, including Stats, Vehicles, Weapons, Animals, Equipment,
   Collections, Activities, Gangs, Robberies and Story Recap).
 category: gameplay
 status: published
@@ -112,13 +112,13 @@ The phone isn't part of the pause menu, but it's where a lot of your day-to-day 
 
 ![GTA 6 pause menu Progress tab showing the Stats, Vehicles, Weapons and Animals categories](/assets/uploads/gta-6-pause-progress.jpg)
 
-The Progress tab has **12 categories**. We've seen 11 of them so far:
+The Progress tab has **12 categories**:
 
 1. Stats
 2. Vehicles
 3. Weapons
 4. Animals
-5. *(not captured yet)*
+5. Equipment
 6. Collections
 7. Activities
 8. Contacts
@@ -127,4 +127,4 @@ The Progress tab has **12 categories**. We've seen 11 of them so far:
 11. Challenges
 12. Story Recap
 
-**Animals** and **Collections** suggest there's plenty to find and log around Leonida. **Story Recap** is the place to catch up if you take a break from the story.
+**Equipment** (shown with binoculars), **Animals** and **Collections** suggest there's plenty to find and log around Leonida. **Story Recap** is the place to catch up if you take a break from the story.
