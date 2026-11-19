@@ -5,6 +5,7 @@ description: "Watch the first 10 minutes of GTA 6 on PS5: the full opening of Gr
 answer: "Here are the **first 10 minutes of GTA 6**, the game's opening, recorded on our own **PS5** copy with **no commentary**. Spoiler warning: it shows the opening story scenes."
 category: gameplay
 status: published
+publishedAt: '2026-11-19T08:56:14Z'
 confidence: confirmed
 targetQuery: gta 6 first 10 minutes
 publishDate: 2026-11-19

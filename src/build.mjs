@@ -28,9 +28,11 @@ const decode = (s) => s.replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).
 // Image lookup. Rule: real GTA VI pictures only, never generated art. An official Rockstar image (assets/official/art,
 // from data/official-art.json via tools/import-official.mjs, or the official region/character pictures) wins; otherwise
 // our own gameplay screenshot (assets/ours/art/<name>.jpg). No picture means no image, never an illustration.
-const ART = (name) => (fs.existsSync(path.join(ROOT, `assets/official/art/${name}.jpg`)) ? `/assets/official/art/${name}.jpg` : null)
-  || (name.startsWith("region-") && OFFICIAL("regions", name.slice(7))) || (name.startsWith("char-") && OFFICIAL("characters", name.slice(5)))
-  || (fs.existsSync(path.join(ROOT, `assets/ours/art/${name}.jpg`)) ? `/assets/ours/art/${name}.jpg` : null);
+// Our own screenshot (assets/ours/art) wins when we have one, so covers show real gameplay and the site looks less
+// repetitive; official Rockstar art fills in where we don't.
+const ART = (name) => (fs.existsSync(path.join(ROOT, `assets/ours/art/${name}.jpg`)) ? `/assets/ours/art/${name}.jpg` : null)
+  || (fs.existsSync(path.join(ROOT, `assets/official/art/${name}.jpg`)) ? `/assets/official/art/${name}.jpg` : null)
+  || (name.startsWith("region-") && OFFICIAL("regions", name.slice(7))) || (name.startsWith("char-") && OFFICIAL("characters", name.slice(5)));
 const IS_OFFICIAL = (p) => !!p && p.startsWith("/assets/official/");
 const IS_OURS = (p) => !!p && p.startsWith("/assets/ours/");
 const fmtDateTime = (iso) => new Date(iso).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/New_York", timeZoneName: "short" });
@@ -342,7 +344,9 @@ const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug run
 // back to its publish date outside a git checkout. A page written ahead as a draft and published later counts from
 // its publish time (publishedAt, stamped by tools/ship.mjs). New posts go to the top automatically; later edits don't reshuffle.
 const stampOf = (d) => (!d ? 0 : String(d).length > 10 ? Date.parse(d) : Date.parse(d + "T00:00:00Z")) || 0;
+const SHALLOW = (() => { try { return execFileSync("git", ["rev-parse", "--is-shallow-repository"], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim() === "true"; } catch { return true; } })();
 const fileAddedTime = (file) => {
+  if (SHALLOW) return 0; // a shallow clone (some deploy builders) makes every file look added in the same commit
   try {
     const out = execFileSync("git", ["log", "--diff-filter=A", "--follow", "--format=%cI", "--", `content/articles/${file}`], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim().split("\n").filter(Boolean);
     return Date.parse(out[out.length - 1]) || 0;

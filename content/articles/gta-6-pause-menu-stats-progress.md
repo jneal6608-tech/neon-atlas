@@ -12,6 +12,7 @@ answer: >-
   Collections, Activities, Gangs, Robberies and Story Recap).
 category: gameplay
 status: published
+publishedAt: '2026-11-19T06:39:58Z'
 confidence: confirmed
 targetQuery: gta 6 stats
 publishDate: 2026-11-19T00:00:00.000Z
