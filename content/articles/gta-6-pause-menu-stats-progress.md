@@ -97,6 +97,17 @@ We'll explain how each stat changes once we've tested it.
 
 The Brief tab sits between Map and Progress. We'll add what it shows once we've captured it.
 
+## Bonus: your in-game phone
+
+![GTA 6 in-game phone home screen showing the time, weather, a Reminders widget with 4 notifications, and app icons, with the selected app labeled WhatUp](/assets/uploads/gta-6-phone-home-screen.jpg)
+
+The phone isn't part of the pause menu, but it's where a lot of your day-to-day happens:
+
+- A **Reminders** widget at the top (ours had 4 notifications); press **Square** to open reminders.
+- **10 app icons**, including ones that look like messages, phone, camera, photos, news, weather and settings. Red dots mark apps with something new.
+- The selected app's name shows at the bottom: ours was **WhatUp**, the chat-bubble app.
+- The time and weather sit at the top (ours: 7:41 pm, 73°).
+
 ## Progress: 12 categories
 
 ![GTA 6 pause menu Progress tab showing the Stats, Vehicles, Weapons and Animals categories](/assets/uploads/gta-6-pause-progress.jpg)

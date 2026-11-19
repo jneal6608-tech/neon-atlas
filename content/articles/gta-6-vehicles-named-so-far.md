@@ -48,6 +48,8 @@ The year prefixes ('95, '67, '55) are part of Rockstar's names.
 | --- | --- |
 | Vapid · Jason's '70 Ganado | Jason's own pickup truck, early in the story |
 
+![Jason's '70 Vapid Ganado pickup truck driving at night in GTA 6, with the in-game vehicle name shown in the corner](/assets/uploads/gta-6-vapid-70-ganado.jpg)
+
 > [!NOTE]
 > Seen in our own PS5 copy on launch day. The in-game name reads "Jason's '70 Ganado" from Vapid. Rockstar's Ultimate Edition lists a "Ganado Retro Build"; we haven't confirmed whether that's the same truck or an upgraded version.
 
