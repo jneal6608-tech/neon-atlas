@@ -2,6 +2,16 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-19: GTA Shorts: you choose which Shorts to render
+- **Feedback:** the user wants to choose which of the picked Shorts get rendered (the small "include" box was easy to
+  miss, and everything was ticked by default).
+- **Change:** nothing is ticked after analysis; each Short has a big "Render this Short" tick (ticked cards are outlined)
+  and a "Render just this one" button; "Select all" / "Select none"; the main button says how many will render and is
+  disabled at zero. Rendering one Short no longer changes the other ticks, and earlier renders are kept. CLI:
+  `render <job> --picks 1,3` (without it: the ticked ones, else all).
+- **Files:** `studio/tools/gta_shorts_web.py`, `studio/tools/gta_shorts.py`, `studio/tools/tests/test_gta_shorts.py`,
+  `.claude/commands/gta-shorts.md`.
+
 ## 2026-11-19: GTA Shorts Studio: a gameplay MP4 in, 3-5 funny Shorts out
 - **Request:** a GTA version of the user's Chronicle Shorts tool: paste a gameplay MP4, Claude (model and usage chosen by
   the user) picks the moments best for funny-moment Shorts with one meme caption ("bro didn't see this coming 💀",
