@@ -230,6 +230,16 @@ tbody tr:nth-child(even) { background: rgba(255, 255, 255, .02); }
 .callout-predicted { border-left-color: var(--violet); } .callout-predicted .callout-label { color: var(--violet); }
 .callout-note, .callout-tip { border-left-color: #7fb2ff; } .callout-note .callout-label, .callout-tip .callout-label { color: #a9cbff; }
 .callout-warning { border-left-color: var(--red); } .callout-warning .callout-label { color: var(--red); }
+.spoiler { margin: 1.4em 0; border: 1px dashed rgba(255, 79, 154, .6); border-radius: 12px; background: var(--bg-2); }
+.spoiler > summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 14px 18px; }
+.spoiler > summary::-webkit-details-marker { display: none; }
+.spoiler-btn { display: inline-block; padding: 8px 16px; border-radius: 10px; font: 800 .85rem var(--font); text-transform: uppercase; letter-spacing: .08em; color: #14061f; background: linear-gradient(90deg, #ff3d7f, #ff8a3d); }
+.spoiler-note { font-size: .9rem; opacity: .85; }
+.spoiler > summary:focus-visible { outline: 2px solid var(--aqua); outline-offset: 2px; border-radius: 12px; }
+.sp-hide, .spoiler[open] .sp-show, .spoiler[open] .spoiler-note { display: none; }
+.spoiler[open] .sp-hide { display: inline; }
+.spoiler-body { padding: 0 18px 14px; }
+.spoiler-body p:last-child, .spoiler-body ol:last-child, .spoiler-body ul:last-child { margin-bottom: 0; }
 p.callout-warning { color: var(--text); }
 details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 10px; }
 summary { cursor: pointer; padding: 13px 16px; font-weight: 700; }

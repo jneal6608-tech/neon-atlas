@@ -117,7 +117,8 @@ function write(urlPath, html) {
 
 // ---------- markdown ----------
 // Supports: internal links as [text](article:slug), callouts as "> [!CONFIRMED] ..." (CONFIRMED, REPORTED,
-// UNCONFIRMED, PREDICTED, NOTE, TIP, WARNING), and gives every h2/h3 an id for the table of contents.
+// UNCONFIRMED, PREDICTED, NOTE, TIP, WARNING), spoilers as "> [!SPOILER]" (hidden until the reader clicks "View spoiler";
+// rule: every story spoiler goes in one), and gives every h2/h3 an id for the table of contents.
 function renderMarkdown(md, fromUrl, ctxName) {
   const href = linker(fromUrl);
   const toc = [];
@@ -154,6 +155,9 @@ function renderMarkdown(md, fromUrl, ctxName) {
     },
   });
   let html = marked.parse(md).replace(/<table>/g, '<div class="table-wrap" tabindex="0" role="region" aria-label="Table (scrolls sideways on small screens)"><table>').replace(/<\/table>/g, "</table></div>");
+  // Spoilers: a click-to-reveal box. The text stays in the page (search engines still read it), it's just hidden until opened.
+  html = html.replace(/<blockquote>\s*<p>\[!SPOILER\]\s*([\s\S]*?)<\/blockquote>/g, (_, inner) =>
+    `<details class="spoiler"><summary><span class="spoiler-btn"><span class="sp-show">View spoiler</span><span class="sp-hide">Hide spoiler</span></span><span class="spoiler-note">Story spoilers inside. Click to reveal.</span></summary><div class="spoiler-body">${/^<\/p>/.test(inner) ? inner.replace(/^<\/p>\s*/, "") : "<p>" + inner}</div></details>`);
   html = html.replace(/<blockquote>\s*<p>\[!(CONFIRMED|REPORTED|UNCONFIRMED|PREDICTED|NOTE|TIP|WARNING)\]\s*/g, (_, t) => {
     const k = t.toLowerCase();
     const label = { confirmed: "Confirmed", reported: "Reported, not confirmed by Rockstar", unconfirmed: "Unconfirmed", predicted: "Prediction", note: "Note", tip: "Tip", warning: "Heads up" }[k];
@@ -338,7 +342,7 @@ function ourFreshHtml(fromUrl, side = false) {
     .sort((x, y) => String(modOf(y)).localeCompare(String(modOf(x)))).slice(0, 3);
   if (!ours.length) return "";
   if (side) return `<div class="side-box"><p class="side-h">Recent news</p><div class="grid cards compact">${ours.filter((x) => x.url !== fromUrl).map((x) => card(x, fromUrl)).join("")}</div></div>`;
-  return `<section class="hero-fresh" aria-labelledby="hf-h"><p class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</p><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
+  return `<section class="hero-fresh" aria-labelledby="hf-h"><h2 class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</h2><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
 }
 // After launch the countdown has nothing left to count: show a short "out now" note instead (the build runs daily).
 const LAUNCHED = Date.now() >= new Date(cfg.launchDate).getTime();
@@ -352,6 +356,7 @@ const VIDEO_CREDITS = {
   ours: { aria: "Neon Atlas gameplay video on YouTube", text: "Our own gameplay, recorded by Neon Atlas. GTA VI is a Rockstar Games title; this is an unofficial fan video." },
 };
 function video(id, label, fromUrl, credit = "rockstar") {
+  label = decode(label); // shortcode text arrives HTML-escaped from Markdown; esc() below escapes it once
   const who = VIDEO_CREDITS[credit];
   const href = linker(fromUrl);
   const fallback = ART("gta-6-trailers-card") || ART("home-hero");

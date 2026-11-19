@@ -24,6 +24,18 @@ const ids = new Map([...pages].map(([u, h]) => [u, new Set([...h.matchAll(/\sid=
 if (fs.existsSync(path.join(ROOT, "assets/art"))) err("assets/art", "generated artwork isn't allowed; use official images or our own screenshots (assets/ours/art)");
 for (const [u, h] of pages) if (/\/assets\/art\//.test(h)) err(u || "/", "uses generated artwork (/assets/art/); use an official image or our own screenshot");
 
+// Rule: story spoilers must sit in a "> [!SPOILER]" box (hidden until clicked), not just behind a warning, and FAQ
+// answers that start "Spoilers" must say so in the question.
+for (const f of fs.readdirSync(path.join(ROOT, "content/articles"))) {
+  const md = fs.readFileSync(path.join(ROOT, "content/articles", f), "utf8");
+  const body = md.replace(/^---[\s\S]*?\n---/, "");
+  if (/>\s*\[!(WARNING|NOTE)\][^\n]*\n>\s*\**spoilers?\b/i.test(body)) {
+    // a warning that the next part is a video/page with spoilers is fine; spoiler *text* must use [!SPOILER]
+    if (/>\s*\[!(WARNING|NOTE)\][^\n]*\n>\s*\**spoilers?\b[*:\s]*(?![*:\s]|this video|the video|this page)/i.test(body)) err(`content/articles/${f}`, 'spoiler text must go in a "> [!SPOILER]" box, not a warning');
+  }
+  for (const m of md.matchAll(/q:\s*"([^"]*)",\s*a:\s*"\s*\**spoilers?\b/gi)) if (!/\(spoilers?\)/i.test(m[1])) err(`content/articles/${f}`, `FAQ "${m[1]}" has a spoiler answer: end the question with "(spoilers)"`);
+}
+
 let links = 0;
 for (const [u, h] of pages) {
   const f = u || "/";

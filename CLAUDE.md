@@ -19,3 +19,6 @@ This repository has two parts:
   inline images) is a real GTA VI picture: an official Rockstar image or our own gameplay screenshot
   (`assets/ours/art/` or `assets/uploads/`). Screenshots are cropped to the game screen only (no room, no people, no
   reflections) and saved fresh so photo metadata is removed. This applies to new articles and to any existing page.
+- **Spoilers are hidden until clicked.** Every story spoiler on the site goes in a `> [!SPOILER]` box (a "View spoiler"
+  button reveals it). Never put a spoiler in a title, description, quick answer, heading, picture or thumbnail; a FAQ
+  whose answer is a spoiler ends its question with "(spoilers)". This applies to new articles and to any existing page.
