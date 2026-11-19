@@ -331,13 +331,13 @@ const theoryFor = (slug) => THEORY_OPEN.find((t) => (t.related || []).includes(s
 // ---------- shortcodes: {{name}} or {{name:arg|label}} on their own line in Markdown ----------
 const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Beach, Little Cuba, VC Port."], ["leonida-keys", "Leonida Keys", "A tropical archipelago next to beautiful, dangerous waters."], ["grassrivers", "Grassrivers", "A primordial expanse of mangroves, gators and worse."], ["port-gellhorn", "Port Gellhorn", "A faded vacation town with cheap motels and a new economy."], ["ambrosia", "Ambrosia", "Sugar-refinery industry town run by a biker gang."], ["mount-kalaga", "Mount Kalaga", "Hunting, fishing and off-road trails by the northern border."]];
 const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug runners"], ["lucia-caminos", "Lucia Caminos", "Fresh out of Leonida Penitentiary"], ["cal-hampton", "Cal Hampton", "Jason's paranoid friend"], ["boobie-ike", "Boobie Ike", "Vice City legend and businessman"], ["dre-quan-priest", "Dre'Quan Priest", "Only Raw Records"], ["real-dimez", "Real Dimez", "Rap duo Bae-Luxe and Roxy"], ["raul-bautista", "Raul Bautista", "Seasoned bank robber"], ["brian-heder", "Brian Heder", "Old-school Keys smuggler"]];
-// Home hero box (replaced the launch countdown): our newest guides made from our own PS5 copy of the game.
+// Home hero box "Recent news" (replaced the launch countdown): our newest guides made from our own PS5 copy of the game.
 // Picks live articles that cite our own gameplay as a source, newest first. Updates itself whenever we publish.
 function ourFreshHtml(fromUrl) {
   const ours = LIVE.filter((a) => a.sources.some((s) => s.type === "community" && s.publisher === cfg.name))
     .sort((x, y) => String(modOf(y)).localeCompare(String(modOf(x)))).slice(0, 3);
   if (!ours.length) return "";
-  return `<section class="hero-fresh" aria-labelledby="hf-h"><p class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Fresh from our game</p><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
+  return `<section class="hero-fresh" aria-labelledby="hf-h"><p class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</p><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
 }
 function countdownHtml(compact = false) {
   return `<div class="countdown" data-launch="${cfg.launchDate}"><span class="cd-label">GTA VI unlocks in</span><div class="cd-units" aria-live="off"><div class="cd-unit"><b data-u="d">--</b><small>days</small></div><div class="cd-unit"><b data-u="h">--</b><small>hrs</small></div><div class="cd-unit"><b data-u="m">--</b><small>min</small></div>${compact ? "" : `<div class="cd-unit"><b data-u="s">--</b><small>sec</small></div>`}</div><span class="cd-note">Until midnight on Nov 19, your local time (reported unlock time).</span></div>`;
