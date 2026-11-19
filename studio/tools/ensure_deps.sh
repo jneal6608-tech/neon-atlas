@@ -8,6 +8,7 @@
 # What each build step needs (steps from studio/BRIEF.md "Build order"):
 #   1. script tools (script_check, script_score): Python 3.10+ standard library only; pytest for the tests.
 #   2. voice tools: ffmpeg, and the speech model (added in step 2).
+#   GTA Shorts (tools/gta_shorts.py): ffmpeg, Pillow, anthropic, numpy; a colour emoji font (fonts-noto-color-emoji).
 # Python packages go to the current Python; nothing is installed system-wide unless pip does so by default.
 set -u
 
@@ -33,7 +34,11 @@ say "ok       $("$PY" -V 2>&1)"
 # --- Python packages: "import name|pip name" ---------------------------------------------------------------
 PY_PACKAGES=(
   "pytest|pytest"
+  "PIL|Pillow"            # GTA Shorts: contact sheets, captions, storyboards
+  "anthropic|anthropic"   # GTA Shorts: Claude picks the moments (optional without an API key)
+  "numpy|numpy"           # GTA Shorts: fast loudness envelope (falls back to pure Python)
 )
+# Optional, not installed by default (large): faster-whisper, for "Transcribe my mic" in GTA Shorts.
 
 pip_install() {
   # Some system Pythons refuse pip installs (PEP 668); fall back to a user install, then to the override.

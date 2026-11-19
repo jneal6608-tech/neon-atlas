@@ -2,6 +2,21 @@
 
 Every piece of feedback after a video, and what changed so it sticks. Newest first.
 
+## 2026-11-19: GTA Shorts Studio: a gameplay MP4 in, 3-5 funny Shorts out
+- **Request:** a GTA version of the user's Chronicle Shorts tool: paste a gameplay MP4, Claude (model and usage chosen by
+  the user) picks the moments best for funny-moment Shorts with one meme caption ("bro didn't see this coming 💀",
+  "ain't no way 😭"), 3-5 per video, each with a title and description; research the algorithm first.
+- **Change:** the Chronicle Shorts code wasn't in any repository or Drive the session could reach (only its two doc pages),
+  so this is written new from that design. Signals (sudden loudness, picture change, optional mic transcript) find
+  candidate moments; Claude sees frame sheets of each plus an overview of the whole video and returns cuts, captions,
+  titles, descriptions and hashtags by the research-based rubric; the user reviews and edits on a storyboard, then the
+  tool renders 1080x1920 Shorts (blurred fill, punch-in on the payoff, caption in the safe area, -14 LUFS) with quick
+  checks. Local page (`serve`) and CLI. Offline scorer when there is no API key. Funny clips are no longer only
+  user-flagged (BRIEF updated).
+- **Files:** `tools/gta_shorts.py`, `tools/gta_shorts_web.py`, `tools/tests/test_gta_shorts.py`,
+  `prompts/gta-funny-shorts.md`, `research/funny-shorts-algorithm.md`, `tools/ensure_deps.sh`, `.gitignore`, `BRIEF.md`,
+  `CLAUDE.md`, `../.claude/commands/gta-shorts.md`.
+
 ## 2026-11-18: the home page's "Last updated" date updates itself (site)
 - **Feedback:** under "Updated daily" the home page said the latest update was November 15 although the user updated
   the site that day; they want the date to change by itself whenever they update the site.
