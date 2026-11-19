@@ -16,7 +16,9 @@ sources:
   - { type: official, title: "Grand Theft Auto VI: Only in Leonida (official character profiles)", url: "https://www.rockstargames.com/VI/only-in-leonida", publisher: "Rockstar Games", accessed: 2026-11-15 }
   - { type: official, title: "Grand Theft Auto VI: official site (story synopsis)", url: "https://www.rockstargames.com/VI", publisher: "Rockstar Games", accessed: 2026-11-15 }
   - { type: community, title: "Neon Atlas: GTA VI pause menu on PS5, launch day (our own copy)", url: "https://neonatlasguide.com/characters/gta-6-characters/", publisher: "Neon Atlas", accessed: 2026-11-19 }
+  - { type: community, title: "Neon Atlas: GTA 6 First 10 Minutes, the opening (our own PS5 gameplay on YouTube)", url: "https://www.youtube.com/watch?v=ErM2modOMsM", publisher: "Neon Atlas", accessed: 2026-11-19 }
 updateLog:
+  - { date: 2026-11-19, note: "Added our own gameplay video of the game's opening, featuring Lucia (spoiler warning)." }
   - { date: 2026-11-19, note: "Added Jason's in-game height and weight from the pause menu stats screen." }
 faqs:
   - { q: "Who are the main characters in GTA 6?", a: "**Jason Duval** and **Lucia Caminos**, the two leads in Rockstar's official story synopsis." }
@@ -54,6 +56,13 @@ Jason grew up around grifters and crooks, joined the Army to shake off a trouble
 ## Lucia Caminos
 
 Lucia was taught to fight by her father "as soon as she could walk." Fighting for her family landed her in the **Leonida Penitentiary** (see [the map of Leonida](article:gta-6-map-leonida-regions)); in Rockstar's words, "sheer luck got her out." Her family's history goes back to **Liberty City**, where her mother dreamed of a better life. Fresh out of prison, she's committed to her plan "no matter what it takes," and a life with Jason "could be her way out."
+
+**Watch Lucia in the game:** the first 10 minutes of GTA VI open with her in prison. Our own PS5 gameplay, no commentary.
+
+> [!WARNING]
+> Spoilers: this video shows the game's opening story scenes.
+
+{{ourvideo:ErM2modOMsM|GTA 6 First 10 Minutes: the opening (our own PS5 gameplay)}}
 
 ## Cal Hampton
 
