@@ -38,7 +38,49 @@ const IS_OURS = (p) => !!p && p.startsWith("/assets/ours/");
 const fmtDateTime = (iso) => new Date(iso).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/New_York", timeZoneName: "short" });
 const modOf = (a) => a.updatedAt || a.updated;
 const fmtMod = (a) => (a.updatedAt ? fmtDateTime(a.updatedAt) : fmtDate(a.updated));
-const LIVEFEED = (() => { try { return readJSON("data/live.json").entries.slice().sort((x, y) => String(y.time).localeCompare(String(x.time))); } catch { return []; } })();
+// Picks live articles that cite our own gameplay as a source, newest first. Updates itself whenever we publish.
+// "Newest post" = when the page first went into the site: the git commit that added its file (exact time), falling
+// back to its publish date outside a git checkout. A page written ahead as a draft and published later counts from
+// its publish time (publishedAt, stamped by tools/ship.mjs). New posts go to the top automatically; later edits don't reshuffle.
+const stampOf = (d) => (!d ? 0 : String(d).length > 10 ? Date.parse(d) : Date.parse(d + "T00:00:00Z")) || 0;
+const SHALLOW = (() => { try { return execFileSync("git", ["rev-parse", "--is-shallow-repository"], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim() === "true"; } catch { return true; } })();
+const fileAddedTime = (file) => {
+  if (SHALLOW) return 0; // a shallow clone (some deploy builders) makes every file look added in the same commit
+  try {
+    const out = execFileSync("git", ["log", "--diff-filter=A", "--follow", "--format=%cI", "--", `content/articles/${file}`], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim().split("\n").filter(Boolean);
+    return Date.parse(out[out.length - 1]) || 0;
+  } catch { return 0; }
+};
+const freshness = (a) => Math.max(stampOf(a.publishedAt), stampOf(a.publishDate), fileAddedTime(a.file));
+// Live launch updates = the hand-written entries in data/live.json PLUS one automatic entry for every page published
+// since the coverage started, timed exactly like Recent news (freshness above). So whatever was published last is at
+// the top of the live page and the home page's live strip, with no extra step. A page already announced by a
+// hand-written entry (link: "article:<slug>", same day or later) isn't announced twice.
+const LIVE_SINCE = Date.parse("2026-11-15T00:00:00-05:00"); // = the live blog's coverageStartTime
+const kindOf = (a) => (/\{\{ourvideo:/.test(a.body || "") ? "New video" : a.category === "news" ? "News" : "New guide");
+const LIVEFEED = (() => {
+  let manual = [];
+  try { manual = readJSON("data/live.json").entries.slice(); } catch { /* no live feed */ }
+  const announced = new Map();
+  for (const e of manual) {
+    if (String(e.link || "").startsWith("article:")) {
+      const slug = e.link.slice(8);
+      announced.set(slug, Math.max(announced.get(slug) || 0, stampOf(e.time)));
+    }
+  }
+  const auto = [];
+  for (const a of LIVE) {
+    const t = freshness(a);
+    if (!t || t < LIVE_SINCE || t > NOW.getTime() + 60_000) continue;
+    if ((announced.get(a.slug) || 0) >= t - 86_400_000) continue;
+    const exact = Math.max(stampOf(a.publishedAt), fileAddedTime(a.file)) === t; // a real time, not just a date
+    auto.push({
+      time: exact ? new Date(t).toISOString() : String(a.publishDate || new Date(t).toISOString()).slice(0, 10),
+      text: `${kindOf(a)}: **${a.title}**`, dek: a.description, link: `article:${a.slug}`, linkText: "Read it →", auto: true,
+    });
+  }
+  return [...manual, ...auto].sort((x, y) => stampOf(y.time) - stampOf(x.time) || String(y.time).localeCompare(String(x.time)));
+})();
 const LIVE_URL = "/news/gta-6-launch-live/";
 const THEORIES_URL = "/theories/";
 const THEORIES = (() => { try { return readJSON("data/theories.json"); } catch { return { updated: "", items: [] }; } })();
@@ -68,6 +110,7 @@ const THEORY_STATUS = {
 };
 const THEORY_TREND = { rising: "Trending", steady: "", cooling: "Cooling off" };
 const fmtLiveTime = (t) => (String(t).length > 10 ? fmtDateTime(t) : fmtDate(t));
+const liveLink = (e) => (e.link?.startsWith("article:") ? (liveBy[e.link.slice(8)]?.url || null) : e.link || null);
 const OFFICIAL = (kind, slug) => (fs.existsSync(path.join(ROOT, `assets/official/${kind}/${slug}.jpg`)) ? `/assets/official/${kind}/${slug}.jpg` : null);
 // Cache-busting: /assets/* is cached for a week, so CSS and JS are linked with a fingerprint of their contents.
 // Any change gets a new URL that browsers and Cloudflare must fetch; unchanged files stay cached.
@@ -339,20 +382,6 @@ const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Be
 const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug runners"], ["lucia-caminos", "Lucia Caminos", "Fresh out of Leonida Penitentiary"], ["cal-hampton", "Cal Hampton", "Jason's paranoid friend"], ["boobie-ike", "Boobie Ike", "Vice City legend and businessman"], ["dre-quan-priest", "Dre'Quan Priest", "Only Raw Records"], ["real-dimez", "Real Dimez", "Rap duo Bae-Luxe and Roxy"], ["raul-bautista", "Raul Bautista", "Seasoned bank robber"], ["brian-heder", "Brian Heder", "Old-school Keys smuggler"]];
 // Home hero box "Recent news" (replaced the launch countdown): the newest posts on the site, whatever they are (guides,
 // videos, news). Updates itself: every newly published page goes to the top on the next build.
-// Picks live articles that cite our own gameplay as a source, newest first. Updates itself whenever we publish.
-// "Newest post" = when the page first went into the site: the git commit that added its file (exact time), falling
-// back to its publish date outside a git checkout. A page written ahead as a draft and published later counts from
-// its publish time (publishedAt, stamped by tools/ship.mjs). New posts go to the top automatically; later edits don't reshuffle.
-const stampOf = (d) => (!d ? 0 : String(d).length > 10 ? Date.parse(d) : Date.parse(d + "T00:00:00Z")) || 0;
-const SHALLOW = (() => { try { return execFileSync("git", ["rev-parse", "--is-shallow-repository"], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim() === "true"; } catch { return true; } })();
-const fileAddedTime = (file) => {
-  if (SHALLOW) return 0; // a shallow clone (some deploy builders) makes every file look added in the same commit
-  try {
-    const out = execFileSync("git", ["log", "--diff-filter=A", "--follow", "--format=%cI", "--", `content/articles/${file}`], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim().split("\n").filter(Boolean);
-    return Date.parse(out[out.length - 1]) || 0;
-  } catch { return 0; }
-};
-const freshness = (a) => Math.max(stampOf(a.publishedAt), stampOf(a.publishDate), fileAddedTime(a.file));
 function ourFreshHtml(fromUrl, side = false) {
   const ours = LIVE.filter((a) => a.url !== fromUrl)
     .map((a) => [a, freshness(a)]).sort((x, y) => y[1] - x[1]).map(([a]) => a).slice(0, 3);
@@ -520,7 +549,7 @@ ${upcoming}</div>`;
   ${ourFreshHtml(url)}
 </div></div></section>
 <div class="wrap">
-${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class="live-strip-h" id="ls-h"><span class="live-dot" aria-hidden="true"></span> Live launch updates</p><ol>${LIVEFEED.slice(0, 3).map((e) => `<li><time datetime="${e.time}">${fmtLiveTime(e.time)}</time> ${new Marked().parseInline(e.text)}</li>`).join("")}</ol><a class="btn btn-ghost" href="${href(LIVE_URL)}">All live updates →</a></section>` : ""}
+${LIVEFEED.length ? `<section class="live-strip" aria-labelledby="ls-h"><p class="live-strip-h" id="ls-h"><span class="live-dot" aria-hidden="true"></span> Live launch updates</p><ol>${LIVEFEED.slice(0, 3).map((e) => `<li><time datetime="${e.time}">${fmtLiveTime(e.time)}</time> ${new Marked().parseInline(e.text)}${liveLink(e) ? ` <a href="${href(liveLink(e))}">${esc(e.auto ? "Read it →" : "More →")}</a>` : ""}</li>`).join("")}</ol><a class="btn btn-ghost" href="${href(LIVE_URL)}">All live updates →</a></section>` : ""}
 <section class="fresh" aria-labelledby="fresh-h">
   <div class="fresh-head"><p class="fresh-kicker"><span class="live-dot" aria-hidden="true"></span> Always current</p><h2 id="fresh-h">Updated daily</h2><p>GTA VI news moves fast in launch week. Neon Atlas is updated every day, so the unlock times, pre-load details, patches and server status you read here are the latest we've verified.</p></div>
   <ol class="fresh-steps">
@@ -557,7 +586,7 @@ if (LIVEFEED.length) {
   const url = LIVE_URL;
   const href = linker(url);
   const items = [["Home", "/"], ["News & Updates", "/news/"], ["Launch live updates", url]];
-  const entry = (e) => `<li class="live-entry" id="u-${String(e.time).replace(/[^0-9]/g, "")}"><time datetime="${e.time}">${fmtLiveTime(e.time)}</time>${e.confidence ? ` ${badge(e.confidence)}` : ""}<p>${new Marked().parseInline(e.text)}</p>${e.link ? `<p class="small"><a href="${href(e.link.startsWith("article:") ? (liveBy[e.link.slice(8)]?.url || "/") : e.link)}">${esc(e.linkText || "Full answer →")}</a></p>` : ""}</li>`;
+  const entry = (e) => `<li class="live-entry" id="u-${String(e.time).replace(/[^0-9]/g, "")}"><time datetime="${e.time}">${fmtLiveTime(e.time)}</time>${e.confidence ? ` ${badge(e.confidence)}` : ""}<p>${new Marked().parseInline(e.text)}</p>${e.dek ? `<p class="muted">${esc(e.dek)}</p>` : ""}${liveLink(e) ? `<p class="small"><a href="${href(liveLink(e))}">${esc(e.linkText || "Full answer →")}</a></p>` : ""}</li>`;
   const body = `<div class="wrap narrow">${crumbs(url, items)}<header class="page-head"><p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live · newest first</p><h1>GTA 6 launch: live updates</h1><p class="dek">Every confirmed GTA VI launch development as it happens: unlock times, patches, server status and new answers. Each entry is timestamped (US Eastern) and labeled.</p></header>
 ${countdownHtml()}
 <ol class="live-list">${LIVEFEED.map(entry).join("")}</ol></div>`;

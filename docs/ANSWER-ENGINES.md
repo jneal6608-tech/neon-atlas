@@ -21,7 +21,7 @@ No one can guarantee placement or citation. These steps maximise how quickly we'
 3. **robots.txt** explicitly welcomes Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, GPTBot, PerplexityBot, ClaudeBot, Google-Extended, Applebot and others.
 4. **/llms.txt** (a summary of every answer, with links) and **/llms-full.txt** (full text), regenerated on every build.
 5. **IndexNow:** after each deploy, changed URLs are pushed to Bing, Yandex, Seznam and others (`tools/indexnow.mjs`).
-6. **Launch live page** (`/news/gta-6-launch-live/`) with `LiveBlogPosting` structured data, in the nav and on the homepage.
+6. **Launch live page** (`/news/gta-6-launch-live/`) with `LiveBlogPosting` structured data, in the nav and on the homepage. Every newly published page appears on it automatically, newest first, exactly like the home page's Recent news; hand-written updates (`--live`) sit alongside them.
 7. **Official-source watcher:** checks Rockstar's pages every 15 minutes and alerts you with what changed.
 8. **Launch-ready answer pages:** 11 top launch-day questions already exist as private skeletons (switching characters, saving, loading-screen fixes, servers, settings, tips, length, missions, money, wanted level, cheats), plus controls and GTA Online. When you verify an answer, you fill one in and ship; you don't start from zero.
 
@@ -37,7 +37,7 @@ No one can guarantee placement or citation. These steps maximise how quickly we'
 1. **Verify** the answer on your console (note PS5 or Xbox and the game version).
 2. Open the prepared page (e.g. `content/articles/gta-6-how-to-save.md`, or in the CMS). Write the **answer** field first, then the opening sentence, then fill only the sections you've verified. Delete the rest; add more later.
 3. Add a **source**: your own gameplay notes count as `type: community` with a link to the page itself, or link Rockstar's page if official.
-4. Ship it, with a live-feed line:
+4. Ship it. The new page goes to the top of the live updates by itself; add `--live` only when you want your own wording or an update that isn't a new page:
 
 ```bash
 npm run ship -- gta-6-how-to-save --live "How saving works in GTA VI: answer verified on PS5." --note "Published."
