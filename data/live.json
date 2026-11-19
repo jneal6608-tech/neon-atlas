@@ -1,5 +1,5 @@
 {
- "about": "Launch live updates, newest first on the site. Add entries with: node tools/editorial.mjs live \"text\" --confidence confirmed --link article:slug. time = ISO datetime (or a date when the exact time isn't known). Only verified facts; label anything else.",
+ "about": "Launch live updates, newest first on the site. Every newly published page is added automatically (same timing as Recent news), so this file only holds hand-written updates. Add one with: node tools/editorial.mjs live \"text\" --confidence confirmed --link article:slug. time = ISO datetime (or a date when the exact time isn't known). Only verified facts; label anything else.",
  "entries": [
   {
    "time": "2026-11-03",
