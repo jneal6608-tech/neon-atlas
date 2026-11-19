@@ -1,14 +1,15 @@
 ---
 title: GTA 6 Wanted Level and HUD Explained
-seoTitle: 'GTA 6 Wanted Level: Stars, Red Bar and HUD Icons'
+seoTitle: 'GTA 6 Wanted Level: White vs Red Stars and HUD Icons'
 description: >-
-  How the GTA 6 wanted level looks on screen: the star meter, the red bar when
-  police are searching, the icons under the stars, and the weapon wheel.
+  How the GTA 6 wanted level works: white stars in a chase, red stars when
+  police are searching, and the icons for what cops remember about you.
 answer: >-
-  In GTA 6 your **wanted level** shows as **stars** in the top-right corner (red
-  stars are your current level). When police are **searching for you**, a **red
-  bar** runs across the top of the screen. Under the stars are icons for your
-  **outfit, appearance and weapon**.
+  In GTA 6 your **wanted level** shows as **stars** in the top-right corner.
+  **White stars** mean police are **actively chasing you**; once you get away
+  the stars turn **red**, meaning you are still wanted and they are **searching
+  the area**. Icons under the stars show what the police **remember** about you:
+  your **outfit**, **appearance** and **car**.
 category: gameplay
 status: published
 publishedAt: '2026-11-19T21:06:09Z'
@@ -27,18 +28,17 @@ sources:
     accessed: 2026-11-19T00:00:00.000Z
 faqs:
   - q: How many wanted stars are there in GTA 6?
+    a: Our HUD showed a row of **6 star slots**. Ours was at **2 stars**.
+  - q: Why are my wanted stars red in GTA 6?
     a: >-
-      Our HUD showed a row of **6 star slots**, with the filled red stars
-      marking your current wanted level (ours was at 2).
-  - q: What does the red bar at the top mean in GTA 6?
-    a: >-
-      It appeared when the police were searching for us in the area. It runs
-      along the top of the screen with the compass.
+      **White stars** mean the police are actively chasing you. When you get
+      away, the stars turn **red**: you are still wanted, and police are
+      searching the area for you.
   - q: What are the icons under the wanted stars in GTA 6?
     a: >-
-      Our screen showed three: a **clothes hanger** (outfit), a **head**
-      (appearance) and a **gun** (weapon). We think they show what the police
-      know about you; that's our reading, not something the game spelled out.
+      They show what the police **remember** about you: your **outfit**
+      (hanger), your **appearance** (head) and your **car**. Change what they
+      remember to make yourself harder to find.
 updatedAt: '2026-11-19T21:04:33.917Z'
 updated: '2026-11-19'
 lastVerified: '2026-11-19'
@@ -46,33 +46,32 @@ updateLog:
   - date: '2026-11-19'
     note: Published from our own PS5 screenshots.
 ---
-**In GTA 6 your wanted level shows as stars in the top-right corner, and a red bar across the top means the police are searching for you.** Here's what everything on screen means, from our own PS5 copy.
+**In GTA 6 your wanted level shows as stars in the top-right corner. White stars mean the police are chasing you; red stars mean you got away but they are still searching the area.** Here is how it works, from our own PS5 copy.
 
 ![GTA 6 HUD while wanted: two red wanted stars and three icons in the top-right corner, and a red search bar across the top of the screen](/assets/uploads/gta-6-hud-wanted.jpg)
 
-## The wanted stars
+## White stars vs red stars
 
-![Close-up of the GTA 6 wanted meter: six star slots with two filled red stars, and below them icons for outfit, appearance and weapon, then cash](/assets/uploads/gta-6-hud-stars-zoom.jpg)
+| Stars | What it means |
+| --- | --- |
+| **White** | The police are **actively chasing you** right now. |
+| **Red** | You **got away**, but you are **still wanted**: police are **searching the area** for you. |
 
-- **Six star slots** sit in the top-right corner. Filled **red stars** are your current wanted level; ours was at **2 stars** here.
-- More stars means more police attention.
+There are **six star slots**; more stars means more police. Ours was at **2 stars**, in red, after escaping. While police are searching, the compass bar along the top of the screen turns **red** too. Leave the area and stay out of sight until the stars clear.
 
-## The red bar: police are searching
+![Close-up of the GTA 6 wanted meter: six star slots with two red stars, and below them icons for outfit, appearance and a gun, then cash](/assets/uploads/gta-6-hud-stars-zoom.jpg)
 
-When the police are **searching the area** for you, the compass bar along the top of the screen turns **red**. Get out of the area and out of sight to lose them. You'll see the stars and the bar together while you're wanted.
+## What the police remember about you
 
-## The three icons under the stars
+Under the stars are icons for what the police **remember** about you:
 
-Under the stars our screen showed three red icons:
+| Icon | What they remember |
+| --- | --- |
+| Clothes hanger | Your **outfit** |
+| Head | Your **appearance** |
+| Car / vehicle | Your **car** |
 
-| Icon | What it looks like | What we think it means |
-| --- | --- | --- |
-| Clothes hanger | Outfit | Your clothes |
-| Head | Appearance | What you look like |
-| Gun | Weapon | Your weapon |
-
-> [!UNCONFIRMED]
-> The game doesn't label these icons on the HUD. Our reading is that they track what the police know about you, so changing your outfit or putting your weapon away may help you lose them. We'll confirm once we've tested it.
+In our screenshot the third icon was a **gun**, because we were on foot with a weapon. Change what they remember (a new outfit, a different car) to make yourself harder to spot. Even Brian tells Jason to go to a store "to get a change of clothes so the cops aren't all over you."
 
 ## The rest of the HUD
 
