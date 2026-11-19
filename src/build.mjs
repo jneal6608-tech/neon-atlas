@@ -337,9 +337,19 @@ const REGIONS = [["vice-city", "Vice City", "Glamour, hustle and greed: Ocean Be
 const PEOPLE = [["jason-duval", "Jason Duval", "Ex-Army, works for Keys drug runners"], ["lucia-caminos", "Lucia Caminos", "Fresh out of Leonida Penitentiary"], ["cal-hampton", "Cal Hampton", "Jason's paranoid friend"], ["boobie-ike", "Boobie Ike", "Vice City legend and businessman"], ["dre-quan-priest", "Dre'Quan Priest", "Only Raw Records"], ["real-dimez", "Real Dimez", "Rap duo Bae-Luxe and Roxy"], ["raul-bautista", "Raul Bautista", "Seasoned bank robber"], ["brian-heder", "Brian Heder", "Old-school Keys smuggler"]];
 // Home hero box "Recent news" (replaced the launch countdown): our newest guides made from our own PS5 copy of the game.
 // Picks live articles that cite our own gameplay as a source, newest first. Updates itself whenever we publish.
+// "Newest post" = when the page first went into the site: the git commit that added its file (exact time), falling
+// back to its publish date outside a git checkout. New posts go to the top automatically; later edits don't reshuffle.
+const stampOf = (d) => (!d ? 0 : String(d).length > 10 ? Date.parse(d) : Date.parse(d + "T00:00:00Z")) || 0;
+const fileAddedTime = (file) => {
+  try {
+    const out = execFileSync("git", ["log", "--diff-filter=A", "--follow", "--format=%cI", "--", `content/articles/${file}`], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim().split("\n").filter(Boolean);
+    return Date.parse(out[out.length - 1]) || 0;
+  } catch { return 0; }
+};
+const freshness = (a) => Math.max(stampOf(a.publishDate), fileAddedTime(a.file));
 function ourFreshHtml(fromUrl, side = false) {
   const ours = LIVE.filter((a) => a.sources.some((s) => s.type === "community" && s.publisher === cfg.name))
-    .sort((x, y) => String(modOf(y)).localeCompare(String(modOf(x)))).slice(0, 3);
+    .map((a) => [a, freshness(a)]).sort((x, y) => y[1] - x[1]).map(([a]) => a).slice(0, 3);
   if (!ours.length) return "";
   if (side) return `<div class="side-box"><p class="side-h">Recent news</p><div class="grid cards compact">${ours.filter((x) => x.url !== fromUrl).map((x) => card(x, fromUrl)).join("")}</div></div>`;
   return `<section class="hero-fresh" aria-labelledby="hf-h"><h2 class="hero-fresh-h" id="hf-h"><span class="live-dot" aria-hidden="true"></span> Recent news</h2><p class="hero-fresh-note">New guides from our own PS5 copy of GTA VI.</p><div class="grid cards compact">${ours.map((a) => card(a, fromUrl)).join("")}</div></section>`;
