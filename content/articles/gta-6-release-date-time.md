@@ -1,28 +1,75 @@
 ---
-title: "GTA 6 Release Date and Unlock Time: What's Confirmed"
-seoTitle: "GTA 6 Release Date & Unlock Time (Nov 19, 2026)"
-description: "GTA VI launches November 19, 2026 on PS5 and Xbox Series X|S. What Rockstar confirmed, what's only reported about unlock times, and how to be ready."
-answer: "GTA VI releases **Thursday, November 19, 2026** on PS5 and Xbox Series X|S (confirmed by Rockstar). The unlock time is reported as **midnight local time**; some US storefronts may use Eastern time, which would mean 9 PM Pacific on November 18."
+title: 'GTA 6 Release Date and Unlock Time: What''s Confirmed'
+seoTitle: 'GTA 6 Release Date & Unlock Time (Nov 19, 2026)'
+description: >-
+  GTA VI launches November 19, 2026 on PS5 and Xbox Series X|S. What Rockstar
+  confirmed, what's only reported about unlock times, and how to be ready.
+answer: >-
+  GTA VI releases **Thursday, November 19, 2026** on PS5 and Xbox Series X|S
+  (confirmed by Rockstar). The unlock time is reported as **midnight local
+  time**; some US storefronts may use Eastern time, which would mean 9 PM
+  Pacific on November 18.
 category: guides
 status: published
 confidence: mixed
 targetQuery: gta 6 release date
 featured: true
-publishDate: 2026-11-15
-updated: 2026-11-15
-lastVerified: 2026-11-15
-reviewBy: 2026-11-18
-related: [gta-6-pre-load-guide, is-gta-6-on-pc, gta-6-launch-week-everything-confirmed]
+publishDate: 2026-11-15T00:00:00.000Z
+updated: '2026-11-20'
+lastVerified: '2026-11-20'
+related:
+  - gta-6-pre-load-guide
+  - is-gta-6-on-pc
+  - gta-6-launch-week-everything-confirmed
 sources:
-  - { type: official, title: "Grand Theft Auto VI: official site (\"Coming November 19, 2026\")", url: "https://www.rockstargames.com/VI", publisher: "Rockstar Games", accessed: 2026-11-15 }
-  - { type: official, title: "Grand Theft Auto VI is Now Set to Launch November 19, 2026", url: "https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026", publisher: "Rockstar Newswire" }
-  - { type: official, title: "Rockstar Store product listing (availability starts 2026-11-19)", url: "https://store.rockstargames.com/game/buy-gta-vi", publisher: "Rockstar Games", accessed: 2026-11-15 }
-  - { type: reported, title: "GTA 6 Unlocks At Midnight On November 19, But Millions Of Americans Can Start Playing The Night Before", url: "https://www.forbes.com/sites/brianmazique/2026/11/12/gta-6-unlocks-at-midnight-on-november-19-but-millions-of-americans-can-start-playing-the-night-before/", publisher: "Forbes" }
-  - { type: reported, title: "GTA 6 Release Time: West Coast Players May Start 9 PM Wednesday, Not Midnight Thursday", url: "https://www.techtimes.com/articles/330648/20261113/gta-6-release-time-west-coast-players-may-start-9-pm-wednesday-not-midnight-thursday.htm", publisher: "Tech Times" }
+  - type: official
+    title: 'Grand Theft Auto VI: official site ("Coming November 19, 2026")'
+    url: 'https://www.rockstargames.com/VI'
+    publisher: Rockstar Games
+    accessed: '2026-11-20'
+  - type: official
+    title: 'Grand Theft Auto VI is Now Set to Launch November 19, 2026'
+    url: >-
+      https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026
+    publisher: Rockstar Newswire
+  - type: official
+    title: Rockstar Store product listing (availability starts 2026-11-19)
+    url: 'https://store.rockstargames.com/game/buy-gta-vi'
+    publisher: Rockstar Games
+    accessed: '2026-11-20'
+  - type: reported
+    title: >-
+      GTA 6 Unlocks At Midnight On November 19, But Millions Of Americans Can
+      Start Playing The Night Before
+    url: >-
+      https://www.forbes.com/sites/brianmazique/2026/11/12/gta-6-unlocks-at-midnight-on-november-19-but-millions-of-americans-can-start-playing-the-night-before/
+    publisher: Forbes
+  - type: reported
+    title: >-
+      GTA 6 Release Time: West Coast Players May Start 9 PM Wednesday, Not
+      Midnight Thursday
+    url: >-
+      https://www.techtimes.com/articles/330648/20261113/gta-6-release-time-west-coast-players-may-start-9-pm-wednesday-not-midnight-thursday.htm
+    publisher: Tech Times
 faqs:
-  - { q: "When does GTA 6 come out?", a: "Thursday, **November 19, 2026**, on PlayStation 5 and Xbox Series X|S. Rockstar's official site and store both list that date." }
-  - { q: "What time does GTA 6 unlock?", a: "Outlets citing Rockstar Support report **midnight local time on November 19**. Some US storefronts appear to use Eastern time, which would mean 9 PM Pacific on November 18. Check the countdown on your console's store page." }
-  - { q: "Has GTA 6 been delayed again?", a: "Not as of November 15, 2026. Rockstar's site still says \"Coming November 19, 2026\" and pre-loading is already open." }
+  - q: When does GTA 6 come out?
+    a: >-
+      Thursday, **November 19, 2026**, on PlayStation 5 and Xbox Series X|S.
+      Rockstar's official site and store both list that date.
+  - q: What time does GTA 6 unlock?
+    a: >-
+      Outlets citing Rockstar Support report **midnight local time on November
+      19**. Some US storefronts appear to use Eastern time, which would mean 9
+      PM Pacific on November 18. Check the countdown on your console's store
+      page.
+  - q: Has GTA 6 been delayed again?
+    a: >-
+      Not as of November 15, 2026. Rockstar's site still says "Coming November
+      19, 2026" and pre-loading is already open.
+updatedAt: '2026-11-20T23:21:41.482Z'
+updateLog:
+  - date: '2026-11-20'
+    note: The free pre-order bonus window has closed.
 ---
 **GTA VI releases on Thursday, November 19, 2026, on PlayStation 5 and Xbox Series X|S.** That date is on Rockstar's official site and the Rockstar Store, and pre-loading is already open, so you can download the game now and play the moment it unlocks.
 
@@ -75,4 +122,4 @@ No PC version has been announced. Rockstar lists only PlayStation 5 and Xbox Ser
 - **Pre-load now.** Reported size is up to about 212 GB, so clear space first. Our [pre-load guide](article:gta-6-pre-load-guide) has the steps.
 - **Physical copy?** The box has a download code, not a disc. You'll still download the whole game. See [what's in the physical box](article:gta-6-physical-copy-no-disc).
 - **Install system updates** for your console before launch night, so an update doesn't sit between you and the game.
-- **Pre-order bonus:** digital pre-orders and purchases before **November 20** get the Vintage Vice City Pack. Details in our [pre-order bonus guide](article:gta-6-pre-order-bonus-vintage-vice-city-pack).
+- **Vintage Vice City Pack:** it was free for purchases before **November 20**; it's now a paid add-on. See the [Vintage Vice City Pack guide](article:gta-6-pre-order-bonus-vintage-vice-city-pack).

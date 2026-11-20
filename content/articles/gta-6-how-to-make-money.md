@@ -1,33 +1,48 @@
 ---
-title: How to Make Money Fast in GTA 6
-description: 'TODO: 150–160 characters that answer "gta 6 how to make money".'
-answer: 'TODO: the answer in 1–2 sentences, written the moment it''s verified.'
+title: "How to Make Money Fast in GTA 6 (Early Game, No Spoilers)"
+seoTitle: "GTA 6 Money: Best Ways to Make Money Fast Early"
+description: "The best early ways to make money in GTA 6, as reported by players: looting hideouts, selling stolen cars, diving and more. Plus a tip so you don't lose cash."
+answer: "Players report the best early money comes from **looting gang hideouts**, **selling stolen cars** to a buyer contact (from Chapter 2), **treasure diving** and **delivery side jobs**. Bigger payouts like **jewelry robberies** come later as you progress the story."
 category: gameplay
-status: research
-confidence: confirmed
+status: published
+publishedAt: '2026-11-20T23:22:54Z'
+confidence: mixed
 targetQuery: gta 6 how to make money
-publishDate: '2026-11-19'
-sources: []
+publishDate: '2026-11-20'
+related: [gta-6-waink-app-car-scanner, gta-6-garages-properties, gta-6-activities-pool-basketball-gym]
+sources:
+  - { type: reported, title: "How to Make Money Fast in GTA 6: 8 Best Methods", url: "https://www.gtabase.com/gta-6/articles/how-to-make-money-fast-in-gta-6", publisher: "GTABase" }
+  - { type: reported, title: "How to Make Money Early in GTA 6: Best Chapter 1 Methods", url: "https://alcasthq.com/gta-6-make-money-early/", publisher: "AlcastHQ" }
+  - { type: reported, title: "GTA 6 money-making guide: Fastest ways to earn cash in every chapter", url: "https://www.g2a.com/news/gta-6-news/gta-6-money-making-guide/", publisher: "G2A News" }
+faqs:
+  - { q: "What is the fastest way to make money early in GTA 6?", a: "Players report **looting gang hideouts** pays best early (roughly $1,000–2,000+ per site), then **selling stolen cars** once that unlocks in Chapter 2." }
+  - { q: "Does money carry over between chapters in GTA 6?", a: "One guide warns that some early cash doesn't carry over, so **spend or bank it** before moving on. We haven't confirmed this ourselves." }
 ---
-<!-- RESEARCH: launch-ready skeleton. Fill the answer first, verify on console, add sources, remove this comment, then: node tools/ship.mjs gta-6-how-to-make-money --live "..." -->
+**Short on cash in GTA 6? These are the money makers players are reporting so far, early game first.** We've kept it to features only, with no story spoilers.
 
-**TODO: answer-first opening sentence.**
+> [!REPORTED]
+> Payouts and unlock points come from guides written by people playing the game (sources below). They don't all agree, so treat the numbers as rough. We'll confirm them on our own copy.
 
-## Best early methods
+## Early game
 
-TODO
+| Method | What you do | Reported payout |
+| --- | --- | --- |
+| **Gang hideouts** | Clear out and loot a gang's stash spot, then sell the goods to a fence | About $1,000–2,000+ per site |
+| **Delivery side jobs** | Drop off packages for a contact | About $900 per drop (one guide) |
+| **Treasure diving** | Dive wrecks for valuables | About $1,400 per wreck early (one guide) |
 
-## Mid-game
+## From Chapter 2: selling stolen cars
 
-TODO
+- A buyer contact takes **stolen cars**. Runs reportedly take just **3–5 minutes**.
+- Guides disagree on whether there's a **daily limit**.
+- Scan cars first with the [Waink app](article:gta-6-waink-app-car-scanner) so you pick ones that are easy to take.
 
-## Late game
+## Later: bigger scores
 
-TODO
+As you progress the story, bigger jobs open up, like **jewelry robberies** (reported at roughly $10,000–25,000). We're not listing the late-game jobs to avoid spoilers.
 
-## Verification checklist
+## Tips
 
-- [ ] Verified on PS5
-- [ ] Verified on Xbox Series X|S
-- [ ] Game version noted
-- [ ] Sources added (official page, or our own gameplay notes)
+- **Don't sit on cash.** One guide says some early money doesn't carry over, so spend or bank it.
+- **Avoid heat.** Robberies and car thefts bring police: see [wanted level](article:gta-6-wanted-level).
+- **Spend it well:** see what you can buy in [garages and properties](article:gta-6-garages-properties).

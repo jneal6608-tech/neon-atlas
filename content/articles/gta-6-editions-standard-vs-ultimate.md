@@ -1,26 +1,61 @@
 ---
-title: "GTA 6 Editions Explained: Standard vs Ultimate Edition"
-seoTitle: "GTA 6 Standard vs Ultimate Edition: Price & Contents"
-description: "Every GTA VI edition, what's actually in the Ultimate Edition, confirmed prices, which editions come on a code-in-box, and how to upgrade later."
-answer: "There are two editions: **Standard** ($79.99 US, digital or code-in-box) and **Ultimate** (digital only, reported at $99.99), which adds vehicles, weapons, shops and outfits spread through the story. You can upgrade from Standard to Ultimate later."
+title: 'GTA 6 Editions Explained: Standard vs Ultimate Edition'
+seoTitle: 'GTA 6 Standard vs Ultimate Edition: Price & Contents'
+description: >-
+  Every GTA VI edition, what's actually in the Ultimate Edition, confirmed
+  prices, which editions come on a code-in-box, and how to upgrade later.
+answer: >-
+  There are two editions: **Standard** ($79.99 US, digital or code-in-box) and
+  **Ultimate** (digital only, reported at $99.99), which adds vehicles, weapons,
+  shops and outfits spread through the story. You can upgrade from Standard to
+  Ultimate later.
 category: guides
 status: published
 confidence: mixed
 targetQuery: gta 6 ultimate edition
 featured: true
-publishDate: 2026-11-15
-updated: 2026-11-15
-lastVerified: 2026-11-15
-reviewBy: 2026-11-20
-related: [gta-6-pre-order-bonus-vintage-vice-city-pack, gta-6-physical-copy-no-disc, gta-6-free-month-gta-plus-redeem]
+publishDate: 2026-11-15T00:00:00.000Z
+updated: '2026-11-20'
+lastVerified: '2026-11-20'
+related:
+  - gta-6-pre-order-bonus-vintage-vice-city-pack
+  - gta-6-physical-copy-no-disc
+  - gta-6-free-month-gta-plus-redeem
 sources:
-  - { type: official, title: "Grand Theft Auto VI: Choose Your Edition", url: "https://www.rockstargames.com/VI/editions", publisher: "Rockstar Games", accessed: 2026-11-15 }
-  - { type: official, title: "Rockstar Store: Grand Theft Auto VI", url: "https://store.rockstargames.com/game/buy-gta-vi", publisher: "Rockstar Games", accessed: 2026-11-15 }
-  - { type: reported, title: "All GTA 6 Editions, Prices, Content Included & Pre-Order Bonuses", url: "https://insider-gaming.com/gta-6-editions-prices-pre-order-bonuses/", publisher: "Insider Gaming" }
+  - type: official
+    title: 'Grand Theft Auto VI: Choose Your Edition'
+    url: 'https://www.rockstargames.com/VI/editions'
+    publisher: Rockstar Games
+    accessed: '2026-11-20'
+  - type: official
+    title: 'Rockstar Store: Grand Theft Auto VI'
+    url: 'https://store.rockstargames.com/game/buy-gta-vi'
+    publisher: Rockstar Games
+    accessed: '2026-11-20'
+  - type: reported
+    title: 'All GTA 6 Editions, Prices, Content Included & Pre-Order Bonuses'
+    url: 'https://insider-gaming.com/gta-6-editions-prices-pre-order-bonuses/'
+    publisher: Insider Gaming
 faqs:
-  - { q: "How much is GTA 6?", a: "The Standard Edition is **$79.99** on the US Rockstar Store. The Ultimate Edition is reported at **$99.99**; we haven't confirmed that on an official page yet." }
-  - { q: "Is the GTA 6 Ultimate Edition available physically?", a: "No. Rockstar lists the Ultimate Edition as **Digital** only. The Standard Edition comes as Digital or Code in Box." }
-  - { q: "Can I upgrade to the Ultimate Edition later?", a: "Yes. The Rockstar Store says you can upgrade to the Ultimate Edition on PlayStation Store or Microsoft Store \"at any time\" after buying the game." }
+  - q: How much is GTA 6?
+    a: >-
+      The Standard Edition is **$79.99** on the US Rockstar Store. The Ultimate
+      Edition is reported at **$99.99**; we haven't confirmed that on an
+      official page yet.
+  - q: Is the GTA 6 Ultimate Edition available physically?
+    a: >-
+      No. Rockstar lists the Ultimate Edition as **Digital** only. The Standard
+      Edition comes as Digital or Code in Box.
+  - q: Can I upgrade to the Ultimate Edition later?
+    a: >-
+      Yes. The Rockstar Store says you can upgrade to the Ultimate Edition on
+      PlayStation Store or Microsoft Store "at any time" after buying the game.
+updatedAt: '2026-11-20T23:21:41.481Z'
+updateLog:
+  - date: '2026-11-20'
+    note: >-
+      The Vintage Vice City Pack is no longer a free bonus; it's now a paid
+      add-on.
 ---
 **There are two editions of GTA VI: Standard and Ultimate.** Both include the full game. Ultimate adds a set of in-game items that Rockstar says are "threaded across all aspects of Jason and Lucia's story." Standard is **$79.99** (US) and comes as a digital download or a code in a box. Ultimate is **digital only**.
 
@@ -31,7 +66,7 @@ faqs:
 | The full game | Yes | Yes |
 | Format | Digital or Code in Box | Digital only |
 | US price | **$79.99** (confirmed, Rockstar Store) | **$99.99** (reported) |
-| Vintage Vice City Pack (pre-order bonus) | Yes, if bought before Nov 20 | Yes, if bought before Nov 20 |
+| Vintage Vice City Pack | Was free before Nov 20; now a paid add-on | Was free before Nov 20; now a paid add-on |
 | Ultimate Edition items (list below) | No | Yes |
 | Can upgrade later | Yes, to Ultimate | n/a |
 
@@ -86,7 +121,7 @@ Yes. The Rockstar Store says: "Purchased the game? Upgrade to the Ultimate Editi
 
 ## What about the pre-order bonus?
 
-Both editions get the **Vintage Vice City Pack** if you order before **November 20, 2026**. A digital store pre-order also includes a free month of GTA+. Full details: [pre-order bonus guide](article:gta-6-pre-order-bonus-vintage-vice-city-pack) and [how to redeem the free GTA+ month](article:gta-6-free-month-gta-plus-redeem).
+The free **Vintage Vice City Pack** offer ended on **November 20, 2026**; Rockstar now sells the pack as a **Digital Add-On**. A digital store pre-order also includes a free month of GTA+. Full details: [pre-order bonus guide](article:gta-6-pre-order-bonus-vintage-vice-city-pack) and [how to redeem the free GTA+ month](article:gta-6-free-month-gta-plus-redeem).
 
 ## Is there a collector's edition?
 
