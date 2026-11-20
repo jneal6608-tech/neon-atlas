@@ -22,6 +22,11 @@ This repository has two parts:
 - **Spoilers are hidden until clicked.** Every story spoiler on the site goes in a `> [!SPOILER]` box (a "View spoiler"
   button reveals it). Never put a spoiler in a title, description, quick answer, heading, picture or thumbnail; a FAQ
   whose answer is a spoiler ends its question with "(spoilers)". This applies to new articles and to any existing page.
+- **No story spoilers in new content (user rule, 2026-11-20).** New articles cover game features only (activities,
+  unlocks, money, systems, controls, tips). Never write story events, plot twists, mission plots, character fates or
+  endings, not even in a spoiler box. If a feature unlocks through the story, say "unlocks as you progress the story".
+- **The user is not the only source.** Research what other players and gaming sites report, write it in our own words
+  with real sources, and label it reported (not confirmed) until Rockstar or our own play confirms it.
 - **Use the user's own game pictures first.** When the user has sent screenshots for a topic, use one as that article's
   cover (`assets/ours/art/<slug>.jpg`, `-card`, `-share`), which the build prefers over official Rockstar art, so covers
   vary and show real gameplay. Every new post gets `publishedAt` (exact time) so Recent news lists it first.
