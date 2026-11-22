@@ -5,6 +5,8 @@ description: "How stick-ups work in GTA 6: when robbing stores unlocks, which st
 answer: "**Stick-ups unlock in Chapter 2** as you progress the story. Then you can rob all kinds of stores: **convenience stores, jewelry stores, gun stores** and regular shops. Aim at the cashier to make them empty the register, players report, and some stores have a **safe** with a code."
 category: gameplay
 status: published
+featured: true
+featuredRank: 5
 publishedAt: '2026-11-22T22:16:25Z'
 confidence: mixed
 targetQuery: gta 6 rob stores

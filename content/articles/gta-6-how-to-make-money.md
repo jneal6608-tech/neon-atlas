@@ -5,6 +5,8 @@ description: "The best early ways to make money in GTA 6, as reported by players
 answer: "Players report the best early money comes from **looting gang hideouts**, **selling stolen cars** to a buyer contact (from Chapter 2), **treasure diving** and **delivery side jobs**. Bigger payouts like **jewelry robberies** come later as you progress the story."
 category: gameplay
 status: published
+featured: true
+featuredRank: 3
 publishedAt: '2026-11-20T23:22:54Z'
 confidence: mixed
 targetQuery: gta 6 how to make money

@@ -1,6 +1,6 @@
 ---
 title: "GTA 6 Car Customization: How to Upgrade and Mod Your Cars"
-seoTitle: "GTA 6 Car Customization: Mod Shops, Upgrades & Repairs"
+seoTitle: "GTA 6 Car Customization: Mod Shops seoTitle: "GTA 6 Car Customization: Mod Shops, Upgrades & Repairs" Upgrades"
 description: "How to customize cars in GTA 6: mod shops for performance and looks, Pay 'n' Spray for repairs and resprays, and the extra Ultimate Edition shops."
 answer: "Take your car to a **mod shop** to upgrade **Performance, Bodywork, Wheels and Interior**. Players report shops may make you **repair** the car first. **Pay 'n' Spray** is for **repairs and resprays** only. The Ultimate Edition adds two extra mod shops."
 category: vehicles

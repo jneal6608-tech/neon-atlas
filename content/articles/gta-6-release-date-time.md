@@ -13,7 +13,6 @@ category: guides
 status: published
 confidence: mixed
 targetQuery: gta 6 release date
-featured: true
 publishDate: 2026-11-15T00:00:00.000Z
 updated: '2026-11-20'
 lastVerified: '2026-11-20'

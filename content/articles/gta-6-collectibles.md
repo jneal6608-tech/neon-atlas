@@ -1,6 +1,6 @@
 ---
 title: "GTA 6 Collectibles: Every Type Players Have Found So Far"
-seoTitle: "GTA 6 Collectibles: Flamingos, Cards, Waink Scans and More"
+seoTitle: "GTA 6 Collectibles: Flamingos, Cards and More"
 description: "The collectibles in GTA 6 found so far: hidden flamingos, trading cards sold at pawnshops, Waink landmark scans, meteorite chunks and more. No story spoilers."
 answer: "Players have found several GTA 6 collectible types so far, including hidden **pink flamingos**, **trading cards** (sold at pawnshops, in sets), **Waink landmark scans** and **meteorite chunks**. Counts differ between guides, so treat the numbers as rough."
 category: gameplay

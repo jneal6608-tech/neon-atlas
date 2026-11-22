@@ -7,7 +7,6 @@ category: guides
 status: published
 confidence: confirmed
 targetQuery: is gta 6 on pc
-featured: true
 publishDate: 2026-11-15
 updated: 2026-11-15
 lastVerified: 2026-11-15

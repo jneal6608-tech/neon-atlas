@@ -5,6 +5,8 @@ description: "How taking cars works in GTA 6: scanning with the Waink app, locke
 answer: "In GTA 6 you **scan a car with the Waink app** first to see if it's locked, alarmed or tracked, and what it's worth. Cars with alarms need a **Slim Jim**, which you learn to use **as you progress the story**, and in **Chapter 3** you get a **key cloner**. Car theft side jobs open up in Chapters 2 and 3, players report."
 category: gameplay
 status: published
+featured: true
+featuredRank: 4
 publishedAt: '2026-11-22T22:16:25Z'
 confidence: mixed
 targetQuery: how to steal cars gta 6

@@ -17,7 +17,8 @@ targetQuery: gta 6 controls
 publishDate: 2026-11-19T00:00:00.000Z
 related:
   - gta-6-best-settings
-  - gta-6-launch-night-checklist
+  - gta-6-fighting-weave-tackle
+  - gta-6-beginner-tips
 sources:
   - type: community
     title: >-
@@ -86,5 +87,7 @@ updateLog:
 - **Hold or press:** Settings → Gameplay lets you switch Aiming, Interact, Loadout, Nitrous and Directional Button Actions between hold and press.
 - **Focus** is on **L3 + R3** by default, with one alternative.
 - **Map button:** the touch pad can be changed in Settings → Controller → Touch Pad Button.
+
+Fighting moves (punch, grab, choke, body slam, tackle) are in our [GTA 6 fighting guide](article:gta-6-fighting-weave-tackle).
 
 For every other option, see our [GTA 6 settings guide](article:gta-6-best-settings).

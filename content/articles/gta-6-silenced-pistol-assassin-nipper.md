@@ -5,6 +5,7 @@ description: "Where to find GTA 6's legendary silenced pistol, the Assassin Nipp
 answer: "Players report the **Assassin Nipper .38**, a legendary **silenced pistol**, is free in a **beached wooden boat** in the **Permit Keys**, west of Maroon Key. Take a boat or jet ski from **Key Lento** and open the **hatch in the middle of the deck**. It's reportedly reachable in **Chapter 1**."
 category: gameplay
 status: published
+featured: true
 publishedAt: '2026-11-22T22:15:26Z'
 confidence: mixed
 targetQuery: gta 6 silenced pistol

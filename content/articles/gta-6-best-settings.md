@@ -11,13 +11,15 @@ answer: >-
   are HDR, safe zone and visual effects.
 category: guides
 status: published
+featured: true
 publishedAt: '2026-11-19T05:40:05Z'
 confidence: confirmed
 targetQuery: gta 6 best settings
 publishDate: '2026-11-19'
 related:
   - gta-6-controls-ps5-xbox
-  - gta-6-launch-night-checklist
+  - gta-6-beginner-tips
+  - gta-6-fighting-weave-tackle
 sources:
   - type: community
     title: >-

@@ -5,6 +5,7 @@ description: "How to get the purple Progen Emerus with nitrous for free in GTA 6
 answer: "Players report a purple **Progen Emerus** with **nitrous** sits in a shipping container at a **Waxman Island** robbery spot, east of Vice City near the **Pay 'n' Spray**. The site also reportedly has about **$10,000** and a safe (players report code **5800**, but codes may be random). To keep the car, register it, reportedly for about **$29,000** at a Pay 'n' Spray."
 category: vehicles
 status: published
+featured: true
 publishedAt: '2026-11-22T22:15:26Z'
 confidence: mixed
 targetQuery: gta 6 free supercar

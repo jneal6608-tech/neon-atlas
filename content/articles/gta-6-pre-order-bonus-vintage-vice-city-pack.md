@@ -1,6 +1,6 @@
 ---
 title: 'GTA 6 Vintage Vice City Pack: Now a Paid Add-On (Free Offer Ended)'
-seoTitle: 'GTA 6 Vintage Vice City Pack: Free Bonus Ended, Now an Add-On'
+seoTitle: 'GTA 6 Vintage Vice City Pack: Now an Add-On'
 description: >-
   The free GTA VI pre-order bonus ended November 20. The Vintage Vice City Pack
   is now a digital add-on. What's in it, and the GTA+ redeem deadlines.

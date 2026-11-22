@@ -5,6 +5,7 @@ description: "Yes, GTA 6 has cheats, but they work differently: many unlock thro
 answer: "**Yes, GTA 6 has cheats, but most aren't available right away.** Players report many cheats **unlock through story progress or achievements**, and Rockstar hasn't published an official list. Codes are entered on the **D-pad** and are the same on PS5 and Xbox."
 category: gameplay
 status: published
+featured: true
 publishedAt: '2026-11-20T23:22:54Z'
 confidence: mixed
 targetQuery: gta 6 cheats
