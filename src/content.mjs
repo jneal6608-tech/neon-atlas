@@ -57,6 +57,7 @@ export function loadArticles() {
       lastVerified: iso(toDate(data.lastVerified || data.updated || data.publishDate)),
       reviewBy: iso(toDate(data.reviewBy)),
       featured: !!data.featured,
+      featuredRank: Number.isFinite(Number(data.featuredRank)) ? Number(data.featuredRank) : 99, // lower shows first in Start here / Popular
       image: data.image || "",
       imageAlt: data.imageAlt || "",
       sources: data.sources || [],

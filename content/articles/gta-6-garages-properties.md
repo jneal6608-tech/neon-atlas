@@ -1,6 +1,6 @@
 ---
 title: "GTA 6 Garages and Properties: What You Can Buy"
-seoTitle: "GTA 6 Properties: Can You Buy Garages, Houses or Businesses?"
+seoTitle: "GTA 6 Properties: Can You Buy Houses or Garages?"
 description: "What you can buy in GTA 6 so far: garages for your cars, safehouses that unlock as you play, and what's known about businesses. As reported by players."
 answer: "Players report you can **buy garages** (reportedly 8 for cash, about **$4,000–40,000** each, plus some given to you), **safehouses unlock through the story** instead of being bought, and **buyable businesses haven't been confirmed** yet."
 category: gameplay

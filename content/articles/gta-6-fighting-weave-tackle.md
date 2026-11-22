@@ -1,10 +1,12 @@
 ---
 title: "GTA 6 Fighting: How to Punch, Grab, Choke, Weave and Tackle"
-seoTitle: "GTA 6 Fighting: Grab, Choke, Tackle and Weave"
-description: "GTA 6 fighting controls on PS5: Square to punch, R2 to grab, headlock and mash Square to choke, X to weave, and sprint plus Square to tackle."
-answer: "On PS5, **Square** punches, **X** weaves (dodges), **hold Square** for a special attack, **R2** grabs, and once you have someone in a **headlock** (easiest from **behind**), **mash Square** to choke. To **tackle**, sprint with **L3** and press **Square**."
+seoTitle: "GTA 6 Fighting: Body Slam, Choke, Grab & Tackle"
+description: "GTA 6 fighting controls on PS5: hold Square to body slam, R2 to grab, mash Square to choke from a headlock, X to weave, sprint + Square to tackle. With video."
+answer: "On PS5, **Square** punches, **X** weaves (dodges), **hold Square** for a special attack like a **body slam**, **R2** grabs, and once you have someone in a **headlock** (easiest from **behind**), **mash Square** to choke. To **tackle**, sprint with **L3** and press **Square**."
 category: gameplay
 status: published
+featured: true
+featuredRank: 1
 publishedAt: '2026-11-19T21:21:11Z'
 confidence: confirmed
 targetQuery: gta 6 fighting
@@ -14,6 +16,7 @@ sources:
   - { type: community, title: "Neon Atlas: GTA VI on PS5, our own play (November 19, 2026)", url: "https://neonatlasguide.com/", publisher: "Neon Atlas", accessed: 2026-11-19 }
 faqs:
   - { q: "How do you tackle someone in GTA 6?", a: "**Sprint** toward them and press the **melee** button (Square on PS5 by default). Your character tackles them to the ground." }
+  - { q: "How do you body slam in GTA 6?", a: "In a fist fight, **hold Square** (the melee button on PS5) to do a **special attack**. Jason's special attacks include a **body slam**." }
   - { q: "Can you dodge punches in GTA 6?", a: "Yes. Press **X** to **weave** and dodge an incoming punch." }
   - { q: "How do you choke someone in GTA 6?", a: "Grab them with **R2**. If you get them in a **headlock** (easiest from **behind**, or when they're not ready for you), **press Square repeatedly** to choke them." }
   - { q: "How do you grab someone in GTA 6?", a: "Press **R2**. If they're ready for you, you just grab them, and you can **hit them with Square** while you hold on." }
@@ -38,7 +41,7 @@ Watch the moves in action above: tackling, grabbing, choking and hitting, from o
 | --- | --- |
 | Punch | **Square** |
 | Weave (dodge) | **X** |
-| Special attack (e.g. body slam) | **Hold Square** |
+| Body slam / special attack | **Hold Square** |
 | Kick someone who's down | **Hold Square** (when they're on the ground) |
 | Grab | **R2** |
 | Hit while grabbing | **Square** |
@@ -58,9 +61,18 @@ Press **melee** to throw punches. Keep pressing to string hits together.
 
 Press **X** to **weave** and slip an incoming punch, then hit back while they're open.
 
-## Special attacks
+## How to body slam
 
-**Hold Square** for a **special attack**. Jason has some big moves, including a **body slam**. When someone is **on the ground**, holding Square makes him **kick** them.
+The body slam is a **special attack**:
+
+1. Pick **Unarmed** on the weapon wheel and get into a fist fight.
+2. Get close to your opponent.
+3. **Hold Square** (instead of tapping it) to do a special attack. Jason's special attacks include a **body slam**.
+
+When someone is **on the ground**, holding Square makes him **kick** them instead.
+
+> [!TIP]
+> Special attacks are big, slow moves. Land a couple of punches or **weave** an incoming hit first, then hold Square while they're open.
 
 ## Grab and choke
 

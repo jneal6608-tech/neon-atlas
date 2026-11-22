@@ -19,7 +19,8 @@ publishDate: '2026-11-19'
 related:
   - gta-6-pause-menu-stats-progress
   - gta-6-controls-ps5-xbox
-  - gta-6-best-settings
+  - gta-6-fighting-weave-tackle
+  - gta-6-rob-stores-stick-ups
 sources:
   - type: community
     title: 'Neon Atlas: GTA VI on PS5, our own screenshots (November 19, 2026)'

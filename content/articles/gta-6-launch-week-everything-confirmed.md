@@ -7,7 +7,6 @@ category: news
 status: published
 confidence: mixed
 targetQuery: gta 6 news
-featured: true
 publishDate: 2026-11-15
 updated: 2026-11-15
 lastVerified: 2026-11-15

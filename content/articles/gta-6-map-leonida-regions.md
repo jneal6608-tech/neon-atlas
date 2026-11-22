@@ -8,6 +8,7 @@ status: published
 confidence: confirmed
 targetQuery: gta 6 map
 featured: true
+featuredRank: 6
 publishDate: 2026-11-15
 updated: 2026-11-19
 lastVerified: 2026-11-19

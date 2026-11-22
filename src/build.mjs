@@ -362,6 +362,7 @@ function ourFreshHtml(fromUrl, side = false) {
 }
 // After launch the countdown has nothing left to count: show a short "out now" note instead (the build runs daily).
 const LAUNCHED = Date.now() >= new Date(cfg.launchDate).getTime();
+const HOME_TITLE = LAUNCHED ? "GTA 6 Guides: Tips, Fighting, Money & Map (No Spoilers)" : "GTA 6 Guide: Release Time, Map, Characters & Live Updates";
 function countdownHtml(compact = false) {
   if (LAUNCHED) return `<p class="out-now"><span class="live-dot" aria-hidden="true"></span> <strong>GTA VI is out now</strong> on PS5 and Xbox Series X|S (released ${fmtDate(String(cfg.launchDate).slice(0, 10))}).</p>`;
   return `<div class="countdown" data-launch="${cfg.launchDate}"><span class="cd-label">GTA VI unlocks in</span><div class="cd-units" aria-live="off"><div class="cd-unit"><b data-u="d">--</b><small>days</small></div><div class="cd-unit"><b data-u="h">--</b><small>hrs</small></div><div class="cd-unit"><b data-u="m">--</b><small>min</small></div>${compact ? "" : `<div class="cd-unit"><b data-u="s">--</b><small>sec</small></div>`}</div><span class="cd-note">Until midnight on Nov 19, your local time (reported unlock time).</span></div>`;
@@ -371,6 +372,9 @@ const VIDEO_CREDITS = {
   rockstar: { aria: "official Rockstar Games video on YouTube", text: "Official Rockstar Games video on YouTube." },
   ours: { aria: "Neon Atlas gameplay video on YouTube", text: "Our own gameplay, recorded by Neon Atlas. GTA VI is a Rockstar Games title; this is an unofficial fan video." },
 };
+// Featured guides by their featuredRank (lower first); ties keep the newest-first order.
+const byRank = (list) => list.map((x, i) => [x, i]).sort((p, q) => p[0].featuredRank - q[0].featuredRank || p[1] - q[1]).map(([x]) => x);
+
 function video(id, label, fromUrl, credit = "rockstar") {
   label = decode(label); // shortcode text arrives HTML-escaped from Markdown; esc() below escapes it once
   const who = VIDEO_CREDITS[credit];
@@ -436,7 +440,7 @@ for (const a of LIVE) {
   const hero = ART(a.slug);
   if (!hero) warnings.push(`${a.file}: no picture yet. Add an official Rockstar image (npm run import-official) or our own screenshot as assets/ours/art/${a.slug}.jpg (never generated art).`);
   const next = relatedAll[0];
-  const popular = LIVE.filter((x) => x.featured && x.slug !== a.slug && x !== next).slice(0, 5);
+  const popular = byRank(LIVE.filter((x) => x.featured && x.slug !== a.slug && x !== next)).slice(0, 5);
   const sidebar = `<aside class="sidebar" aria-label="More from Neon Atlas">
 <div class="side-box"><p class="side-h grad">Popular right now</p><div class="grid cards compact">${popular.map((p) => card(p, a.url)).join("")}</div></div>
 ${adSlot("sidebar")}
@@ -505,7 +509,7 @@ ${upcoming}</div>`;
 {
   const url = "/";
   const href = linker(url);
-  const featured = LIVE.filter((a) => a.featured).slice(0, 6);
+  const featured = byRank(LIVE.filter((a) => a.featured)).slice(0, 6);
   const latest = LIVE.slice(0, 6);
   const catCounts = CATS.map((c) => ({ ...c, n: LIVE.filter((a) => a.category === c.slug).length }));
   const catArt = { guides: "gta-6-pre-load-guide-card", characters: "char-lucia-caminos", locations: "region-leonida-keys", missions: "region-grassrivers", vehicles: "gta-6-vehicles-named-so-far-card", gameplay: "region-port-gellhorn", news: "gta-6-launch-week-everything-confirmed-card" };
@@ -549,7 +553,7 @@ ${tBreak(4)}
     { "@context": "https://schema.org", "@type": "Organization", "@id": abs("/#org"), name: cfg.name, url: abs("/"), logo: abs("/assets/logo-512.png") },
     { "@context": "https://schema.org", "@type": "CollectionPage", name: "GTA 6 Guide", url: abs("/"), dateModified: modOf(LIVE[0] || { updated: NOW.toISOString().slice(0, 10) }), about: { "@type": "VideoGame", name: "Grand Theft Auto VI", alternateName: "GTA 6" }, isPartOf: { "@id": abs("/#website") }, mainEntity: { "@type": "ItemList", itemListElement: featured.map((a, i) => ({ "@type": "ListItem", position: i + 1, url: abs(a.url), name: a.title })) } },
   ];
-  write(url, layout({ url, title: "GTA 6 Guide: Release Time, Map, Characters & Live Updates", pageTitle: `GTA 6 Guide: Release Time, Map, Characters & Live Updates | ${cfg.name}`, description: "Independent GTA 6 guide, updated daily: unlock time, pre-load size, editions, characters and the Leonida map, with every claim sourced and labeled.", body, jsonld: ld, bodyClass: "page-home" }));
+  write(url, layout({ url, title: HOME_TITLE, pageTitle: `${HOME_TITLE} | ${cfg.name}`, description: LAUNCHED ? "Independent GTA 6 guides, updated daily: fighting, money, stealing cars, robberies, tips, controls and the Leonida map. No story spoilers, every claim sourced." : "Independent GTA 6 guide, updated daily: unlock time, pre-load size, editions, characters and the Leonida map, with every claim sourced and labeled.", body, jsonld: ld, bodyClass: "page-home" }));
 }
 
 // ---------- launch live updates ----------

@@ -5,6 +5,8 @@ description: "GTA 6 beginner tips with no story spoilers: protect your cash, sav
 answer: "Top GTA 6 beginner tips: **don't carry lots of cash** (you lose it if you die or get busted), **save manually** before big moments, use **Focus (L3 + R3)** to spot hidden things, go **stealthy early** when ammo is short, and change **Movement Speed** and **Motion Blur** in settings."
 category: guides
 status: published
+featured: true
+featuredRank: 2
 publishedAt: '2026-11-21T23:47:47Z'
 confidence: mixed
 targetQuery: gta 6 beginner tips
