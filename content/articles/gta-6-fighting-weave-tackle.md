@@ -1,8 +1,8 @@
 ---
-title: "GTA 6 Fighting: How to Punch, Weave and Tackle"
-seoTitle: "GTA 6 Fighting: How to Weave and Tackle People"
-description: "GTA 6 fighting controls on PS5: Square to punch, X to weave, hold Square for a special attack, R2 to choke, and L3 sprint plus Square to tackle."
-answer: "On PS5, **Square** punches, **X** weaves (dodges), **hold Square** for a special attack, and **hold R2 then tap Square** to choke. To **tackle**, sprint with **L3** and press **Square**."
+title: "GTA 6 Fighting: How to Punch, Grab, Choke, Weave and Tackle"
+seoTitle: "GTA 6 Fighting: Grab, Choke, Tackle and Weave"
+description: "GTA 6 fighting controls on PS5: Square to punch, R2 to grab, headlock and mash Square to choke, X to weave, and sprint plus Square to tackle."
+answer: "On PS5, **Square** punches, **X** weaves (dodges), **hold Square** for a special attack, **R2** grabs, and once you have someone in a **headlock** (easiest from **behind**), **mash Square** to choke. To **tackle**, sprint with **L3** and press **Square**."
 category: gameplay
 status: published
 publishedAt: '2026-11-19T21:21:11Z'
@@ -15,10 +15,20 @@ sources:
 faqs:
   - { q: "How do you tackle someone in GTA 6?", a: "**Sprint** toward them and press the **melee** button (Square on PS5 by default). Your character tackles them to the ground." }
   - { q: "Can you dodge punches in GTA 6?", a: "Yes. Press **X** to **weave** and dodge an incoming punch." }
-  - { q: "How do you choke someone in GTA 6?", a: "**Hold R2**, then **press Square repeatedly**." }
+  - { q: "How do you choke someone in GTA 6?", a: "Grab them with **R2**. If you get them in a **headlock** (easiest from **behind**, or when they're not ready for you), **press Square repeatedly** to choke them." }
+  - { q: "How do you grab someone in GTA 6?", a: "Press **R2**. If they're ready for you, you just grab them, and you can **hit them with Square** while you hold on." }
   - { q: "What button is punch in GTA 6?", a: "**Square** is melee in the default PS5 control scheme. You can change it in Settings, then Control Scheme." }
+updateLog:
+  - date: '2026-11-22'
+    note: "Added grabbing and headlock chokes, from our own play."
+updated: '2026-11-22'
+lastVerified: '2026-11-22'
 ---
-**Fighting in GTA 6 is more than mashing punch.** You can throw punches, **weave** to dodge, and **tackle** someone who tries to run. Here's how, from our own PS5 copy.
+**Fighting in GTA 6 is more than mashing punch.** You can throw punches, **grab** and **choke** people, **weave** to dodge, and **tackle** someone who tries to run. Here's how, from our own PS5 copy.
+
+{{ourvideo:946jNO-GOpU|GTA 6 Fighting Gameplay: Tackle, Choke and Grab (PS5)}}
+
+Watch the moves in action above: tackling, grabbing, choking and hitting, from our own PS5 copy.
 
 ![GTA 6 weapon wheel with Unarmed (fists) selected, which is how you fight hand to hand](/assets/uploads/gta-6-weapon-wheel.jpg)
 
@@ -30,7 +40,9 @@ faqs:
 | Weave (dodge) | **X** |
 | Special attack (e.g. body slam) | **Hold Square** |
 | Kick someone who's down | **Hold Square** (when they're on the ground) |
-| Choke | **Hold R2**, then tap **Square** repeatedly |
+| Grab | **R2** |
+| Hit while grabbing | **Square** |
+| Choke (from a headlock) | **R2** to get the headlock, then **mash Square** |
 | Tackle | **Sprint (L3)**, then **Square** |
 
 ## Get ready to fight
@@ -50,16 +62,21 @@ Press **X** to **weave** and slip an incoming punch, then hit back while they're
 
 **Hold Square** for a **special attack**. Jason has some big moves, including a **body slam**. When someone is **on the ground**, holding Square makes him **kick** them.
 
-## Choke
+## Grab and choke
 
-**Hold R2**, then **press Square repeatedly** to choke someone.
+**R2** is the **grab** button. What happens next depends on whether they see you coming:
+
+- **They're ready for you:** you only **grab** them. You can still **hit them with Square** while you hold on.
+- **You catch them off guard** (best from **behind**): you get them in a **headlock**. Now **press Square repeatedly** to **choke** them.
+
+**Tip:** sneak up from behind for the choke. If they're facing you and ready to fight, expect a grab, not a headlock.
 
 ## Tackle someone who runs
 
 If someone runs away from a fight:
 
 1. **Sprint** after them (**L3** to run).
-2. When you're close, press **Square**.
+2. When you're close, press **Square** while still sprinting.
 3. Your character **tackles them to the ground**.
 
 ## Tips
