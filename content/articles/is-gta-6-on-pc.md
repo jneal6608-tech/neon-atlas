@@ -7,7 +7,6 @@ category: guides
 status: published
 confidence: confirmed
 targetQuery: is gta 6 on pc
-featured: true
 publishDate: 2026-11-15
 updated: 2026-11-15
 lastVerified: 2026-11-15
@@ -18,7 +17,7 @@ sources:
   - { type: official, title: "Rockstar Store product listing (platforms: PlayStation 5, Xbox Series X)", url: "https://store.rockstargames.com/game/buy-gta-vi", publisher: "Rockstar Games", accessed: 2026-11-15 }
 faqs:
   - { q: "Is GTA 6 coming to PC?", a: "Rockstar hasn't announced a PC version. At launch, GTA VI is only on **PlayStation 5** and **Xbox Series X|S**." }
-  - { q: "Which Xbox can run GTA 6?", a: "**Xbox Series X** and **Xbox Series S**. Rockstar lists \"Xbox Series X|S\". Xbox One consoles are not supported." }
+  - { q: "Which Xbox can run GTA 6?", a: "**Xbox Series X** and **Xbox Series S**. Rockstar lists \"Xbox Series X|S.\" Xbox One consoles are not supported." }
   - { q: "Is GTA 6 on PS4 or Xbox One?", a: "No. Only PS5 and Xbox Series X|S are listed." }
   - { q: "Can I play GTA 6 on PC through cloud streaming?", a: "Not confirmed. No streaming service has been officially announced for GTA VI on a page we've checked." }
 ---
@@ -40,9 +39,9 @@ None of them are listed. GTA VI is a **current-generation console exclusive at l
 
 Because there's no PC version, anything claiming to be one is not legitimate:
 
-- **No legitimate "GTA 6 PC download", "beta" or "early access" exists.** Files offered as one are commonly malware.
-- **Ignore "leaked system requirements".** Rockstar hasn't published PC requirements because it hasn't announced a PC version.
-- **Fake store listings:** the only official places to buy are the Rockstar Store, PlayStation Store, Microsoft Store and authorised retailers, and only for PS5 and Xbox Series X|S.
+- **No legitimate "GTA 6 PC download," "beta" or "early access" exists.** Files offered as one are commonly malware.
+- **Ignore "leaked system requirements."** Rockstar hasn't published PC requirements because it hasn't announced a PC version.
+- **Fake store listings:** the only official places to buy are the Rockstar Store, PlayStation Store, Microsoft Store and authorized retailers, and only for PS5 and Xbox Series X|S.
 
 ## I only have a PC. What are my options?
 

@@ -7,14 +7,16 @@ category: characters
 status: published
 confidence: confirmed
 targetQuery: gta 6 characters
-featured: true
 publishDate: 2026-11-15
-updated: 2026-11-15
-lastVerified: 2026-11-15
+updated: 2026-11-19
+lastVerified: 2026-11-19
 related: [gta-6-story-what-we-know, gta-6-map-leonida-regions, gta-6-age-rating-parents-guide]
 sources:
   - { type: official, title: "Grand Theft Auto VI: Only in Leonida (official character profiles)", url: "https://www.rockstargames.com/VI/only-in-leonida", publisher: "Rockstar Games", accessed: 2026-11-15 }
   - { type: official, title: "Grand Theft Auto VI: official site (story synopsis)", url: "https://www.rockstargames.com/VI", publisher: "Rockstar Games", accessed: 2026-11-15 }
+  - { type: community, title: "Neon Atlas: GTA VI pause menu on PS5, launch day (our own copy)", url: "https://neonatlasguide.com/characters/gta-6-characters/", publisher: "Neon Atlas", accessed: 2026-11-19 }
+updateLog:
+  - { date: 2026-11-19, note: "Added Jason's in-game height and weight from the pause menu stats screen." }
 faqs:
   - { q: "Who are the main characters in GTA 6?", a: "**Jason Duval** and **Lucia Caminos**, the two leads in Rockstar's official story synopsis." }
   - { q: "How many characters has Rockstar revealed for GTA 6?", a: "Rockstar's official character page profiles **eight entries**: Jason, Lucia, Cal Hampton, Boobie Ike, Dre'Quan Priest, Real Dimez (the duo Bae-Luxe and Roxy), Raul Bautista and Brian Heder." }
@@ -46,9 +48,11 @@ Which one are you? [Take the character quiz](article:gta-6-character-quiz).
 
 Jason grew up around grifters and crooks, joined the Army to shake off a troubled adolescence, and ended up in the **Keys** working for local drug runners. Rockstar's summary: "Jason wants an easy life, but things just keep getting harder." Meeting Lucia, Rockstar says, "could be the best or worst thing to ever happen to him."
 
+**In the game:** the pause menu stats screen lists Jason at **6 ft 1 in** and **217 lb** (seen on our own PS5 copy on launch day). See the [pause menu guide](article:gta-6-pause-menu-stats-progress).
+
 ## Lucia Caminos
 
-Lucia was taught to fight by her father "as soon as she could walk". Fighting for her family landed her in the **Leonida Penitentiary** (see [the map of Leonida](article:gta-6-map-leonida-regions)); in Rockstar's words, "sheer luck got her out." Her family's history goes back to **Liberty City**, where her mother dreamed of a better life. Fresh out of prison, she's committed to her plan "no matter what it takes", and a life with Jason "could be her way out."
+Lucia was taught to fight by her father "as soon as she could walk." Fighting for her family landed her in the **Leonida Penitentiary** (see [the map of Leonida](article:gta-6-map-leonida-regions)); in Rockstar's words, "sheer luck got her out." Her family's history goes back to **Liberty City**, where her mother dreamed of a better life. Fresh out of prison, she's committed to her plan "no matter what it takes," and a life with Jason "could be her way out."
 
 ## Cal Hampton
 
@@ -68,11 +72,11 @@ Always more hustler than gangster, Dre'Quan dealt on the streets to get by, but 
 
 ## Raul Bautista
 
-A seasoned **bank robber** with "confidence, charm, and cunning", always looking for people willing to take big risks for big rewards. Rockstar warns that his "recklessness raises the stakes with every score".
+A seasoned **bank robber** with "confidence, charm, and cunning," always looking for people willing to take big risks for big rewards. Rockstar warns that his "recklessness raises the stakes with every score."
 
 ## Brian Heder
 
-A drug runner from "the golden age of smuggling in the Keys", still moving product through his **boat yard** with his third wife, **Lori**. He lets Jason live rent-free in one of his properties, as long as Jason helps with local shakedowns.
+A drug runner from "the golden age of smuggling in the Keys," still moving product through his **boat yard** with his third wife, **Lori**. He lets Jason live rent-free in one of his properties, as long as Jason helps with local shakedowns.
 
 ## How they connect
 

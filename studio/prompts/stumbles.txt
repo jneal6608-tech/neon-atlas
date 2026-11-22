@@ -1,0 +1,2 @@
+# Words and phrases the user stumbled on in a read-aloud pass. script_check.py flags them in every
+# script. One per line: `date | phrase`. Add with: python3 studio/tools/script_check.py stumble "..."

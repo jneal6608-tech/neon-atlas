@@ -1,0 +1,53 @@
+{
+  "script": "studio/videos/gta-6-launch-everything-confirmed/script.md",
+  "scored_at": "2026-11-18T02:58:20+00:00",
+  "sha256": "6dedc8dae54208a14a1c641c3be11669fb96acf02b8caef7ade87d0551be0aab",
+  "total": 99,
+  "dimensions": {
+    "length": 8.6,
+    "hook": 10.0,
+    "units": 10.0,
+    "pacing": 10.0,
+    "structure": 10.0,
+    "ending": 10.0,
+    "sourcing": 10.0,
+    "labels": 10.0,
+    "speakability": 10.0,
+    "voice": 10.0
+  },
+  "not_applicable": [],
+  "meets_bar": true,
+  "ready_to_record": false,
+  "verdict": "READY FOR THE READ-ALOUD PASS (then record)",
+  "measures": {
+    "format": "news",
+    "wpm": 165.0,
+    "wpm_measured": false,
+    "words": 1084,
+    "duration_s": 394.2,
+    "target_s": [
+      360,
+      900
+    ],
+    "units": 16,
+    "chapters": 16,
+    "hook_s": 28.0,
+    "first_unit_s": 28.0,
+    "avg_sentence_words": 9.4,
+    "sources": 11,
+    "read_aloud": null
+  },
+  "weak_stretches": [],
+  "findings": [
+    {
+      "dimension": "length",
+      "severity": "info",
+      "message": "6:34 is allowed, but the reference news videos run 10:00-15:00: fine for a quick update; a full episode has more items",
+      "cost": 1.3721212121212114,
+      "time": null,
+      "lineno": null,
+      "where": null,
+      "blocker": false
+    }
+  ]
+}

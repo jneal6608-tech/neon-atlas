@@ -8,12 +8,14 @@ status: published
 confidence: confirmed
 targetQuery: what is gta 6 about
 publishDate: 2026-11-15
-updated: 2026-11-15
-lastVerified: 2026-11-15
+updated: 2026-11-19
+lastVerified: 2026-11-19
 related: [gta-6-characters, gta-6-map-leonida-regions, gta-6-release-date-time]
 sources:
   - { type: official, title: "Grand Theft Auto VI: official site (synopsis)", url: "https://www.rockstargames.com/VI", publisher: "Rockstar Games", accessed: 2026-11-15 }
   - { type: official, title: "Grand Theft Auto VI: Only in Leonida (character profiles)", url: "https://www.rockstargames.com/VI/only-in-leonida", publisher: "Rockstar Games", accessed: 2026-11-15 }
+updateLog:
+  - { date: 2026-11-19, note: "Added a link to our GTA 6 First 10 Minutes video (spoiler warning)." }
 faqs:
   - { q: "What is the story of GTA 6?", a: "Jason and Lucia's \"easy score\" goes wrong, leaving them in a criminal conspiracy across the state of **Leonida**, where they have to rely on each other to survive. That's Rockstar's official setup." }
   - { q: "Where is GTA 6 set?", a: "In **Vice City** and across the fictional state of **Leonida**, which Rockstar calls \"the sunniest place in America.\"" }
@@ -31,14 +33,14 @@ Rockstar's own description, in full:
 ## What that tells us
 
 - **Two leads, one partnership.** Rockstar frames the story around Jason and Lucia relying on each other. Their profiles hint at the tension: for Jason, Lucia "could be the best or worst thing"; for Lucia, Jason "could be her way out."
-- **A job that goes wrong starts it.** The synopsis calls it "an easy score". What it is hasn't been revealed.
-- **The scope is the whole state.** The conspiracy stretches "across the state of Leonida", not just Vice City. See the [official regions of Leonida](article:gta-6-map-leonida-regions).
+- **A job that goes wrong starts it.** The synopsis calls it "an easy score." What it is hasn't been revealed.
+- **The scope is the whole state.** The conspiracy stretches "across the state of Leonida," not just Vice City. See the [official regions of Leonida](article:gta-6-map-leonida-regions).
 
 ## Where the leads start
 
 From the official character profiles:
 
-- **Jason** lives in the Keys, rent-free at a property owned by smuggler **Brian Heder**, in exchange for helping with "local shakedowns".
+- **Jason** lives in the Keys, rent-free at a property owned by smuggler **Brian Heder**, in exchange for helping with "local shakedowns."
 - **Lucia** has just been released from **Leonida Penitentiary**, determined to make "only smart moves from here."
 
 ## The wider cast
@@ -50,4 +52,8 @@ Rockstar has introduced a smuggling circle in the Keys (Brian Heder and Cal Hamp
 
 ## After launch
 
-We'll keep this page spoiler-free. Story walkthroughs will live in the Missions section, with spoiler warnings, once we've played them.
+We'll keep this page spoiler-free. Anything about the story after launch goes behind a spoiler button.
+
+### Watch the first 10 minutes (spoilers)
+
+GTA VI is out. If you want to see how the game starts, watch our [GTA 6 First 10 Minutes](article:gta-6-first-10-minutes) video, recorded on our own PS5 with no commentary. It shows the opening story scenes, so skip it if you want to go in fresh.

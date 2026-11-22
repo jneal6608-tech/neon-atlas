@@ -14,9 +14,10 @@ export const PUBLIC_STATUSES = new Set(["published", "needs-updating"]);
 // How sure we are about the page as a whole. Individual claims also carry callouts in the body.
 export const CONFIDENCE = {
   confirmed: { label: "Confirmed", note: "Every key claim is backed by an official Rockstar source." },
-  mixed: { label: "Confirmed + reported", note: "Official facts plus clearly labelled reports from other outlets." },
+  mixed: { label: "Confirmed + reported", note: "Official facts plus clearly labeled reports from other outlets." },
   unconfirmed: { label: "Unconfirmed", note: "Not yet confirmed by Rockstar. Treat as provisional." },
   predicted: { label: "Prediction", note: "Our expectation, not a fact. Clearly marked as a prediction." },
+  theory: { label: "Fan theory", note: "A popular idea from the community, not a fact. Shown with the evidence for and against it." },
 };
 export const SOURCE_TYPES = { official: "Official", reported: "Reported", community: "Community", platform: "Platform holder" };
 
@@ -56,6 +57,7 @@ export function loadArticles() {
       lastVerified: iso(toDate(data.lastVerified || data.updated || data.publishDate)),
       reviewBy: iso(toDate(data.reviewBy)),
       featured: !!data.featured,
+      featuredRank: Number.isFinite(Number(data.featuredRank)) ? Number(data.featuredRank) : 99, // lower shows first in Start here / Popular
       image: data.image || "",
       imageAlt: data.imageAlt || "",
       sources: data.sources || [],
@@ -64,6 +66,7 @@ export function loadArticles() {
       updateLog: data.updateLog || [],
       answer: data.answer || "",
       updatedAt: data.updatedAt ? new Date(data.updatedAt).toISOString() : null,
+      publishedAt: data.publishedAt ? new Date(data.publishedAt).toISOString() : null,
       author: data.author || "Neon Atlas Editors",
       body: content,
       url: `/${data.category}/${slug}/`,

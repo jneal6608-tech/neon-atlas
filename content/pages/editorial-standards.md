@@ -8,7 +8,7 @@ These are the rules every page on {{siteName}} follows.
 ## 1. Sources
 
 - **Official sources come first.** For anything about the game itself we rely on Rockstar Games (rockstargames.com, the Rockstar Store, Rockstar Support, the Rockstar Newswire) and, for console details, Sony and Microsoft.
-- **Reporting from other outlets** is used only when it adds something official pages don't cover, and it is always labelled *reported* and linked.
+- **Reporting from other outlets** is used only when it adds something official pages don't cover, and it is always labeled *reported* and linked.
 - **Community discoveries** are credited to the person or group who found them, and published only after we've checked them ourselves or found independent confirmation.
 - Every page lists its sources at the bottom with the type of each source.
 
@@ -21,7 +21,7 @@ These are the rules every page on {{siteName}} follows.
 | **Unconfirmed** | Circulating, but with no reliable source. We include these only to say they are unconfirmed. |
 | **Prediction** | Our own expectation, based on stated reasoning. Never presented as fact. |
 
-A page's overall badge reflects its weakest important claim. Individual claims inside the page are labelled where it matters.
+A page's overall badge reflects its weakest important claim. Individual claims inside the page are labeled where it matters.
 
 ## 3. What we don't publish
 

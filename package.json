@@ -24,7 +24,7 @@
     "watch": "node tools/watch-official.mjs",
     "fetch-official": "node tools/fetch-official.mjs",
     "indexnow": "node tools/indexnow.mjs",
-    "art": "node tools/make-art.mjs",
+    "index-today": "node src/build.mjs >/dev/null && node tools/index-today.mjs",
     "import-official": "node tools/import-official.mjs"
   },
   "dependencies": {

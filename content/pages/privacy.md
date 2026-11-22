@@ -8,14 +8,14 @@ This policy explains what {{siteName}} collects when you visit, and why. If anyt
 ## What we collect
 
 - **Server logs.** Our host (Cloudflare Pages) processes standard request data such as IP address, browser type and the page requested, to deliver and protect the site.
-- **Analytics (if enabled).** We may use Google Analytics 4 to understand which pages are useful: pages viewed, approximate location (country/city), device type, how you reached us, and on-site events such as searches and reading an article to the end. Google Analytics uses cookies or similar technologies. We don't use it to identify you.
+- **Analytics (if enabled).** We use Google Tag Manager to load Google Analytics 4, to understand which pages are useful: pages viewed, approximate location (country/city), device type, how you reached us, and on-site events such as searches and reading an article to the end. Google Analytics uses cookies or similar technologies. We don't use it to identify you.
 - **Messages you send us.** If you use the contact form or email us, we receive what you write and any contact details you include, and use them only to reply and improve the site.
 
 We don't sell personal information, and we don't knowingly collect personal information from children under 13.
 
 ## Advertising (if enabled)
 
-If we show ads, they may be served by Google AdSense. Google and its partners may use cookies to serve ads based on your visits to this and other websites. You can opt out of personalised advertising at [Google Ads Settings](https://adssettings.google.com/) or learn more at [How Google uses information from sites that use its services](https://policies.google.com/technologies/partner-sites). Visitors in the European Economic Area, the UK and Switzerland will be asked for consent before any advertising or analytics cookies are set.
+If we show ads, they may be served by Google AdSense. Google and its partners may use cookies to serve ads based on your visits to this and other websites. You can opt out of personalized advertising at [Google Ads Settings](https://adssettings.google.com/) or learn more at [How Google uses information from sites that use its services](https://policies.google.com/technologies/partner-sites). Visitors in the European Economic Area, the UK and Switzerland will be asked for consent before any advertising or analytics cookies are set.
 
 ## Your choices
 

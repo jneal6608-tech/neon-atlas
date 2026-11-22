@@ -7,7 +7,6 @@ category: news
 status: published
 confidence: mixed
 targetQuery: gta 6 news
-featured: true
 publishDate: 2026-11-15
 updated: 2026-11-15
 lastVerified: 2026-11-15
@@ -36,7 +35,7 @@ updateLog:
 | Editions | **Standard** (Digital or Code in Box) and **Ultimate** (Digital) | [Editions](article:gta-6-editions-standard-vs-ultimate) |
 | Standard price (US) | **$79.99** on the Rockstar Store | [Editions](article:gta-6-editions-standard-vs-ultimate) |
 | Physical copy | Download code only, **no disc** | [Physical copy](article:gta-6-physical-copy-no-disc) |
-| Pre-order bonus | **Vintage Vice City Pack**, for orders before **Nov 20** | [Pre-order bonus](article:gta-6-pre-order-bonus-vintage-vice-city-pack) |
+| Vintage Vice City Pack | Was free before **Nov 20**; now a **paid add-on** | [Pre-order bonus](article:gta-6-pre-order-bonus-vintage-vice-city-pack) |
 | GTA+ | Free month for PlayStation Store or Microsoft Store pre-orders | [Redeem GTA+](article:gta-6-free-month-gta-plus-redeem) |
 | Age | Minimum age **17** (US store) | [Age rating](article:gta-6-age-rating-parents-guide) |
 | Setting | **Vice City** and the state of **Leonida**, six named regions | [Map](article:gta-6-map-leonida-regions) |

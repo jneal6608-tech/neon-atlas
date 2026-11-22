@@ -1,0 +1,353 @@
+{
+ "about": "GTA VI fan theories shown at /theories/ and on the homepage. Updated nightly by the Claude research task (see docs/THEORIES.md), which opens a pull request. These are fan ideas, not facts: every item needs at least one source that shows fans discussing it. 'for' = what fans point to; 'against' = official Rockstar facts or strong counter-points. status: open | likely | long-shot | confirmed | debunked. trend: rising | steady | cooling. Items are shown in this order. image = an official image name from docs/THEORIES.md (credited Image: Rockstar Games); related = article slugs the theory is shown inside. Keep each id stable forever: votes are stored by id.",
+ "updated": "2026-11-17",
+ "items": [
+  {
+   "id": "tony-prince-luis-lopez-return",
+   "title": "GTA IV's Tony Prince and Luis Lopez return",
+   "summary": "Fans think a recent pre-load promo video sets up a reunion of Gay Tony and Luis Lopez from GTA IV: The Ballad of Gay Tony, 17 years later.",
+   "image": "gta-6-character-quiz",
+   "imageAlt": "A couple dancing in a neon-lit Vice City nightclub",
+   "related": [
+    "gta-6-characters",
+    "gta-6-story-what-we-know"
+   ],
+   "status": "open",
+   "trend": "rising",
+   "added": "2026-11-16",
+   "updated": "2026-11-17",
+   "for": [
+    "Players say they spotted telling clues to both characters in a pre-load promo video released last week.",
+    "Fans note Tony would be in his early 60s by 2026, which they say fits the older man they spotted.",
+    "A second wave of posts this week says a bearded man with glasses in a brief shot of a recent Rockstar clip has Tony's face and voice."
+   ],
+   "against": [
+    "Neither character appears in Rockstar's official GTA VI character profiles.",
+    "Skeptics note Rockstar could simply have reused a voice actor for a new character."
+   ],
+   "sources": [
+    {
+     "title": "GTA 6 could reunite two beloved GTA 4 characters after 17 years as gamers spot telling clues",
+     "url": "https://www.gamingbible.com/news/gta-6-gta-4-tony-prince-luis-lopez-reunion-17-years-008044-20261112",
+     "publisher": "GAMINGbible"
+    },
+    {
+     "title": "GTA 6 fans convinced iconic GTA 4 character's cameo has been revealed",
+     "url": "https://www.dexerto.com/gta/gta-6-fans-convinced-iconic-gta-4-characters-cameo-has-been-revealed-3427340/",
+     "publisher": "Dexerto"
+    }
+   ]
+  },
+  {
+   "id": "liberty-city-second-map",
+   "title": "Liberty City is a secret second map",
+   "summary": "A long-running theory got a boost from the latest trailer: fans think part of GTA VI, maybe Lucia's backstory or a later expansion, takes place in Liberty City.",
+   "image": "gta-6-map-leonida-regions",
+   "imageAlt": "A news helicopter flying over wooded hills in Leonida at sunset",
+   "related": [
+    "gta-6-map-leonida-regions",
+    "gta-6-characters"
+   ],
+   "status": "long-shot",
+   "trend": "rising",
+   "added": "2026-11-17",
+   "updated": "2026-11-17",
+   "for": [
+    "Rockstar's own profile of Lucia says her family's history goes back to Liberty City.",
+    "Fans have spotted Liberty City references in the trailers, such as a license plate and bikers wearing Liberty City hats."
+   ],
+   "against": [
+    "Every official Rockstar map and region description covers only the state of Leonida; Liberty City is mentioned only as part of Lucia's past.",
+    "Skeptics argue a reference is just a reference: GTA games often name-drop other cities without letting you visit them."
+   ],
+   "sources": [
+    {
+     "title": "Liberty City in GTA 6? New trailer fuels hopes of a second city",
+     "url": "https://www.notebookcheck.net/Liberty-City-in-GTA-6-New-trailer-fuels-hopes-of-a-second-city.1447790.0.html",
+     "publisher": "Notebookcheck"
+    },
+    {
+     "title": "GTA 6 Keeps Pointing at Liberty City Whether It Means To or Not",
+     "url": "https://www.gfinityesports.com/article/gta-6-keeps-pointing-at-liberty-city-whether-it-means-to-or-not",
+     "publisher": "Gfinity"
+    }
+   ]
+  },
+  {
+   "id": "jason-arthur-morgan-descendant",
+   "title": "Jason is descended from Red Dead 2's Arthur Morgan",
+   "summary": "Fans keep saying Jason looks just like Arthur Morgan, and some go further: they think he is Arthur's descendant, tying GTA VI to Red Dead Redemption 2.",
+   "image": "gta-6-characters",
+   "imageAlt": "Jason Duval in a U.S. Army T-shirt holding a pistol, with Lucia Caminos holding a shotgun beside him, above Vice City at dusk",
+   "related": [
+    "gta-6-characters",
+    "gta-6-story-what-we-know"
+   ],
+   "status": "long-shot",
+   "trend": "rising",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "Fans compare Jason's face, expressions and overall look in the official screenshots to Arthur Morgan's.",
+    "Some point to Jason's pose in a promo for the Hawk & Little \"Morgan\" revolver, which they say echoes Red Dead Redemption 2's cover art."
+   ],
+   "against": [
+    "Rockstar's official profile says Jason grew up around grifters and crooks and joined the Army, and mentions no family link to anyone.",
+    "In Red Dead Redemption 2, Arthur's only known son died before the game begins, so a direct line of descent would need an explanation Rockstar has never hinted at."
+   ],
+   "sources": [
+    {
+     "title": "The Wild GTA 6 Theory That Connects Rockstar's Two Biggest Franchises",
+     "url": "https://www.denofgeek.com/games/wild-gta-6-theory-connects-rockstars-biggest-franchises/",
+     "publisher": "Den of Geek"
+    },
+    {
+     "title": "Everyone Is Saying Jason Looks Like Arthur Morgan In GTA 6, And Some Even Think He's A Descendant",
+     "url": "https://opencritic.com/news/33800/everyone-is-saying-jason-looks-like-arthur-morgan-in-gta-6-and-some-even-think-hes-a-descendant",
+     "publisher": "OpenCritic"
+    }
+   ]
+  },
+  {
+   "id": "lucia-betrays-jason",
+   "title": "Lucia will betray Jason",
+   "summary": "The most debated theory: at some point Lucia turns on Jason, perhaps by informing on him or handing him to the police.",
+   "image": "gta-6-mission-list",
+   "imageAlt": "Lucia Caminos braced for a fight",
+   "related": [
+    "gta-6-characters",
+    "gta-6-story-what-we-know",
+    "gta-6-character-quiz"
+   ],
+   "status": "open",
+   "trend": "steady",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "Fans point to a trailer moment where Lucia hugs Jason while holding a gun behind his back.",
+    "Rockstar's own profile says meeting Lucia \"could be the best or worst thing\" for Jason, which theorists read as foreshadowing."
+   ],
+   "against": [
+    "Rockstar's official synopsis says the two are \"forced to rely on each other more than ever if they want to make it out alive.\""
+   ],
+   "sources": [
+    {
+     "title": "GTA 6 Fans Spot a Worrying 'Foreshadowing' Detail",
+     "url": "https://gamerant.com/gta-6-jason-lucia-betrayal-theory/",
+     "publisher": "Game Rant"
+    },
+    {
+     "title": "Lucia Can Betray Jason During the Story of GTA 6, New Theory Claims",
+     "url": "https://egw.news/gaming/news/37097/new-theory-claims-lucia-might-betray-jason-in-gta--mBLONBuLt",
+     "publisher": "EGW"
+    }
+   ]
+  },
+  {
+   "id": "three-birds-mystery",
+   "title": "The \"three birds\" hint at something big",
+   "summary": "Redditors noticed that several pieces of official GTA VI artwork feature exactly three birds. Some think they stand for Michael, Franklin and Trevor; others think they hint at an unrevealed third playable character.",
+   "image": "home-hero",
+   "imageAlt": "GTA VI key art: Jason and Lucia above Vice City with birds in the sky",
+   "related": [
+    "gta-6-trailers",
+    "gta-6-launch-week-everything-confirmed"
+   ],
+   "status": "open",
+   "trend": "rising",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "The same three-bird detail shows up across multiple official artworks, which fans argue is deliberate."
+   ],
+   "against": [
+    "Rockstar's official synopsis and website name only two leads: Jason and Lucia."
+   ],
+   "sources": [
+    {
+     "title": "GTA 6 Already Has a Mystery Players Are Trying to Solve",
+     "url": "https://www.vice.com/en/article/gta-6-three-birds-mystery-fan-theories/",
+     "publisher": "VICE"
+    }
+   ]
+  },
+  {
+   "id": "secret-psychological-thriller",
+   "title": "GTA VI turns into a dark psychological thriller",
+   "summary": "A popular Reddit theory says the sunny crime-spree marketing hides a darker second half: a Red Dead 2-style conspiracy where Jason and Lucia are manipulated or betrayed by people far above them.",
+   "image": "gta-6-story-what-we-know",
+   "imageAlt": "Lucia Caminos in handcuffs and an orange prison jumpsuit, led through a jail with other inmates",
+   "related": [
+    "gta-6-story-what-we-know",
+    "gta-6-characters"
+   ],
+   "status": "open",
+   "trend": "steady",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "The theory's author reads Rockstar's official synopsis as hinting at forces bigger than Jason and Lucia closing in on them.",
+    "Fans note Rockstar's last story game, Red Dead Redemption 2, also turned darker in its second half."
+   ],
+   "against": [
+    "Rockstar's official synopsis frames the story as a crime saga, with the pair \"forced to rely on each other more than ever if they want to make it out alive\", and says nothing about a conspiracy.",
+    "Rockstar hasn't commented on the theory."
+   ],
+   "sources": [
+    {
+     "title": "GTA 6 synopsis hides massive psychological thriller plot twist, Redditors claim",
+     "url": "https://www.ibtimes.co.uk/gta-6-synopsis-hides-massive-psychological-thriller-plot-twist-redditors-claim-1807050",
+     "publisher": "IBTimes UK"
+    }
+   ]
+  },
+  {
+   "id": "jason-undercover-cop",
+   "title": "Jason is an undercover cop",
+   "summary": "Some fans believe Jason started out working undercover and fell for Lucia along the way.",
+   "image": "gta-6-wanted-level",
+   "imageAlt": "Vice City police officers at a nighttime traffic stop",
+   "related": [
+    "gta-6-characters",
+    "gta-6-story-what-we-know"
+   ],
+   "status": "long-shot",
+   "trend": "steady",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "Theorists point to trailer moments they read as Jason watching or reporting on the people around him."
+   ],
+   "against": [
+    "Rockstar's official profile describes Jason as ex-Army and working for drug runners in the Keys, with no law-enforcement link.",
+    "Critics point out that Jason and Lucia take on police in the trailers, which is hard to square with an undercover role."
+   ],
+   "sources": [
+    {
+     "title": "GTA 6 fans believe Jason might be an undercover cop",
+     "url": "https://www.sportskeeda.com/gta/gta-6-fans-believe-jason-might-undercover-cop",
+     "publisher": "Sportskeeda"
+    }
+   ]
+  },
+  {
+   "id": "tragic-ending",
+   "title": "Jason and Lucia get a Bonnie-and-Clyde ending",
+   "summary": "Many fans are convinced the story ends tragically for at least one of the leads, and say the trailers have already given it away.",
+   "image": "gta-6-trailers",
+   "imageAlt": "Jason and Lucia in bandanas, outlaw-style, at a Vice City gas station",
+   "related": [
+    "gta-6-story-what-we-know",
+    "gta-6-trailers"
+   ],
+   "status": "open",
+   "trend": "steady",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "Fans read the outlaw-couple imagery in the trailers as a nod to Bonnie and Clyde, whose story ends in death."
+   ],
+   "against": [
+    "Rockstar hasn't said anything about the ending, and GTA endings have often depended on player choice."
+   ],
+   "sources": [
+    {
+     "title": "GTA 6's ending has already been spoiled, fans agree",
+     "url": "https://www.gamingbible.com/news/gta-6-ending-spoiled-356833-20250512",
+     "publisher": "GAMINGbible"
+    }
+   ]
+  },
+  {
+   "id": "phil-cassidy-returns",
+   "title": "Phil Cassidy (or his son) is back",
+   "summary": "A mulleted man in an in-game Ammu-Nation ad has fans convinced the classic Vice City arms dealer, or a relative, is returning.",
+   "image": "gta-6-age-rating-parents-guide",
+   "imageAlt": "An armed robber in a bandana inside a Leonida store",
+   "related": [
+    "gta-6-trailers",
+    "gta-6-map-leonida-regions"
+   ],
+   "status": "open",
+   "trend": "steady",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "The man in the Ammu-Nation ad shares Phil's trademark look, and Phil ran guns in Vice City."
+   ],
+   "against": [
+    "Fans point out that Phil lost an arm in Vice City, so some think this is his son rather than Phil himself.",
+    "Rockstar hasn't confirmed any returning characters."
+   ],
+   "sources": [
+    {
+     "title": "GTA 6 Trailer 2 Breakdown: Voice Actors, Soundtrack, and Easter Eggs You May Have Missed",
+     "url": "https://www.denofgeek.com/games/gta-6-trailer-breakdown-voice-actors-soundtrack-easter-eggs-you-missed/",
+     "publisher": "Den of Geek"
+    },
+    {
+     "title": "All GTA 6 Easter Eggs So Far",
+     "url": "https://beebom.com/gta-6-easter-eggs/",
+     "publisher": "Beebom"
+    }
+   ]
+  },
+  {
+   "id": "michael-de-santa-boat",
+   "title": "Michael De Santa is coming for his boat",
+   "summary": "A boat near Jason's home looks a lot like Michael's yacht from GTA V, so some fans think GTA V's lead turns up in Leonida.",
+   "image": "gta-6-online-what-we-know",
+   "imageAlt": "Boats and jet skis crowding the water off Leonida",
+   "related": [
+    "gta-6-map-leonida-regions",
+    "gta-6-vehicles-named-so-far"
+   ],
+   "status": "long-shot",
+   "trend": "cooling",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "Fans say the boat's design closely resembles the yacht from GTA V."
+   ],
+   "against": [
+    "A similar-looking boat is more likely a reused vehicle model than a story clue, and Rockstar hasn't confirmed any GTA V characters."
+   ],
+   "sources": [
+    {
+     "title": "\"He's coming, for his boat\": GTA 6 fans speculate GTA 5's Michael to return in Vice City",
+     "url": "https://www.sportskeeda.com/gta/he-s-coming-boat-gta-6-fans-speculate-gta-5-s-michael-return-in-vice-city",
+     "publisher": "Sportskeeda"
+    }
+   ]
+  },
+  {
+   "id": "third-delay",
+   "title": "GTA 6 will be delayed a third time",
+   "summary": "A rumor that GTA VI would slip again spread fast online and even moved prediction-market bets.",
+   "image": "gta-6-release-date-time",
+   "imageAlt": "GTA VI key art with the November 19, 2026 release date",
+   "related": [
+    "gta-6-release-date-time",
+    "gta-6-launch-week-everything-confirmed",
+    "gta-6-pre-load-guide"
+   ],
+   "status": "debunked",
+   "trend": "cooling",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "for": [
+    "The rumor grew from a reporter's comment about Red Dead Redemption 2's delay pattern, which was passed around as a prediction."
+   ],
+   "against": [
+    "Rockstar's official site still says November 19, 2026, and pre-loading opened on November 10."
+   ],
+   "sources": [
+    {
+     "title": "GTA 6 speculation mutates into delay 'rumor,' leading to anxious fans and a prediction market betting frenzy for no good reason",
+     "url": "https://www.pcgamer.com/games/grand-theft-auto/casual-gta-6-speculation-mutates-into-delay-rumor-leading-to-anxious-fans-and-prediction-market-frenzy-for-no-good-reason/",
+     "publisher": "PC Gamer"
+    }
+   ]
+  }
+ ]
+}

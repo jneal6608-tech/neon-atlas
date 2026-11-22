@@ -1,9 +1,73 @@
 {
  "about": "Launch live updates, newest first on the site. Add entries with: node tools/editorial.mjs live \"text\" --confidence confirmed --link article:slug. time = ISO datetime (or a date when the exact time isn't known). Only verified facts; label anything else.",
  "entries": [
-  { "time": "2026-11-03", "text": "Rockstar announces that GTA VI pre-loading begins **November 10**.", "confidence": "confirmed", "link": "article:gta-6-pre-load-guide", "linkText": "How to pre-load →" },
-  { "time": "2026-11-10", "text": "Pre-loading opens. Rockstar's site switches to **\"Pre-Load Now\"**. The install size is reported at up to 212 GB.", "confidence": "mixed", "link": "article:gta-6-pre-load-guide", "linkText": "Pre-load steps and size →" },
-  { "time": "2026-11-12", "text": "Rockstar Store physical (code-in-box) orders start shipping. The box has a download code, **no disc**.", "confidence": "confirmed", "link": "article:gta-6-physical-copy-no-disc", "linkText": "What's in the box →" },
-  { "time": "2026-11-15", "text": "We re-checked Rockstar's official pages: the release is still **Thursday, November 19, 2026**, on PS5 and Xbox Series X|S.", "confidence": "confirmed", "link": "article:gta-6-release-date-time", "linkText": "Release date and unlock time →" }
+  {
+   "time": "2026-11-03",
+   "text": "Rockstar announces that GTA VI pre-loading begins **November 10**.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-pre-load-guide",
+   "linkText": "How to pre-load →"
+  },
+  {
+   "time": "2026-11-10",
+   "text": "Pre-loading opens. Rockstar's site switches to **\"Pre-Load Now.\"** The install size is reported to be up to 212 GB.",
+   "confidence": "mixed",
+   "link": "article:gta-6-pre-load-guide",
+   "linkText": "Pre-load steps and size →"
+  },
+  {
+   "time": "2026-11-12",
+   "text": "Rockstar Store physical (code-in-box) orders start shipping. The box contains a download code, **not a disc**.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-physical-copy-no-disc",
+   "linkText": "What's in the box →"
+  },
+  {
+   "time": "2026-11-15",
+   "text": "We re-checked Rockstar's official pages: the release is still **Thursday, November 19, 2026**, on PS5 and Xbox Series X|S.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-release-date-time",
+   "linkText": "Release date and unlock time →"
+  },
+  {
+   "time": "2026-11-18T23:47:41.082Z",
+   "text": "Rockstar Store update: code-in-box copies now say pre-load **from November 12**, PlayStation codes work in **15 more countries**, and Rockstar says **Xbox codes aren't region-locked**. The store's video list now also names a **\"Trailer 3\"** and a **\"Pre-Load Now Trailer\"**.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-physical-copy-no-disc",
+   "linkText": "What's in the box →"
+  },
+  {
+   "time": "2026-11-19T05:31:44.344Z",
+   "text": "Launch night: we went through every GTA VI settings tab on PS5. There's **no performance mode** in the Display tab, and Movement Speed was set to **Walk** on ours.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-best-settings"
+  },
+  {
+   "time": "2026-11-19T06:28:36.482Z",
+   "text": "In the game: Leonida's map is split into counties (we've seen **Mariana, Vice-Dale, Kelly, Lummox and Leonard**), and the pause menu tracks **sleep, food, muscle and strength**.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-pause-menu-stats-progress"
+  },
+  {
+   "time": "2026-11-19T08:59:46.748Z",
+   "text": "Our first gameplay video is up: **GTA 6 First 10 Minutes**, recorded on our own PS5 with no commentary (spoiler warning: it shows the opening).",
+   "confidence": "confirmed",
+   "link": "article:gta-6-first-10-minutes",
+   "linkText": "Watch the first 10 minutes →"
+  },
+  {
+   "time": "2026-11-19T23:46:42.065Z",
+   "text": "GTA VI is **out now**. Rockstar's official site now says \"Grand Theft Auto VI Now Available\", and the pre-order bonus is now called an **Early Purchase Bonus** (still for orders before **November 20**).",
+   "confidence": "confirmed",
+   "link": "article:gta-6-pre-order-bonus-vintage-vice-city-pack",
+   "linkText": "Early purchase bonus →"
+  },
+  {
+   "time": "2026-11-20T23:21:47.932Z",
+   "text": "The free pre-order offer has ended: Rockstar now lists the **Vintage Vice City Pack** as a paid **Digital Add-On**.",
+   "confidence": "confirmed",
+   "link": "article:gta-6-pre-order-bonus-vintage-vice-city-pack",
+   "linkText": "What is in the pack →"
+  }
  ]
 }

@@ -72,6 +72,15 @@ await p.fill("#sq", "lucia"); await p.press("#sq", "Enter"); await p.waitForSele
 const href = await p.getAttribute("#search-results li a", "href");
 const r = await p.request.get(BASE + href);
 if (r.status() !== 200) fail("search", `result link ${href} returned ${r.status()}`);
+// fan-theory voting: empty state, then a vote is counted and remembered
+await p.goto(BASE + "/theories/");
+await p.waitForFunction(() => !document.querySelector(".vote .vote-btn").disabled);
+const firstVote = await p.$eval(".vote:not([data-settled]) ", (v) => v.dataset.theory);
+if (!/No votes yet|so far|believe it/.test(await p.textContent(`.vote[data-theory="${firstVote}"] .vote-result`))) fail("votes", "vote result text missing");
+await p.click(`.vote[data-theory="${firstVote}"] .vote-yes`);
+await p.waitForFunction((id) => document.querySelector(`.vote[data-theory="${id}"] .vote-result`).textContent.includes("You said: Believe it"), firstVote);
+await p.reload();
+await p.waitForFunction((id) => document.querySelector(`.vote[data-theory="${id}"] .vote-yes`).getAttribute("aria-pressed") === "true", firstVote);
 // contact form validation + mailto fallback
 await p.goto(BASE + "/contact/");
 await p.click("#contact-form button[type=submit]");

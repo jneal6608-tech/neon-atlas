@@ -4,18 +4,19 @@
   "url": "https://neonatlasguide.com",
   "language": "en",
   "locale": "en_US",
-  "contactEmail": "hello@example.com",
+  "contactEmail": "jneal6608@gmail.com",
   "launchDate": "2026-11-19",
   "formEndpoint": "",
   "analytics": {
+    "gtmContainerId": "GTM-W4GZ4QGH",
     "ga4MeasurementId": ""
   },
   "searchConsole": {
     "googleSiteVerification": ""
   },
   "ads": {
-    "enabled": false,
-    "adsenseClient": "",
+    "enabled": true,
+    "adsenseClient": "ca-pub-1342898006615155",
     "slots": {
       "inArticle": "",
       "articleEnd": "",

@@ -1,0 +1,18 @@
+# Raw gameplay is huge: it never goes in git. It lives in footage/raw/ (or Google Drive) and is re-downloaded when needed.
+footage/raw/
+footage/cache/
+# regenerable per-video output
+videos/*/work/
+videos/*/cache/
+videos/*/renders/
+shorts/*/work/
+shorts/*/renders/
+models/
+__pycache__/
+*.pyc
+.DS_Store
+# Other creators' transcripts (their words): kept locally for study, never committed (this repository is public)
+research/transcripts/
+.pytest_cache/
+# GTA Shorts jobs hold the uploaded gameplay and renders (tools/gta_shorts.py)
+footage/gta-shorts/

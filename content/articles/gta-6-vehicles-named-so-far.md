@@ -8,14 +8,19 @@ status: published
 confidence: confirmed
 targetQuery: gta 6 cars
 publishDate: 2026-11-15
-updated: 2026-11-15
-lastVerified: 2026-11-15
 related: [gta-6-editions-standard-vs-ultimate, gta-6-pre-order-bonus-vintage-vice-city-pack, gta-6-map-leonida-regions]
 sources:
   - { type: official, title: "Grand Theft Auto VI: Choose Your Edition", url: "https://www.rockstargames.com/VI/editions", publisher: "Rockstar Games", accessed: 2026-11-15 }
   - { type: official, title: "Rockstar Store: Grand Theft Auto VI", url: "https://store.rockstargames.com/game/buy-gta-vi", publisher: "Rockstar Games", accessed: 2026-11-15 }
+  - { type: community, title: "Neon Atlas: GTA VI on PS5, launch day (our own copy)", url: "https://neonatlasguide.com/vehicles/gta-6-vehicles-named-so-far/", publisher: "Neon Atlas", accessed: 2026-11-19 }
+updateLog:
+  - date: '2026-11-22'
+    note: "Added Lucia's Growler from our own screenshot."
+  - { date: 2026-11-19, note: "Added Jason's '70 Vapid Ganado pickup, seen in the game." }
 faqs:
   - { q: "What cars are confirmed in GTA 6?", a: "Rockstar has named the **'95 Grotti Cheetah**, **'67 Vapid Dominator Buggy** and **'55 Vapid Stanier Sedan**, plus items called **Shitzu Squalo**, **Ganado Retro Build**, **Jason's Safehouse Vehicles** and a **Classic Car Collection**." }
+updated: '2026-11-22'
+lastVerified: '2026-11-22'
 ---
 **Before launch, Rockstar has named a handful of GTA VI vehicles, all in its edition and pre-order bonus listings.** The rest of the line-up will be documented once we've driven it.
 
@@ -37,7 +42,25 @@ faqs:
 The year prefixes ('95, '67, '55) are part of Rockstar's names.
 
 > [!NOTE]
-> Rockstar hasn't said what type of vehicle the Shitzu Squalo or Ganado Retro Build is, or which cars are in "Jason's Safehouse Vehicles" and the "Classic Car Collection". In earlier Rockstar games, Shitzu made boats and the Squalo was a speedboat, but **we're not assuming that carries over**. We'll confirm each one in the game.
+> Rockstar hasn't said what type of vehicle the Shitzu Squalo or Ganado Retro Build is, or which cars are in "Jason's Safehouse Vehicles" and the "Classic Car Collection." In earlier Rockstar games, Shitzu made boats and the Squalo was a speedboat, but **we're not assuming that carries over**. We'll confirm each one in the game.
+
+## Seen in the game
+
+| Name (as the game shows it) | What it is |
+| --- | --- |
+| Vapid · Jason's '70 Ganado | Jason's own pickup truck, early in the story |
+| Pfister · Lucia's Growler | Lucia's own sports car |
+
+![Jason's '70 Vapid Ganado pickup truck driving at night in GTA 6, with the in-game vehicle name shown in the corner](/assets/uploads/gta-6-vapid-70-ganado.jpg)
+
+> [!NOTE]
+> Seen in our own PS5 copy on launch day. The in-game name reads "Jason's '70 Ganado" from Vapid. Rockstar's Ultimate Edition lists a "Ganado Retro Build"; we haven't confirmed whether that's the same truck or an upgraded version.
+
+![Lucia getting out of her pink Pfister Growler sports car in a Vice City parking lot in GTA 6, with the name Lucia's Growler shown in the corner](/assets/uploads/gta-6-pfister-lucias-growler.jpg)
+
+**Lucia's Growler** is a two-door Pfister sports car; ours was **pink**. Seen on our own PS5 copy.
+
+**How we got it:** there's a **laptop in the apartment** you stay in. Find its **password** around the apartment and log in: a message there says someone **left a car** for the people who used to live there. Go to the marked spot and the car is yours.
 
 ## Vehicle-related shops
 
@@ -47,4 +70,4 @@ The Ultimate Edition also lists two mod shops, **Rideout Customs Mod Shop** and 
 
 - A full vehicle list with categories and where to find each one.
 - Rare and hidden vehicles, with locations and spawn conditions verified in the game.
-- Customisation and mod shop guides.
+- Customization and mod shop guides.

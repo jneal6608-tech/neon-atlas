@@ -20,6 +20,28 @@ const urlOf = (f) => "/" + path.relative(DIST, f).replace(/index\.html$/, "").re
 const pages = new Map(html.map((f) => [urlOf(f), fs.readFileSync(f, "utf8")]));
 const ids = new Map([...pages].map(([u, h]) => [u, new Set([...h.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]))]));
 
+// Rule: no generated art. Pictures must be official Rockstar media or our own screenshots.
+if (fs.existsSync(path.join(ROOT, "assets/art"))) err("assets/art", "generated artwork isn't allowed; use official images or our own screenshots (assets/ours/art)");
+for (const [u, h] of pages) if (/\/assets\/art\//.test(h)) err(u || "/", "uses generated artwork (/assets/art/); use an official image or our own screenshot");
+
+// Rule: story spoilers must sit in a "> [!SPOILER]" box (hidden until clicked), not just behind a warning, and FAQ
+// answers that start "Spoilers" must say so in the question.
+for (const f of fs.readdirSync(path.join(ROOT, "content/articles"))) {
+  const md = fs.readFileSync(path.join(ROOT, "content/articles", f), "utf8");
+  const body = md.replace(/^---[\s\S]*?\n---/, "");
+  if (/>\s*\[!(WARNING|NOTE)\][^\n]*\n>\s*\**spoilers?\b/i.test(body)) {
+    // a warning that the next part is a video/page with spoilers is fine; spoiler *text* must use [!SPOILER]
+    if (/>\s*\[!(WARNING|NOTE)\][^\n]*\n>\s*\**spoilers?\b[*:\s]*(?![*:\s]|this video|the video|this page)/i.test(body)) err(`content/articles/${f}`, 'spoiler text must go in a "> [!SPOILER]" box, not a warning');
+  }
+  for (const m of md.matchAll(/q:\s*"([^"]*)",\s*a:\s*"\s*\**spoilers?\b/gi)) if (!/\(spoilers?\)/i.test(m[1])) err(`content/articles/${f}`, `FAQ "${m[1]}" has a spoiler answer: end the question with "(spoilers)"`);
+}
+
+// New posts need an exact publish time so Recent news can put them first (tools/ship.mjs stamps it).
+for (const a of loadArticles()) if (["published", "needs-updating"].includes(a.status) && a.publishDate >= "2026-11-19" && !a.publishedAt) warn(`content/articles/${a.file}`, "no publishedAt: Recent news may not list it first (publish with tools/ship.mjs)");
+
+// Every live article needs a real GTA VI picture (user rule): our own screenshot first, else an official Rockstar image.
+for (const a of loadArticles()) if (["published", "needs-updating"].includes(a.status) && !["ours/art", "official/art"].some((d) => fs.existsSync(path.join(ROOT, `assets/${d}/${a.slug}.jpg`)))) err(`content/articles/${a.file}`, `no cover picture: add our screenshot as assets/ours/art/${a.slug}.jpg (+ -card, -share) or an official Rockstar image in assets/official/art`);
+
 let links = 0;
 for (const [u, h] of pages) {
   const f = u || "/";
@@ -43,7 +65,7 @@ for (const [u, h] of pages) {
     const href = m[1];
     if (/^(https?:|mailto:|data:)/.test(href)) continue;
     links++;
-    const [p, hash] = href.split("#");
+    const [p, hash] = href.split("?")[0].split("#");
     const target = p === "" ? u : p;
     if (target.startsWith("/assets/") || target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".svg")) {
       if (!fs.existsSync(path.join(DIST, target))) err(f, `broken asset link ${href}`);
@@ -75,7 +97,32 @@ for (const a of loadArticles()) {
   if (!isLive(a, now) && built) err(a.file, `not-live article (${a.status}) was published`);
 }
 const idx = JSON.parse(fs.readFileSync(path.join(DIST, "search-index.json"), "utf8"));
-for (const e of idx) if (!pages.has(e.u)) err("search-index.json", `points to missing page ${e.u}`);
+for (const e of idx) if (!pages.has(e.u.split("#")[0])) err("search-index.json", `points to missing page ${e.u}`);
+
+// fan theories (data/theories.json): every item needs a stable id, the fields the page shows, and a real source
+{
+  const th = JSON.parse(fs.readFileSync(path.join(ROOT, "data/theories.json"), "utf8"));
+  const seen = new Set();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(th.updated || "")) err("data/theories.json", "`updated` must be a YYYY-MM-DD date");
+  for (const t of th.items) {
+    const f = `data/theories.json (${t.id || "no id"})`;
+    if (!/^[a-z0-9-]{3,60}$/.test(t.id || "")) err(f, "id must be 3–60 lowercase letters, digits or hyphens");
+    if (seen.has(t.id)) err(f, "duplicate id"); seen.add(t.id);
+    for (const k of ["title", "summary"]) if (!t[k] || typeof t[k] !== "string") err(f, `missing ${k}`);
+    if (!["open", "likely", "long-shot", "confirmed", "debunked"].includes(t.status)) err(f, `bad status "${t.status}"`);
+    if (!["rising", "steady", "cooling"].includes(t.trend)) err(f, `bad trend "${t.trend}"`);
+    for (const k of ["for", "against"]) if (!Array.isArray(t[k]) || !t[k].length) err(f, `needs at least one "${k}" point`);
+    if (!Array.isArray(t.sources) || !t.sources.length || t.sources.some((s) => !/^https:\/\//.test(s.url || "") || !s.publisher)) err(f, "needs at least one source with an https url and a publisher");
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(t.updated || "")) err(f, "`updated` must be a YYYY-MM-DD date");
+    if (t.image) {
+      const [kind, name] = t.image.startsWith("region-") ? ["regions", t.image.slice(7)] : t.image.startsWith("char-") ? ["characters", t.image.slice(5)] : ["art", t.image];
+      if (!fs.existsSync(path.join(ROOT, `assets/official/${kind}/${name}.jpg`)) && !fs.existsSync(path.join(ROOT, `assets/ours/art/${t.image}.jpg`))) err(f, `image "${t.image}" not found (see the list in docs/THEORIES.md)`);
+      if (!t.imageAlt) err(f, "image needs imageAlt (describe what's in the picture)");
+    } else warn(f, "no image: add one from the list in docs/THEORIES.md");
+    for (const r of t.related || []) if (!loadArticles().some((a) => a.slug === r)) err(f, `related article "${r}" does not exist`);
+  }
+  if (th.items.length && !pages.has("/theories/")) err("theories", "/theories/ page was not built");
+}
 if (!/<rss/.test(fs.readFileSync(path.join(DIST, "feed.xml"), "utf8"))) err("feed.xml", "not an RSS feed");
 for (const f of ["llms.txt", "llms-full.txt"]) if (!fs.existsSync(path.join(DIST, f))) err(f, "missing");
 if (cfg.indexNowKey && fs.readFileSync(path.join(DIST, `${cfg.indexNowKey}.txt`), "utf8") !== cfg.indexNowKey) err("indexnow", "key file missing or wrong");

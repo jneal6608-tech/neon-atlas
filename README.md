@@ -22,9 +22,10 @@ Editing in the browser (local): run `npm run cms` in one terminal and `npm run d
 | Site generator | ~400 lines of plain Node (`src/build.mjs`), Markdown + JSON content | No framework to upgrade or break; builds in under a second; easy to read and change. |
 | Content | Markdown files with front matter (`content/articles/`), JSON data (`data/`, `content/categories.json`) | Versioned in Git: every change is tracked and reversible. |
 | Editorial dashboard | [Decap CMS](https://decapcms.org) at `/admin/` | Free, open source, Git-based. Edit, schedule, and change status without touching code. |
-| Hosting | Cloudflare Pages (free) | Global CDN, HTTPS, unlimited bandwidth on the free plan, security headers via `_headers`. |
-| Deploys | GitHub Actions (`.github/workflows/deploy.yml`) | Builds and checks on every save and once a day (publishes scheduled articles). |
+| Hosting | Cloudflare Worker `neonatlas` with static assets (free; `wrangler.jsonc`) | Global CDN, HTTPS, free plan, security headers via `_headers`. |
+| Deploys | GitHub Actions (`.github/workflows/deploy.yml`, `wrangler deploy`) | Builds and checks on every save and once a day (publishes scheduled articles). |
 | Search | Prebuilt JSON index + small client-side script | No server and no paid search service; works offline from the CDN. |
+| Fan theories + votes | `data/theories.json` → `/theories/`; votes via `src/worker.mjs` + a SQLite Durable Object (free plan) | Researched nightly by a Claude scheduled task that opens a PR; shared "Believe it / Doubt it" totals. See docs/THEORIES.md. |
 | AI tools | Claude via the Anthropic SDK, **command line only** | The key stays on your computer or in CI secrets, never in the website. |
 | Analytics | Google Analytics 4 (optional) + Search Console CSV import | Free; GA loads only when an ID is configured. |
 | Tests | Custom static checker + Playwright + axe-core | Links, metadata, sitemap, accessibility, mobile layout, console errors. |
@@ -63,15 +64,17 @@ Only **published** and **needs-updating** appear on the site; *needs-updating* s
 - Answer the question in the first two sentences.
 - Link other articles with `[text](article:slug)`. Links to unpublished articles render as plain text, so nothing breaks.
 - Label claims with callouts: `> [!CONFIRMED]`, `> [!REPORTED]`, `> [!UNCONFIRMED]`, `> [!PREDICTED]`, `> [!NOTE]`, `> [!WARNING]`.
+- **Spoilers (rule): every story spoiler goes in a `> [!SPOILER]` box**, which stays hidden until the reader clicks "View spoiler". Write `> [!SPOILER]` on its own line, then the spoiler text, every line starting with `> `. Keep spoilers out of titles, descriptions, quick answers, headings, images and thumbnails. A FAQ whose answer is a spoiler ends its question with "(spoilers)". `npm run check` fails if a spoiler is only behind a "Spoilers" warning.
 - Every published article needs `sources`, `lastVerified` and a `confidence` label.
 
 ## Images and engagement features
 
-- **Artwork:** `node tools/make-art.mjs` draws original Vice City-style art (no Rockstar assets): a hero, card and social-share image for every article, plus region and character cards. For a new article, run `node tools/make-art.mjs <slug>`; the build warns if one is missing.
+- **Pictures (rule): real GTA VI pictures only, never generated or AI art.** Every article picture is either an official Rockstar image (`assets/official/`, see `docs/OFFICIAL-IMAGES.md`) or our own gameplay screenshot. For our own, save a hero (1600x900), card (800x450) and share image (1200x630) as `assets/ours/art/<slug>.jpg`, `<slug>-card.jpg` and `<slug>-share.jpg`, cropped to the game screen only (no room, no reflections) and with photo metadata removed. `npm run check` fails if generated art comes back.
 - **Official Rockstar images:** `npm run fetch-official && npm run import-official` downloads Rockstar's own GTA VI media and puts it on every character, region, article and the home page, credited "Image: Rockstar Games". Which image goes where: `data/official-art.json`. Details: docs/OFFICIAL-IMAGES.md.
+- **Our own gameplay videos:** upload to the Neon Atlas YouTube channel, then put `{{ourvideo:YOUTUBE_ID|What it shows}}` on its own line in the matching article (the ID is the part after `watch?v=`). Never use `{{video}}` for our uploads: that one says "Official Rockstar Games video".
 - **Trailers** show YouTube's own thumbnail and play inside the page; wherever embedding is blocked (some previews and apps) they open YouTube instead.
 - **Your own screenshots (after launch):** take them on your console (PS5: Create button; Xbox: Share button), resize to about 1600 px wide, put them in `assets/uploads/` (or upload in the CMS), and add them in Markdown with alt text: `![Lucia at the Ocean Beach safehouse](/assets/uploads/lucia-safehouse.jpg)`. Your own gameplay screenshots are the standard for guide sites; never copy images from other sites.
-- **Shortcodes** (on their own line in an article): `{{countdown}}`, `{{unlock}}` (unlock time by time zone), `{{storage}}` (will it fit?), `{{edition}}` (edition picker), `{{quiz}}` (character quiz), `{{regions}}`, `{{characters}}`, `{{videos}}` (all trailers), `{{video:YOUTUBE_ID|Title}}` (official videos only).
+- **Shortcodes** (on their own line in an article): `{{countdown}}`, `{{unlock}}` (unlock time by time zone), `{{storage}}` (will it fit?), `{{edition}}` (edition picker), `{{quiz}}` (character quiz), `{{regions}}`, `{{characters}}`, `{{videos}}` (all trailers), `{{video:YOUTUBE_ID|Title}}` (official Rockstar videos only), `{{ourvideo:YOUTUBE_ID|Title}}` (our own gameplay uploads on the Neon Atlas channel: credited to Neon Atlas, marked unofficial).
 - **Built in for time on site:** reading progress bar, sticky "Popular right now" sidebar, "Up next" card, "Keep reading" grid, click-to-play trailers (YouTube loads only on click, so pages stay fast), and a sidebar ad slot ready for AdSense.
 
 ## Daily maintenance (15 minutes)

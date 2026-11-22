@@ -7,7 +7,6 @@ category: characters
 status: published
 confidence: confirmed
 targetQuery: which gta 6 character are you
-featured: true
 publishDate: 2026-11-15
 updated: 2026-11-15
 lastVerified: 2026-11-15

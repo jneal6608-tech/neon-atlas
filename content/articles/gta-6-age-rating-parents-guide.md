@@ -33,13 +33,13 @@ These descriptor names are the ones the US ratings board (ESRB) uses. In plain t
 | Blood and Gore | Depictions of blood and mutilation |
 | Intense Violence | Graphic, realistic-looking violence |
 | Nudity | Graphic or prolonged nudity |
-| Strong Sexual Content | Explicit or frequent sexual references or behaviour |
+| Strong Sexual Content | Explicit or frequent sexual references or behavior |
 | Use of Drugs and Alcohol | Characters consume drugs or alcohol |
 | Strong Language | Explicit, frequent profanity |
 | Mature Humor | Humour that includes adult themes |
 | In-Game Purchases | Players can buy extra content with real money |
 
-Definitions are summarised from the [ESRB ratings guide](https://www.esrb.org/ratings-guide/). The official story setup also centres on crime: in Rockstar's words, the leads end up "in the middle of a criminal conspiracy" (see [story](article:gta-6-story-what-we-know)).
+Definitions are summarized from the [ESRB ratings guide](https://www.esrb.org/ratings-guide/). The official story setup also centers on crime: in Rockstar's words, the leads end up "in the middle of a criminal conspiracy" (see [story](article:gta-6-story-what-we-know)).
 
 ## Outside the US
 

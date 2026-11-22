@@ -53,6 +53,7 @@
   document.addEventListener("click", (e) => {
     const link = e.target.closest(".yt-play"); if (!link) return;
     const box = link.closest(".yt");
+    if (!box.dataset.id) { track("video_play", { video_id: link.href, mode: "rockstar" }); return; } // opens Rockstar's player
     track("video_play", { video_id: box.dataset.id, mode: framed ? "youtube" : "inline" });
     if (framed) return; // let the link open YouTube in a new tab
     e.preventDefault();
@@ -64,6 +65,49 @@
     f.allowFullscreen = true;
     link.replaceWith(f);
   });
+
+  // fan-theory votes: shared totals from /api/votes (src/votes.mjs). Percentages appear once a theory has 10 votes.
+  const votes = [...document.querySelectorAll(".vote[data-theory]")];
+  if (votes.length) {
+    const MIN = 10;
+    const label = { yes: "Believe it", no: "Doubt it" };
+    const render = (data) => {
+      for (const box of votes) {
+        const id = box.dataset.theory, settled = box.dataset.settled === "true";
+        const c = (data.counts || {})[id] || { yes: 0, no: 0 }, mine = (data.mine || {})[id] || null;
+        const total = c.yes + c.no, pct = total ? Math.round((c.yes / total) * 100) : 0;
+        for (const b of box.querySelectorAll(".vote-btn")) { b.disabled = false; b.setAttribute("aria-pressed", String(b.dataset.choice === mine)); }
+        const bar = box.querySelector(".vote-bar"), out = box.querySelector(".vote-result");
+        bar.hidden = total < MIN;
+        if (total >= MIN) bar.firstElementChild.style.width = pct + "%";
+        const n = (k) => `${k.toLocaleString()} vote${k === 1 ? "" : "s"}`;
+        let text;
+        if (settled) text = total >= MIN ? `Final call: <strong>${pct}% believed it</strong> (${n(total)}).` : "Voting is closed.";
+        else if (total === 0) text = "No votes yet. Be the first to call it.";
+        else if (total < MIN) text = `<strong>${n(total)} so far.</strong> Results appear at ${MIN}.`;
+        else text = `<strong>${pct}% believe it</strong> · ${100 - pct}% doubt it (${n(total)})`;
+        if (mine && !settled) text += ` · <span class="mine">You said: ${label[mine]}.</span>`;
+        out.innerHTML = text;
+      }
+    };
+    const fail = (msg) => { for (const box of votes) { for (const b of box.querySelectorAll(".vote-btn")) b.disabled = true; box.querySelector(".vote-result").textContent = msg; } };
+    let state = { counts: {}, mine: {} };
+    for (const box of votes) for (const b of box.querySelectorAll(".vote-btn")) b.disabled = true;
+    fetch("/api/votes", { credentials: "same-origin" }).then((r) => (r.ok ? r.json() : Promise.reject(r))).then((d) => { state = d; render(d); }).catch(() => fail("Voting is unavailable right now. Check back soon."));
+    document.addEventListener("click", async (e) => {
+      const b = e.target.closest(".vote-btn"); if (!b) return;
+      const id = b.closest(".vote").dataset.theory;
+      const choice = b.getAttribute("aria-pressed") === "true" ? null : b.dataset.choice; // clicking your vote again removes it
+      track("theory_vote", { theory: id, choice: choice || "removed" });
+      for (const x of document.querySelectorAll(`.vote[data-theory="${id}"] .vote-btn`)) x.disabled = true;
+      try {
+        const r = await fetch("/api/vote", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, choice }) });
+        const d = await r.json();
+        if (!r.ok) { render(state); const out = b.closest(".vote").querySelector(".vote-result"); out.textContent = d.error || "That vote didn't go through. Try again."; return; }
+        state = d; render(d);
+      } catch { render(state); b.closest(".vote").querySelector(".vote-result").textContent = "That vote didn't go through. Try again."; }
+    });
+  }
 
   // widget: will it fit?
   for (const w of document.querySelectorAll('[data-widget="storage"]')) {
@@ -96,7 +140,7 @@
       const eastern = new Date(w.dataset.launch + "T05:00:00Z"); // midnight Eastern (EST, UTC-5)
       out.innerHTML = `<strong>Midnight local time (reported):</strong> Thu, Nov 19, 12:00 AM in your zone.` +
         (us ? `<br><strong>If your US store uses Eastern time (reported for some storefronts):</strong> ${fmt(eastern, tz)} your time.` : "") +
-        `<br><span class="muted small">Check the countdown on your console store's GTA VI page for your exact time.</span>`;
+        `<br><span class="muted small">Check the countdown on your console store’s GTA VI page for your exact time.</span>`;
     };
     sel.addEventListener("change", () => { show(); track("tool_use", { tool: "unlock", tz: sel.value }); }); show();
   }
@@ -186,7 +230,7 @@
   const results = $("#search-results");
   if (results) {
     const input = $("#sq"), status = $("#search-status");
-    const base = document.querySelector('link[rel="stylesheet"][href$="styles.css"]').getAttribute("href").replace(/assets\/styles\.css$/, "");
+    const base = document.querySelector('link[rel="stylesheet"][href*="assets/styles.css"]').getAttribute("href").replace(/assets\/styles\.css(\?.*)?$/, "");
     const escH = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
     const norm = (s) => s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/gta ?(6|vi)\b/g, "gta6");
     let index = null;
