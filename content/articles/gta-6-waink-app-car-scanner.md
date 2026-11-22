@@ -18,6 +18,11 @@ faqs:
   - { q: "What is the Waink app in GTA 6?", a: "It's a phone app you use to scan parked cars. The scan tells you if a car is **locked**, **alarmed** or has a **tracker** before you try to take it." }
   - { q: "How do you open the Waink app in GTA 6?", a: "The default PS5 controls list **Waink App** on the D-pad. Point your phone at a parked car to scan it." }
   - { q: "What does Tracker mean on a GTA 6 car scan?", a: "It shows whether the car has a tracker fitted. Ours said **None**. Reports say tracked cars can be followed after you take them." }
+updateLog:
+  - date: '2026-11-22'
+    note: "Confirmed Waink shows a car's value; linked the new car stealing guide."
+updated: '2026-11-22'
+lastVerified: '2026-11-22'
 ---
 **GTA 6 lets you scan parked cars with your phone before you take them.** The scan tells you if a car is locked, has an alarm, or has a tracker. Taking cars isn't one button any more, so it pays to check first.
 
@@ -41,8 +46,12 @@ Press **R3** to switch between scanned cars (the dots above the panel), and **Ci
 
 The default PS5 controls list a **"Waink App"** on the D-pad (see our [controls guide](article:gta-6-controls-ps5-xbox)), and gaming coverage describes Waink as the phone's car-scanning app.
 
+**Car value:** the Waink app also shows **what a car is worth**, which we've confirmed on our own playthrough. Handy for picking which car to take.
+
 > [!REPORTED]
-> Other outlets report that Waink scans can also show a car's value, and that tracked cars can be followed by police after you take them. We haven't seen those on our own scans yet, so treat them as reported, not confirmed.
+> Other outlets report that tracked cars can be followed by police after you take them. We haven't seen that ourselves yet.
+
+Tools for locked and alarmed cars (Slim Jim, key cloner): see [how to steal cars](article:gta-6-how-to-steal-cars).
 
 ## Tips
 
