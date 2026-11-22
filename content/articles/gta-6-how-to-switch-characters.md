@@ -20,7 +20,9 @@ faqs:
   - { q: "Why can't I switch characters in GTA 6?", a: "Some missions lock you to one character, and if your partner's portrait is darkened they're busy. Try again after the mission or a little later." }
 updateLog:
   - date: '2026-11-22'
-    note: "Confirmed switching unlocks midway through Chapter 2; added the partner menu (hold Left on the D-pad)."
+    note: "Corrected the partner menu button: hold Right on the D-pad."
+  - date: '2026-11-22'
+    note: "Confirmed switching unlocks midway through Chapter 2; added the partner menu (hold Right on the D-pad)."
 updated: '2026-11-22'
 lastVerified: '2026-11-22'
 ---
@@ -47,7 +49,7 @@ lastVerified: '2026-11-22'
 
 ## Interacting with your partner
 
-To talk to or do things with your partner, **hold Left on the D-pad**. When they're driving, you get options like **Split Up & Take**, **Speed Up** and **Pull Over**:
+To talk to or do things with your partner, **hold Right on the D-pad**. When they're driving, you get options like **Split Up & Take**, **Speed Up** and **Pull Over**:
 
 ![GTA 6 partner menu while Lucia drives: Split Up & Take, Speed Up and Pull Over](/assets/uploads/gta-6-partner-menu-driving.jpg)
 

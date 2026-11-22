@@ -39,6 +39,9 @@ for (const f of fs.readdirSync(path.join(ROOT, "content/articles"))) {
 // New posts need an exact publish time so Recent news can put them first (tools/ship.mjs stamps it).
 for (const a of loadArticles()) if (["published", "needs-updating"].includes(a.status) && a.publishDate >= "2026-11-19" && !a.publishedAt) warn(`content/articles/${a.file}`, "no publishedAt: Recent news may not list it first (publish with tools/ship.mjs)");
 
+// Every live article needs a real GTA VI picture (user rule): our own screenshot first, else an official Rockstar image.
+for (const a of loadArticles()) if (["published", "needs-updating"].includes(a.status) && !["ours/art", "official/art"].some((d) => fs.existsSync(path.join(ROOT, `assets/${d}/${a.slug}.jpg`)))) err(`content/articles/${a.file}`, `no cover picture: add our screenshot as assets/ours/art/${a.slug}.jpg (+ -card, -share) or an official Rockstar image in assets/official/art`);
+
 let links = 0;
 for (const [u, h] of pages) {
   const f = u || "/";

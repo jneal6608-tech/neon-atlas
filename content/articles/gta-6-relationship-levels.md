@@ -19,6 +19,10 @@ faqs:
   - { q: "What is the highest relationship level in GTA 6?", a: "**Hot Together (4/4)**. Our save showed it on the Jason & Lucia tab of the pause menu." }
   - { q: "How do you raise Jason and Lucia's relationship in GTA 6?", a: "Players report spending time together raises it: hanging out at home, going out, and doing jobs side by side. Turning down invitations again and again can lower it." }
   - { q: "Is the relationship meter required in GTA 6?", a: "Guides say looking after the relationship is **optional**." }
+updateLog:
+  - date: '2026-11-22'
+    note: "Corrected the partner menu button: hold Right on the D-pad."
+updated: '2026-11-22'
 ---
 **Jason and Lucia have a relationship meter with 4 levels, and the top one is Hot Together.** Here's how it works, with no story spoilers.
 
@@ -63,4 +67,4 @@ When your partner is driving, a menu with their name pops up. Ours showed:
 - **Square:** Speed Up
 - **X:** Pull Over
 
-To talk to or interact with your partner, **hold Left on the D-pad**. For switching who you play as, see [switching characters](article:gta-6-how-to-switch-characters).
+To talk to or interact with your partner, **hold Right on the D-pad**. For switching who you play as, see [switching characters](article:gta-6-how-to-switch-characters).

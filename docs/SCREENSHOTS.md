@@ -39,3 +39,11 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [ ] **Using the Slim Jim or key cloner** on a car. Article: `gta-6-how-to-steal-cars`
 - [ ] **A store stick-up** (the cashier emptying the register). Article: `gta-6-rob-stores-stick-ups`
 - [ ] **Inside Photo Studio** (the camera or filter options). Article: `gta-6-photo-studio`
+
+## Official covers to replace (2026-11-22)
+
+These guides still use an official Rockstar picture as the cover. One of your own shots would replace it.
+
+- [ ] **The silenced pistol** (Assassin Nipper .38) in the boat hatch or in your weapon wheel. Article: `gta-6-silenced-pistol-assassin-nipper`
+- [ ] **The kraken** under the sea (needs scuba gear). Article: `gta-6-kraken`
+- [ ] **A cheat being entered**, if cheats work for you. Article: `gta-6-cheats`
