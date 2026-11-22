@@ -1,7 +1,7 @@
 ---
 title: "GTA 6 Fighting: How to Punch, Grab, Choke, Weave and Tackle"
 seoTitle: "GTA 6 Fighting: Body Slam, Choke, Grab & Tackle"
-description: "GTA 6 fighting controls on PS5: hold Square to body slam, R2 to grab, mash Square to choke from a headlock, X to dodge or parry then Square to counter, sprint + Square to tackle. With video."
+description: "GTA 6 fighting on PS5: hold Square to body slam, R2 to grab, Square to choke from a headlock, X to dodge or parry, then Square to counter. With video."
 answer: "On PS5, **Square** punches, **X** dodges or parries an incoming attack (then **Square** to counterattack), **hold Square** for a special attack like a **body slam**, **R2** grabs, and once you have someone in a **headlock** (easiest from **behind**), **mash Square** to choke. To **tackle**, sprint with **L3** and press **Square**."
 category: gameplay
 status: published

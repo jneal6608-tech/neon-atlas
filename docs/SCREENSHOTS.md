@@ -47,3 +47,10 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 - [ ] **The silenced pistol** (Assassin Nipper .38) in the boat hatch or in your weapon wheel. Article: `gta-6-silenced-pistol-assassin-nipper`
 - [ ] **The kraken** under the sea (needs scuba gear). Article: `gta-6-kraken`
 - [ ] **A cheat being entered**, if cheats work for you. Article: `gta-6-cheats`
+
+## New guides (2026-11-22, nightly)
+
+- [ ] **A gang hideout safe** being opened. Article: `gta-6-illegal-operations-safe-codes`
+- [ ] **Smashing a display case** in a pawn shop or jewelry store. Article: `gta-6-smash-n-grab`
+- [ ] **Scuba diving** (equipping gear on a boat, or underwater). Article: `gta-6-scuba-gear-diving`
+- [ ] **Hunting:** Focus showing an animal's vital spots, or selling at the hunting store. Article: `gta-6-hunting`
