@@ -18,6 +18,11 @@ faqs:
   - { q: "Is there fast travel in GTA 6?", a: "Not from the map. You call a **taxi** or use **RydeMe**, then pay to **skip the drive**." }
   - { q: "How much does it cost to skip a taxi ride in GTA 6?", a: "Reportedly about **$100**." }
   - { q: "How do you call a taxi in GTA 6?", a: "Open your phone (**D-pad up**), go to **Contacts** and call **Paradise Taxi**." }
+updateLog:
+  - date: '2026-11-22'
+    note: "Added the map Vehicles tab (bus stops, trains, ferries) from our own screenshot."
+updated: '2026-11-22'
+lastVerified: '2026-11-22'
 ---
 **GTA 6 doesn't let you fast travel from the map, but taxis and the RydeMe app get you across Leonida quickly.** Here's how, with no story spoilers.
 
@@ -48,5 +53,8 @@ It reportedly costs about **$100**. Ride the whole way and you don't pay the ski
 
 ## Other ways around
 
-- **Buses and trains** run around Leonida, but you can't call them.
+- **Buses, trains and ferries** run around Leonida, but you can't call them. The map's **Vehicles** tab lists every **Bus Stop**, **Train Station** and **Ferry Terminal** (confirmed on our copy):
+
+![GTA 6 map Vehicles tab listing Mod Shops, Pay 'n' Sprays, Gas Stations, Car Washes, Electric Chargers, Garages, car drop-offs, and transport: Bus Stops, Train Stations, Ferry Terminals](/assets/uploads/gta-6-map-vehicles-filter.jpg)
+
 - **Your own car:** remember to [refuel](article:gta-6-gas-refuel). You can [use your phone while driving](article:gta-6-phone-while-driving).

@@ -17,6 +17,11 @@ sources:
 faqs:
   - { q: "Can you customize cars in GTA 6?", a: "Yes. Mod shops offer Performance, Bodywork, Wheels and Interior upgrades." }
   - { q: "Where do you repair your car in GTA 6?", a: "At a **Pay 'n' Spray** (repairs and resprays) or a **mod shop**, which may ask you to repair before upgrading." }
+updateLog:
+  - date: '2026-11-22'
+    note: "Added how to find mod shops with the map Vehicles tab, from our own screenshot."
+updated: '2026-11-22'
+lastVerified: '2026-11-22'
 ---
 **You can customize cars in GTA 6 at mod shops, from engine upgrades to new wheels.** Here's how it works, with no story spoilers.
 
@@ -24,6 +29,12 @@ faqs:
 > From guides by people playing the game (sources below); the Ultimate Edition shops are from Rockstar's official Editions page.
 
 ![Jason's '70 Vapid Ganado pickup in GTA 6, one of the cars you can take to a mod shop](/assets/uploads/gta-6-vapid-70-ganado.jpg)
+
+## Finding a mod shop
+
+Open the map and pick the **Vehicles** tab (the car icon). On our copy it lists **Mod Shops**, **Pay 'n' Sprays**, **Gas Stations**, **Car Washes**, **Electric Chargers** and **Garages**; pick one to see the nearest.
+
+![GTA 6 map Vehicles tab listing Mod Shops, Pay 'n' Sprays, Gas Stations, Car Washes, Electric Chargers, Garages, car drop-offs, and transport: Bus Stops, Train Stations, Ferry Terminals](/assets/uploads/gta-6-map-vehicles-filter.jpg)
 
 ## Mod shops: upgrades
 

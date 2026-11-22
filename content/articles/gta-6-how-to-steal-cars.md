@@ -46,9 +46,13 @@ Full details: [Waink app guide](article:gta-6-waink-app-car-scanner).
 
 **Tip:** an alarm going off draws attention, so watch your [wanted level](article:gta-6-wanted-level).
 
-## Car theft side jobs (reported)
+## Car theft side jobs
 
-- **Vehicle drop-offs** reportedly open in **Port Gellhorn in Chapter 2**: you get a rough search area for a car, find it and deliver it.
+Open the map's **Robberies** or **Vehicles** tab and look under **Drop-offs**: on our copy it lists two contacts who buy stolen cars, **Randy** and **Moses**. The job description reads that Moses "is after a few specific vehicles and will pay extra for them."
+
+![GTA 6 map Robberies tab listing vehicle drop-offs for Randy and Moses, with a pop-up: Moses is after a few specific vehicles and will pay extra for them](/assets/uploads/gta-6-map-robberies-filter.jpg)
+
+- Players report the **vehicle drop-offs** open in **Chapter 2**: you get a rough search area for a car, find it and deliver it.
 - A **wish list** of cars to steal reportedly opens in **Chapter 3**.
 
 ## Free cars worth taking

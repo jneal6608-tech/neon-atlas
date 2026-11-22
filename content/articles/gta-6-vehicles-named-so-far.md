@@ -58,7 +58,9 @@ The year prefixes ('95, '67, '55) are part of Rockstar's names.
 
 ![Lucia getting out of her pink Pfister Growler sports car in a Vice City parking lot in GTA 6, with the name Lucia's Growler shown in the corner](/assets/uploads/gta-6-pfister-lucias-growler.jpg)
 
-**Lucia's Growler** is a two-door Pfister sports car; ours was pink. Seen on our own PS5 copy.
+**Lucia's Growler** is a two-door Pfister sports car; ours was **pink**. Seen on our own PS5 copy.
+
+**How we got it:** there's a **laptop in the apartment** you stay in. Find its **password** around the apartment and log in: a message there says someone **left a car** for the people who used to live there. Go to the marked spot and the car is yours.
 
 ## Vehicle-related shops
 

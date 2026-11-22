@@ -37,6 +37,18 @@ faqs:
 - **Gun stores**
 - **Regular shops**, plus liquor stores, fast-food places and pawn shops, guides say
 
+## Find robberies on the map
+
+Open the map and pick the **Robberies** tab (the money-bag icon). On our PS5 copy it lists every illegal way to make money:
+
+![GTA 6 map Robberies tab: Targets (Illegal Operations, Smash 'n' Grabs, Stick Ups), vehicle drop-offs (Randy, Moses, Pay 'n' Sprays) and goods drop-offs](/assets/uploads/gta-6-map-robberies-filter.jpg)
+
+- **Targets:** **Illegal Operations** (taking from gangs and common thieves), **Smash 'n' Grabs** and **Stick Ups**.
+- **Drop-offs, vehicles:** contacts who pay for **stolen cars**, plus **Pay 'n' Sprays**.
+- **Drop-offs, goods:** a contact who takes stolen goods.
+
+Pick any entry to see the nearest ones on the map.
+
 ## How a stick-up works (reported)
 
 1. Walk in and **aim at the cashier** (L2).
