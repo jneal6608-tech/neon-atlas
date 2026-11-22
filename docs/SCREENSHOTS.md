@@ -54,3 +54,4 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 - [ ] **Smashing a display case** in a pawn shop or jewelry store. Article: `gta-6-smash-n-grab`
 - [ ] **Scuba diving** (equipping gear on a boat, or underwater). Article: `gta-6-scuba-gear-diving`
 - [ ] **Hunting:** Focus showing an animal's vital spots, or selling at the hunting store. Article: `gta-6-hunting`
+- [ ] **The fighter jet on the runway** at Mile Zero (before take-off), for a better cover. Article: `gta-6-steal-fighter-jet`
