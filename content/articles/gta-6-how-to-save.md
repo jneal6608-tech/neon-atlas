@@ -19,6 +19,11 @@ faqs:
   - { q: "Does sleeping save the game in GTA 6?", a: "No. Players report sleeping in a bed only skips time. Use the pause menu to save." }
   - { q: "Does GTA 6 autosave?", a: "Yes. It autosaves to a separate slot that doesn't use up your 15 manual slots." }
   - { q: "Can you save during a mission in GTA 6?", a: "No. Players report you can't save mid-mission or during the opening; finish the mission first." }
+updateLog:
+  - date: '2026-11-22'
+    note: "Added our own screenshot of the Save screen (15 slots)."
+updated: '2026-11-22'
+lastVerified: '2026-11-22'
 ---
 **To save in GTA 6, pause the game, go to Game, then Save Game, and pick a slot.** You don't need to find a bed or a safehouse. Here's how it all works.
 
@@ -30,6 +35,10 @@ faqs:
 1. Press **Options** to pause.
 2. Go to **Game**, then **Save Game**.
 3. Pick one of **15 save slots**.
+
+![GTA 6 Save screen on PS5 under Game, with one used save slot showing the chapter progress percentage and date, and the rest empty](/assets/uploads/gta-6-save-menu-slots.jpg)
+
+On our own PS5 copy, the save screen sits under **Game → Save**. Each used slot shows your **progress percentage** and the **date and time** you saved, and the counter at the bottom reads **1 / 15**. Press **X** to overwrite a slot or **Square** to delete one.
 
 You can save **almost anywhere**, as long as you're **not in a mission**. You also can't save during the game's opening section.
 

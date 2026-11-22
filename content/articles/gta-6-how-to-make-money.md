@@ -17,6 +17,11 @@ sources:
 faqs:
   - { q: "What is the fastest way to make money early in GTA 6?", a: "Players report **looting gang hideouts** pays best early (roughly $1,000–2,000+ per site), then **selling stolen cars** once that unlocks in Chapter 2." }
   - { q: "Does money carry over between chapters in GTA 6?", a: "One guide warns that some early cash doesn't carry over, so **spend or bank it** before moving on. We haven't confirmed this ourselves." }
+updateLog:
+  - date: '2026-11-22'
+    note: "Added the map Robberies tab from our own screenshot."
+updated: '2026-11-22'
+lastVerified: '2026-11-22'
 ---
 **Short on cash in GTA 6? These are the money makers players are reporting so far, early game first.** We've kept it to features only, with no story spoilers.
 
@@ -36,6 +41,14 @@ faqs:
 - A buyer contact takes **stolen cars**. Runs reportedly take just **3–5 minutes**.
 - Guides disagree on whether there's a **daily limit**.
 - Scan cars first with the [Waink app](article:gta-6-waink-app-car-scanner) so you pick ones that are easy to take.
+
+## Where to find money jobs: the Robberies tab
+
+The map's **Robberies** tab (money-bag icon) lists the illegal ways to earn on our PS5 copy: **Illegal Operations** (taking from gangs and common thieves), **Smash 'n' Grabs**, **Stick Ups**, and **drop-offs** where contacts pay for **stolen cars** and **goods**.
+
+![GTA 6 map Robberies tab: Targets (Illegal Operations, Smash 'n' Grabs, Stick Ups), vehicle drop-offs (Randy, Moses, Pay 'n' Sprays) and goods drop-offs](/assets/uploads/gta-6-map-robberies-filter.jpg)
+
+How to rob stores: see [stick-ups](article:gta-6-rob-stores-stick-ups). Stealing cars: see [how to steal cars](article:gta-6-how-to-steal-cars).
 
 ## Later: bigger scores
 

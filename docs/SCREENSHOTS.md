@@ -18,8 +18,8 @@ gameplay, or fills a gap an article says we haven't captured yet.
 ## Gaps in older guides
 
 - [ ] **Pause menu Brief tab** (the article says we haven't captured it). Article: `gta-6-pause-menu-stats-progress`
-- [ ] **Switching characters:** the switch prompt or wheel. Article: `gta-6-how-to-switch-characters`
-- [ ] **Save menu** showing the save slots. Article: `gta-6-how-to-save`
+- [x] **Switching characters:** the switch prompt or wheel. Article: `gta-6-how-to-switch-characters`
+- [x] **Save menu** showing the save slots. Article: `gta-6-how-to-save`
 - [ ] **After a "Failed" screen:** the retry or checkpoint options. Article: `gta-6-mission-failed`
 - [ ] **Low or empty gas tank** (the fuel gauge). Article: `gta-6-gas-refuel`
 - [ ] **A garage or property:** one you own, or one for sale. Article: `gta-6-garages-properties`
@@ -31,3 +31,11 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [ ] **Vintage Vice City Pack items** in the game (if you pre-ordered). Article: `gta-6-pre-order-bonus-vintage-vice-city-pack`
 - [ ] **GTA+ screen** (Settings → Account → GTA+ Boosts). Article: `gta-6-free-month-gta-plus-redeem`
 - [ ] **Ultimate Edition extras** such as Rideout Customs (only if you have the Ultimate Edition). Article: `gta-6-editions-standard-vs-ultimate`
+
+## New guides (2026-11-22)
+
+- [ ] **Mini golf:** putting at King Gator or Frontier. Article: `gta-6-mini-golf`
+- [ ] **The purple Emerus** on Waxman Island (or the registration prompt). Article: `gta-6-waxman-island-emerus`
+- [ ] **Using the Slim Jim or key cloner** on a car. Article: `gta-6-how-to-steal-cars`
+- [ ] **A store stick-up** (the cashier emptying the register). Article: `gta-6-rob-stores-stick-ups`
+- [ ] **Inside Photo Studio** (the camera or filter options). Article: `gta-6-photo-studio`

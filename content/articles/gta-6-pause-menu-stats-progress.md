@@ -46,11 +46,13 @@ faqs:
       Yes. Story Recap is one of the 12 categories in the pause menu's Progress
       tab.
 updatedAt: '2026-11-19T06:28:36.420Z'
-updated: '2026-11-19'
-lastVerified: '2026-11-19'
 updateLog:
+  - date: '2026-11-22'
+    note: "Added Lucia's stats and the relationship level from our own screenshots."
   - date: '2026-11-19'
     note: Published from our own PS5 pause menu screenshots on launch day.
+updated: '2026-11-22'
+lastVerified: '2026-11-22'
 ---
 **GTA VI's pause menu has four tabs: Jason & Lucia, Map, Brief and Progress.** Switch between them with **L1** and **R1**. The surprise is the character screen: it tracks **sleep, food, calories, muscle, body fat and strength**, like a fitness tracker for your criminal.
 
@@ -82,6 +84,30 @@ What this tells you, without guessing at the exact rules:
 - **Sleep and food matter enough to be tracked.** Expect your character's state to change if you skip them.
 - **Body shape is tracked separately from strength.** Muscle and body fat sit alongside a Strength level that goes up to 4.
 - **Criminal Profile** is a rating ("Hardened" on ours). The UI settings also let you turn Criminal Profile notifications on or off.
+
+### Lucia's stats
+
+Switch to Lucia on the same tab to see hers. Our Lucia Caminos showed:
+
+![GTA 6 pause menu Jason & Lucia tab showing Lucia Caminos's stats: criminal profile, pocket cash, height, weight, sleep, nutrition, calories, body shape, muscle, body fat and strength](/assets/uploads/gta-6-pause-lucia-stats.jpg)
+
+| Stat | Ours showed |
+| --- | --- |
+| Criminal Profile | Hardened |
+| Pocket Cash | $67 |
+| Height | 5 ft 3 in |
+| Weight | 120 lb |
+| Sleep | Well Rested |
+| Nutrition | Fed |
+| Calories | Calorie Balance |
+| Body Shape | Lean |
+| Muscle | Low |
+| Body Fat | Low |
+| Strength | Level 1 of 4 |
+
+Each character has **their own stats and their own pocket cash**, so Lucia started out much weaker than our Jason (Strength 1 vs 3).
+
+**Relationship level:** the main Jason & Lucia screen also shows the couple's relationship level (ours: **Hot Together, 4/4**), your bank balance and your cash. See [relationship levels](article:gta-6-relationship-levels).
 
 We'll explain how each stat changes once we've tested it.
 
