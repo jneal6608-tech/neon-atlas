@@ -18,7 +18,6 @@
    "Explore Benefits",
    "Explore More",
    "Explore Now",
-   "Explore the Grand Theft Auto VI Launch Gallery",
    "Facebook",
    "Featured News",
    "For more on PlayStation benefits, see",
@@ -28,6 +27,7 @@
    "Grand Theft Auto VI",
    "Grand Theft Auto VI - Rockstar Games",
    "Grand Theft Auto VI Now Available",
+   "Grand Theft Auto VI: The Album (Deluxe Edition)",
    "Homepage",
    "In-Game Purchases.",
    "In-Game Radio, Soundtrack, and Score",
@@ -44,7 +44,7 @@
    "Newswire posts",
    "November 10, 2026",
    "November 19, 2026",
-   "November 5, 2026",
+   "November 23, 2026",
    "Now Available",
    "Only in Leonida",
    "Out Now",
@@ -83,7 +83,7 @@
    "label",
    "playstation.com/GTAVIfeatures"
   ],
-  "checked": "2026-11-22T23:45:55.702Z",
+  "checked": "2026-11-23T23:46:43.540Z",
   "url": "https://www.rockstargames.com/VI"
  },
  "editions": {
@@ -128,7 +128,7 @@
    "’67 Vapid Dominator Buggy",
    "’95 Grotti Cheetah"
   ],
-  "checked": "2026-11-22T23:45:55.748Z",
+  "checked": "2026-11-23T23:46:43.595Z",
   "url": "https://www.rockstargames.com/VI/editions"
  },
  "leonida": {
@@ -220,7 +220,7 @@
    "YouTube",
    "playstation.com/GTAVIfeatures"
   ],
-  "checked": "2026-11-22T23:45:55.792Z",
+  "checked": "2026-11-23T23:46:43.649Z",
   "url": "https://www.rockstargames.com/VI/only-in-leonida"
  },
  "store": {
@@ -387,7 +387,7 @@
    "’67 Vapid Dominator Buggy",
    "’95 Grotti Cheetah"
   ],
-  "checked": "2026-11-22T23:45:56.238Z",
+  "checked": "2026-11-23T23:46:44.156Z",
   "url": "https://store.rockstargames.com/game/buy-gta-vi"
  }
 }
