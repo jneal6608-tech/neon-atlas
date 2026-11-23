@@ -1,15 +1,15 @@
 ---
 title: 'GTA 6 Fighting: How to Punch, Grab, Choke, Weave and Tackle'
-seoTitle: 'GTA 6 Fighting: Punch, Body Slam, Tackle & Choke'
+seoTitle: "GTA 6 Fighting: Slap, Punch, Body Slam & Tackle"
 description: >-
-  GTA 6 fighting on PS5: hold Square to body slam, R2 to grab, Square to choke
-  from a headlock, X to dodge or parry, then Square to counter. With video.
+  GTA 6 fighting on PS5: Square to slap or punch, hold Square to body slam, R2
+  to grab and choke, X to dodge or parry, sprint + Square to tackle. With video.
 answer: >-
-  On PS5, **Square** punches, **X** dodges or parries an incoming attack (then
-  **Square** to counterattack), **hold Square** for a special attack like a
-  **body slam**, **R2** grabs, and once you have someone in a **headlock**
-  (easiest from **behind**), **mash Square** to choke. To **tackle**, sprint
-  with **L3** and press **Square**.
+  On PS5, **Square** punches (or **slaps** someone you're not fighting yet),
+  **X** dodges or parries an incoming attack (then **Square** to counterattack),
+  **hold Square** for a special attack like a **body slam**, **R2** grabs, and
+  once you have someone in a **headlock** (easiest from **behind**), **mash
+  Square** to choke. To **tackle**, sprint with **L3** and press **Square**.
 category: gameplay
 status: published
 featured: true
@@ -29,6 +29,12 @@ sources:
     publisher: Neon Atlas
     accessed: 2026-11-19T00:00:00.000Z
 faqs:
+  - q: How do you slap someone in GTA 6?
+    a: >-
+      Walk up to someone you're **not already fighting** (for example while
+      you're talking and things heat up) and press **Square**. Both **Jason and
+      Lucia** can slap. It's a smaller, non-lethal hit that often starts the
+      fight, but it's not guaranteed to come out as a slap.
   - q: How do you tackle someone in GTA 6?
     a: >-
       **Sprint** toward them and press the **melee** button (Square on PS5 by
@@ -57,6 +63,8 @@ faqs:
       **Square** is melee in the default PS5 control scheme. You can change it
       in Settings, then Control Scheme.
 updateLog:
+  - date: '2026-11-23'
+    note: 'Added how to slap people (Square out of combat), from our own play.'
   - date: '2026-11-22'
     note: >-
       Added dodging, parrying and counterattacks (X, then Square), from our own
@@ -78,7 +86,8 @@ Watch the moves in action above: tackling, grabbing, choking and hitting, from o
 
 | Move | Buttons |
 | --- | --- |
-| Punch | **Square** |
+| Slap (out of combat) | **Square** |
+| Punch | **Square** | (once the fight starts)
 | Dodge or parry an incoming attack | **X** |
 | Counterattack (after a dodge or parry) | **Square** |
 | Body slam / special attack | **Hold Square** |
@@ -92,6 +101,16 @@ Watch the moves in action above: tackling, grabbing, choking and hitting, from o
 
 - To fight with your fists, pick **Unarmed** (the fist) on the **weapon wheel** (hold **L1**).
 - **Square** is **melee** in the default PS5 controls. See our [controls guide](article:gta-6-controls-ps5-xbox).
+
+## How to slap someone
+
+Both **Jason and Lucia** can slap people:
+
+1. Walk up to someone you're **not fighting yet**. A good moment is when you're talking and things are **heating up**.
+2. Press **Square** (the hit button).
+3. Out of combat, that's usually a **slap**: a smaller, **non-lethal** hit that tends to **start the fight**.
+
+It's **not guaranteed**: sometimes it comes out as a punch instead. Once they're squared up against you, Square will almost always **punch**.
 
 ## Punch
 
