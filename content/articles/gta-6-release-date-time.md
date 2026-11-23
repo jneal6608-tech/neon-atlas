@@ -1,21 +1,19 @@
 ---
 title: 'GTA 6 Release Date and Unlock Time: What''s Confirmed'
-seoTitle: 'GTA 6 Release Date & Unlock Time (Nov 19, 2026)'
+seoTitle: 'GTA 6 Release Date: Out Now (Released Nov 19, 2026)'
 description: >-
-  GTA VI launches November 19, 2026 on PS5 and Xbox Series X|S. What Rockstar
-  confirmed, what's only reported about unlock times, and how to be ready.
+  GTA 6 is out now. It released November 19, 2026 on PS5 and Xbox Series X|S.
+  Release date, launch time, platforms, and what to read next.
 answer: >-
-  GTA VI releases **Thursday, November 19, 2026** on PS5 and Xbox Series X|S
-  (confirmed by Rockstar). The unlock time is reported as **midnight local
-  time**; some US storefronts may use Eastern time, which would mean 9 PM
-  Pacific on November 18.
+  **GTA 6 is out now.** It released on **Thursday, November 19, 2026** on **PS5
+  and Xbox Series X|S** (confirmed by Rockstar). There's no PC version yet.
 category: guides
 status: published
 confidence: mixed
 targetQuery: gta 6 release date
 publishDate: 2026-11-15T00:00:00.000Z
-updated: '2026-11-20'
-lastVerified: '2026-11-20'
+updated: '2026-11-23'
+lastVerified: '2026-11-23'
 related:
   - gta-6-pre-load-guide
   - is-gta-6-on-pc
@@ -67,9 +65,14 @@ faqs:
       19, 2026" and pre-loading is already open.
 updatedAt: '2026-11-20T23:21:41.482Z'
 updateLog:
+  - date: '2026-11-23'
+    note: 'Updated for launch: GTA 6 is out now.'
   - date: '2026-11-20'
     note: The free pre-order bonus window has closed.
 ---
+> [!CONFIRMED]
+> **GTA 6 is out now** (released November 19, 2026). New to the game? Start with our [beginner tips](article:gta-6-beginner-tips), [controls](article:gta-6-controls-ps5-xbox) and [fighting guide](article:gta-6-fighting-weave-tackle).
+
 **GTA VI releases on Thursday, November 19, 2026, on PlayStation 5 and Xbox Series X|S.** That date is on Rockstar's official site and the Rockstar Store, and pre-loading is already open, so you can download the game now and play the moment it unlocks.
 
 > [!CONFIRMED]
