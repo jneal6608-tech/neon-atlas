@@ -1,8 +1,15 @@
 ---
-title: "GTA 6 Fighting: How to Punch, Grab, Choke, Weave and Tackle"
-seoTitle: "GTA 6 Fighting: Body Slam, Choke, Grab & Tackle"
-description: "GTA 6 fighting on PS5: hold Square to body slam, R2 to grab, Square to choke from a headlock, X to dodge or parry, then Square to counter. With video."
-answer: "On PS5, **Square** punches, **X** dodges or parries an incoming attack (then **Square** to counterattack), **hold Square** for a special attack like a **body slam**, **R2** grabs, and once you have someone in a **headlock** (easiest from **behind**), **mash Square** to choke. To **tackle**, sprint with **L3** and press **Square**."
+title: 'GTA 6 Fighting: How to Punch, Grab, Choke, Weave and Tackle'
+seoTitle: 'GTA 6 Fighting: Punch, Body Slam, Tackle & Choke'
+description: >-
+  GTA 6 fighting on PS5: hold Square to body slam, R2 to grab, Square to choke
+  from a headlock, X to dodge or parry, then Square to counter. With video.
+answer: >-
+  On PS5, **Square** punches, **X** dodges or parries an incoming attack (then
+  **Square** to counterattack), **hold Square** for a special attack like a
+  **body slam**, **R2** grabs, and once you have someone in a **headlock**
+  (easiest from **behind**), **mash Square** to choke. To **tackle**, sprint
+  with **L3** and press **Square**.
 category: gameplay
 status: published
 featured: true
@@ -11,24 +18,53 @@ publishedAt: '2026-11-19T21:21:11Z'
 confidence: confirmed
 targetQuery: gta 6 fighting
 publishDate: '2026-11-19'
-related: [gta-6-controls-ps5-xbox, gta-6-wanted-level, gta-6-activities-pool-basketball-gym]
+related:
+  - gta-6-controls-ps5-xbox
+  - gta-6-wanted-level
+  - gta-6-activities-pool-basketball-gym
 sources:
-  - { type: community, title: "Neon Atlas: GTA VI on PS5, our own play (November 19, 2026)", url: "https://neonatlasguide.com/", publisher: "Neon Atlas", accessed: 2026-11-19 }
+  - type: community
+    title: 'Neon Atlas: GTA VI on PS5, our own play (November 19, 2026)'
+    url: 'https://neonatlasguide.com/'
+    publisher: Neon Atlas
+    accessed: 2026-11-19T00:00:00.000Z
 faqs:
-  - { q: "How do you tackle someone in GTA 6?", a: "**Sprint** toward them and press the **melee** button (Square on PS5 by default). Your character tackles them to the ground." }
-  - { q: "How do you body slam in GTA 6?", a: "In a fist fight, **hold Square** (the melee button on PS5) to do a **special attack**. Jason's special attacks include a **body slam**." }
-  - { q: "Can you dodge punches in GTA 6?", a: "Yes. Press **X** as an attack comes in to **dodge or parry** it." }
-  - { q: "How do you counterattack in GTA 6?", a: "**Dodge or parry** an incoming attack with **X**, then press **Square** right after to counterattack." }
-  - { q: "How do you choke someone in GTA 6?", a: "Grab them with **R2**. If you get them in a **headlock** (easiest from **behind**, or when they're not ready for you), **press Square repeatedly** to choke them." }
-  - { q: "How do you grab someone in GTA 6?", a: "Press **R2**. If they're ready for you, you just grab them, and you can **hit them with Square** while you hold on." }
-  - { q: "What button is punch in GTA 6?", a: "**Square** is melee in the default PS5 control scheme. You can change it in Settings, then Control Scheme." }
+  - q: How do you tackle someone in GTA 6?
+    a: >-
+      **Sprint** toward them and press the **melee** button (Square on PS5 by
+      default). Your character tackles them to the ground.
+  - q: How do you body slam in GTA 6?
+    a: >-
+      In a fist fight, **hold Square** (the melee button on PS5) to do a
+      **special attack**. Jason's special attacks include a **body slam**.
+  - q: Can you dodge punches in GTA 6?
+    a: Yes. Press **X** as an attack comes in to **dodge or parry** it.
+  - q: How do you counterattack in GTA 6?
+    a: >-
+      **Dodge or parry** an incoming attack with **X**, then press **Square**
+      right after to counterattack.
+  - q: How do you choke someone in GTA 6?
+    a: >-
+      Grab them with **R2**. If you get them in a **headlock** (easiest from
+      **behind**, or when they're not ready for you), **press Square
+      repeatedly** to choke them.
+  - q: How do you grab someone in GTA 6?
+    a: >-
+      Press **R2**. If they're ready for you, you just grab them, and you can
+      **hit them with Square** while you hold on.
+  - q: What button is punch in GTA 6?
+    a: >-
+      **Square** is melee in the default PS5 control scheme. You can change it
+      in Settings, then Control Scheme.
 updateLog:
   - date: '2026-11-22'
-    note: "Added dodging, parrying and counterattacks (X, then Square), from our own play."
+    note: >-
+      Added dodging, parrying and counterattacks (X, then Square), from our own
+      play.
   - date: '2026-11-22'
-    note: "Added grabbing and headlock chokes, from our own play."
-updated: '2026-11-22'
-lastVerified: '2026-11-22'
+    note: 'Added grabbing and headlock chokes, from our own play.'
+updated: '2026-11-23'
+lastVerified: '2026-11-23'
 ---
 **Fighting in GTA 6 is more than mashing punch.** You can throw punches, **grab** and **choke** people, **dodge, parry and counter**, and **tackle** someone who tries to run. Here's how, from our own PS5 copy.
 
