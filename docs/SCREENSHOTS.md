@@ -55,3 +55,10 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 - [ ] **Scuba diving** (equipping gear on a boat, or underwater). Article: `gta-6-scuba-gear-diving`
 - [ ] **Hunting:** Focus showing an animal's vital spots, or selling at the hunting store. Article: `gta-6-hunting`
 - [ ] **The fighter jet on the runway** at Mile Zero (before take-off), for a better cover. Article: `gta-6-steal-fighter-jet`
+
+## New guides (2026-11-23)
+
+- [ ] **Inside an Ammu-Nation** (the store menu with prices). Article: `gta-6-ammu-nation-weapons`
+- [ ] **A clothing store or your wardrobe** (changing outfits). Article: `gta-6-clothes-outfits-haircuts`
+- [ ] **Eating food or sleeping in bed** (any prompt or effect on screen). Article: `gta-6-eat-sleep-fitness`
+- [ ] **The BuckMe or Scooter Bros app** open on the phone. Article: `gta-6-phone-apps`
