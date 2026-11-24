@@ -12,7 +12,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [ ] **Fishing:** casting or reeling in a fish (dock by Jason's house). Article: `gta-6-fishing`
 - [ ] **Taxi or RydeMe ride,** ideally the "skip trip" prompt. Article: `gta-6-fast-travel`
 - [x] **Mod shop menu** showing the Performance, Bodywork, Wheels and Interior tabs. Article: `gta-6-car-customization`
-- [ ] **Focus view (L3 + R3)** highlighting something. Article: `gta-6-beginner-tips`
+- [x] **Focus view (L3 + R3)** highlighting something. Article: `gta-6-beginner-tips`
 - [x] **BuckMe or bank app** on the phone. Articles: `gta-6-beginner-tips`, `gta-6-how-to-make-money`
 
 ## Gaps in older guides
@@ -25,7 +25,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [x] **A garage or property:** one you own, or one for sale. Article: `gta-6-garages-properties`
 - [ ] **Picking up a collectible,** or Progress → Collections. Article: `gta-6-collectibles`
 - [ ] **A side job paying out** (the money on screen). Article: `gta-6-how-to-make-money`
-- [ ] **Progress → Stats** with the completion percentage (not Story Recap). Article: `gta-6-how-long-to-beat`
+- [x] **Progress → Stats** with the completion percentage (not Story Recap). Article: `gta-6-how-long-to-beat`
 - [ ] **The loading screen.** Article: `gta-6-stuck-on-loading-screen`
 - [x] **A few different cars** with their names showing. Article: `gta-6-vehicles-named-so-far`
 - [ ] **Vintage Vice City Pack items** in the game (if you pre-ordered). Article: `gta-6-pre-order-bonus-vintage-vice-city-pack`
@@ -54,7 +54,7 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 - [x] **Smashing a display case** in a pawn shop or jewelry store. Article: `gta-6-smash-n-grab`
 - [x] **Scuba diving** (equipping gear on a boat, or underwater). Article: `gta-6-scuba-gear-diving`
 - [ ] **Hunting:** Focus showing an animal's vital spots, or selling at the hunting store. Article: `gta-6-hunting`
-- [ ] **The fighter jet on the runway** at Mile Zero (before take-off), for a better cover. Article: `gta-6-steal-fighter-jet`
+- [x] **The fighter jet on the runway** at Mile Zero (before take-off), for a better cover. Article: `gta-6-steal-fighter-jet`
 
 ## New guides (2026-11-23)
 
