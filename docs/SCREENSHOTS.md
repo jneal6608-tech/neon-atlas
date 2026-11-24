@@ -62,3 +62,10 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 - [x] **A clothing store or your wardrobe** (changing outfits). Article: `gta-6-clothes-outfits-haircuts`
 - [x] **Eating food or sleeping in bed** (any prompt or effect on screen). Article: `gta-6-eat-sleep-fitness`
 - [x] **The BuckMe or Scooter Bros app** open on the phone. Article: `gta-6-phone-apps`
+
+## New guides (2026-11-24)
+
+- [ ] **A gym** (inside, or the membership prompt). Article: `gta-6-gyms-strength-cardio-focus`
+- [ ] **Running on a treadmill or riding a bike** for Cardio. Article: `gta-6-gyms-strength-cardio-focus`
+- [ ] **A standout vehicle** (a rare car, or its Waink scan). Article: `gta-6-standout-vehicles`
+- [ ] **Progress → Vehicles → Standout** list. Article: `gta-6-standout-vehicles`
