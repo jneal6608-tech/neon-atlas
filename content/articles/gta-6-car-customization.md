@@ -3,13 +3,14 @@ title: 'GTA 6 Car Customization: How to Upgrade and Mod Your Cars'
 seoTitle: 'GTA 6 Car Customization: Mod Shops seoTitle: '
 GTA 6 Car Customization: 'Mod Shops, Upgrades & Repairs" Upgrades"'
 description: >-
-  How to customize cars in GTA 6: mod shops for performance and looks, Pay 'n'
-  Spray for repairs and resprays, and the extra Ultimate Edition shops.
+  Every GTA 6 mod shop tab from our own PS5: Pro Builds, Cosmetics, Bodywork,
+  Performance, Wheels and Interior, plus Pay 'n' Spray repairs, registering and
+  selling.
 answer: >-
-  Take your car to a **mod shop** to upgrade **Performance, Bodywork, Wheels and
-  Interior**. Players report shops may make you **repair** the car first. **Pay
-  'n' Spray** is for **repairs and resprays** only. The Ultimate Edition adds
-  two extra mod shops.
+  Take your car to a **mod shop** (we used **Euroform Automotive**). It has 6
+  tabs: **Pro Builds, Cosmetics, Bodywork, Performance, Wheels and Interior**,
+  from engines and boost to underglow, liveries and seat stitching. **Pay 'n'
+  Spray** handles **repairs, resprays, registering and selling** cars.
 category: vehicles
 status: published
 publishedAt: '2026-11-21T23:47:47Z'
@@ -43,6 +44,8 @@ faqs:
       ask you to repair before upgrading.
 updateLog:
   - date: '2026-11-24'
+    note: Added all 6 mod shop tabs from our own screenshots (Euroform Automotive).
+  - date: '2026-11-24'
     note: >-
       Added our own Pay 'n' Spray screenshots: services, prices and stored
       vehicles.
@@ -66,13 +69,46 @@ Open the map and pick the **Vehicles** tab (the car icon). On our copy it lists 
 
 ![GTA 6 map Vehicles tab listing Mod Shops, Pay 'n' Sprays, Gas Stations, Car Washes, Electric Chargers, Garages, car drop-offs, and transport: Bus Stops, Train Stations, Ferry Terminals](/assets/uploads/gta-6-map-vehicles-filter.jpg)
 
-## Mod shops: upgrades
+## Mod shops: every tab (our PS5)
 
-1. Drive to a **mod shop** (look for its icon on the map).
-2. **Repair** the car first if the shop asks.
-3. Pick a category and choose parts, then pay.
+We took Lucia's Growler to **Euroform Automotive**, a mod shop. Switch tabs with **L1 / R1**:
 
-Upgrade categories reportedly include **Performance**, **Bodywork**, **Wheels** and **Interior**. Some upgrades trade one stat for another, so compare the numbers before you buy.
+| Tab | What's in it |
+| --- | --- |
+| **Pro Builds** | **Full Kits** and **Wheel Kits**: ready-made looks in one go |
+| **Cosmetics** | **Respray**, **Customizable Liveries**, **Decals**, **Underglow**, **Plates** |
+| **Bodywork** | **Hood, Spoiler, Front Bumper, Rear Bumper, Towing, Mirrors, Windows, Roof** and more (12 options) |
+| **Performance** | **Full Engine, Induction, Transmission, Boost** |
+| **Wheels** | **Tire Style, Rim Style, Rim Colors, Calipers** |
+| **Interior** | **Steering Wheel, Seats, Upholstery Material, Upholstery Color, Stitching, Trim** |
+
+![GTA 6 Euroform Automotive mod shop, Bodywork tab: hood, spoiler, bumpers, towing, mirrors, windows and roof for Lucia's Growler](/assets/uploads/gta-6-mod-shop-bodywork.jpg)
+
+### Performance and the car's stats
+
+![GTA 6 mod shop Performance tab: Full Engine, Induction, Transmission and Boost, with the car's speed, acceleration, asphalt and off-road handling, strength and rating](/assets/uploads/gta-6-mod-shop-performance.jpg)
+
+The Performance tab shows the car's **Speed, Acceleration, Asphalt Handling, Off-Road Handling** and **Strength**, plus an overall **Rating**, so you can see what each part changes. The game's tip: engine upgrades "adjust the torque and top speed. Pair with transmission upgrades to optimize performance." Hold **R2** to **rev** the engine.
+
+### Cosmetics: paint, liveries and underglow
+
+![GTA 6 mod shop Cosmetics tab: Respray, Customizable Liveries, Decals, Underglow and Plates, with Remove Livery & Stickers $50 and Restore Finish $185](/assets/uploads/gta-6-mod-shop-cosmetics.jpg)
+
+You can also **Remove Livery & Stickers** (ours was **$50**) or **Restore Finish** (**$185**).
+
+### Wheels and interior
+
+![GTA 6 mod shop Wheels tab: Tire Style, Rim Style, Rim Colors and Calipers on a black Growler with pink rims](/assets/uploads/gta-6-mod-shop-wheels.jpg)
+
+![GTA 6 mod shop Interior tab: steering wheel, seats, upholstery material and color, stitching and trim, showing a pink and white leopard interior](/assets/uploads/gta-6-mod-shop-interior.jpg)
+
+### Pro Builds
+
+![GTA 6 mod shop Pro Builds tab with Full Kits and Wheel Kits](/assets/uploads/gta-6-mod-shop-pro-builds.jpg)
+
+Short on time? **Pro Builds** apply a full kit or a wheel kit in one step.
+
+**Tip:** players report some shops make you **repair** the car before you can mod it.
 
 ## Pay 'n' Spray: repairs and paint
 

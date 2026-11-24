@@ -11,7 +11,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 
 - [ ] **Fishing:** casting or reeling in a fish (dock by Jason's house). Article: `gta-6-fishing`
 - [ ] **Taxi or RydeMe ride,** ideally the "skip trip" prompt. Article: `gta-6-fast-travel`
-- [ ] **Mod shop menu** showing the Performance, Bodywork, Wheels and Interior tabs. Article: `gta-6-car-customization`
+- [x] **Mod shop menu** showing the Performance, Bodywork, Wheels and Interior tabs. Article: `gta-6-car-customization`
 - [ ] **Focus view (L3 + R3)** highlighting something. Article: `gta-6-beginner-tips`
 - [x] **BuckMe or bank app** on the phone. Articles: `gta-6-beginner-tips`, `gta-6-how-to-make-money`
 
