@@ -24,7 +24,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [ ] **Low or empty gas tank** (the fuel gauge). Article: `gta-6-gas-refuel`
 - [x] **A garage or property:** one you own, or one for sale. Article: `gta-6-garages-properties`
 - [ ] **Picking up a collectible,** or Progress → Collections. Article: `gta-6-collectibles`
-- [ ] **A side job paying out** (the money on screen). Article: `gta-6-how-to-make-money`
+- [x] **A side job paying out** (the money on screen). Article: `gta-6-how-to-make-money`
 - [x] **Progress → Stats** with the completion percentage (not Story Recap). Article: `gta-6-how-long-to-beat`
 - [ ] **The loading screen.** Article: `gta-6-stuck-on-loading-screen`
 - [x] **A few different cars** with their names showing. Article: `gta-6-vehicles-named-so-far`
@@ -60,5 +60,5 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 
 - [x] **Inside an Ammu-Nation** (the store menu with prices). Article: `gta-6-ammu-nation-weapons`
 - [x] **A clothing store or your wardrobe** (changing outfits). Article: `gta-6-clothes-outfits-haircuts`
-- [ ] **Eating food or sleeping in bed** (any prompt or effect on screen). Article: `gta-6-eat-sleep-fitness`
+- [x] **Eating food or sleeping in bed** (any prompt or effect on screen). Article: `gta-6-eat-sleep-fitness`
 - [x] **The BuckMe or Scooter Bros app** open on the phone. Article: `gta-6-phone-apps`
