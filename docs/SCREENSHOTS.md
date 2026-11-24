@@ -10,7 +10,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 ## New guides (2026-11-21)
 
 - [ ] **Fishing:** casting or reeling in a fish (dock by Jason's house). Article: `gta-6-fishing`
-- [ ] **Taxi or RydeMe ride,** ideally the "skip trip" prompt. Article: `gta-6-fast-travel`
+- [x] **Taxi or RydeMe ride,** ideally the "skip trip" prompt. Article: `gta-6-fast-travel`
 - [x] **Mod shop menu** showing the Performance, Bodywork, Wheels and Interior tabs. Article: `gta-6-car-customization`
 - [x] **Focus view (L3 + R3)** highlighting something. Article: `gta-6-beginner-tips`
 - [x] **BuckMe or bank app** on the phone. Articles: `gta-6-beginner-tips`, `gta-6-how-to-make-money`
@@ -34,7 +34,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 
 ## New guides (2026-11-22)
 
-- [ ] **Mini golf:** putting at King Gator or Frontier. Article: `gta-6-mini-golf`
+- [x] **Mini golf:** putting at King Gator or Frontier. Article: `gta-6-mini-golf`
 - [ ] **The purple Emerus** on Waxman Island (or the registration prompt). Article: `gta-6-waxman-island-emerus`
 - [x] **Using the Slim Jim or key cloner** on a car. Article: `gta-6-how-to-steal-cars`
 - [x] **A store stick-up** (the cashier emptying the register). Article: `gta-6-rob-stores-stick-ups`
