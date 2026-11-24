@@ -1,25 +1,68 @@
 ---
-title: "GTA 6 Illegal Operations: Gang Hideouts and Safe Codes"
-seoTitle: "GTA 6 Safe Codes: Gang Hideouts & Illegal Operations"
-description: "How GTA 6's Illegal Operations work: raiding gang hideouts, finding them on the map, and the gang hideout safe codes players have reported so far."
-answer: "**Illegal Operations** are gang hideouts you can raid for cash, listed under **Robberies → Targets** on the map. Players report the hideout **safe codes are fixed**, for example **Kingpin Bowling 0300**, **Brooks Boatworks 6823**, **La Cascara Motel 6969** and **Sunrise RV Park 6769**. Store and jewelry safe codes are **random**, so look for clues there."
+title: 'GTA 6 Illegal Operations: Gang Hideouts and Safe Codes'
+seoTitle: 'GTA 6 Safe Codes: Gang Hideouts & Illegal Operations'
+description: >-
+  How GTA 6's Illegal Operations work: raiding gang hideouts, finding them on
+  the map, and the gang hideout safe codes players have reported so far.
+answer: >-
+  **Illegal Operations** are gang hideouts you can raid for cash, listed under
+  **Robberies → Targets** on the map. Players report the hideout **safe codes
+  are fixed**, for example **Kingpin Bowling 0300**, **Brooks Boatworks 6823**,
+  **La Cascara Motel 6969** and **Sunrise RV Park 6769**. Store and jewelry safe
+  codes are **random**, so look for clues there.
 category: gameplay
 status: published
 publishedAt: '2026-11-22T23:47:22Z'
 confidence: mixed
 targetQuery: gta 6 safe codes
 publishDate: '2026-11-22'
-related: [gta-6-rob-stores-stick-ups, gta-6-how-to-make-money, gta-6-smash-n-grab]
+related:
+  - gta-6-rob-stores-stick-ups
+  - gta-6-how-to-make-money
+  - gta-6-smash-n-grab
 sources:
-  - { type: community, title: "Neon Atlas: GTA VI map Robberies tab on our PS5 (our own copy)", url: "https://neonatlasguide.com/gameplay/gta-6-illegal-operations-safe-codes/", publisher: "Neon Atlas", accessed: 2026-11-22 }
-  - { type: reported, title: "GTA 6 Gang Operations: All 39 Illegal Operation Locations", url: "https://metaforge.app/gta-6/gta-6-gang-operations-locations", publisher: "Metaforge" }
-  - { type: reported, title: "Grand Theft Auto 6 Illegal Operations List: All Gangs and Hideouts", url: "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-illegal-operations-list-all-gangs-and-hideouts/", publisher: "games.gg" }
-  - { type: reported, title: "GTA 6 Safe Codes, Door Codes, Laptop Passwords", url: "https://gamerant.com/gta-6-safe-codes-keypad-combinations-door-passwords-list/", publisher: "Game Rant" }
-  - { type: reported, title: "GTA 6 Safe Codes: Every Safe, Door and Keypad Code", url: "https://gtascoop.com/guides/gta-6-safe-codes/", publisher: "GTA Scoop" }
+  - type: community
+    title: 'Neon Atlas: GTA VI map Robberies tab on our PS5 (our own copy)'
+    url: 'https://neonatlasguide.com/gameplay/gta-6-illegal-operations-safe-codes/'
+    publisher: Neon Atlas
+    accessed: 2026-11-22T00:00:00.000Z
+  - type: reported
+    title: 'GTA 6 Gang Operations: All 39 Illegal Operation Locations'
+    url: 'https://metaforge.app/gta-6/gta-6-gang-operations-locations'
+    publisher: Metaforge
+  - type: reported
+    title: 'Grand Theft Auto 6 Illegal Operations List: All Gangs and Hideouts'
+    url: >-
+      https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-illegal-operations-list-all-gangs-and-hideouts/
+    publisher: games.gg
+  - type: reported
+    title: 'GTA 6 Safe Codes, Door Codes, Laptop Passwords'
+    url: >-
+      https://gamerant.com/gta-6-safe-codes-keypad-combinations-door-passwords-list/
+    publisher: Game Rant
+  - type: reported
+    title: 'GTA 6 Safe Codes: Every Safe, Door and Keypad Code'
+    url: 'https://gtascoop.com/guides/gta-6-safe-codes/'
+    publisher: GTA Scoop
 faqs:
-  - { q: "What are Illegal Operations in GTA 6?", a: "Gang hideouts and operations you can raid for cash. They're listed on the map under **Robberies → Targets → Illegal Operations**." }
-  - { q: "Are GTA 6 safe codes random?", a: "Players report **gang hideout** codes are **fixed**, but **store and jewelry** robbery safe codes are **random**, so you find the code in that store." }
-  - { q: "What is the Kingpin Bowling safe code in GTA 6?", a: "Several guides report **0300**." }
+  - q: What are Illegal Operations in GTA 6?
+    a: >-
+      Gang hideouts and operations you can raid for cash. They're listed on the
+      map under **Robberies → Targets → Illegal Operations**.
+  - q: Are GTA 6 safe codes random?
+    a: >-
+      Players report **gang hideout** codes are **fixed**, but **store and
+      jewelry** robbery safe codes are **random**, so you find the code in that
+      store.
+  - q: What is the Kingpin Bowling safe code in GTA 6?
+    a: Several guides report **0300**.
+updateLog:
+  - date: '2026-11-24'
+    note: >-
+      New cover and confirmed that some stash house safes are broken open, no
+      code needed.
+updated: '2026-11-24'
+lastVerified: '2026-11-24'
 ---
 **Illegal Operations are gang hideouts you can raid for cash, and most have a safe.** Here's how they work and the codes players have reported, with no story spoilers.
 
@@ -33,6 +76,12 @@ Open the map, pick the **Robberies** tab (money-bag icon), and under **Targets**
 ![GTA 6 map Robberies tab with Illegal Operations, Smash 'n' Grabs and Stick Ups listed under Targets](/assets/uploads/gta-6-map-robberies-filter.jpg)
 
 Guides count about **39** of them across Leonida.
+
+## Inside a stash house (our PS5)
+
+![GTA 6 gang stash house: Jason with a rifle next to a small black safe with the prompt Triangle Break Open](/assets/uploads/gta-6-stash-safe-break-open.jpg)
+
+Not every safe needs a code. In this gang **stash house**, the safe just said **Triangle: Break Open**, so we cracked it on the spot. Other hideout safes use a code (below).
 
 ## Gang hideout safe codes (reported)
 
