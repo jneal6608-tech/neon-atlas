@@ -44,7 +44,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 
 These guides still use an official Rockstar picture as the cover. One of your own shots would replace it.
 
-- [ ] **The silenced pistol** (Assassin Nipper .38) in the boat hatch or in your weapon wheel. Article: `gta-6-silenced-pistol-assassin-nipper`
+- [x] **The silenced pistol** (Assassin Nipper .38) in the boat hatch or in your weapon wheel. Article: `gta-6-silenced-pistol-assassin-nipper`
 - [ ] **The kraken** under the sea (needs scuba gear). Article: `gta-6-kraken`
 - [ ] **A cheat being entered**, if cheats work for you. Article: `gta-6-cheats`
 

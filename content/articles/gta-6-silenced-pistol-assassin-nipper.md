@@ -1,8 +1,15 @@
 ---
-title: "GTA 6 Silenced Pistol: How to Get the Assassin Nipper .38 Early"
-seoTitle: "GTA 6 Silenced Pistol Location: Assassin Nipper .38"
-description: "Where to find GTA 6's legendary silenced pistol, the Assassin Nipper .38, for free in Chapter 1, plus a bonus shotgun nearby. No story spoilers."
-answer: "Players report the **Assassin Nipper .38**, a legendary **silenced pistol**, is free in a **beached wooden boat** in the **Permit Keys**, west of Maroon Key. Take a boat or jet ski from **Key Lento** and open the **hatch in the middle of the deck**. It's reportedly reachable in **Chapter 1**."
+title: 'GTA 6 Silenced Pistol: How to Get the Assassin Nipper .38 Early'
+seoTitle: 'GTA 6 Silenced Pistol Location: Assassin Nipper .38'
+description: >-
+  Get a silenced pistol in GTA 6: the free legendary Assassin Nipper .38 in
+  Chapter 1, or put a suppressor on any pistol at a gun store. No story
+  spoilers.
+answer: >-
+  Players report the **Assassin Nipper .38**, a legendary **silenced pistol**,
+  is free in a **beached wooden boat** in the **Permit Keys**, west of Maroon
+  Key. Take a boat or jet ski from **Key Lento** and open the **hatch in the
+  middle of the deck**. It's reportedly reachable in **Chapter 1**.
 category: gameplay
 status: published
 featured: true
@@ -10,15 +17,51 @@ publishedAt: '2026-11-22T22:15:26Z'
 confidence: mixed
 targetQuery: gta 6 silenced pistol
 publishDate: '2026-11-22'
-related: [gta-6-beginner-tips, gta-6-fighting-weave-tackle, gta-6-wanted-level]
+related:
+  - gta-6-beginner-tips
+  - gta-6-fighting-weave-tackle
+  - gta-6-wanted-level
 sources:
-  - { type: reported, title: "GTA 6: Best Early-Game Unique Weapon Locations", url: "https://www.keengamer.com/articles/guides/gta-6-best-early-game-unique-weapon-locations/", publisher: "KeenGamer" }
-  - { type: reported, title: "GTA 6: Where to Find Three Legendary Weapons in Chapter 1", url: "https://www.gtaboom.com/gta-6-chapter-1-legendary-weapon-locations-2ea1", publisher: "GTA Boom" }
-  - { type: reported, title: "Grand Theft Auto 6: Assassin Pistol & Smuggler Shotgun Locations", url: "https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-assassin-pistol-smuggler-shotgun-locations/", publisher: "games.gg" }
-  - { type: reported, title: "GTA 6: How to Get the Silenced Pistol (Assassin Nipper .38)", url: "https://gamerant.com/gta-6-how-get-silenced-pistol-assassin-nipper-38-unique-legendary-weapon/", publisher: "Game Rant" }
+  - type: reported
+    title: 'GTA 6: Best Early-Game Unique Weapon Locations'
+    url: >-
+      https://www.keengamer.com/articles/guides/gta-6-best-early-game-unique-weapon-locations/
+    publisher: KeenGamer
+  - type: reported
+    title: 'GTA 6: Where to Find Three Legendary Weapons in Chapter 1'
+    url: 'https://www.gtaboom.com/gta-6-chapter-1-legendary-weapon-locations-2ea1'
+    publisher: GTA Boom
+  - type: reported
+    title: 'Grand Theft Auto 6: Assassin Pistol & Smuggler Shotgun Locations'
+    url: >-
+      https://games.gg/grand-theft-auto-vi/guides/grand-theft-auto-6-assassin-pistol-smuggler-shotgun-locations/
+    publisher: games.gg
+  - type: reported
+    title: 'GTA 6: How to Get the Silenced Pistol (Assassin Nipper .38)'
+    url: >-
+      https://gamerant.com/gta-6-how-get-silenced-pistol-assassin-nipper-38-unique-legendary-weapon/
+    publisher: Game Rant
 faqs:
-  - { q: "Where is the silenced pistol in GTA 6?", a: "Players report the **Assassin Nipper .38** is in a beached wooden boat in the **Permit Keys**, west of Maroon Key." }
-  - { q: "Can you get the silenced pistol early in GTA 6?", a: "Guides say yes: it's reachable in **Chapter 1** by boat or jet ski from Key Lento, and it's free." }
+  - q: Where is the silenced pistol in GTA 6?
+    a: >-
+      Players report the **Assassin Nipper .38** is in a beached wooden boat in
+      the **Permit Keys**, west of Maroon Key.
+  - q: Can you get the silenced pistol early in GTA 6?
+    a: >-
+      Guides say yes: it's reachable in **Chapter 1** by boat or jet ski from
+      Key Lento, and it's free.
+  - q: How do you put a silencer on a gun in GTA 6?
+    a: >-
+      At a gun store's weapon locker, pick the gun and choose **Modify** to add
+      a **suppressor**. A small suppressor icon then shows on its weapon wheel
+      slot.
+updateLog:
+  - date: '2026-11-24'
+    note: >-
+      New cover and a section on adding a suppressor to any pistol, from our own
+      screenshots.
+updated: '2026-11-24'
+lastVerified: '2026-11-24'
 ---
 **GTA 6's legendary silenced pistol is free if you know where to look,** and players say you can grab it in Chapter 1. Here's where, with no story spoilers.
 
@@ -38,6 +81,18 @@ One guide describes the wreck as a "derelict spy vessel" at the tip of a southea
 
 - It's a **suppressed** pistol, so shooting is less likely to bring the police right away. Handy for robberies and [staying off the wanted level](article:gta-6-wanted-level).
 - It's **free**: no Ammu-Nation trip needed.
+
+## Or put a suppressor on any pistol (our PS5)
+
+You don't have to find the Nipper to go quiet. At a gun store's **weapon locker**, pick a pistol and choose **Modify** to add a **suppressor**. Ours was a **Girardi ES9** military pistol:
+
+![GTA 6 gun store menu: Girardi ES9 military pistol fitted with a suppressor, with damage, accuracy, handling and range stats and the Modify option](/assets/uploads/gta-6-iron-oak-pistol-menu.jpg)
+
+Once it's fitted, the pistol's slot on your **weapon wheel** (hold **L1**) shows a small **suppressor icon** in the corner:
+
+![GTA 6 weapon wheel with a suppressed pistol in the top slot, 15 rounds loaded and 52 in reserve](/assets/uploads/gta-6-weapon-wheel-suppressed-pistol.jpg)
+
+![Close-up of the GTA 6 weapon wheel pistol slot with the small suppressor icon in the top-right corner](/assets/uploads/gta-6-weapon-wheel-suppressor-icon.jpg)
 
 ## Bonus: Smuggler Gorse 425 shotgun
 
