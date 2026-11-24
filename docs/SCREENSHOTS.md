@@ -21,10 +21,10 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [x] **Switching characters:** the switch prompt or wheel. Article: `gta-6-how-to-switch-characters`
 - [x] **Save menu** showing the save slots. Article: `gta-6-how-to-save`
 - [ ] **After a "Failed" screen:** the retry or checkpoint options. Article: `gta-6-mission-failed`
-- [ ] **Low or empty gas tank** (the fuel gauge). Article: `gta-6-gas-refuel`
+- [x] **Low or empty gas tank** (the fuel gauge). Article: `gta-6-gas-refuel`
 - [x] **A garage or property:** one you own, or one for sale. Article: `gta-6-garages-properties`
 - [ ] **Picking up a collectible,** or Progress → Collections. Article: `gta-6-collectibles`
-- [ ] **A side job paying out** (the money on screen). Article: `gta-6-how-to-make-money`
+- [x] **A side job paying out** (the money on screen). Article: `gta-6-how-to-make-money`
 - [x] **Progress → Stats** with the completion percentage (not Story Recap). Article: `gta-6-how-long-to-beat`
 - [ ] **The loading screen.** Article: `gta-6-stuck-on-loading-screen`
 - [x] **A few different cars** with their names showing. Article: `gta-6-vehicles-named-so-far`
@@ -50,7 +50,7 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 
 ## New guides (2026-11-22, nightly)
 
-- [ ] **A gang hideout safe** being opened. Article: `gta-6-illegal-operations-safe-codes`
+- [x] **A gang hideout safe** being opened. Article: `gta-6-illegal-operations-safe-codes`
 - [x] **Smashing a display case** in a pawn shop or jewelry store. Article: `gta-6-smash-n-grab`
 - [x] **Scuba diving** (equipping gear on a boat, or underwater). Article: `gta-6-scuba-gear-diving`
 - [ ] **Hunting:** Focus showing an animal's vital spots, or selling at the hunting store. Article: `gta-6-hunting`
@@ -60,5 +60,5 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 
 - [x] **Inside an Ammu-Nation** (the store menu with prices). Article: `gta-6-ammu-nation-weapons`
 - [x] **A clothing store or your wardrobe** (changing outfits). Article: `gta-6-clothes-outfits-haircuts`
-- [ ] **Eating food or sleeping in bed** (any prompt or effect on screen). Article: `gta-6-eat-sleep-fitness`
+- [x] **Eating food or sleeping in bed** (any prompt or effect on screen). Article: `gta-6-eat-sleep-fitness`
 - [x] **The BuckMe or Scooter Bros app** open on the phone. Article: `gta-6-phone-apps`

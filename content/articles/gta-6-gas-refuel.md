@@ -60,6 +60,8 @@ updated: '2026-11-24'
 lastVerified: '2026-11-24'
 updateLog:
   - date: '2026-11-24'
+    note: Added the low-fuel warning icon from our own screenshot.
+  - date: '2026-11-24'
     note: >-
       Confirmed refueling from our own screenshot: the pump prompt shows Refuel
       ($24) and Repair prices.
@@ -98,6 +100,14 @@ Electric cars **can't use gas pumps**. Use an **Electric Charger** instead: they
 ## How to check your fuel
 
 When you get in a car, its name shows in the bottom-left corner with **status icons** underneath. On Jason's '70 Ganado we saw two green icons there, an engine and a fuel pump. See the picture in our [vehicles guide](article:gta-6-vehicles-named-so-far).
+
+## The low fuel warning
+
+When your tank gets low, a **yellow gas-pump icon** pops up just **above the minimap** (bottom left). That's your cue to find a station.
+
+![Close-up of the GTA 6 minimap with a yellow gas pump low-fuel icon showing above it](/assets/uploads/gta-6-low-fuel-icon.jpg)
+
+![GTA 6: driving a van down a Vice City street at sunset, with the yellow low-fuel icon above the minimap](/assets/uploads/gta-6-low-fuel-driving.jpg)
 
 ## What happens if you run out of gas?
 

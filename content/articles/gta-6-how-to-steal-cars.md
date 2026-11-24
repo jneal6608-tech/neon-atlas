@@ -54,6 +54,8 @@ faqs:
     a: Yes. The **Waink** app shows a car's value when you scan it.
 updateLog:
   - date: '2026-11-24'
+    note: Added our own screenshot of pulling a driver out of a car.
+  - date: '2026-11-24'
     note: 'Added our own screenshots: the Slim Jim prompt and the My Vehicles screen.'
 updated: '2026-11-24'
 lastVerified: '2026-11-24'
@@ -87,6 +89,12 @@ Full details: [Waink app guide](article:gta-6-waink-app-car-scanner).
 On our PS5 copy, walking up to a locked car gives two choices: **Triangle: Slim Jim** (quiet) or **Square: Smash Window** (fast, but loud).
 
 **Tip:** an alarm going off draws attention, so watch your [wanted level](article:gta-6-wanted-level).
+
+## Carjacking a car someone's driving
+
+![GTA 6 carjacking: a driver thrown onto the road next to a white Ocelot Jugular with its door open, and GPS showing U-Turn Left 186 ft](/assets/uploads/gta-6-carjack-driver-pulled-out.jpg)
+
+You can still take a car **with someone in it**: walk up to the driver's door and get in, and the driver gets **pulled out** onto the road. Ours was an **Ocelot Jugular**. It's loud, so expect witnesses and police.
 
 ## Car theft side jobs
 
