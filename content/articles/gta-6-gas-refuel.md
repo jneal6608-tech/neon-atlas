@@ -5,11 +5,10 @@ description: >-
   Yes, cars need gas in GTA 6. How to refuel at a pump step by step, what it
   costs, how to find gas stations on the map, and charging electric cars.
 answer: >-
-  **Yes, cars in GTA 6 need gas.** Pull up next to a **gas pump**, open
-  **Services** when the prompt appears and pick **Refuel**. Players report a
-  fill-up costs only about **$12–$39**. Find the nearest station on the map
-  under **Vehicles → Gas Stations**; electric cars use **Electric Chargers**
-  instead.
+  **Yes, cars in GTA 6 need gas.** Pull up next to a **gas pump** and the prompt
+  shows **Refuel** with its price (ours was **$24**) and **Repair**. Press **X**
+  to refuel. Find the nearest station on the map under **Vehicles → Gas
+  Stations**; electric cars use **Electric Chargers** instead.
 category: gameplay
 status: published
 publishedAt: '2026-11-19T21:06:09Z'
@@ -42,12 +41,12 @@ sources:
 faqs:
   - q: How do you get gas in GTA 6?
     a: >-
-      Park next to a **gas pump**, open **Services** when the prompt appears and
-      choose **Refuel**.
+      Park next to a **gas pump** and press **X** on **Refuel** when the prompt
+      appears.
   - q: How much does gas cost in GTA 6?
     a: >-
-      Players report a fill-up costs about **$12–$39**, and the menu shows the
-      price before you pay.
+      Cheap: our fill-up at a RON station cost **$24**. The price shows on the
+      pump prompt before you pay; players report about $12–$39.
   - q: What happens if you run out of gas in GTA 6?
     a: >-
       Players report the **engine cuts out** and the car stops. We haven't run
@@ -57,9 +56,15 @@ faqs:
       Use an **electric charger** instead of a gas pump. They're listed on the
       map under **Vehicles → Electric Chargers**.
 updatedAt: '2026-11-19T21:04:41.485Z'
-updated: '2026-11-23'
-lastVerified: '2026-11-23'
+updated: '2026-11-24'
+lastVerified: '2026-11-24'
 updateLog:
+  - date: '2026-11-24'
+    note: Added the low-fuel warning icon from our own screenshot.
+  - date: '2026-11-24'
+    note: >-
+      Confirmed refueling from our own screenshot: the pump prompt shows Refuel
+      ($24) and Repair prices.
   - date: '2026-11-23'
     note: >-
       Added refueling steps, cost, finding gas stations and chargers on the map,
@@ -75,13 +80,13 @@ updateLog:
 
 1. Find a gas station: open the map, pick the **Vehicles** tab (car icon) and choose **Gas Stations**.
 2. Park right **next to a pump**.
-3. When the prompt appears, open **Services** and choose **Refuel**.
-4. Check the price and confirm. Players report a fill-up costs only about **$12–$39**.
+3. The prompt shows **Refuel** with the price, and **Repair**. Press **X** to refuel.
+
+![GTA 6 RON gas station: a damaged black sports car at the pump with the prompt Refuel ($24) and Repair ($1,048)](/assets/uploads/gta-6-gas-pump-refuel-repair.jpg)
+
+Ours, at a **RON** station, said **Refuel ($24)** and **Repair ($1,048)** for a banged-up car. Players report fill-ups run about **$12–$39**, depending on the car and how empty it is.
 
 ![GTA 6 map Vehicles tab listing Gas Stations, Electric Chargers, Mod Shops, Pay 'n' Sprays and more](/assets/uploads/gta-6-map-vehicles-filter.jpg)
-
-> [!REPORTED]
-> The Services → Refuel steps and prices come from players' guides (sources below). The map tabs and gas pumps are from our own PS5 copy.
 
 ## Electric cars
 
@@ -95,6 +100,14 @@ Electric cars **can't use gas pumps**. Use an **Electric Charger** instead: they
 ## How to check your fuel
 
 When you get in a car, its name shows in the bottom-left corner with **status icons** underneath. On Jason's '70 Ganado we saw two green icons there, an engine and a fuel pump. See the picture in our [vehicles guide](article:gta-6-vehicles-named-so-far).
+
+## The low fuel warning
+
+When your tank gets low, a **yellow gas-pump icon** pops up just **above the minimap** (bottom left). That's your cue to find a station.
+
+![Close-up of the GTA 6 minimap with a yellow gas pump low-fuel icon showing above it](/assets/uploads/gta-6-low-fuel-icon.jpg)
+
+![GTA 6: driving a van down a Vice City street at sunset, with the yellow low-fuel icon above the minimap](/assets/uploads/gta-6-low-fuel-driving.jpg)
 
 ## What happens if you run out of gas?
 

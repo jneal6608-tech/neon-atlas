@@ -1,8 +1,15 @@
 ---
-title: "How to Steal a Fighter Jet in GTA 6 (Mile Zero Air Station)"
-seoTitle: "GTA 6 Fighter Jet: How to Steal One From the Base"
-description: "How to steal a fighter jet from Mile Zero Air Station in GTA 6: where the military base is, how to get in, the jet's missiles and cannon, and the wanted level. With video."
-answer: "Head to **Mile Zero Air Station**, the military base by **Southwind** in the Keys. Get in through the **main gate** or over the fence, **run to a parked jet** on the flight line and take off. Our jet had **missiles** and a **cannon** (turret). Expect a **4 to 5 star wanted level**, players report."
+title: How to Steal a Fighter Jet in GTA 6 (Mile Zero Air Station)
+seoTitle: 'GTA 6 Fighter Jet: How to Steal One From the Base'
+description: >-
+  How to steal a fighter jet from Mile Zero Air Station in GTA 6: where the
+  military base is, how to get in, the jet's missiles and cannon, and the wanted
+  level. With video.
+answer: >-
+  Head to **Mile Zero Air Station**, the military base by **Southwind** in the
+  Keys. Get in through the **main gate** or over the fence, **run to a parked
+  jet** on the flight line and take off. Our jet had **missiles** and a
+  **cannon** (turret). Expect a **4 to 5 star wanted level**, players report.
 category: vehicles
 status: published
 featured: true
@@ -10,18 +17,60 @@ publishedAt: '2026-11-22T23:52:19Z'
 confidence: mixed
 targetQuery: gta 6 fighter jet
 publishDate: '2026-11-22'
-related: [gta-6-wanted-level, gta-6-vehicles-named-so-far, gta-6-how-to-steal-cars]
+related:
+  - gta-6-wanted-level
+  - gta-6-vehicles-named-so-far
+  - gta-6-how-to-steal-cars
 sources:
-  - { type: community, title: "Neon Atlas: stealing a fighter jet on our PS5 (our own video and screenshots)", url: "https://youtu.be/BQGdLu0MlC0", publisher: "Neon Atlas", accessed: 2026-11-22 }
-  - { type: reported, title: "You Can Steal A Fighter Jet From The Military Base In GTA 6", url: "https://www.slashgear.com/2321327/gta-6-how-to-steal-fighter-jet-from-military-base-location/", publisher: "SlashGear" }
-  - { type: reported, title: "How to steal a fighter jet and battle tank in GTA 6", url: "https://www.militarytimes.com/off-duty/movies-video-games/2026/11/19/how-to-steal-a-fighter-jet-and-battle-tank-in-gta-6/", publisher: "Military Times" }
-  - { type: reported, title: "GTA 6 Fighter Jet and Tank Location: How to Steal Them From Mile Zero", url: "https://metaforge.app/gta-6/gta-6-fighter-jet-and-tank-location-how-to-steal-them-from-mile-zero", publisher: "Metaforge" }
-  - { type: reported, title: "How to sneak into Mile Zero Military Base in GTA 6 and steal a Jet", url: "https://www.sportskeeda.com/gta/how-sneak-mile-zero-military-base-gta-6-steal-jet", publisher: "Sportskeeda" }
+  - type: community
+    title: >-
+      Neon Atlas: stealing a fighter jet on our PS5 (our own video and
+      screenshots)
+    url: 'https://youtu.be/BQGdLu0MlC0'
+    publisher: Neon Atlas
+    accessed: 2026-11-22T00:00:00.000Z
+  - type: reported
+    title: You Can Steal A Fighter Jet From The Military Base In GTA 6
+    url: >-
+      https://www.slashgear.com/2321327/gta-6-how-to-steal-fighter-jet-from-military-base-location/
+    publisher: SlashGear
+  - type: reported
+    title: How to steal a fighter jet and battle tank in GTA 6
+    url: >-
+      https://www.militarytimes.com/off-duty/movies-video-games/2026/11/19/how-to-steal-a-fighter-jet-and-battle-tank-in-gta-6/
+    publisher: Military Times
+  - type: reported
+    title: 'GTA 6 Fighter Jet and Tank Location: How to Steal Them From Mile Zero'
+    url: >-
+      https://metaforge.app/gta-6/gta-6-fighter-jet-and-tank-location-how-to-steal-them-from-mile-zero
+    publisher: Metaforge
+  - type: reported
+    title: How to sneak into Mile Zero Military Base in GTA 6 and steal a Jet
+    url: >-
+      https://www.sportskeeda.com/gta/how-sneak-mile-zero-military-base-gta-6-steal-jet
+    publisher: Sportskeeda
 faqs:
-  - { q: "Where is the military base in GTA 6?", a: "**Mile Zero Air Station**, next to **Southwind** in the Keys, west of the Permit Keys and Maroon Key." }
-  - { q: "Can you steal a fighter jet in GTA 6?", a: "Yes. We did it: get into Mile Zero Air Station, run to a parked jet and take off. Players report you can do it as early as **Chapter 1**." }
-  - { q: "What weapons does the fighter jet have in GTA 6?", a: "Ours had **missiles** and a **cannon** (turret). Switch between them on the weapon wheel." }
-  - { q: "What wanted level do you get for stealing a jet in GTA 6?", a: "Players report **4 stars** for breaking in and up to **5 stars** once you're in the jet." }
+  - q: Where is the military base in GTA 6?
+    a: >-
+      **Mile Zero Air Station**, next to **Southwind** in the Keys, west of the
+      Permit Keys and Maroon Key.
+  - q: Can you steal a fighter jet in GTA 6?
+    a: >-
+      Yes. We did it: get into Mile Zero Air Station, run to a parked jet and
+      take off. Players report you can do it as early as **Chapter 1**.
+  - q: What weapons does the fighter jet have in GTA 6?
+    a: >-
+      Ours had **missiles** and a **cannon** (turret). Switch between them on
+      the weapon wheel.
+  - q: What wanted level do you get for stealing a jet in GTA 6?
+    a: >-
+      Players report **4 stars** for breaking in and up to **5 stars** once
+      you're in the jet.
+updateLog:
+  - date: '2026-11-24'
+    note: New cover from our own screenshot of the jets on the runway.
+updated: '2026-11-24'
+lastVerified: '2026-11-24'
 ---
 **Yes, you can steal a fighter jet in GTA 6,** and we did it on our own PS5. Here's where the base is, how to get in and what the jet can do. No story spoilers.
 
@@ -45,6 +94,12 @@ Set it as your destination on the map, then drive or fly down the Keys.
 3. **Get in and take off** down the runway.
 
 Players report you can do this as early as **Chapter 1**; no mission is needed.
+
+## The jets on the runway
+
+![GTA 6 Mile Zero Air Station: fighter jets with missiles on the runway beside a hangar, with a shot-up Mariana County Sheriff car and a 2-star wanted level](/assets/uploads/gta-6-mile-zero-fighter-jets.jpg)
+
+The jets sit parked in a row outside the hangars, missiles and all. Expect the police to follow you in.
 
 ## The jet's weapons
 
