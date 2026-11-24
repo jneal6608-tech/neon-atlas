@@ -8,8 +8,8 @@ description: >-
 answer: >-
   GTA VI's pause menu has four tabs: **Jason & Lucia** (character stats such as
   sleep, nutrition, calories, muscle, body fat and strength), **Map**, **Brief**
-  and **Progress** (12 categories, including Stats, Vehicles, Weapons, Animals, Equipment,
-  Collections, Activities, Gangs, Robberies and Story Recap).
+  and **Progress** (12 categories, including Stats, Vehicles, Weapons, Animals,
+  Equipment, Collections, Activities, Gangs, Robberies and Story Recap).
 category: gameplay
 status: published
 publishedAt: '2026-11-19T06:39:58Z'
@@ -47,12 +47,14 @@ faqs:
       tab.
 updatedAt: '2026-11-19T06:28:36.420Z'
 updateLog:
+  - date: '2026-11-24'
+    note: Added the Progress → Stats page from our own screenshot.
   - date: '2026-11-22'
-    note: "Added Lucia's stats and the relationship level from our own screenshots."
+    note: Added Lucia's stats and the relationship level from our own screenshots.
   - date: '2026-11-19'
     note: Published from our own PS5 pause menu screenshots on launch day.
-updated: '2026-11-22'
-lastVerified: '2026-11-22'
+updated: '2026-11-24'
+lastVerified: '2026-11-24'
 ---
 **GTA VI's pause menu has four tabs: Jason & Lucia, Map, Brief and Progress.** Switch between them with **L1** and **R1**. The surprise is the character screen: it tracks **sleep, food, calories, muscle, body fat and strength**, like a fitness tracker for your criminal.
 
@@ -155,3 +157,9 @@ The Progress tab has **12 categories**:
 12. Story Recap
 
 **Equipment** (shown with binoculars), **Animals** and **Collections** suggest there's plenty to find and log around Leonida. **Story Recap** is the place to catch up if you take a break from the story.
+
+## Progress → Stats
+
+![GTA 6 Progress Stats page with General, Jason and Lucia tabs and Partner Progress stats](/assets/uploads/gta-6-progress-stats-partner.jpg)
+
+The **Stats** category has **General, Jason** and **Lucia** tabs. General's sections are **100% Completion** (locked until you finish), **Jason & Lucia, Earnings, Spending, Wanted & Heat, Vehicle Theft & Combat, Deaths & Losses** and **Favorites**. Partner Progress tracks things like **story completion**, **time played** (each character and together), **time holding hands**, **robberies together**, **garages owned**, **standout vehicles found** (of 267), **unique weapon variants** (of 127), **gym memberships** (of 8) and **shops discovered**.

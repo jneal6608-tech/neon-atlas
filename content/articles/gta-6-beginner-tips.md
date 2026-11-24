@@ -52,6 +52,8 @@ faqs:
       useful notes and spots where fish are. Players say it's worth using often.
 updateLog:
   - date: '2026-11-24'
+    note: Added our own Focus view screenshot.
+  - date: '2026-11-24'
     note: Added our own BuckMe bank screenshot.
 updated: '2026-11-24'
 lastVerified: '2026-11-24'
@@ -72,7 +74,9 @@ lastVerified: '2026-11-24'
 
 ## Getting around and exploring
 
-5. **Use Focus (L3 + R3) a lot.** It highlights enemies, useful notes (some have safe codes) and more.
+5. **Use Focus (L3 + R3) a lot.** It highlights enemies, useful notes (some have safe codes) and more. The world dims and what matters lights up:
+
+![GTA 6 Focus view: the street dims to blue-grey while a person ahead is highlighted in red](/assets/uploads/gta-6-focus-view-person.jpg)
 6. **Dark buildings on the map can be entered,** players say; lighter ones usually can't.
 7. **Follow random sounds.** Odd noises and voices can lead to hidden side content.
 8. **Need a lift?** Taxis and the RydeMe app: see [fast travel](article:gta-6-fast-travel).
