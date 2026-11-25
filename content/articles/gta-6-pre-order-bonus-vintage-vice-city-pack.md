@@ -14,8 +14,8 @@ status: published
 confidence: confirmed
 targetQuery: gta 6 pre order bonus
 publishDate: 2026-11-15T00:00:00.000Z
-updated: '2026-11-20'
-lastVerified: '2026-11-20'
+updated: '2026-11-25'
+lastVerified: '2026-11-25'
 related:
   - gta-6-free-month-gta-plus-redeem
   - gta-6-editions-standard-vs-ultimate
@@ -31,6 +31,13 @@ sources:
     url: 'https://www.rockstargames.com/VI/editions'
     publisher: Rockstar Games
     accessed: '2026-11-20'
+  - type: official
+    title: >-
+      Grand Theft Auto VI: Vintage Vice City Pack (PlayStation Store
+      description, photographed on our PS5)
+    url: 'https://store.playstation.com/'
+    publisher: PlayStation Store
+    accessed: '2026-11-25'
 faqs:
   - q: Can you still get the Vintage Vice City Pack?
     a: >-
@@ -50,8 +57,18 @@ faqs:
       Yes. Rockstar's Editions page says the Standard Edition comes "along with
       pre-order bonuses" and lists the Vintage Vice City Pack, and the Ultimate
       Edition includes its own extras on top.
+  - q: What comes with the Vintage Vice City Pack?
+    a: >-
+      A **'55 Vapid Stanier** sedan with the **Shore Court garage** near Ocean
+      Beach, retro **outfits and hairstyles** for Jason and Lucia, and a
+      **palm-tree weapon pattern** inspired by Tommy Vercetti. Items unlock as
+      the story progresses.
 updatedAt: '2026-11-20T23:21:41.477Z'
 updateLog:
+  - date: '2026-11-25'
+    note: >-
+      Added what each item is, from the pack's PlayStation Store description
+      (our own photo).
   - date: '2026-11-20'
     note: >-
       The free pre-order offer ended November 20; Rockstar now sells the Vintage
@@ -81,7 +98,19 @@ Plus, listed separately as a **Digital Store Early Purchase Bonus** (it was call
 
 - **Free Month of GTA+**
 
-Rockstar hasn't published images or detailed descriptions of each item on the pages we checked. We'll add details once we've redeemed them in the game.
+### What each item actually is
+
+The pack's description on the **PlayStation Store** spells it out:
+
+![PlayStation Store description of the GTA VI Vintage Vice City Pack: '55 Vapid Stanier and Shore Court garage, outfits and hairstyles, and an exclusive weapon pattern](/assets/uploads/gta-6-vintage-vice-city-pack-contents.jpg)
+
+| Item | What you get |
+| --- | --- |
+| **'55 Vapid Stanier** | A classic sedan, plus the **Shore Court garage** near **Ocean Beach**. The garage has a **weapon locker** and a secure spot to **stash stolen goods** to be fenced. |
+| **Outfits and hairstyles** | A **vintage pastel linen suit** and a retro haircut for **Jason**; a **red sequin mini dress** and curls for **Lucia**. |
+| **Exclusive weapon pattern** | A **tropical palm-tree pattern** you can put on most guns, inspired by **Tommy Vercetti's** shirt from GTA Vice City. |
+
+**When you get them:** the store says all items "will be available to Jason and Lucia **as their story progresses**", so they don't all show up on day one.
 
 ## Who qualifies?
 
@@ -99,10 +128,7 @@ Rockstar hasn't published images or detailed descriptions of each item on the pa
 
 ## How do I get the bonus items in the game?
 
-Rockstar hasn't explained the in-game delivery on the pages we checked. Pre-order bonuses usually unlock automatically on the account that bought the game, but that's our expectation, not a confirmed GTA VI detail. We'll replace this paragraph with exact steps after launch.
-
-> [!PREDICTED]
-> We expect the items to appear automatically, or to be collected at a set point in the story. That's based on Rockstar's past games and isn't confirmed for GTA VI.
+The PlayStation Store listing says the items "will be available to Jason and Lucia **as their story progresses**." So keep playing: they unlock along the way rather than all at once. You need the base game to use them.
 
 ## How to redeem the free GTA+ month
 

@@ -33,17 +33,19 @@ sources:
     url: 'https://www.gtaboss.gg/gta-6/guides/gta-6-businesses'
     publisher: GTA Boss
 faqs:
+  - q: Can you buy businesses in GTA 6?
+    a: >-
+      Not in story mode so far. Players report garages are the only property
+      you can buy, and there's no passive income yet.
   - q: Can you buy property in GTA 6?
     a: >-
       Players report you can buy **garages**. Safehouses unlock as you play
       rather than being bought.
-  - q: Can you buy businesses in GTA 6?
-    a: >-
-      Not confirmed. Guides so far haven't found buyable businesses in story
-      mode.
   - q: How much do garages cost in GTA 6?
     a: 'Reportedly about **$4,000–40,000** each, unlocking from Chapter 2.'
 updateLog:
+  - date: '2026-11-24'
+    note: Answered whether you can buy businesses (not so far; garages only).
   - date: '2026-11-24'
     note: Added our own map screenshot of a garage.
 updated: '2026-11-24'
@@ -68,9 +70,11 @@ On our map, **Port Gellhorn Station Garage** shows **Parking Full** and the car 
 
 - **Safehouses aren't for sale.** They unlock as you progress the story.
 
-## Businesses
+## Can you buy businesses?
 
-- **Not confirmed.** Guides haven't found businesses you can buy in story mode yet.
+- **No, not in story mode so far.** Launch guides agree **garages are the only property you can buy**, and nobody has found a business that earns money while you're away.
+- Bars, clubs and shops you see around Leonida are places to **spend** money, not buy.
+- All your money comes from **playing**: robberies, selling cars and side jobs. See [how to make money](article:gta-6-how-to-make-money).
 - The **Ultimate Edition** lists extra places like mod shops and a compound: see [editions](article:gta-6-editions-standard-vs-ultimate).
 
 ## Tips
