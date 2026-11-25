@@ -71,3 +71,9 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 
 - [ ] **Settings → Display** showing Blood & Gore. Article: `gta-6-age-rating-parents-guide`
 - [ ] **The loading screen.** Article: `gta-6-stuck-on-loading-screen`
+
+## New guides (2026-11-25)
+
+- [ ] **Selling loot to a fence** (the sell menu or drop box). Article: `gta-6-fence-stolen-goods`
+- [ ] **Driving a boat or jet ski** (or the Anchor option). Article: `gta-6-boats-jet-skis`
+- [ ] **An airboat in Grassrivers.** Article: `gta-6-boats-jet-skis`
