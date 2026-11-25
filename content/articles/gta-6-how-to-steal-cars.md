@@ -103,6 +103,7 @@ Open the map's **Robberies** or **Vehicles** tab and look under **Drop-offs**: o
 ![GTA 6 map Robberies tab listing vehicle drop-offs for Randy and Moses, with a pop-up: Moses is after a few specific vehicles and will pay extra for them](/assets/uploads/gta-6-map-robberies-filter.jpg)
 
 - Players report the **vehicle drop-offs** open in **Chapter 2**: you get a rough search area for a car, find it and deliver it.
+- **Moses** (Port Gellhorn) reportedly buys **lower-end cars without trackers**; **Randy** (Balsero) pays more for the higher-end cars on his **wish list**. More on selling loot: [fence locations](article:gta-6-fence-stolen-goods).
 - A **wish list** of cars to steal reportedly opens in **Chapter 3**.
 
 ## Keeping a car you take
