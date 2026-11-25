@@ -82,6 +82,12 @@ Open the phone with **Up on the D-pad**. Red dots mark apps with something new.
 
 Some apps **unlock as you progress the story**, so your phone fills up over time.
 
+## Gallery (our PS5)
+
+![GTA 6 phone Gallery app with My Photos and Personal albums](/assets/uploads/gta-6-phone-gallery-app.jpg)
+
+The **Gallery** keeps your pictures in albums: **My Photos** (shots you take with the Camera) and **Personal**.
+
 ## BuckMe and My Vehicles (our PS5)
 
 ![GTA 6 BuckMe bank app: a $94,432 checking account, a Family Savings goal of $7,000 and Perks](/assets/uploads/gta-6-buckme-bank-app.jpg)

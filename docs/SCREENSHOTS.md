@@ -26,7 +26,6 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [ ] **Picking up a collectible,** or Progress → Collections. Article: `gta-6-collectibles`
 - [x] **A side job paying out** (the money on screen). Article: `gta-6-how-to-make-money`
 - [x] **Progress → Stats** with the completion percentage (not Story Recap). Article: `gta-6-how-long-to-beat`
-- [ ] **The loading screen.** Article: `gta-6-stuck-on-loading-screen`
 - [x] **A few different cars** with their names showing. Article: `gta-6-vehicles-named-so-far`
 - [ ] **Vintage Vice City Pack items** in the game (if you pre-ordered). Article: `gta-6-pre-order-bonus-vintage-vice-city-pack`
 - [ ] **GTA+ screen** (Settings → Account → GTA+ Boosts). Article: `gta-6-free-month-gta-plus-redeem`
@@ -69,3 +68,8 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 - [ ] **Running on a treadmill or riding a bike** for Cardio. Article: `gta-6-gyms-strength-cardio-focus`
 - [ ] **A standout vehicle** (a rare car, or its Waink scan). Article: `gta-6-standout-vehicles`
 - [ ] **Progress → Vehicles → Standout** list. Article: `gta-6-standout-vehicles`
+
+## Still needed for covers (2026-11-25)
+
+- [ ] **Settings → Display** showing Blood & Gore. Article: `gta-6-age-rating-parents-guide`
+- [ ] **The loading screen.** Article: `gta-6-stuck-on-loading-screen`
