@@ -28,7 +28,6 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [x] **Progress → Stats** with the completion percentage (not Story Recap). Article: `gta-6-how-long-to-beat`
 - [x] **A few different cars** with their names showing. Article: `gta-6-vehicles-named-so-far`
 - [ ] **Vintage Vice City Pack items** in the game (if you pre-ordered). Article: `gta-6-pre-order-bonus-vintage-vice-city-pack`
-- [ ] **GTA+ screen** (Settings → Account → GTA+ Boosts). Article: `gta-6-free-month-gta-plus-redeem`
 - [ ] **Ultimate Edition extras** such as Rideout Customs (only if you have the Ultimate Edition). Article: `gta-6-editions-standard-vs-ultimate`
 
 ## New guides (2026-11-22)
@@ -37,7 +36,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 - [ ] **The purple Emerus** on Waxman Island (or the registration prompt). Article: `gta-6-waxman-island-emerus`
 - [x] **Using the Slim Jim or key cloner** on a car. Article: `gta-6-how-to-steal-cars`
 - [x] **A store stick-up** (the cashier emptying the register). Article: `gta-6-rob-stores-stick-ups`
-- [ ] **Inside Photo Studio** (the camera or filter options). Article: `gta-6-photo-studio`
+- [x] **Inside Photo Studio** (the camera or filter options). Article: `gta-6-photo-studio`
 
 ## Official covers to replace (2026-11-22)
 
@@ -45,7 +44,6 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 
 - [x] **The silenced pistol** (Assassin Nipper .38) in the boat hatch or in your weapon wheel. Article: `gta-6-silenced-pistol-assassin-nipper`
 - [ ] **The kraken** under the sea (needs scuba gear). Article: `gta-6-kraken`
-- [ ] **A cheat being entered**, if cheats work for you. Article: `gta-6-cheats`
 
 ## New guides (2026-11-22, nightly)
 
