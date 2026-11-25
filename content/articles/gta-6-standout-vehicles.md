@@ -39,6 +39,8 @@ Our **Progress → Stats** page tracks **Standout Vehicles Found**: ours was **4
 - Check **driveways, parking lots and open garages**: many sit at **fixed spots**.
 - Some drive around in **traffic**, so keep an eye on the road.
 - **Scan** any car that looks special with the **Waink** app: see the [Waink guide](article:gta-6-waink-app-car-scanner).
+
+![GTA 6 Waink car scan: Jason pointing his phone at a parked pickup, with a panel showing Access, Security and Tracker](/assets/uploads/gta-6-waink-car-scan.jpg)
 - Your found standouts are listed under **Progress → Vehicles**.
 
 ## Keep it

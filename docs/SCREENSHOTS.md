@@ -17,7 +17,7 @@ gameplay, or fills a gap an article says we haven't captured yet.
 
 ## Gaps in older guides
 
-- [ ] **Pause menu Brief tab** (the article says we haven't captured it). Article: `gta-6-pause-menu-stats-progress`
+- [x] **Pause menu Brief tab** (the article says we haven't captured it). Article: `gta-6-pause-menu-stats-progress`
 - [x] **Switching characters:** the switch prompt or wheel. Article: `gta-6-how-to-switch-characters`
 - [x] **Save menu** showing the save slots. Article: `gta-6-how-to-save`
 - [ ] **After a "Failed" screen:** the retry or checkpoint options. Article: `gta-6-mission-failed`
@@ -65,7 +65,7 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 
 ## New guides (2026-11-24)
 
-- [ ] **A gym** (inside, or the membership prompt). Article: `gta-6-gyms-strength-cardio-focus`
+- [x] **A gym** (inside, or the membership prompt). Article: `gta-6-gyms-strength-cardio-focus`
 - [ ] **Running on a treadmill or riding a bike** for Cardio. Article: `gta-6-gyms-strength-cardio-focus`
-- [ ] **A standout vehicle** (a rare car, or its Waink scan). Article: `gta-6-standout-vehicles`
+- [x] **A standout vehicle** (a rare car, or its Waink scan). Article: `gta-6-standout-vehicles`
 - [ ] **Progress → Vehicles → Standout** list. Article: `gta-6-standout-vehicles`
