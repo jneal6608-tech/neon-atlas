@@ -83,7 +83,7 @@
    "label",
    "playstation.com/GTAVIfeatures"
   ],
-  "checked": "2026-11-25T23:46:04.607Z",
+  "checked": "2026-11-26T23:46:22.489Z",
   "url": "https://www.rockstargames.com/VI"
  },
  "editions": {
@@ -128,7 +128,7 @@
    "’67 Vapid Dominator Buggy",
    "’95 Grotti Cheetah"
   ],
-  "checked": "2026-11-25T23:46:04.696Z",
+  "checked": "2026-11-26T23:46:22.528Z",
   "url": "https://www.rockstargames.com/VI/editions"
  },
  "leonida": {
@@ -220,12 +220,11 @@
    "YouTube",
    "playstation.com/GTAVIfeatures"
   ],
-  "checked": "2026-11-25T23:46:04.742Z",
+  "checked": "2026-11-26T23:46:22.573Z",
   "url": "https://www.rockstargames.com/VI/only-in-leonida"
  },
  "store": {
   "lines": [
-   "$79.99",
    "*While supplies last, further details",
    ", and related logos are trademarks and copyrights of Take-Two Interactive Software, Inc. All other marks and trademarks are the property of their respective owners. All rights reserved.",
    "01 - Vice City 01",
@@ -253,7 +252,6 @@
    "English",
    "English, French, Italian, German, Russian, Japanese, Polish, Korean, Simplified Chinese, Traditional Chinese, Spanish (Mexico), Spanish (Spain), Portuguese (Brazil)",
    "Estimated shipping time: 1–7 days",
-   "Estimated shipping time: 1–7 days, depending on shipping selection",
    "Featured",
    "Flash back to when the neon burned brightest with the Vintage Vice City Pack, featuring the timeless two-tone ’55 Vapid Stanier sedan and garage alongside the world-famous Ocean Beach, decadent outfits and hairstyles for both Jason and Lucia, and an iconic weapon pattern that echoes the excess of the past.",
    "GTA VI - What is in the Vintage Vice City Pack? FAQ ITEM",
@@ -344,6 +342,7 @@
    "Shop Rockstar Games",
    "Sign In",
    "Skip to Content",
+   "Sold Out",
    "Standard Edition",
    "Stock 305 Clothing Store",
    "Store",
@@ -387,7 +386,7 @@
    "’67 Vapid Dominator Buggy",
    "’95 Grotti Cheetah"
   ],
-  "checked": "2026-11-25T23:46:05.184Z",
+  "checked": "2026-11-26T23:46:23.168Z",
   "url": "https://store.rockstargames.com/game/buy-gta-vi"
  }
 }
