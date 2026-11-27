@@ -1,10 +1,7 @@
 ---
 title: 'GTA 6 Photo Mode: How to Use Photo Studio'
 seoTitle: 'GTA 6 Photo Mode (Photo Studio): How to Open and Use It'
-description: >-
-  How to open GTA 6's Photo Studio photo mode from the pause menu, what the
-  camera, focus, filter and lighting options do, where photos save, and how to
-  take selfies.
+description: "How to open GTA 6's Photo Studio (photo mode) from the pause menu, what the camera, focus, filter and lighting options do, and where photos save."
 answer: >-
   Pause the game and pick **Photo Studio** in the menu, or press **Square** (X
   on Xbox) on the pause screen. You can move the camera, change the field of

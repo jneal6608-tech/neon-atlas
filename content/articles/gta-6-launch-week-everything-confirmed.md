@@ -1,7 +1,7 @@
 ---
 title: "GTA 6 Launch Week: Everything Confirmed So Far"
-seoTitle: "GTA 6 Launch Week: Every Confirmed Detail"
-description: "One page with every officially confirmed GTA VI launch detail: date, platforms, pre-load, editions, prices, physical copies, bonuses and story. Re-checked daily until launch."
+seoTitle: "GTA 6 Launch: Every Detail Rockstar Confirmed"
+description: "Every launch detail Rockstar confirmed for GTA VI in one page: release date, platforms, pre-load, editions, prices, physical copies and bonuses."
 answer: "Confirmed: GTA VI launches **November 19, 2026** on PS5 and Xbox Series X|S, pre-load is open, Standard costs **$79.99**, physical boxes contain a code (no disc), and orders before **November 20** get the Vintage Vice City Pack."
 category: news
 status: published
@@ -23,7 +23,7 @@ sources:
 updateLog:
   - { date: 2026-11-15, note: "Page created. All official facts checked against Rockstar's site and store." }
 ---
-**GTA VI launches in four days, on Thursday, November 19, 2026.** This page collects every detail we've confirmed from Rockstar, plus the few that are only reported so far, clearly separated. We re-check it every day until launch.
+**GTA VI launched on Thursday, November 19, 2026.** This page collects every launch detail Rockstar confirmed, plus the few that were only reported, clearly separated. For what the game is like now it's out, start with our [beginner tips](article:gta-6-beginner-tips).
 
 ## Confirmed by Rockstar
 

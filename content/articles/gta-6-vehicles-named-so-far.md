@@ -1,7 +1,7 @@
 ---
 title: "GTA 6 Vehicles: Every One Rockstar Has Named So Far"
-seoTitle: "GTA 6 Cars: Every Officially Named Vehicle"
-description: "The GTA VI vehicles Rockstar has officially named before launch, from the pre-order bonus and Ultimate Edition: Grotti Cheetah, Vapid Dominator Buggy, Vapid Stanier and more."
+seoTitle: "GTA 6 Cars: Every Vehicle Rockstar Has Named"
+description: "GTA VI cars Rockstar named in its edition listings: Grotti Cheetah, Vapid Dominator Buggy, Vapid Stanier and more, and where each one comes from."
 answer: "Before launch, Rockstar has named the **'95 Grotti Cheetah, '67 Vapid Dominator Buggy, '55 Vapid Stanier Sedan, Shitzu Squalo and Ganado Retro Build**, plus a Classic Car Collection and Jason's Safehouse Vehicles."
 category: vehicles
 status: published
@@ -22,7 +22,7 @@ faqs:
 updated: '2026-11-22'
 lastVerified: '2026-11-22'
 ---
-**Before launch, Rockstar has named a handful of GTA VI vehicles, all in its edition and pre-order bonus listings.** The rest of the line-up will be documented once we've driven it.
+**Before launch, Rockstar named a handful of GTA VI vehicles, all in its edition and pre-order bonus listings.** For cars we've found in the game itself, see [standout vehicles](article:gta-6-standout-vehicles) and [car customization](article:gta-6-car-customization).
 
 > [!CONFIRMED]
 > Every name below appears on Rockstar's official Editions page or the Rockstar Store, checked November 15, 2026.

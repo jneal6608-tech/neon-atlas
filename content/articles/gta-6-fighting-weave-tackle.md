@@ -1,9 +1,9 @@
 ---
-title: 'GTA 6 Fighting: How to Punch, Grab, Choke, Weave and Tackle'
-seoTitle: "GTA 6 Fighting: Slap, Punch, Body Slam & Tackle"
+title: 'How to Slap, Body Slam, Punch and Tackle in GTA 6'
+seoTitle: "How to Slap in GTA 6 (and Body Slam, Punch, Tackle)"
 description: >-
-  GTA 6 fighting on PS5: Square to slap or punch, hold Square to body slam, R2
-  to grab and choke, X to dodge or parry, sprint + Square to tackle. With video.
+  How to slap people in GTA 6 (Square, before a fight starts), how to body slam
+  (hold Square), plus punch, grab, choke, dodge and tackle on PS5. With video.
 answer: >-
   On PS5, **Square** punches (or **slaps** someone you're not fighting yet),
   **X** dodges or parries an incoming attack (then **Square** to counterattack),
@@ -63,6 +63,8 @@ faqs:
       **Square** is melee in the default PS5 control scheme. You can change it
       in Settings, then Control Scheme.
 updateLog:
+  - date: '2026-11-27'
+    note: 'Moved slapping and body slams to the top of the guide.'
   - date: '2026-11-23'
     note: 'Added how to slap people (Square out of combat), from our own play.'
   - date: '2026-11-22'
@@ -71,10 +73,10 @@ updateLog:
       play.
   - date: '2026-11-22'
     note: 'Added grabbing and headlock chokes, from our own play.'
-updated: '2026-11-23'
+updated: '2026-11-27'
 lastVerified: '2026-11-23'
 ---
-**Fighting in GTA 6 is more than mashing punch.** You can throw punches, **grab** and **choke** people, **dodge, parry and counter**, and **tackle** someone who tries to run. Here's how, from our own PS5 copy.
+**To slap someone in GTA 6, walk up to them before a fight starts and press Square; in a fist fight, hold Square for a special attack like a body slam.** Fighting is more than mashing punch, though: you can also throw punches, **grab** and **choke** people, **dodge, parry and counter**, and **tackle** someone who tries to run. Here's how, from our own PS5 copy.
 
 {{ourvideo:946jNO-GOpU|GTA 6 Fighting Gameplay: Tackle, Choke and Grab (PS5)}}
 
@@ -82,12 +84,35 @@ Watch the moves in action above: tackling, grabbing, choking and hitting, from o
 
 ![GTA 6 weapon wheel with Unarmed (fists) selected, which is how you fight hand to hand](/assets/uploads/gta-6-weapon-wheel.jpg)
 
+## How to slap someone
+
+Both **Jason and Lucia** can slap people:
+
+1. Walk up to someone you're **not fighting yet**. A good moment is when you're talking and things are **heating up**.
+2. Press **Square** (the hit button).
+3. Out of combat, that's usually a **slap**: a smaller, **non-lethal** hit that tends to **start the fight**.
+
+It's **not guaranteed**: sometimes it comes out as a punch instead. Once they're squared up against you, Square will almost always **punch**.
+
+## How to body slam
+
+The body slam is a **special attack**:
+
+1. Pick **Unarmed** on the weapon wheel and get into a fist fight.
+2. Get close to your opponent.
+3. **Hold Square** (instead of tapping it) to do a special attack. Jason's special attacks include a **body slam**.
+
+When someone is **on the ground**, holding Square makes him **kick** them instead.
+
+> [!TIP]
+> Special attacks are big, slow moves. Land a couple of punches or **dodge or parry** an incoming hit first, then hold Square while they're open.
+
 ## Fighting controls (PS5)
 
 | Move | Buttons |
 | --- | --- |
 | Slap (out of combat) | **Square** |
-| Punch | **Square** | (once the fight starts)
+| Punch (once the fight starts) | **Square** |
 | Dodge or parry an incoming attack | **X** |
 | Counterattack (after a dodge or parry) | **Square** |
 | Body slam / special attack | **Hold Square** |
@@ -102,16 +127,6 @@ Watch the moves in action above: tackling, grabbing, choking and hitting, from o
 - To fight with your fists, pick **Unarmed** (the fist) on the **weapon wheel** (hold **L1**).
 - **Square** is **melee** in the default PS5 controls. See our [controls guide](article:gta-6-controls-ps5-xbox).
 
-## How to slap someone
-
-Both **Jason and Lucia** can slap people:
-
-1. Walk up to someone you're **not fighting yet**. A good moment is when you're talking and things are **heating up**.
-2. Press **Square** (the hit button).
-3. Out of combat, that's usually a **slap**: a smaller, **non-lethal** hit that tends to **start the fight**.
-
-It's **not guaranteed**: sometimes it comes out as a punch instead. Once they're squared up against you, Square will almost always **punch**.
-
 ## Punch
 
 Press **melee** to throw punches. Keep pressing to string hits together.
@@ -123,19 +138,6 @@ Press **melee** to throw punches. Keep pressing to string hits together.
 3. After a **successful** dodge or parry, press **Square** to **counterattack**.
 
 Time it right: press X too early or too late and you take the hit.
-
-## How to body slam
-
-The body slam is a **special attack**:
-
-1. Pick **Unarmed** on the weapon wheel and get into a fist fight.
-2. Get close to your opponent.
-3. **Hold Square** (instead of tapping it) to do a special attack. Jason's special attacks include a **body slam**.
-
-When someone is **on the ground**, holding Square makes him **kick** them instead.
-
-> [!TIP]
-> Special attacks are big, slow moves. Land a couple of punches or **dodge or parry** an incoming hit first, then hold Square while they're open.
 
 ## Grab and choke
 

@@ -1,10 +1,7 @@
 ---
 title: 'GTA 6 Clothes, Haircuts and Tattoos: How to Change Your Look'
 seoTitle: 'GTA 6 Clothes: How to Change Outfits & Haircuts'
-description: >-
-  How to change clothes in GTA 6: wardrobes, clothing stores and your car's
-  trunk, saving outfits, barbers and haircuts, tattoos, and losing the police
-  with a new look.
+description: "How to change clothes in GTA 6: wardrobes, clothing stores and your car's trunk, saving outfits, barbers, tattoos, and losing the cops with a new look."
 answer: >-
   Change clothes at your **home wardrobe**, in a **clothing store** fitting
   room, or from a **registered car's trunk** (players report up to 5 outfits per

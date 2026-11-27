@@ -1,11 +1,8 @@
 ---
 title: 'GTA 6 Car Customization: How to Upgrade and Mod Your Cars'
-seoTitle: 'GTA 6 Car Customization: Mod Shops seoTitle: '
+seoTitle: "GTA 6 Car Customization: Every Mod Shop Upgrade"
 GTA 6 Car Customization: 'Mod Shops, Upgrades & Repairs" Upgrades"'
-description: >-
-  Every GTA 6 mod shop tab from our own PS5: Pro Builds, Cosmetics, Bodywork,
-  Performance, Wheels and Interior, plus Pay 'n' Spray repairs, registering and
-  selling.
+description: "Every GTA 6 mod shop tab from our PS5: Pro Builds, Cosmetics, Bodywork, Performance, Wheels and Interior, plus Pay 'n' Spray, registering and selling."
 answer: >-
   Take your car to a **mod shop** (we used **Euroform Automotive**). It has 6
   tabs: **Pro Builds, Cosmetics, Bodywork, Performance, Wheels and Interior**,

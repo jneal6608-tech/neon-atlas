@@ -1,10 +1,7 @@
 ---
 title: 'GTA 6 Pause Menu Explained: Stats, Map, Brief and Progress'
-seoTitle: 'GTA 6 Pause Menu: Stats, Fitness, Map & Progress'
-description: >-
-  What's in GTA VI's pause menu on PS5: Jason and Lucia's stats (sleep,
-  nutrition, muscle, strength), the map and its filters, and the 12 Progress
-  categories.
+seoTitle: 'GTA 6 Stats: Strength, Sleep, Body Fat & Progress'
+description: "Jason started at Strength 3 of 4, Lucia at 1. Every stat on GTA VI's character screen (sleep, food, muscle, body fat) and all 12 Progress categories."
 answer: >-
   GTA VI's pause menu has four tabs: **Jason & Lucia** (character stats such as
   sleep, nutrition, calories, muscle, body fat and strength), **Map**, **Brief**
