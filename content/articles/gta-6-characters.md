@@ -1,7 +1,7 @@
 ---
 title: "GTA 6 Characters: Every Official Character So Far"
 seoTitle: "GTA 6 Characters: Jason, Lucia and the Full Cast"
-description: "Every character Rockstar has officially introduced for GTA VI: Jason Duval, Lucia Caminos, Cal Hampton, Boobie Ike, Dre'Quan Priest, Real Dimez, Raul Bautista and Brian Heder."
+description: "Every official GTA VI character: Jason Duval, Lucia Caminos, Cal Hampton, Boobie Ike, Dre'Quan Priest, Real Dimez, Raul Bautista and Brian Heder."
 answer: "The leads are **Jason Duval** and **Lucia Caminos**. Rockstar has also introduced **Cal Hampton, Boobie Ike, Dre'Quan Priest, Real Dimez, Raul Bautista and Brian Heder**."
 category: characters
 status: published

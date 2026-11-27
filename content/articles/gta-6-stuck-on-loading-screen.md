@@ -1,7 +1,7 @@
 ---
 title: "GTA 6 Stuck on Loading Screen? How to Fix It on PS5 and Xbox"
 seoTitle: "GTA 6 Stuck on Loading Screen: Fixes for PS5 and Xbox"
-description: "GTA 6 stuck on the loading screen or freezing? Safe fixes to try in order on PS5 and Xbox Series X|S, from waiting it out to clearing the cache, without losing saves."
+description: "GTA 6 stuck on the loading screen or freezing? Safe fixes to try in order on PS5 and Xbox Series X|S, from waiting it out to clearing the cache."
 answer: "First **wait about 5 minutes** (first loads and post-update loads can be slow). Then **fully close the game and restart your console**, check for an **unfinished update**, and check **Rockstar's server status**. On PS5 you can also **clear the system cache in Safe Mode**. Don't delete your saves."
 category: guides
 status: published

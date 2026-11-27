@@ -1,10 +1,7 @@
 ---
 title: How to Steal a Fighter Jet in GTA 6 (Mile Zero Air Station)
 seoTitle: 'GTA 6 Fighter Jet: How to Steal One From the Base'
-description: >-
-  How to steal a fighter jet from Mile Zero Air Station in GTA 6: where the
-  military base is, how to get in, the jet's missiles and cannon, and the wanted
-  level. With video.
+description: "How to steal a fighter jet in GTA 6 from Mile Zero Air Station: where the base is, getting in, the jet's missiles and cannon, and the wanted level."
 answer: >-
   Head to **Mile Zero Air Station**, the military base by **Southwind** in the
   Keys. Get in through the **main gate** or over the fence, **run to a parked
