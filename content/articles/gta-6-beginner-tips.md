@@ -1,6 +1,6 @@
 ---
-title: 'GTA 6 Beginner Tips: 12 Things to Know Before You Play'
-seoTitle: 'GTA 6 Beginner Tips: 12 Things I Wish I Knew'
+title: 'GTA 6 Beginner Tips: 13 Things to Know Before You Play'
+seoTitle: 'GTA 6 Beginner Tips: 13 Things I Wish I Knew'
 description: >-
   GTA 6 beginner tips with no story spoilers: protect your cash, save smart, use
   Focus, settings to change, how to spot enterable buildings and more.
@@ -58,7 +58,7 @@ updateLog:
 updated: '2026-11-24'
 lastVerified: '2026-11-24'
 ---
-**New to GTA 6? These 12 tips will save you money and frustration.** No story spoilers, just how the game works.
+**New to GTA 6? These 13 tips will save you money and frustration.** No story spoilers, just how the game works.
 
 > [!REPORTED]
 > Most tips come from experienced players and gaming sites (sources below); the settings and controls ones are from our own PS5 copy.
@@ -84,9 +84,10 @@ lastVerified: '2026-11-24'
 ## Fighting and police
 
 9. **Go stealthy early.** You start with little ammo and money, so avoiding fights is often smarter.
-10. **Learn the fight controls:** weave with **X**, tackle with **sprint + Square**. See [fighting](article:gta-6-fighting-weave-tackle).
+10. **Learn the fight controls:** dodge or parry with **X**, tackle with **sprint + Square**. See [fighting](article:gta-6-fighting-weave-tackle).
 11. **Change your outfit or car to lose the cops:** police remember them. See [wanted level](article:gta-6-wanted-level).
+12. **Carry healing items.** Health only partly comes back on its own: hold **L1** and press **Square** for a health pill. See [how to heal](article:gta-6-healing-body-armor).
 
 ## Settings
 
-12. **Change two settings first:** set **Movement Speed** above Walk, and lower **Motion Blur Strength** (some players set it to 0). See our [settings guide](article:gta-6-best-settings).
+13. **Change two settings first:** set **Movement Speed** above Walk, and lower **Motion Blur Strength** (some players set it to 0). See our [settings guide](article:gta-6-best-settings).

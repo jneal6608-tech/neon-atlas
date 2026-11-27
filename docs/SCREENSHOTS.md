@@ -83,3 +83,8 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 - [ ] **A shooting range challenge** (the medal screen, or mid-challenge). Article: `gta-6-shooting-range`
 - [ ] **A stunt jump** in mid-air (or Progress → Activities → Stunts). Article: `gta-6-stunt-jumps`
 - [ ] **Flying a helicopter or plane.** Article: `gta-6-planes-helicopters`
+
+## New guides (2026-11-27)
+
+- [ ] **Putting on body armor** (the Items tab, or the blue armor bar). Article: `gta-6-healing-body-armor`
+- [ ] **A street race** (the start line, or the race menu). Article: `gta-6-street-races`
