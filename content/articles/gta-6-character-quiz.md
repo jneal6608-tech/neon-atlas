@@ -1,7 +1,7 @@
 ---
 title: "Which GTA 6 Character Are You? Take the Quiz"
 seoTitle: "Which GTA 6 Character Are You? (Quiz)"
-description: "Six quick questions match you with one of GTA VI's eight official characters, from Jason and Lucia to Boobie Ike and Real Dimez. Based on Rockstar's official profiles."
+description: "Six quick questions match you with one of GTA VI's eight official characters, from Jason and Lucia to Boobie Ike and Real Dimez."
 answer: "Take six quick questions to see which of GTA VI's eight official characters you match, from **Jason and Lucia** to **Boobie Ike** and **Real Dimez**."
 category: characters
 status: published

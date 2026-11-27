@@ -1,10 +1,7 @@
 ---
 title: 'Free Purple Supercar in GTA 6: Waxman Island Emerus and $10,000'
 seoTitle: 'GTA 6 Free Supercar: Purple Emerus on Waxman Island'
-description: >-
-  How to get the purple Progen Emerus with nitrous for free in GTA 6, plus about
-  $10,000 in loot on Waxman Island, the reported safe code, and how to keep the
-  car.
+description: "How to get the purple Progen Emerus with nitrous free in GTA 6, plus about $10,000 in loot on Waxman Island, the reported safe code, and keeping the car."
 answer: >-
   Players report a purple **Progen Emerus** with **nitrous** sits in a shipping
   container at a **Waxman Island** robbery spot, east of Vice City near the

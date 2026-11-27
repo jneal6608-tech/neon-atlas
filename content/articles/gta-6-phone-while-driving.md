@@ -1,7 +1,7 @@
 ---
 title: "Can You Use Your Phone While Driving in GTA 6? Yes"
-seoTitle: "GTA 6 Phone While Driving: Text and Drive at Once"
-description: "In GTA 6 you can use your phone while you drive: read texts and set destinations while still steering, with the road visible behind the phone."
+seoTitle: "GTA 6 Phone While Driving: Texts, GPS & First-Person"
+description: "What the phone does while you drive in GTA 6: scroll texts, set a GPS destination straight from a message, and use it in first-person, with screenshot."
 answer: "**Yes.** In GTA 6 you can pull out your phone **while driving**. The phone sits on one side of the screen, the road stays visible, and you keep steering while you **read texts** and **set destinations**."
 category: gameplay
 status: published

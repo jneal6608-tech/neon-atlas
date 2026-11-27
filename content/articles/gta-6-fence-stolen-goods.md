@@ -1,7 +1,7 @@
 ---
 title: "How to Sell Stolen Goods in GTA 6: Fence Locations"
 seoTitle: "GTA 6 Fence Locations: Where to Sell Stolen Goods"
-description: "Where to sell stolen goods in GTA 6: the fences, which one pays most for jewelry, narcotics and marked bills, drop boxes, garage pickup, and who buys stolen cars."
+description: "Where to sell stolen goods in GTA 6: every fence, which pays most for jewelry, narcotics and marked bills, drop boxes, and who buys stolen cars."
 answer: "Sell stolen goods to a **fence**. Early fences in the **Keys** and **Port Gellhorn** pay the least; once **Vice City** opens up, players report **Tyrone (La Perle)** pays best for **narcotics** and **Yasmani (Little Cuba)** for **jewelry and marked bills**. Stolen **cars** go to **Moses** (Port Gellhorn) or **Randy** (Balsero). Find them all on the map's **Robberies** tab under **Drop-offs**."
 category: gameplay
 status: published

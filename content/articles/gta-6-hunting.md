@@ -1,6 +1,6 @@
 ---
 title: "GTA 6 Hunting: How to Unlock It and Sell Animals"
-seoTitle: "GTA 6 Hunting: How to Unlock and Make Money"
+seoTitle: "GTA 6 Hunting: How to Unlock It and Sell Carcasses"
 description: "How hunting works in GTA 6: when it unlocks, where to sell what you hunt, how to get the best price with clean shots, and why a pickup truck helps."
 answer: "Players report **hunting unlocks in Chapter 2** through a side mission as you progress the story, which also opens a **hunting store** where you **sell carcasses**. Use **Focus (L3 + R3)** to see an animal's vital spots and take **one clean shot to the head or heart** for a **pristine** carcass, which sells for the most."
 category: gameplay
