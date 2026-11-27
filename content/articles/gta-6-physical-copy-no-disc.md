@@ -13,8 +13,8 @@ status: published
 confidence: confirmed
 targetQuery: gta 6 physical copy disc
 publishDate: 2026-11-15T00:00:00.000Z
-updated: '2026-11-19'
-lastVerified: '2026-11-19'
+updated: '2026-11-26'
+lastVerified: '2026-11-26'
 related:
   - gta-6-pre-load-guide
   - gta-6-editions-standard-vs-ultimate
@@ -33,6 +33,8 @@ sources:
     publisher: Rockstar Games
     accessed: '2026-11-19'
 updateLog:
+  - date: '2026-11-26'
+    note: Rockstar Store now shows the physical (code-in-box) version as Sold Out.
   - date: '2026-11-19'
     note: >-
       Rockstar Store launch update: physical copies now ship in 1–7 days;
@@ -43,6 +45,11 @@ updateLog:
       (was November 10), lists 15 more countries for PlayStation codes, and says
       Xbox codes are not region-locked.
 faqs:
+  - q: Is the GTA 6 physical copy sold out?
+    a: >-
+      On the **Rockstar Store**, yes: since November 26, 2026 its code-in-box
+      version shows **"Sold Out"**. Other retailers may still have copies, and
+      the digital version is still available.
   - q: Does GTA 6 come on a disc?
     a: >-
       No. Rockstar says the physical version "will only contain a download code
@@ -85,11 +92,15 @@ Rockstar's regions for PlayStation codes from its store:
 | United Kingdom | The United Kingdom only |
 | Any other country the Rockstar Store ships to | Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Finland, France, Germany, Greece, Hungary, Iceland, India, Ireland, Israel, Italy, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Turkey or Ukraine |
 
+> [!CONFIRMED]
+> **Update, November 26, 2026:** the Rockstar Store now shows the physical (code-in-box) version as **Sold Out**.
+
 **Xbox codes are not region-locked.** Rockstar's store says: "Xbox: Codes purchased are not region-locked."
 
 ## Shipping and cancellations (Rockstar Store)
 
-- **Now shipping:** Rockstar estimates physical orders ship in **1–7 days**, depending on the shipping option. (Shipping started November 12, 2026.)
+- **Sold out on the Rockstar Store (November 26, 2026):** the store's Physical (Code-in-Box) version now shows **"Sold Out"** and no longer lists a price. Other retailers may still have stock, or you can buy the **digital** version on the PlayStation Store or Microsoft Store.
+- Before selling out, Rockstar shipped physical orders in **1–7 days** (shipping started November 12, 2026).
 - The Rockstar Store ships to Austria, Belgium, Canada, Czechia, Denmark, Finland, France, Germany, Ireland, Italy, Luxembourg, Netherlands, Norway, Poland, Portugal, Spain, Sweden, Switzerland, the United Kingdom and the United States.
 - **Pre-order cancellations:** the store removed its pre-order cancellation note at launch. For a problem with an order, contact Rockstar Support.
 

@@ -77,3 +77,9 @@ These guides still use an official Rockstar picture as the cover. One of your ow
 - [ ] **Selling loot to a fence** (the sell menu or drop box). Article: `gta-6-fence-stolen-goods`
 - [ ] **Driving a boat or jet ski** (or the Anchor option). Article: `gta-6-boats-jet-skis`
 - [ ] **An airboat in Grassrivers.** Article: `gta-6-boats-jet-skis`
+
+## New guides (2026-11-26)
+
+- [ ] **A shooting range challenge** (the medal screen, or mid-challenge). Article: `gta-6-shooting-range`
+- [ ] **A stunt jump** in mid-air (or Progress → Activities → Stunts). Article: `gta-6-stunt-jumps`
+- [ ] **Flying a helicopter or plane.** Article: `gta-6-planes-helicopters`
