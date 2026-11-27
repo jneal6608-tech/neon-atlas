@@ -1,9 +1,9 @@
 ---
 title: 'How to Get Gas in GTA 6: Refueling Your Car'
-seoTitle: How to Get Gas in GTA 6 (Refuel Your Car)
+seoTitle: "GTA 6 Gas: Refuel Cost, Station Map & Low Fuel Icon"
 description: >-
-  Yes, cars need gas in GTA 6. How to refuel at a pump step by step, what it
-  costs, how to find gas stations on the map, and charging electric cars.
+  Our refuel cost $24 (repair $1,048). Where the map's Gas Stations filter
+  hides, what the yellow low-fuel icon means, and how electric cars charge.
 answer: >-
   **Yes, cars in GTA 6 need gas.** Pull up next to a **gas pump** and the prompt
   shows **Refuel** with its price (ours was **$24**) and **Repair**. Press **X**
